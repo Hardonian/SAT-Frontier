@@ -1,5 +1,6 @@
 # Decisions
 
+- 2026-10-28 v0.2.1: Implement fail-closed holdout guards, atomic reservation, and execute the preregistered 1,200-run held-out evaluation on fresh seeds (30001–30030) across 4 families. Record the definitive negative result (no speedup, feature overhead dominates) and independent oracle verification without claiming algorithmic superiority or data leakage.
 - 2026-10-28 v0.2: Preserve the exact original ZIP and bundle history in a private repository. The owner explicitly authorized private repository creation and a draft release; no public redistribution license has been chosen.
 - Select pinned sharpSAT-TD as the independent counting baseline after retaining and minimizing a real disagreement with an earlier candidate. Decision-SAT tools are not #SAT comparators. Treat stdout as valid only after successful bounded execution and strict parse.
 - Keep the policy search finite and train-only. Report its negative/limited result, retain all raw observations and node-limited unknowns, and do not run holdout with missing freeze or overlap guards.

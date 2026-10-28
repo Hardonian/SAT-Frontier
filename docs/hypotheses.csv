@@ -1,6 +1,6 @@
 id,hypothesis,comparison,primary_metric,falsifier,status
 H1,Component decomposition reduces nodes on disconnected formulas,components versus baseline,paired search nodes,No reduction across target family,ready_for_larger_test
 H2,Residual memoization reduces repeated search,memo versus baseline,paired nodes and cache bytes,Overhead outweighs repeated-state savings,ready_for_larger_test
-H3,Balanced polarity improves branching on selected families,balanced versus combined,paired elapsed time and solved fraction,Fresh held-out speedup gate fails,unresolved_no_heldout_evidence
+H3,Balanced polarity improves branching on selected families,balanced versus combined,paired elapsed time and solved fraction,Fresh held-out speedup gate fails,falsified_heldout_negative
 H4,Small separators enable useful exact decomposition,separator candidate versus pinned exact counter,paired elapsed time and peak RSS,Separator search overhead removes gains,not_implemented
 H5,An audited upstream lemma yields a practical executable primitive,extracted primitive versus pinned baseline,total bit-operation cost and elapsed time,Constants or prerequisites prevent crossover,blocked_on_proof_audit

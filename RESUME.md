@@ -6,8 +6,9 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 
 - Original v0.1 archive hash and checksums verified; 20 M0 tests and the example count 18 reproduced. All 160 archived smoke counts were independently recomputed by the included truth-table oracle. The smoke evidence is unchanged.
 - Merged independent sharpSAT-TD adapter, explicit process outcomes, development cross-checks, metamorphic tests and mismatch minimization. The integrated-source development campaign in `evidence/v02-integrated-development-001/` has 168 exact paired comparisons and no disagreements, on synthetic formulas including 18–33 variables. This is not an industrial benchmark or proof.
-- Preregistered train-only branch-policy campaign: 384 runs, 360 exact oracle matches and 24 node-limited unknowns; no demonstrated practical speedup. The selected component feature is constant at the branch point. See `docs/POLICY_TRAIN_REPORT.md` and its full CSV/JSONL evidence. Holdout has not been consumed.
-- Local integrated suite: 41 tests passed at merge `dc27c89` with the selected external binary installed locally, including its real executable test. Run the suite again when evaluating a new revision. `verify_policy_evidence.py` validates the frozen historical policy run; `verify_evidence.py` checks recorded hashes against the original matching source snapshots.
+- Preregistered train-only branch-policy campaign: 384 runs, 360 exact oracle matches and 24 node-limited unknowns; no demonstrated practical speedup. The selected component feature is constant at the branch point. See `docs/POLICY_TRAIN_REPORT.md` and its full CSV/JSONL evidence.
+- Preregistered held-out policy evaluation (M2/M3): fail-closed atomic reservation `evidence/policy-holdout-v02-consumed/`, 120 independently generated instances (seeds 30001–30030 across 4 families, zero prior overlap), 5 repeats, 1,200 sequential spawned CPU runs. 1,115 exact truth-table oracle matches and 85 node-limited unknowns; 0 crashes or timeouts. Falsified H3 speedup gate; definitive negative result documented in `docs/POLICY_HOLDOUT_REPORT.md` and verified by `verify_holdout_evidence.py`.
+- Local integrated suite: 44 tests passed with cross-platform Windows and Linux support. Run the suite again when evaluating a new revision. `verify_policy_evidence.py` validates the frozen historical train run; `verify_holdout_evidence.py` validates the frozen holdout run; `verify_evidence.py` checks recorded hashes against the original matching source snapshots.
 
 ## Blocked, failed and untested
 
@@ -15,7 +16,7 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 
   `id=$(GH_CONFIG_DIR=/home/scott/.config/gh gh run list --repo Hardonian/SAT-Frontier --workflow correctness --branch main --limit 1 --json databaseId --jq '.[0].databaseId'); test -n "$id" && GH_CONFIG_DIR=/home/scott/.config/gh gh run rerun "$id" --repo Hardonian/SAT-Frontier`
 - A longer upstream ETH build exited 137 for an unknown reason. Comparator tools were built in scratch, but the actual comparator timed out building the solution; no kernel-checked theorem, statement correspondence or actual theorem axiom report was obtained. Lake launched multiple subprocesses despite single-core affinity and a comparator attempt peaked at 11.9 GB. See `docs/ETH_AUDIT_V02.md`; M1 is not complete.
-- Holdout is unrun. Guard building blocks and a deliberate no-run safety checkpoint are recorded in `docs/POLICY_HOLDOUT_SAFETY_CHECKPOINT.md`; they are not an integrated holdout runner or a new preregistration. Before any use, complete and review the fail-closed runner, freeze integrated source and configuration in a committed preregistration, and use a fresh preregistered holdout. No speedup, P=NP, GPU result or asymptotic bound is claimed.
+- Industrial competitiveness and large-scale external benchmark suites remain untested. No speedup, P=NP, GPU result or asymptotic bound is claimed.
 - Measured RSS contains an inherited/startup high-water floor and should not be used as comparative memory evidence; RLIMIT_AS is not aggregate RSS. Bandit reports low-severity trust-boundary findings, no medium or high findings; run only trusted external binaries.
 
 ## Recheck
@@ -24,6 +25,7 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 python3 -m unittest discover -s tests -v
 python3 -m sat_frontier solve examples/two-components.cnf
 python3 verify_policy_evidence.py
+python3 verify_holdout_evidence.py
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```
 

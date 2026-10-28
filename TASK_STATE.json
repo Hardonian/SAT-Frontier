@@ -1,8 +1,8 @@
 {
   "project": "SAT-Frontier",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "checkpoint_date": "2026-10-28",
-  "release_status": "research draft; hosted CI and upstream proof verification blocked",
+  "release_status": "research draft; holdout evaluated and verified (negative result); hosted CI and upstream proof verification blocked",
   "completed": [
     "private repository and original archive plus Git history restored",
     "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
@@ -10,20 +10,29 @@
     "168 integrated-source development cross-checks passed with pinned sharpSAT-TD",
     "bounded train-only policy study with raw records and negative result",
     "upstream ETH source and partial build audit with pinned provenance",
-    "partial holdout freeze and overlap guard building blocks, tested without consuming holdout"
+    "partial holdout freeze and overlap guard building blocks, tested without consuming holdout",
+    "fail-closed atomic reservation and 1,200-run held-out evaluation completed, oracle-verified, and published with negative result"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
     "upstream Lean target exited 137 for unknown cause; built comparator timed out; no axiom report",
     "older sharpSAT candidate disagreed on an empty-clause formula; counterexample preserved"
   ],
-  "untested": ["fresh held-out policy evaluation", "industrial competitiveness", "upstream theorem kernel check"],
+  "untested": ["industrial competitiveness", "upstream theorem kernel check"],
   "m1_complete": false,
-  "holdout_consumed": false,
+  "m2_complete": true,
+  "m3_complete": true,
+  "holdout_consumed": true,
   "remote_created": true,
   "gpu_used": false,
-  "hypothesis_status": "No novel algorithm, worst-case bound or practical speedup established",
-  "evidence": ["evidence/smoke-train/manifest.json", "evidence/v02-integrated-development-001/manifest.json", "evidence/policy-train-v02/manifest.json", "evidence/sharpsat-legacy-disagreement/manifest.json"],
-  "next": "Resolve hosted Actions billing, rerun final revision CI, complete pinned Lean target/comparator and implement holdout freeze/overlap guards before any holdout use.",
+  "hypothesis_status": "H3 falsified on held-out evidence; no practical speedup, worst-case bound, or novel algorithm established",
+  "evidence": [
+    "evidence/smoke-train/manifest.json",
+    "evidence/v02-integrated-development-001/manifest.json",
+    "evidence/policy-train-v02/manifest.json",
+    "evidence/sharpsat-legacy-disagreement/manifest.json",
+    "evidence/policy-holdout-v02/manifest.json"
+  ],
+  "next": "Upstream proof audit and industrial-scale benchmarks remain the primary open research frontiers; resolve hosted Actions billing if owner authorizes.",
   "resume": "RESUME.md"
 }

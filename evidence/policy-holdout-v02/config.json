@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "split": "holdout",
+  "families": ["random", "planted", "disconnected", "contradictory"],
+  "n": 12,
+  "ratio": 4,
+  "seeds": [
+    30001, 30002, 30003, 30004, 30005, 30006, 30007, 30008, 30009, 30010,
+    30011, 30012, 30013, 30014, 30015, 30016, 30017, 30018, 30019, 30020,
+    30021, 30022, 30023, 30024, 30025, 30026, 30027, 30028, 30029, 30030
+  ],
+  "repeats": 5,
+  "seconds": 0.5,
+  "max_nodes": 25,
+  "cache_limit": 10000,
+  "bootstrap_seed": 91309,
+  "bootstrap_samples": 2000,
+  "candidates": {
+    "component": {"occurrence": 1, "polarity": 1, "short_clause": 1, "component_size": 1}
+  }
+}

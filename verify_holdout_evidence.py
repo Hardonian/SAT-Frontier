@@ -79,3 +79,4 @@ def verify(run):
 if __name__ == '__main__':
     run_dir = sys.argv[1] if len(sys.argv) > 1 else ROOT / 'evidence/policy-holdout-v02'
     print(json.dumps(verify(run_dir), indent=2))
+

@@ -1,0 +1,238 @@
+{
+  "contradictory": {
+    "component": {
+      "conditional_exact_pair_instances": 30,
+      "conditional_median_solver_time_ratio_candidate_over_control": 0.9830123953969985,
+      "conditional_median_speed_ratio_control_over_candidate": 1.0172823852352053,
+      "conditional_speed_ratio_bootstrap_95": [
+        1.009082217590852,
+        1.0332220674299804
+      ],
+      "conditional_timing_regression_instances": 6,
+      "error_fraction": 0.0,
+      "exact_fraction": 1.0,
+      "instances": 30,
+      "median_nodes_all": 1.0,
+      "median_solver_seconds_exact_only": 0.00012095000056433491,
+      "median_wall_seconds_all": 0.16542720000143163,
+      "paired_solved_difference": 0.0,
+      "paired_solved_difference_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "peak_worker_rss_kib_max": null,
+      "reasons": {},
+      "runs": 150,
+      "solved_improvement_instances": 0,
+      "solved_regression_instances": 0,
+      "unknown_fraction": 0.0
+    },
+    "control": {
+      "conditional_exact_pair_instances": 30,
+      "conditional_median_solver_time_ratio_candidate_over_control": 1.0,
+      "conditional_median_speed_ratio_control_over_candidate": 1.0,
+      "conditional_speed_ratio_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "conditional_timing_regression_instances": 0,
+      "error_fraction": 0.0,
+      "exact_fraction": 1.0,
+      "instances": 30,
+      "median_nodes_all": 1.0,
+      "median_solver_seconds_exact_only": 0.00012225000136822928,
+      "median_wall_seconds_all": 0.16503089999969234,
+      "paired_solved_difference": 0.0,
+      "paired_solved_difference_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "peak_worker_rss_kib_max": null,
+      "reasons": {},
+      "runs": 150,
+      "solved_improvement_instances": 0,
+      "solved_regression_instances": 0,
+      "unknown_fraction": 0.0
+    }
+  },
+  "disconnected": {
+    "component": {
+      "conditional_exact_pair_instances": 29,
+      "conditional_median_solver_time_ratio_candidate_over_control": 1.07931665453339,
+      "conditional_median_speed_ratio_control_over_candidate": 0.9265121554455396,
+      "conditional_speed_ratio_bootstrap_95": [
+        0.9073231541854903,
+        0.9391227690488358
+      ],
+      "conditional_timing_regression_instances": 26,
+      "error_fraction": 0.0,
+      "exact_fraction": 0.9666666666666667,
+      "instances": 30,
+      "median_nodes_all": 17.0,
+      "median_solver_seconds_exact_only": 0.0005963000003248453,
+      "median_wall_seconds_all": 0.1735182000011264,
+      "paired_solved_difference": 0.0,
+      "paired_solved_difference_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "peak_worker_rss_kib_max": null,
+      "reasons": {
+        "node_limit": 5
+      },
+      "runs": 150,
+      "solved_improvement_instances": 0,
+      "solved_regression_instances": 0,
+      "unknown_fraction": 0.03333333333333333
+    },
+    "control": {
+      "conditional_exact_pair_instances": 29,
+      "conditional_median_solver_time_ratio_candidate_over_control": 1.0,
+      "conditional_median_speed_ratio_control_over_candidate": 1.0,
+      "conditional_speed_ratio_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "conditional_timing_regression_instances": 0,
+      "error_fraction": 0.0,
+      "exact_fraction": 0.9666666666666667,
+      "instances": 30,
+      "median_nodes_all": 19.0,
+      "median_solver_seconds_exact_only": 0.0005568000015045982,
+      "median_wall_seconds_all": 0.17382630000065546,
+      "paired_solved_difference": 0.0,
+      "paired_solved_difference_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "peak_worker_rss_kib_max": null,
+      "reasons": {
+        "node_limit": 5
+      },
+      "runs": 150,
+      "solved_improvement_instances": 0,
+      "solved_regression_instances": 0,
+      "unknown_fraction": 0.03333333333333333
+    }
+  },
+  "planted": {
+    "component": {
+      "conditional_exact_pair_instances": 24,
+      "conditional_median_solver_time_ratio_candidate_over_control": 1.0383589455466276,
+      "conditional_median_speed_ratio_control_over_candidate": 0.9630724407965205,
+      "conditional_speed_ratio_bootstrap_95": [
+        0.9452608081682204,
+        0.9743453786748598
+      ],
+      "conditional_timing_regression_instances": 19,
+      "error_fraction": 0.0,
+      "exact_fraction": 0.8666666666666667,
+      "instances": 30,
+      "median_nodes_all": 15.0,
+      "median_solver_seconds_exact_only": 0.0011960499996348517,
+      "median_wall_seconds_all": 0.1722756000017398,
+      "paired_solved_difference": 0.03333333333333333,
+      "paired_solved_difference_bootstrap_95": [
+        -0.06666666666666667,
+        0.13333333333333333
+      ],
+      "peak_worker_rss_kib_max": null,
+      "reasons": {
+        "node_limit": 20
+      },
+      "runs": 150,
+      "solved_improvement_instances": 2,
+      "solved_regression_instances": 1,
+      "unknown_fraction": 0.13333333333333333
+    },
+    "control": {
+      "conditional_exact_pair_instances": 25,
+      "conditional_median_solver_time_ratio_candidate_over_control": 1.0,
+      "conditional_median_speed_ratio_control_over_candidate": 1.0,
+      "conditional_speed_ratio_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "conditional_timing_regression_instances": 0,
+      "error_fraction": 0.0,
+      "exact_fraction": 0.8333333333333334,
+      "instances": 30,
+      "median_nodes_all": 15.0,
+      "median_solver_seconds_exact_only": 0.00112749999971129,
+      "median_wall_seconds_all": 0.17209169999841833,
+      "paired_solved_difference": 0.0,
+      "paired_solved_difference_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "peak_worker_rss_kib_max": null,
+      "reasons": {
+        "node_limit": 25
+      },
+      "runs": 150,
+      "solved_improvement_instances": 0,
+      "solved_regression_instances": 0,
+      "unknown_fraction": 0.16666666666666666
+    }
+  },
+  "random": {
+    "component": {
+      "conditional_exact_pair_instances": 26,
+      "conditional_median_solver_time_ratio_candidate_over_control": 1.0426844823475379,
+      "conditional_median_speed_ratio_control_over_candidate": 0.9590822756407847,
+      "conditional_speed_ratio_bootstrap_95": [
+        0.9408788180523427,
+        0.9858556942523482
+      ],
+      "conditional_timing_regression_instances": 19,
+      "error_fraction": 0.0,
+      "exact_fraction": 0.9333333333333333,
+      "instances": 30,
+      "median_nodes_all": 13.0,
+      "median_solver_seconds_exact_only": 0.0011996499997621868,
+      "median_wall_seconds_all": 0.17808254999908968,
+      "paired_solved_difference": 0.06666666666666667,
+      "paired_solved_difference_bootstrap_95": [
+        0.0,
+        0.16666666666666666
+      ],
+      "peak_worker_rss_kib_max": null,
+      "reasons": {
+        "node_limit": 10
+      },
+      "runs": 150,
+      "solved_improvement_instances": 2,
+      "solved_regression_instances": 0,
+      "unknown_fraction": 0.06666666666666667
+    },
+    "control": {
+      "conditional_exact_pair_instances": 26,
+      "conditional_median_solver_time_ratio_candidate_over_control": 1.0,
+      "conditional_median_speed_ratio_control_over_candidate": 1.0,
+      "conditional_speed_ratio_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "conditional_timing_regression_instances": 0,
+      "error_fraction": 0.0,
+      "exact_fraction": 0.8666666666666667,
+      "instances": 30,
+      "median_nodes_all": 13.0,
+      "median_solver_seconds_exact_only": 0.0011460000005172333,
+      "median_wall_seconds_all": 0.18039599999974598,
+      "paired_solved_difference": 0.0,
+      "paired_solved_difference_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "peak_worker_rss_kib_max": null,
+      "reasons": {
+        "node_limit": 20
+      },
+      "runs": 150,
+      "solved_improvement_instances": 0,
+      "solved_regression_instances": 0,
+      "unknown_fraction": 0.13333333333333333
+    }
+  }
+}

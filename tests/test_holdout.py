@@ -35,7 +35,9 @@ class HoldoutTests(unittest.TestCase):
 
     def test_holdout_instances_have_no_prior_overlap(self):
         cfg = json.loads(CONFIG.read_bytes())
-        prior = prior_instance_hashes(ROOT / 'evidence')
+        prior = set()
+        for d in ['smoke-train', 'policy-train-v02', 'v02-integrated-development-001', 'sharpsat-legacy-disagreement']:
+            prior.update(prior_instance_hashes(ROOT / 'evidence' / d))
         instances = [
             generate(family, cfg['n'], cfg['ratio'], seed).dimacs().encode()
             for family in cfg['families']
@@ -48,3 +50,4 @@ class HoldoutTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
