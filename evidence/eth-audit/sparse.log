@@ -1,0 +1,2 @@
+$ git sparse-checkout add --no-cone /lean/OAI/Algorithms/SubexponentialSAT/
+exit=0

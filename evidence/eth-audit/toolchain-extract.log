@@ -1,0 +1,6 @@
+$ mkdir -p /home/scott/.hermes/cache/scratch/eth-lean-toolchain
+$ tar --use-compress-program="zstd -d -T2" -xf /home/scott/.hermes/cache/scratch/eth-lean-4.34.1-linux.tar.zst -C /home/scott/.hermes/cache/scratch/eth-lean-toolchain
+Warning : decompression does not support multi-threading
+exit=0
+Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
