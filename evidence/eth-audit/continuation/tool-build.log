@@ -1,0 +1,36 @@
+HOME=/home/scott/.hermes/cache/scratch/eth-audit-home TMPDIR=$HOME GOTOOLCHAIN=local GOMAXPROCS=1 GOFLAGS=-p=1 GOPATH and GOCACHE under audit-tools
+$ cd audit-tools/landrun; timeout --kill-after=10s 300s taskset -c 15 go build -o landrun ./cmd/landrun
+start=2026-10-28T15:53:38Z
+go: downloading github.com/urfave/cli/v3 v3.6.2
+go: downloading github.com/landlock-lsm/go-landlock v0.10.1
+go: downloading golang.org/x/sys v0.40.0
+go: downloading kernel.org/pub/linux/libs/security/libcap/psx v1.2.77
+landrun_build_exit=0
+457555a97fc461a296db547a8e8e1cf9d48d5a3c9b2ee2cf019c31db5f90005b  landrun
+$ cd audit-tools/comparator; timeout --kill-after=10s 300s taskset -c 15 lake build lean4export comparator
+info: lean4export: cloning https://github.com/leanprover/lean4export
+info: lean4export: checking out revision '076e8e57707e813375e8f9da8bf989799ace9680'
+✔ [4/21] Built Comparator.Util (3.7s)
+✔ [5/21] Built Comparator.Util:c.o (1.4s)
+✔ [6/21] Built Export.Parse (7.3s)
+✔ [7/21] Built Comparator.Axioms (2.1s)
+✔ [8/21] Built Comparator.Axioms:c.o (3.1s)
+✔ [9/21] Built Comparator.Compare (5.7s)
+✔ [10/21] Built Comparator (2.1s)
+✔ [11/21] Built Comparator:c.o (630ms)
+✔ [12/21] Built Comparator.Compare:c.o (3.7s)
+✔ [13/21] Built Main (8.5s)
+✔ [14/21] Built Export.Parse:c.o (20s)
+✔ [15/21] Built Main:c.o (2.9s)
+✔ [16/21] Built Export (29s)
+✔ [17/21] Built Main (3.1s)
+✔ [18/21] Built Main:c.o (576ms)
+✔ [19/21] Built comparator:exe (4.1s)
+✔ [20/21] Built Export:c.o (4.9s)
+✔ [21/21] Built lean4export:exe (1.7s)
+Build completed successfully (21 jobs).
+comparator_build_exit=0
+afa65e57a1770f5961efe7681626a9a1cd99705262421658abd30b705f66e4a2  .lake/build/bin/comparator
+8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1  .lake/packages/lean4export/.lake/build/bin/lean4export
+076e8e57707e813375e8f9da8bf989799ace9680
+end=2026-10-28T15:54:34Z

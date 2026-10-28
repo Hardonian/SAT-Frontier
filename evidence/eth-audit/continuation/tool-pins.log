@@ -1,0 +1,44 @@
+$ git checkout d03acab154d269c06e60e4de7e4cc85deebff94b
+HEAD is now at d03acab chore: bump toolchain to v4.34.0 (#90)
+$ git show pinned lean-toolchain and lake-manifest
+leanprover/lean4:v4.34.0
+{"version": "1.2.0",
+ "packagesDir": ".lake/packages",
+ "packages":
+ [{"url": "https://github.com/leanprover/lean4export",
+   "type": "git",
+   "subDir": null,
+   "scope": "leanprover",
+   "rev": "076e8e57707e813375e8f9da8bf989799ace9680",
+   "name": "lean4export",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "master",
+   "inherited": false,
+   "configFile": "lakefile.toml"}],
+ "name": "Comparator",
+ "lakeDir": ".lake",
+ "fixedToolchain": false}
+$ inspect current landrun version requirements
+module github.com/zouuup/landrun
+
+go 1.24.0
+
+require (
+	github.com/landlock-lsm/go-landlock v0.10.1
+	github.com/urfave/cli/v3 v3.6.2
+)
+
+require (
+	golang.org/x/sys v0.40.0 // indirect
+	kernel.org/pub/linux/libs/security/libcap/psx v1.2.77 // indirect
+)
+$ systemd-run --user verify RestrictAddressFamilies
+Running as unit: run-u2.service; invocation ID: 3b0c069a1de64434ae6de25188f09949
+unit ID lookup not supported
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 4ms
+CPU time consumed: 4ms
+Memory peak: 304.0K
+Memory swap peak: 0B
+systemd_probe_exit=0

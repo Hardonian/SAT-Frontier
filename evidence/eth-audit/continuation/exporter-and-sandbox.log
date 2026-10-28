@@ -1,0 +1,22 @@
+$ git clone https://github.com/leanprover/lean4export.git audit-tools/lean4export
+Cloning into 'audit-tools/lean4export'...
+clone_exit=0
+HEAD is now at 076e8e5 chore: bump toolchain to v4.34.0 (#49)
+exporter_commit=076e8e57707e813375e8f9da8bf989799ace9680
+exporter_toolchain=leanprover/lean4:v4.34.0
+c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4  audit-tools/lean4export/LICENSE
+$ systemd-run --user RestrictAddressFamilies probe
+Running as unit: eth-audit-security-probe.service; invocation ID: 6985eb547c814a62b4316ccaf7cc6e56
+Failed to connect to bus: Address family not supported by protocol
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+OSError: [Errno 97] Address family not supported by protocol
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 89ms
+CPU time consumed: 82ms
+Memory peak: 256.0K
+Memory swap peak: 0B
+probe_exit=1

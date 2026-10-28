@@ -1,0 +1,12 @@
+observed=2026-10-28T15:46:24Z
+$ ps -eo ... matching audit Lake and direct Lean children
+ 161847     439   0  3672 bash            /bin/bash -lic set +m; mkdir -p /home/scott/.hermes/cache/scratch/sat-v02-finish-lean/evidence/eth-audit/continuation; export HOME=/home/scott/.hermes/cache/scratch/eth-audit-home TMPDIR=/home/scott/.hermes/cache/scratch/eth-audit-home PATH=/home/scott/.hermes/cache/scratch/eth-lean-toolchain/lean-4.34.1-linux/bin:/usr/bin:/bin GIT_TERMINAL_PROMPT=0; { printf '%s\n' '$ timeout --kill-after=10s 900s taskset -c 15 lake build OAI.Algorithms.SubexponentialSAT.Main' 'HOME=/home/scott/.hermes/cache/scratch/eth-audit-home TMPDIR=/home/scott/.hermes/cache/scratch/eth-audit-home GIT_TERMINAL_PROMPT=0'; date -u +start=%FT%TZ; timeout --kill-after=10s 900s taskset -c 15 lake build OAI.Algorithms.SubexponentialSAT.Main; rc=$?; date -u +end=%FT%TZ; printf 'exit=%s\n' "$rc"; } > /home/scott/.hermes/cache/scratch/sat-v02-finish-lean/evidence/eth-audit/continuation/target-build.log 2>&1
+ 161937  161847   1  1988 timeout         timeout --kill-after=10s 900s taskset -c 15 lake build OAI.Algorithms.SubexponentialSAT.Main
+ 161938  161937  15 110976 lake           lake build OAI.Algorithms.SubexponentialSAT.Main
+
+lean_children= 15
+cpus= ['15']
+rss_kib_sum= 7397204
+note: summed RSS double-counts shared pages
+$ taskset -pc lake
+pid 161938's current affinity list: 15

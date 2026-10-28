@@ -1,0 +1,46 @@
+$ taskset -c 15 git clone https://github.com/leanprover/comparator.git audit-tools/comparator
+Cloning into 'audit-tools/comparator'...
+comparator_clone_exit=0
+$ taskset -c 15 git clone https://github.com/Zouuup/landrun.git audit-tools/landrun
+Cloning into 'audit-tools/landrun'...
+landrun_clone_exit=0
+$ git -C audit-tools/comparator log --format=%H -- lean-toolchain
+e3dcf3083fc53d44b27a4431fabf7d43181583f5 chore: bump toolchain to v4.35.0 (#106)
+ca04cfc72b550331658ec314bf47685281bfd4bf chore: bump toolchain to v4.35.0-rc4 (#101)
+fd5d5bcf14177b187f66d4502071268d877887c3 chore: bump toolchain to v4.35.0-rc3 (#94)
+32bd61da1d68fbaa310234964e9b820b03a0f82f chore: bump toolchain to v4.35.0-rc2 (#92)
+909385295ed8a9248e87930a79513b5627b189df chore: bump toolchain to v4.35.0-rc1 (#91)
+d03acab154d269c06e60e4de7e4cc85deebff94b chore: bump toolchain to v4.34.0 (#90)
+c78dd72cd76b05d419dd4fdbf81d475363d3645f chore: bump toolchain to v4.34.0-rc2
+011e9d35a10a054ed4b66d8379115ad870f2b0ce chore: bump toolchain to v4.34.0-rc1 (#72)
+3927ad383f208ae977c340a91c48ac9b497d2097 chore: bump toolchain to v4.33.0 (#69)
+75c730e9b6ef5c2c3b334fad7c3d51fe20624c88 chore: bump toolchain to v4.33.0-rc2 (#62)
+c3903e1ed0148a32cd39510707c632dc4d265514 chore: bump toolchain to v4.33.0-rc1 (#57)
+07bc4ea40f2266dcb861820a2ec1fa3244ed307f chore: bump toolchain to v4.32.0 (#56)
+1b82ba006811f7e25d53858252372e4d85fd3921 chore: bump toolchain to v4.32.0-rc1 (#54)
+fd2e25de155523dbce1f35d410511f9f63998461 chore: bump toolchain to v4.31.0 (#53)
+5fb6e55e87cc2308e29e0916a3cb39522dbfebfd chore: bump toolchain to v4.31.0-rc2 (#52)
+3afea238d63125383110f8b59acaf11d7788c3e1 chore: bump toolchain to v4.31.0-rc1 (#46)
+1cfc5d8ad183bf65efe7accd0efc175b6b8f25b6 chore: bump toolchain to v4.30.0 (#45)
+95e46e658f5955ba1b01596d4ac668630476008c chore: bump toolchain to v4.30.0-rc2 (#31)
+0ff36dde148dfea82dbdcf3baf91d6e1a8195554 chore: bump toolchain to v4.30.0-rc1 (#27)
+2a00b30df5e9173e70c4e4ec669fdf03da3163b9 chore: bump toolchain to v4.29.0 (#26)
+6a9e675f1a8aafe2e1494385dba6a9ef00d25f4b chore: bump toolchain to v4.29.0-rc8
+10142a3be5f1dfa4956cd9922bc74121d634f7fe chore: bump toolchain to v4.29.0-rc7
+e6831abb2f76b7ce6f2fb28e6410a0df878e6e4b chore: bump toolchain to v4.29.0-rc6
+886ee3e8aef455d124bad0674cce7a4d126f328d chore: bump toolchain to v4.29.0-rc4
+691848ecbfcf898a52e097d6443433b8ad85043b chore: bump toolchain to v4.29.0-rc3
+3090445149fbaba51d8177df4eb2121573788341 chore: bump toolchain to v4.29.0-rc2
+ae061f79cdf7af458a26348177cfbd62da0123f6 chore: bump toolchain to v4.29.0-rc1
+11443b99aa874875225c16b55eaa417442a2bb30 chore: bump toolchain to v4.28.0
+13778cc566738c7e2b84dfa713d305384b5e93b7 chore: bump toolchain to v4.28.0-rc1
+14fda6a603d433dad5db83ca55f15afc91190fda chore: bump toolchain to v4.27.0
+795ad743d04e9d47bc90125ed96764ec93e05483 chore: update toolchain
+2a117fd5adeac2e29f8402772befe5bcdfea44c5 chore: update toolchain
+437574bcec4e7d76fa141e98e4a72682ab580859 feat: initial commit
+91574ca6ecb5e41ca8a9854130e20224e3d29164 initial commit
+$ git -C audit-tools/landrun rev-parse HEAD
+ec104f6edc1e14d7fec6d31146f1ec6f9c192c5a
+$ sha256sum */LICENSE
+c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4  audit-tools/comparator/LICENSE
+f613c30920743111429f7c1cb801f49ccaafe8ae3319b3b0a5f8aca94e5fc082  audit-tools/landrun/LICENSE

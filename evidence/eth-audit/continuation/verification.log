@@ -1,0 +1,29 @@
+$ git status --short --untracked-files=all
+ M docs/ETH_AUDIT_V02.md
+?? evidence/eth-audit/continuation/axioms.log
+?? evidence/eth-audit/continuation/comparator.log
+?? evidence/eth-audit/continuation/exporter-and-sandbox.log
+?? evidence/eth-audit/continuation/landrun-smoke.log
+?? evidence/eth-audit/continuation/resource-observation.log
+?? evidence/eth-audit/continuation/target-build.log
+?? evidence/eth-audit/continuation/target-postmortem.log
+?? evidence/eth-audit/continuation/tool-build.log
+?? evidence/eth-audit/continuation/tool-discovery.log
+?? evidence/eth-audit/continuation/tool-pins.log
+?? evidence/eth-audit/continuation/tool-source.log
+?? evidence/eth-audit/continuation/verification.log
+$ git diff --check
+diff_check_exit=0
+$ verify evidence outcomes and doc links
+PASS target returned 137
+PASS target files absent
+PASS tool builds succeeded
+PASS comparator timed out after challenge
+PASS axiom probe failed on missing object
+PASS all linked continuation logs exist
+assertions_exit=0
+$ git diff --name-only -- *.py
+$ systemctl --user show run-u6.service
+Result=timeout
+ActiveState=failed
+SubState=failed

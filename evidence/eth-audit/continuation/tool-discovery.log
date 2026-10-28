@@ -1,0 +1,14 @@
+$ git ls-remote comparator/lean4export tags v4.34.1 and landrun main
+ec104f6edc1e14d7fec6d31146f1ec6f9c192c5a	refs/heads/main
+$ go version; systemd-run --user --property=RestrictAddressFamilies=~AF_UNIX --wait --pipe /usr/bin/true
+go version go1.24.5 linux/amd64
+Running as unit: run-u0.service; invocation ID: 895ccaf1bf824d2e921eba18dbc6b768
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 5ms
+CPU time consumed: 5ms
+Memory peak: 512.0K
+Memory swap peak: 0B
+systemd_exit=0
+$ uname -r
+6.18.33.1-microsoft-standard-WSL2
