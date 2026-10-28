@@ -67,3 +67,4 @@ The held-out study executed under strict, uncompromised preregistered guards:
   python verify_holdout_evidence.py
   ```
   All 1,200 runs, 120 instances, source hashes, and oracle counts pass independent verification.
+
