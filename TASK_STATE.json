@@ -1,14 +1,28 @@
 {
   "project": "SAT-Frontier",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "checkpoint_date": "2026-10-28",
-  "completed": ["M0 runnable lab", "20 local tests", "160 oracle-checked smoke train runs", "research protocol and Hermes commission"],
-  "next": "M1 pinned source audit and independent exact model-counter integration",
-  "unverified": ["upstream Lean build and statement audit", "manuscript mechanism", "mature solver comparison", "held-out performance", "GitHub CI"],
-  "hypothesis_status": "No novel algorithm, worst-case bound or practical speedup established",
+  "release_status": "research draft; hosted CI and upstream proof verification blocked",
+  "completed": [
+    "private repository and original archive plus Git history restored",
+    "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
+    "independent exact counter adapter, metamorphic checks and counterexample retention",
+    "168 integrated-source development cross-checks passed with pinned sharpSAT-TD",
+    "bounded train-only policy study with raw records and negative result",
+    "upstream ETH source and partial build audit with pinned provenance"
+  ],
+  "failed_or_blocked": [
+    "GitHub-hosted correctness jobs did not start: account billing/spending limit",
+    "upstream Lean target timed out and comparator executable unavailable; no axiom report",
+    "older sharpSAT candidate disagreed on an empty-clause formula; counterexample preserved"
+  ],
+  "untested": ["fresh held-out policy evaluation", "industrial competitiveness", "upstream theorem kernel check"],
+  "m1_complete": false,
   "holdout_consumed": false,
-  "remote_created": false,
+  "remote_created": true,
   "gpu_used": false,
-  "evidence": "evidence/smoke-train/manifest.json",
+  "hypothesis_status": "No novel algorithm, worst-case bound or practical speedup established",
+  "evidence": ["evidence/smoke-train/manifest.json", "evidence/v02-integrated-development-001/manifest.json", "evidence/policy-train-v02/manifest.json", "evidence/sharpsat-legacy-disagreement/manifest.json"],
+  "next": "Resolve hosted Actions billing, rerun final revision CI, complete pinned Lean target/comparator and implement holdout freeze/overlap guards before any holdout use.",
   "resume": "RESUME.md"
 }

@@ -50,6 +50,15 @@ Rows store independent stdout/stderr, statuses, exact counts, per-worker wall ti
 
 Linux direct children use a 536,870,912-byte `RLIMIT_AS` hard address-space limit; this is not an RSS cap, and does not aggregate descendant memory. The kernel kills/denies allocations as applicable; an allocation failure is not a zero count. Linux `wait4` / `getrusage` report peak RSS in **KiB**, including startup and potentially an inherited fork high-water floor. The observed ranges were 29,524–29,780 KiB for both process types; the identical floor makes these unsuitable for comparative solver-memory claims. Timeout/error workers can have null measurements; unsupported platforms explicitly return null/unsupported and reject requested hard limits. The dedicated counter timeout kills its Linux process group. The standard `campaign` accepts optional positive integer `memory_bytes`; without it there is no hard memory cap. No GPU was used.
 
+## Integrated-source v0.2 cross-check
+
+After merging the policy implementation and setting version 0.2.0, a fresh development campaign was run with the same pinned executable. `evidence/v02-integrated-development-001/` contains 168 exact paired comparisons across four synthetic families and formula sizes 18–33, zero disagreements, source/test/configuration hashes, dirty-tree state, the matching source snapshot, and a complete SHA256SUMS. These are bounded development checks, not performance evidence or a theorem proof. Verify without rerunning the counter:
+
+```bash
+python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
+(cd evidence/v02-integrated-development-001 && sha256sum -c SHA256SUMS)
+```
+
 ## A preserved independent-counter failure
 
 An earlier candidate, official [sharpSAT](https://github.com/marcthurley/sharpSAT) commit `edfbde3424ce17d72d7f8d8f5b8681f2247f4932` (MIT; license SHA-256 `411946f783f657a896a796a7dac6884a7218aecf212432a141b79364e9fb8cf1`), built with g++ using `-include cstdint` and the local GMP dev files. Its binary SHA-256 was `faf96ca7cab5dfab4b8e6f00058ed78be2b1eab1ffab65dc8f7c27ab2ac1e5fa`. It returned **61** versus SAT-Frontier's **0** on a generated 18-variable contradictory formula. Deterministic reduction found `p cnf 18 1\n0\n`: exhaustive oracle **0**, sharpSAT **262144**. Original and minimized CNFs, raw logs, replay, frozen source snapshot and hashes are in `evidence/sharpsat-legacy-disagreement/`. The run is intentionally marked incomplete, not green. The older upstream README itself notes a prior counting bug; this observed specific failure is not a blanket finding about other versions. Switching to sharpSAT-TD did not erase the failure.

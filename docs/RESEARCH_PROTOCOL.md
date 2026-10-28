@@ -1,5 +1,9 @@
 # Research protocol v0.1
 
+## v0.2 execution notes
+
+The independent sharpSAT-TD development cross-check and its metamorphic variants are documented in `INDEPENDENT_BASELINE.md`; related DPLL controls are not independent. A failure of an earlier external candidate and its minimized CNF are retained, not silently discarded. The frozen train-only policy study is in `POLICY_PREREGISTRATION.md` and `POLICY_TRAIN_REPORT.md`; no holdout was run. The train-selected `component` candidate is indistinguishable from `mixed` at the branch point because the component-size feature is constant there. No practical speedup is established. Before any holdout, implement the documented overlap and source-freeze guards and preregister again against the integrated source. RSS readings include a startup/inherited high-water floor; RLIMIT_AS is not aggregate RSS. Upstream theorem build and axiom inspection remain incomplete; see `ETH_AUDIT_V02.md`.
+
 ## First campaign
 
 Run the frozen smoke configuration on the train split only. Its 32 generated cases × five algorithms produce 160 solver runs. Ratios 2 and 4, sizes 8 and 12, and four families exercise different behaviors. These tiny cases validate the apparatus; they cannot establish competitiveness. Random and planted instances must never be pooled into a claim about uniform random SAT. Disconnected formulas deliberately favor decomposition; they are a positive control. Contradictory units are a negative correctness control, not a performance achievement.

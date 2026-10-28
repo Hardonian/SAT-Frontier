@@ -1,6 +1,6 @@
 # Primary source register
 
-Checked 2026-10-28. These references are mutable and have not been pinned or vendored. Do not infer an audited proof from this register. No external source code is included.
+Checked 2026-10-28. The ETH source register and exact-counter revision are pinned in `docs/ETH_AUDIT_V02.md` and `docs/INDEPENDENT_BASELINE.md`; the links in this historical table are discovery links. The upstream theorem remains unverified here. No external source code is included.
 
 | ID | Source | Used for | Status |
 | --- | --- | --- | --- |

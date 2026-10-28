@@ -1,0 +1,60 @@
+{
+  "artifact_sha256": {
+    "config.json": "c7a4fc22ec706438d4e00663ddb3bff266b479ac004efa9e09a7e77a095c1709",
+    "runs.jsonl": "cb4ba45464f61e84e428eca304aef5b557d221e09604edc944190ed7896ea879"
+  },
+  "config_sha256": "c7a4fc22ec706438d4e00663ddb3bff266b479ac004efa9e09a7e77a095c1709",
+  "dependency": {
+    "binary_path": "/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/sharpSAT",
+    "binary_sha256": "85b94b45c3967df384f5ced2e4670fe270f3fc77ee67ca943b6b390ac75f92b5",
+    "expected_source_revision": "0c234c11b77115bad89484e80e1d2fc95dd42317",
+    "matches_tested_binary": true,
+    "name": "sharpSAT-TD",
+    "shared_libraries": {
+      "sha256": {
+        "/home/scott/.hermes/cache/scratch/sat-d4v2-upstream/deps/root/usr/lib/x86_64-linux-gnu/libgmpxx.so.4.7.0": "ce7e88d711f00edc7b7da3d013d0f76707712e32314706f94340bdb727570ee1",
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da",
+        "/usr/lib/x86_64-linux-gnu/libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+        "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+        "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804",
+        "/usr/lib/x86_64-linux-gnu/libm.so.6": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0",
+        "/usr/lib/x86_64-linux-gnu/libmpfr.so.6.2.1": "2156351fa3dedd04a7381c6ac7a8a26efa2d6fb08b80f8a2d644ccdd653710ae",
+        "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
+      },
+      "status": "recorded"
+    }
+  },
+  "environment": {
+    "backend": "CPU Python integers",
+    "gpu_used": false,
+    "lean_verified_locally": false,
+    "machine": "x86_64",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "exact": 168,
+  "git_dirty": true,
+  "git_revision": "a0fbc0ae7c3a5fc941a962dbe9e07e3f8ba5fc5d",
+  "git_status_porcelain": " M README.md\n M docs/DECISIONS.md\n M docs/MILESTONES.md\n M docs/RESEARCH_PROTOCOL.md\n M docs/SOURCES.md\n M docs/hypotheses.csv\n M pyproject.toml\n M sat_frontier/__init__.py\n?? evidence/v02-integrated-development-001/config.json\n",
+  "measurement": "Linux direct-child wait4/getrusage peak RSS KiB (may include inherited fork/startup high-water); RLIMIT_AS bytes; solver elapsed excludes startup",
+  "runs": 168,
+  "schema_version": 1,
+  "source_sha256": {
+    "pyproject.toml": "73d77ebddb352a9547c834192b6951390db3deaed5f517924b778a056d60e591",
+    "sat_frontier/__init__.py": "83fa8605d5cc1c4ecf35b7e52ef1859edef58b57887d884ac349de79cdc1bade",
+    "sat_frontier/__main__.py": "7b25ae6cb66b94ca743d6060d9571f89994998db92ca0de017adca316f7f95b4",
+    "sat_frontier/core.py": "b2c325f7482d2ad7754bbe1ea1347a32dfcbed69bf65fa29bce7e84e367e4587",
+    "sat_frontier/crosscheck.py": "ddeaa0337c327d789cd60b300f03164ab629b5b589ad1a0ebb1031599d6c0a52",
+    "sat_frontier/experiment.py": "55a3776e061c944c8cc06bcb50b1f00b6af0e796085c0a333ecfe25f31256486",
+    "sat_frontier/generate.py": "7b0fdb60e0237ffb5200f055bed2741e387b7be2070d28d421949995ae5ebd52",
+    "sat_frontier/independent.py": "71733285897c0f1ad22b9364b2c23678e930e2230951ac234dd34236e427e996",
+    "sat_frontier/policy_train.py": "111fb3910fe559ee960c6299e2d89084197ba0d9f89e30cac30db4d2124409b2",
+    "sat_frontier/process_exec.py": "deb7c5989af8fec9e395a7b8da21606070c3f0aad31df29726f28f26ef10f439",
+    "tests/test_core.py": "6971205c6a974a725612d56d7355f85ca733947d1fe9b545483b6a56c69b839d",
+    "tests/test_independent.py": "267d9d53450f2d1aeb9124cc3b9643bbe81435f2277e1d26b9973fbcdec7cb7b",
+    "tests/test_policy.py": "8ed3b9c6dce8edd49fb5b30cafc1ac10e8ae1b12209b08cfa8f816bee264f5e6",
+    "verify_evidence.py": "323282b45298183eb221d08da3424b091ea7b927447d23d38878a67d50ff91bb"
+  },
+  "split": "development_not_holdout",
+  "status": "complete"
+}

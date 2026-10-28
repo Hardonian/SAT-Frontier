@@ -1,6 +1,6 @@
 # SAT-Frontier
 
-A CPU-first experimental lab for finding faster **correct** SAT and exact model-counting algorithms. Version 0.1 establishes the measurement and correctness infrastructure; it does not claim a new asymptotic algorithm.
+A CPU-first experimental lab for finding faster **correct** SAT and exact model-counting algorithms. Version 0.2 adds an independent exact-counter adapter, resource-aware cross-checks and a bounded policy study. It does not claim a new asymptotic algorithm or demonstrated practical speedup.
 
 Start with Python 3.10 or newer. Runtime and tests use only the standard library; installation is optional.
 
@@ -8,7 +8,7 @@ Start with Python 3.10 or newer. Runtime and tests use only the standard library
 python3 -m unittest discover -s tests -v
 python3 -m sat_frontier doctor
 python3 -m sat_frontier solve examples/two-components.cnf
-python3 verify_evidence.py evidence/smoke-train
+python3 verify_policy_evidence.py
 python3 -m sat_frontier campaign --config configs/smoke.json --out experiments/train-001 --split train
 ```
 
@@ -24,8 +24,8 @@ The example has 18 satisfying assignments, including its unused variable. `solve
 
 These are established techniques implemented as transparent controls. They are not presented as discoveries or implementations of the released ETH-refuting construction. All variants use unit propagation; none use pure-literal elimination, which is not generally count-preserving.
 
-Each campaign creates a fresh output directory, raw DIMACS formulas, JSONL and CSV records, frozen configuration, source hashes, environment details, and an integrity manifest. Outputs cannot overwrite an earlier run. Campaign workers have a hard wall limit of the solver allowance plus two seconds; direct `solve` uses cooperative checks. Cache entry counts are capped, but byte-level RAM limits are not implemented. Use trusted, reasonably sized inputs. This is a research harness, not a hardened public service.
+Each campaign creates a fresh output directory, raw DIMACS formulas, JSONL and CSV records, frozen configuration, source/test hashes, Git state and an integrity manifest. Outputs cannot overwrite an earlier run. Campaign workers have a hard wall limit of the solver allowance plus two seconds; direct `solve` uses cooperative checks. Optional Linux `memory_bytes` enforces RLIMIT_AS per worker, not an aggregate RSS limit; unsupported platforms explicitly report the limitation. Peak RSS is reported with the measurement caveats in [the baseline notes](docs/INDEPENDENT_BASELINE.md). Use trusted, reasonably sized inputs and trusted external executables; this is a research harness, not a hardened public service.
 
 Read [the ETH analysis](docs/ETH_ANALYSIS.md), [research protocol](docs/RESEARCH_PROTOCOL.md), [milestones](docs/MILESTONES.md), and [resume checkpoint](RESUME.md). The next execution commission is [HERMES_COMMISSION.md](HERMES_COMMISSION.md).
 
-Prepared locally on 2026-10-28. Source verification is attributed in `docs/SOURCES.md`; no Lean build or source-level proof audit has been performed here. No remote repository or production deployment is implied. Third-party baseline integration and larger held-out studies are explicit next milestones.
+See [independent counter build and run](docs/INDEPENDENT_BASELINE.md), [policy preregistration](docs/POLICY_PREREGISTRATION.md), [train results](docs/POLICY_TRAIN_REPORT.md), and [upstream ETH audit](docs/ETH_AUDIT_V02.md). The historic smoke verifier requires the v0.1 source root because it checks the exact source hashes used by that run; see the baseline notes for a portable extraction command. Held-out policy evaluation and the upstream Lean proof check remain incomplete. No license for public redistribution has been selected.
