@@ -127,3 +127,4 @@ In accordance with [`AGENTS.md`](../AGENTS.md) and [`docs/RESEARCH_PROTOCOL.md`]
 2. **CPU vs GPU Distinction**: CPU Cube-and-Conquer outputs and GPU tensor contraction benchmarks must be cataloged in distinct evidence subdirectories.
 3. **Immutability & Checkpoints**: Generate `manifest.json` with SHA-256 digests of all instances and configurations upon completion.
 4. **No External Publication Without Approval**: Keep results local; do not push to public repositories or commit automated claims until formally reviewed.
+
