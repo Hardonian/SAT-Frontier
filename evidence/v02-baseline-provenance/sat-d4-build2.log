@@ -1,0 +1,127 @@
+make: Nothing to be done for 'all'.
+Making library: lib_static.a ( /home/scott/.hermes/cache/scratch/sat-d4v2-upstream/3rdParty/glucose-3.0/core/Main.or /home/scott/.hermes/cache/scratch/sat-d4v2-upstream/3rdParty/glucose-3.0/core/Solver.or utils/Options.or utils/System.or )
+a - /home/scott/.hermes/cache/scratch/sat-d4v2-upstream/3rdParty/glucose-3.0/core/Main.or
+a - /home/scott/.hermes/cache/scratch/sat-d4v2-upstream/3rdParty/glucose-3.0/core/Solver.or
+a - /home/scott/.hermes/cache/scratch/sat-d4v2-upstream/3rdParty/glucose-3.0/core/../utils/Options.or
+a - /home/scott/.hermes/cache/scratch/sat-d4v2-upstream/3rdParty/glucose-3.0/core/../utils/System.or
+Making Soft Link: lib_static.a -> lib.a
+c [BUILD] Option Selected for compilation: s
+Making Soft Link: libglucose_static.a -> libglucose.a
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+Static: Library creation
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/scott/.hermes/cache/scratch/sat-d4v2-upstream/3rdParty/bipe/build
+ninja: no work to do.
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+Library standard
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/scott/.hermes/cache/scratch/sat-d4v2-upstream/build
+[1/84] Building CXX object CMakeFiles/d4.dir/src/formulaManager/circuit/CircuitManager.cpp.o
+[2/84] Building CXX object CMakeFiles/d4.dir/src/caching/bucket/cnf/BucketInConstruction.cpp.o
+[3/84] Building CXX object CMakeFiles/d4.dir/src/formulaManager/FormulaManager.cpp.o
+[4/84] Building CXX object CMakeFiles/d4.dir/src/formulaManager/circuit/CircuitWithCnfManager.cpp.o
+[5/84] Building CXX object CMakeFiles/d4.dir/src/formulaManager/cnf/CnfManager.cpp.o
+[6/84] Building CXX object CMakeFiles/d4.dir/src/formulaManager/cnf/CnfManagerDyn.cpp.o
+[7/84] Building CXX object CMakeFiles/d4.dir/src/formulaManager/cnf/CnfManagerDynPure.cpp.o
+[8/84] Building CXX object CMakeFiles/d4.dir/src/formulaManager/cnf/CnfManagerDynBlockedCl.cpp.o
+[9/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/branchingHeuristic/BranchingHeuristic.cpp.o
+[10/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/branchingHeuristic/BranchingHeuristicClassic.cpp.o
+[11/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/branchingHeuristic/BranchingHeuristicHybridPartialClassic.cpp.o
+[12/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/branchingHeuristic/BranchingHeuristicLargeArity.cpp.o
+[13/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/partialOrder/PartialOrderHeuristicNone.cpp.o
+[14/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/partialOrder/PartialOrderHeuristic.cpp.o
+[15/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/phaseSelection/PhaseHeuristic.cpp.o
+[16/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/partialOrder/PartialOrderHeuristicTreeDecomp.cpp.o
+[17/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/phaseSelection/PhaseHeuristicFalse.cpp.o
+[18/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/phaseSelection/PhaseHeuristicPolarity.cpp.o
+[19/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/phaseSelection/cnf/PhaseHeuristicOccurrence.cpp.o
+[20/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/phaseSelection/PhaseHeuristicTrue.cpp.o
+[21/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/scoringVariable/cnf/ScoringMethodDlcs.cpp.o
+[22/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/scoringVariable/ScoringMethod.cpp.o
+[23/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/scoringVariable/cnf/ScoringMethodJwts.cpp.o
+[24/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/scoringVariable/cnf/ScoringMethodVsads.cpp.o
+[25/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/scoringVariable/cnf/ScoringMethodMom.cpp.o
+[26/84] Building CXX object CMakeFiles/d4.dir/src/heuristics/scoringVariable/cnf/ScoringMethodVsids.cpp.o
+[27/84] Building CXX object CMakeFiles/d4.dir/src/methods/QueryManager.cpp.o
+[28/84] Building CXX object CMakeFiles/d4.dir/src/options/branchingHeuristic/OptionBranchingHeuristic.cpp.o
+[29/84] Building CXX object CMakeFiles/d4.dir/src/options/cache/OptionCacheManager.cpp.o
+[30/84] Building CXX object CMakeFiles/d4.dir/src/methods/MethodManager.cpp.o
+[31/84] Building CXX object CMakeFiles/d4.dir/src/options/branchingHeuristic/OptionPartialOrderHeuristic.cpp.o
+[32/84] Building CXX object CMakeFiles/d4.dir/src/options/methods/OptionDpllStyleMethod.cpp.o
+[33/84] Building CXX object CMakeFiles/d4.dir/src/options/methods/OptionEREMethod.cpp.o
+[34/84] Building CXX object CMakeFiles/d4.dir/src/options/methods/OptionMaxSharpSatMethod.cpp.o
+[35/84] Building CXX object CMakeFiles/d4.dir/src/options/methods/OptionProjMcMethod.cpp.o
+[36/84] Building CXX object CMakeFiles/d4.dir/src/options/methods/OptionMinSharpSatMethod.cpp.o
+[37/84] Building CXX object CMakeFiles/d4.dir/src/partitioner/PartitionerManager.cpp.o
+[38/84] Building CXX object CMakeFiles/d4.dir/src/options/methods/OptionQbfCounter.cpp.o
+[39/84] Building CXX object CMakeFiles/d4.dir/src/partitioner/PartitionerPatoh.cpp.o
+[40/84] Building CXX object CMakeFiles/d4.dir/src/preprocs/PreprocManager.cpp.o
+[41/84] Building CXX object CMakeFiles/d4.dir/src/preprocs/circuit/PreprocBasicCircuit.cpp.o
+[42/84] Building CXX object CMakeFiles/d4.dir/src/preprocs/cnf/PreprocBackboneCnf.cpp.o
+[43/84] Building CXX object CMakeFiles/d4.dir/src/preprocs/cnf/PreprocBasicCnf.cpp.o
+[44/84] Building CXX object CMakeFiles/d4.dir/src/preprocs/cnf/PreprocCompileEquiv.cpp.o
+[45/84] Building CXX object CMakeFiles/d4.dir/src/preprocs/cnf/PreprocEquiv.cpp.o
+[46/84] Building CXX object CMakeFiles/d4.dir/src/preprocs/cnf/PreprocReducer.cpp.o
+[47/84] Building CXX object CMakeFiles/d4.dir/src/problem/ProblemTypes.cpp.o
+[48/84] Building CXX object CMakeFiles/d4.dir/src/problem/ProblemManager.cpp.o
+[49/84] Building CXX object CMakeFiles/d4.dir/src/preprocs/cnf/PreprocSharpEquiv.cpp.o
+[50/84] Building CXX object CMakeFiles/d4.dir/src/problem/cnf/ParserDimacs.cpp.o
+[51/84] Building CXX object CMakeFiles/d4.dir/src/problem/circuit/ParserCircuit.cpp.o
+[52/84] Building CXX object CMakeFiles/d4.dir/src/problem/circuit/ProblemManagerCircuit.cpp.o
+[53/84] Building CXX object CMakeFiles/d4.dir/src/problem/cnf/ParserErosionDimacs.cpp.o
+[54/84] Building CXX object CMakeFiles/d4.dir/src/problem/cnf/ProblemManagerCnf.cpp.o
+[55/84] Building CXX object CMakeFiles/d4.dir/src/problem/cnf/ProblemManagerErosionCnf.cpp.o
+[56/84] Building CXX object CMakeFiles/d4.dir/src/problem/qbf/ParserQDimacs.cpp.o
+[57/84] Building CXX object CMakeFiles/d4.dir/src/representation/graph/Graph.cpp.o
+[58/84] Building CXX object CMakeFiles/d4.dir/src/problem/qbf/ProblemManagerQbf.cpp.o
+[59/84] Building CXX object CMakeFiles/d4.dir/src/representation/graph/GraphExtractor.cpp.o
+[60/84] Building CXX object CMakeFiles/d4.dir/src/representation/graph/circuit/GraphExtractorCircuit.cpp.o
+[61/84] Building CXX object CMakeFiles/d4.dir/src/representation/graph/circuit/GraphExtractorCircuitPrimal.cpp.o
+[62/84] Building CXX object CMakeFiles/d4.dir/src/representation/hypergraph/HyperEdge.cpp.o
+[63/84] Building CXX object CMakeFiles/d4.dir/src/representation/hypergraph/HyperGraph.cpp.o
+[64/84] Building CXX object CMakeFiles/d4.dir/src/representation/graph/cnf/GraphExtractorCnf.cpp.o
+[65/84] Building CXX object CMakeFiles/d4.dir/src/representation/graph/cnf/GraphExtractorCnfPrimal.cpp.o
+[66/84] Building CXX object CMakeFiles/d4.dir/src/solvers/ActivityManager.cpp.o
+[67/84] Building CXX object CMakeFiles/d4.dir/src/representation/hypergraph/HyperGraphExtractor.cpp.o
+[68/84] Building CXX object CMakeFiles/d4.dir/src/representation/hypergraph/cnf/HyperGraphExtractorCnfDual.cpp.o
+[69/84] Building CXX object CMakeFiles/d4.dir/src/solvers/WrapperSolver.cpp.o
+[70/84] Building CXX object CMakeFiles/d4.dir/src/solvers/circuit/WrapperCircuitGlucose.cpp.o
+[71/84] Building CXX object CMakeFiles/d4.dir/src/solvers/circuit/WrapperCircuitMinisat.cpp.o
+[72/84] Building CXX object CMakeFiles/d4.dir/src/solvers/cnf/minisat/Solver.cpp.o
+[73/84] Building CXX object CMakeFiles/d4.dir/src/solvers/cnf/WrapperGlucose.cpp.o
+[74/84] Building CXX object CMakeFiles/d4.dir/src/solvers/cnf/WrapperMinisat.cpp.o
+[75/84] Building CXX object CMakeFiles/d4.dir/src/treeDecomposition/TreeDecomposition.cpp.o
+[76/84] Building CXX object CMakeFiles/d4.dir/src/treeDecomposition/TreeDecompositionPartition.cpp.o
+[77/84] Building CXX object CMakeFiles/d4.dir/src/treeDecomposition/TreeDecompositionTreeWidth.cpp.o
+[78/84] Building CXX object CMakeFiles/d4.dir/src/treeDecompositioner/TreeDecompositioner.cpp.o
+[79/84] Building CXX object CMakeFiles/d4.dir/src/treeDecompositioner/TreeDecompositionerFlowCutter.cpp.o
+[80/84] Building CXX object CMakeFiles/d4.dir/src/utils/AtMost1Extractor.cpp.o
+[81/84] Building CXX object CMakeFiles/d4.dir/src/utils/EquivExtractor.cpp.o
+[82/84] Building CXX object CMakeFiles/d4.dir/src/utils/Parsing.cpp.o
+[83/84] Building CXX object CMakeFiles/d4.dir/src/utils/cnf/AndGatesExtractor.cpp.o
+[84/84] Linking CXX static library libd4.a
+ar: ../3rdParty/patoh/libpatoh.a: No such file or directory
+Compiling: src/CounterDemo.cpp
+Compiling: src/ParseOption.cpp
+make: *** No rule to make target '../../build/libd4.a', needed by 'build/counter'.  Stop.
+make: *** Waiting for unfinished jobs....
+Compiling: src/Main.cpp
+g++ -MMD -MP -O3 -c src/CounterDemo.cpp -o build/src/CounterDemo.cpp.o -I../../
+g++ -MMD -MP -O3 -c src/ParseOption.cpp -o build/src/ParseOption.cpp.o -I../../
+g++ -MMD -MP -O3 -c src/Main.cpp -o build/src/Main.cpp.o -I../../

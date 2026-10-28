@@ -1,0 +1,58 @@
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/build/Release
+[ 14%] Building CXX object src/component_types/CMakeFiles/component_types.dir/base_packed_component.cpp.o
+[ 14%] Building CXX object src/component_types/CMakeFiles/component_types.dir/component_archetype.cpp.o
+[ 21%] Linking CXX static library libcomponent_types.a
+[ 21%] Built target component_types
+[ 35%] Building CXX object src/CMakeFiles/libsharpSAT.dir/component_analyzer.cpp.o
+[ 35%] Building CXX object src/CMakeFiles/libsharpSAT.dir/alt_component_analyzer.cpp.o
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_analyzer.cpp:8:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_analyzer.h: In member function ‘void STDComponentAnalyzer::test_checkArchetypeRepForClause(unsigned int*)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_analyzer.h:117:19: warning: unused variable ‘clID’ [-Wunused-variable]
+  117 |       ClauseIndex clID = getClauseID(*pcl_ofs);
+      |                   ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_analyzer.h:118:12: warning: variable ‘all_a’ set but not used [-Wunused-but-set-variable]
+  118 |       bool all_a = true;
+      |            ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_analyzer.cpp: In member function ‘void STDComponentAnalyzer::recordComponentOf(VariableIndex)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_analyzer.cpp:117:14: warning: variable ‘appeared’ set but not used [-Wunused-but-set-variable]
+  117 |         bool appeared = false;
+      |              ^~~~~~~~
+[ 42%] Building CXX object src/CMakeFiles/libsharpSAT.dir/component_cache.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/libsharpSAT.dir/component_management.cpp.o
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_cache.cpp: In member function ‘void ComponentCache::test_descendantstree_consistency()’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_cache.cpp:113:30: warning: variable ‘found’ set but not used [-Wunused-but-set-variable]
+  113 |                         bool found = false;
+      |                              ^~~~~
+[ 57%] Building CXX object src/CMakeFiles/libsharpSAT.dir/instance.cpp.o
+[ 64%] Building CXX object src/CMakeFiles/libsharpSAT.dir/new_component_analyzer.cpp.o
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/instance.cpp: In member function ‘bool Instance::deleteConflictClauses()’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/instance.cpp:247:17: warning: variable ‘lifetime’ set but not used [-Wunused-but-set-variable]
+  247 |   double score, lifetime;
+      |                 ^~~~~~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/new_component_analyzer.cpp:8:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/new_component_analyzer.h: In member function ‘void NewComponentAnalyzer::test_checkArchetypeRepForClause(unsigned int*)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/new_component_analyzer.h:120:19: warning: unused variable ‘clID’ [-Wunused-variable]
+  120 |       ClauseIndex clID = getClauseID(*pcl_ofs);
+      |                   ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/new_component_analyzer.h:121:12: warning: variable ‘all_a’ set but not used [-Wunused-but-set-variable]
+  121 |       bool all_a = true;
+      |            ^~~~~
+[ 71%] Building CXX object src/CMakeFiles/libsharpSAT.dir/solver.cpp.o
+[ 78%] Building CXX object src/CMakeFiles/libsharpSAT.dir/statistics.cpp.o
+[ 85%] Linking CXX static library liblibsharpSAT.a
+[ 85%] Built target libsharpSAT
+gmake[2]: *** No rule to make target '/home/scott/.hermes/cache/scratch/sat-d4v2-upstream/deps/root/usr/lib/x86_64-linux-gnu/libgmp.so', needed by 'sharpSAT'.  Stop.
+gmake[2]: *** Waiting for unfinished jobs....
+[ 92%] Building CXX object CMakeFiles/sharpSAT.dir/src/main.cpp.o
+gmake[1]: *** [CMakeFiles/Makefile2:118: CMakeFiles/sharpSAT.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

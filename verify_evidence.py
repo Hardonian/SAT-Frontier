@@ -1,4 +1,5 @@
 """Verify stored hashes, not scientific validity. Uses no third-party packages."""
+import argparse
 import hashlib
 import json
 import sys
@@ -9,9 +10,9 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def verify(run):
+def verify(run, source_root=None):
     run = Path(run).resolve()
-    root = Path(__file__).resolve().parent
+    root = Path(source_root).resolve() if source_root is not None else Path(__file__).resolve().parent
     m = json.loads((run/"manifest.json").read_text())
     if m["status"] != "complete":
         raise ValueError("run is incomplete")
@@ -45,9 +46,11 @@ def verify(run):
 
 if __name__ == "__main__":
     try:
-        if len(sys.argv) != 2:
-            raise ValueError("usage: python3 verify_evidence.py RUN_DIRECTORY")
-        print(json.dumps(verify(sys.argv[1]), indent=2))
+        parser = argparse.ArgumentParser(description=__doc__)
+        parser.add_argument("run_directory")
+        parser.add_argument("--source-root", help="historical source tree matching the manifest")
+        args = parser.parse_args()
+        print(json.dumps(verify(args.run_directory, args.source_root), indent=2))
     except (OSError, ValueError, KeyError, TypeError) as e:
         print(f"error: {e}", file=sys.stderr)
         sys.exit(1)

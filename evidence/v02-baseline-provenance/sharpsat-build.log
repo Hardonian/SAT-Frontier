@@ -1,0 +1,54 @@
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (7.1s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_POLICY_VERSION_MINIMUM
+
+
+-- Build files have been written to: /home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/build/Release
+[ 14%] Building CXX object src/component_types/CMakeFiles/component_types.dir/base_packed_component.cpp.o
+[ 14%] Building CXX object src/component_types/CMakeFiles/component_types.dir/component_archetype.cpp.o
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/cacheable_component.h:16,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/component_archetype.h:16,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/component_archetype.cpp:8:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/difference_packed_component.h: In member function ‘unsigned int DifferencePackedComponent::num_variables() const’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/difference_packed_component.h:27:5: error: ‘uint64_t’ was not declared in this scope
+   27 |     uint64_t *p = (uint64_t *) data_;
+      |     ^~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/difference_packed_component.h:15:1: note: ‘uint64_t’ is defined in header ‘<cstdint>’; did you forget to ‘#include <cstdint>’?
+   14 | #include <math.h>
+  +++ |+#include <cstdint>
+   15 | 
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/difference_packed_component.h:27:15: error: ‘p’ was not declared in this scope
+   27 |     uint64_t *p = (uint64_t *) data_;
+      |               ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/difference_packed_component.h:27:30: error: expected primary-expression before ‘)’ token
+   27 |     uint64_t *p = (uint64_t *) data_;
+      |                              ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/src/component_types/difference_packed_component.h:28:53: error: expected ‘;’ before ‘variable_mask’
+   28 |     return (*p >> bits_of_data_size()) & (uint64_t) variable_mask();
+      |                                                     ^~~~~~~~~~~~~
+gmake[2]: *** [src/component_types/CMakeFiles/component_types.dir/build.make:90: src/component_types/CMakeFiles/component_types.dir/component_archetype.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:170: src/component_types/CMakeFiles/component_types.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

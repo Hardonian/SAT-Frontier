@@ -1,0 +1,13 @@
+{
+  "oracle": 0,
+  "legacy": {
+    "status": "exact",
+    "count": 262144,
+    "peak_rss_kib": 15000,
+    "memory_limit": "rlimit_as",
+    "wall_seconds": 0.016317794999849866,
+    "returncode": 0,
+    "stdout": "Solving /home/scott/.hermes/cache/scratch/sat-counter-nnrg9yg8/input.cnf\nvariables (all/used/free): \t18/18/0\nclauses (all/long/binary/unit): 1/1/0/0\n\nPreprocessing .. DONE\nvariables (all/used/free): \t18/0/18\nclauses (all/long/binary/unit): 0/0/0/0\n56 16\nMaximum cache size:\t64 MB\n\n\n\nvariables (total / active / free)\t18/0/18\nclauses (removed) \t\t\t1 (1)\ndecisions \t\t\t\t0\nconflicts \t\t\t\t0\nconflict clauses (all/bin/unit) \t0/0/0\n\nfailed literals found by implicit BCP \t 0\nimplicit BCP miss rate \t 0%\nbytes cache size     \t20234464\t\nbytes cache (overall) \t20234464\nbytes cache (infra / comps) 20234400/64\t\nbytes pure comp data (curr)    0\nbytes pure comp data (overall) 0\nbytes cache with sysoverh (curr)    120\nbytes cache with sysoverh (overall) 120\ncache (stores / hits) \t\t\t1/0\ncache miss rate 0%\n avg. variable count (stores / hits) \t0/0\n\n\n# solutions \n262144\n# END\n\ntime: 0.000916s\n\n",
+    "stderr": ""
+  }
+}
