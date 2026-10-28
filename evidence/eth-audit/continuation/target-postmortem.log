@@ -1,0 +1,18 @@
+$ inspect cgroup memory counters
+memory.max=/usr/bin/bash: line 5: /sys/fs/cgroup/memory.max: No such file or directory
+
+memory.events:Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from pathlib import Path; print(Path("/sys/fs/cgroup/memory.events").read_text())
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/scott/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scott/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/sys/fs/cgroup/memory.events'
+$ check target artifacts
+missing: .lake/build/lib/lean/OAI/Algorithms/SubexponentialSAT/Main.olean
+missing: .lake/build/lib/lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.olean
+$ git diff --name-only upstream

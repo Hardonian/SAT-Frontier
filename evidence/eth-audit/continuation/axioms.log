@@ -1,0 +1,33 @@
+$ timeout 90s taskset -c 15 lake env lean ../audit-tools/EthAxioms.lean
+$ probe source:
+import OAI.Algorithms.SubexponentialSAT.Main
+#print axioms OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_and_sat
+start=2026-10-28T16:00:01Z
+warning: PrimeNumberTheoremAnd: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes
+warning: belyi: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/belyi' has local changes
+warning: formal-schemes: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/formal-schemes' has local changes
+warning: elliptic-curves: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/elliptic-curves' has local changes
+warning: tempered-fundamental-groups: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/tempered-fundamental-groups' has local changes
+warning: oka: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/oka' has local changes
+warning: orbicurve-cores: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/orbicurve-cores' has local changes
+warning: pi1: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/pi1' has local changes
+warning: heights: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/heights' has local changes
+warning: genl: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/genl' has local changes
+warning: tate-curves-theta: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/tate-curves-theta' has local changes
+warning: iut: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/iut' has local changes
+warning: gromov: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/gromov' has local changes
+warning: SphereEversion: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/SphereEversion' has local changes
+warning: schoenflies-lean: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/schoenflies-lean' has local changes
+warning: ClassFieldTheory: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/ClassFieldTheory' has local changes
+warning: AINTLIB: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/AINTLIB' has local changes
+warning: AbsorptionCutoff: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/AbsorptionCutoff' has local changes
+warning: StrongPNT: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/StrongPNT' has local changes
+warning: carleson: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/carleson' has local changes
+warning: rellich-kondrachov: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/rellich-kondrachov' has local changes
+warning: Zeta3Irrational: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/Zeta3Irrational' has local changes
+warning: fixed-point-theorems: repository '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/packages/fixed-point-theorems' has local changes
+../audit-tools/EthAxioms.lean:1:0: error: object file '/home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean/.lake/build/lib/lean/OAI/Algorithms/SubexponentialSAT/Main.olean' of module OAI.Algorithms.SubexponentialSAT.Main does not exist
+exit=1
+end=2026-10-28T16:00:17Z
+missing: .lake/build/lib/lean/OAI/Algorithms/SubexponentialSAT/Main.olean
+missing: .lake/build/lib/lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.olean

@@ -1,0 +1,20 @@
+$ systemd-run --user RestrictAddressFamilies=~AF_UNIX taskset -c 15 landrun --best-effort --ro / --rw /dev -ldd -add-exec -- /usr/bin/true
+Running as unit: run-u4.service; invocation ID: 84b54571d1424c8d8a22542e6dbf4c8a
+Finished with result: success
+Main processes terminated with: code=exited/status=0
+Service runtime: 9ms
+CPU time consumed: 8ms
+Memory peak: 440.0K
+Memory swap peak: 0B
+positive_exit=0
+$ systemd-run ... landrun ... -- /usr/bin/touch $HOME/eth-landlock-denial-canary
+Running as unit: run-u5.service; invocation ID: 316c46c253ed4257880a1dfc52721b26
+/usr/bin/touch: cannot touch '/home/scott/.hermes/cache/scratch/eth-audit-home/eth-landlock-denial-canary': Permission denied
+Finished with result: exit-code
+Main processes terminated with: code=exited/status=1
+Service runtime: 9ms
+CPU time consumed: 8ms
+Memory peak: 1.0M
+Memory swap peak: 0B
+denial_exit=1
+canary_exists=no
