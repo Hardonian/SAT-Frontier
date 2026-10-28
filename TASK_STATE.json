@@ -1,0 +1,14 @@
+{
+  "project": "SAT-Frontier",
+  "version": "0.1.0",
+  "checkpoint_date": "2026-10-28",
+  "completed": ["M0 runnable lab", "20 local tests", "160 oracle-checked smoke train runs", "research protocol and Hermes commission"],
+  "next": "M1 pinned source audit and independent exact model-counter integration",
+  "unverified": ["upstream Lean build and statement audit", "manuscript mechanism", "mature solver comparison", "held-out performance", "GitHub CI"],
+  "hypothesis_status": "No novel algorithm, worst-case bound or practical speedup established",
+  "holdout_consumed": false,
+  "remote_created": false,
+  "gpu_used": false,
+  "evidence": "evidence/smoke-train/manifest.json",
+  "resume": "RESUME.md"
+}

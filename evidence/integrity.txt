@@ -1,0 +1,6 @@
+{
+  "status": "hashes_verified",
+  "runs": 160,
+  "instances": 32,
+  "note": "Integrity only; does not establish a proof or independent correctness."
+}

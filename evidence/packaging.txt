@@ -1,0 +1,15 @@
+Processing /workspace/scratch/e83080e06f23/wheels/sat_frontier-0.1.0-py3-none-any.whl
+Installing collected packages: sat-frontier
+Successfully installed sat-frontier-0.1.0
+{
+  "algorithm": "combined",
+  "cache_entries": 3,
+  "cache_hits": 0,
+  "component_splits": 1,
+  "count": 18,
+  "elapsed_seconds": 6.59479999285395e-05,
+  "nodes": 7,
+  "status": "exact",
+  "unit_assignments": 2
+}
+PASS: wheel installed and CLI executed outside source checkout

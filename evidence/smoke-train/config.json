@@ -1,0 +1,38 @@
+{
+  "algorithms": [
+    "baseline",
+    "memo",
+    "components",
+    "combined",
+    "balanced"
+  ],
+  "cache_limit": 10000,
+  "families": [
+    "random",
+    "planted",
+    "disconnected",
+    "contradictory"
+  ],
+  "max_nodes": 100000,
+  "oracle_max_n": 12,
+  "ratios": [
+    2,
+    4
+  ],
+  "repeats": 1,
+  "seconds": 2,
+  "seeds": {
+    "holdout": [
+      1009,
+      1013
+    ],
+    "train": [
+      11,
+      17
+    ]
+  },
+  "sizes": [
+    8,
+    12
+  ]
+}

@@ -1,0 +1,25 @@
+test_budget_unknown (test_core.CountingTests.test_budget_unknown) ... ok
+test_cache_capacity_does_not_change_count (test_core.CountingTests.test_cache_capacity_does_not_change_count) ... ok
+test_components (test_core.CountingTests.test_components) ... ok
+test_contradictory_units (test_core.CountingTests.test_contradictory_units) ... ok
+test_dimacs_roundtrip (test_core.CountingTests.test_dimacs_roundtrip) ... ok
+test_empty (test_core.CountingTests.test_empty) ... ok
+test_empty_clause (test_core.CountingTests.test_empty_clause) ... ok
+test_exhaustive_two_variable_formulas (test_core.CountingTests.test_exhaustive_two_variable_formulas) ... ok
+test_free_variables_and_units (test_core.CountingTests.test_free_variables_and_units) ... ok
+test_generators (test_core.CountingTests.test_generators) ... ok
+test_invalid_budgets (test_core.CountingTests.test_invalid_budgets) ... ok
+test_no_pure_literal_model_loss (test_core.CountingTests.test_no_pure_literal_model_loss) ... ok
+test_oracle_limit (test_core.CountingTests.test_oracle_limit) ... ok
+test_random_mixed_width (test_core.CountingTests.test_random_mixed_width) ... ok
+test_reject_malformed (test_core.CountingTests.test_reject_malformed) ... ok
+test_tautology_and_duplicates (test_core.CountingTests.test_tautology_and_duplicates) ... ok
+test_campaign_and_no_overwrite (test_core.RunnerTests.test_campaign_and_no_overwrite) ... ok
+test_run_cap (test_core.RunnerTests.test_run_cap) ... ok
+test_split_overlap_rejected (test_core.RunnerTests.test_split_overlap_rejected) ... ok
+test_subprocess_result (test_core.RunnerTests.test_subprocess_result) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.465s
+
+OK

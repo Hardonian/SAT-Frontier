@@ -1,0 +1,3 @@
+# Repository instructions
+
+Read README.md, RESUME.md, TASK_STATE.json and docs/RESEARCH_PROTOCOL.md before changing experiments. Preserve all existing run evidence. Add each run to a fresh directory. No fitted curve establishes a theorem. Never relabel unknown as UNSAT or zero count. Do not use pure-literal elimination for counting without a count-preservation proof. Require independent checks for new transformations. Maintain source and configuration hashes. Keep CPU and GPU evidence distinct. Do not modify neighboring research repositories. No automatic external publication or paid compute. Keep checkpoints current.

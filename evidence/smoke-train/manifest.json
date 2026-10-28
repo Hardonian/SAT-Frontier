@@ -1,0 +1,31 @@
+{
+  "artifact_sha256": {
+    "config.json": "77b5ede73613e74574b480ec0b63798cbe9d6af7abd586429fab14b954be4ad3",
+    "runs.csv": "9a3324bd586861947d44dedd0271b73dac649bd595442f9b9455e3234cdd635a",
+    "runs.jsonl": "632637ac00b28b6b858000efb65fbf4010624f8243202097e9aca53881a2a8d7"
+  },
+  "config_sha256": "77b5ede73613e74574b480ec0b63798cbe9d6af7abd586429fab14b954be4ad3",
+  "environment": {
+    "backend": "CPU Python integers",
+    "gpu_used": false,
+    "lean_verified_locally": false,
+    "machine": "x86_64",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  },
+  "exact": 160,
+  "git_revision": null,
+  "measurement": "solver elapsed excludes process startup; wall includes it",
+  "oracle_pass": 160,
+  "runs": 160,
+  "schema_version": 1,
+  "source_sha256": {
+    "sat_frontier/__init__.py": "0e93885f3c2f5bc4a623d4fdf7113f014fb7a80827fbd4eae83c3465d17a063f",
+    "sat_frontier/__main__.py": "7b25ae6cb66b94ca743d6060d9571f89994998db92ca0de017adca316f7f95b4",
+    "sat_frontier/core.py": "3cff957d7c560ab61e2d1b5fba7e20dab403a7c0f937dd161ec402ff86ba04c3",
+    "sat_frontier/experiment.py": "5d2231c4602d594b31fe03336bba350235b20f709dbbc92207b0e02f8dd55bb3",
+    "sat_frontier/generate.py": "7b0fdb60e0237ffb5200f055bed2741e387b7be2070d28d421949995ae5ebd52"
+  },
+  "split": "train",
+  "status": "complete"
+}

@@ -1,0 +1,4 @@
+c (#x1 or x2) and (x3 or x4), with x5 free: 18 models
+p cnf 5 2
+1 2 0
+3 4 0
