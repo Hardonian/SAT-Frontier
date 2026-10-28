@@ -54,3 +54,4 @@ echo "Campaign complete. Verifying cryptographic evidence hashes..."
 python3 verify_evidence.py "${OUTPUT_DIR}"
 
 echo "All evidence verified successfully."
+

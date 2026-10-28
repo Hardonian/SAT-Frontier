@@ -86,3 +86,4 @@ cat <<EOF > "${AUDIT_DIR}/summary.json"
 EOF
 
 echo "Audit results written to ${AUDIT_DIR}/summary.json"
+
