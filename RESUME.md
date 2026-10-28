@@ -15,7 +15,7 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 
   `id=$(GH_CONFIG_DIR=/home/scott/.config/gh gh run list --repo Hardonian/SAT-Frontier --workflow correctness --branch main --limit 1 --json databaseId --jq '.[0].databaseId'); test -n "$id" && GH_CONFIG_DIR=/home/scott/.config/gh gh run rerun "$id" --repo Hardonian/SAT-Frontier`
 - The upstream ETH formalization build timed out and comparator tooling was unavailable; no kernel-checked theorem, statement correspondence or actual theorem axiom report was obtained. Exact next commands and pinned provenance are in `docs/ETH_AUDIT_V02.md`. M1 is not complete.
-- Holdout is unrun. Before any use, implement the preregistered source-hash and train-overlap guards, freeze integrated source and configuration, and use a fresh preregistered holdout. No speedup, P=NP, GPU result or asymptotic bound is claimed.
+- Holdout is unrun. Guard building blocks and a deliberate no-run safety checkpoint are recorded in `docs/POLICY_HOLDOUT_SAFETY_CHECKPOINT.md`; they are not an integrated holdout runner or a new preregistration. Before any use, complete and review the fail-closed runner, freeze integrated source and configuration in a committed preregistration, and use a fresh preregistered holdout. No speedup, P=NP, GPU result or asymptotic bound is claimed.
 - Measured RSS contains an inherited/startup high-water floor and should not be used as comparative memory evidence; RLIMIT_AS is not aggregate RSS. Bandit reports low-severity trust-boundary findings, no medium or high findings; run only trusted external binaries.
 
 ## Recheck
