@@ -9,11 +9,12 @@
     "independent exact counter adapter, metamorphic checks and counterexample retention",
     "168 integrated-source development cross-checks passed with pinned sharpSAT-TD",
     "bounded train-only policy study with raw records and negative result",
-    "upstream ETH source and partial build audit with pinned provenance"
+    "upstream ETH source and partial build audit with pinned provenance",
+    "partial holdout freeze and overlap guard building blocks, tested without consuming holdout"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
-    "upstream Lean target timed out and comparator executable unavailable; no axiom report",
+    "upstream Lean target exited 137 for unknown cause; built comparator timed out; no axiom report",
     "older sharpSAT candidate disagreed on an empty-clause formula; counterexample preserved"
   ],
   "untested": ["fresh held-out policy evaluation", "industrial competitiveness", "upstream theorem kernel check"],
