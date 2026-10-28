@@ -48,16 +48,53 @@ The empirical findings from `evidence/epyc-cube-002/SCALING_SUMMARY.md`:
 
 ---
 
-## 3. Recommended Research Frontiers
+## 3. Recommended Next Compute Runs for Hermes & EPYC
 
-1. **Dual Cut-Based Compilation for Hardness Boundary Instances**:
-   - Apply `net.to_cut_cnf(s, t)` on `grid_2x11` and `grid_3x7`.
-   - By formulating network reliability directly over minimal edge cuts $\bigwedge_{C \in \text{Cuts}} \bigvee_{e \in C} e$, all 1,400+ auxiliary path variables are eliminated, yielding compact monotone CNFs on only the 31–33 edge variables.
-2. **GPU Tensor Network Acceleration on V100/RTX 3060**:
-   - The host system contains an NVIDIA V100-SXM2 (16 GB) and RTX 3060.
-   - For bounded-treewidth planar sub-circuits, contract tensor networks using PyTorch Tensor Cores (`sat_frontier/tensor_contract.py` with `device='cuda'`).
-3. **Automated Verification**:
-   - Keep all 302 EPYC runs immutable. Re-verify anytime using:
+1. **High-Core Cube Scaling on Dual Cut Hardness Boundary Instances**:
+   - The Dual Cut compiler (`sat_frontier/cut_compiler.py`) has been verified in `evidence/cut-wmc-001/`, eliminating auxiliary path variables and reducing search nodes by up to 122x (solving `grid_3x7` in 2.13s and `grid_2x11` in 0.12s).
+   - Deploy high-core Cube-and-Conquer lookahead on the cut CNFs across the 64-core AMD EPYC server:
+     ```bash
+     python scripts/run_epyc_batch.py \
+       --evidence-dir evidence/epyc-cube-003 \
+       --instances-dir evidence/cut-wmc-001/instances \
+       --workers 64 \
+       --depths 4 6 8
+     ```
+   - This tests whether high-core parallel lookahead combines multiplicatively with monotone cut pruning on large topologies ($3\times 8$, $4\times 5$, $5\times 5$).
+
+2. **Upstream Lean 4 Kernel Audit with Bounded Concurrency (Track 2)**:
+   - On the 168 GB DDR4 EPYC host, execute the bounded concurrency audit to resolve the multi-process memory ceiling blocker:
+     ```bash
+     bash scripts/run_lean4_audit.sh 4
+     ```
+   - If build succeeds, run the axiom extractor:
+     ```bash
+     lake env lean scripts/extract_axioms.lean
+     ```
+
+3. **GPU Tensor Network Acceleration on NVIDIA V100 / RTX 3060 (Track 3)**:
+   - The host contains an NVIDIA V100-SXM2 (16 GB) and RTX 3060 (12 GB).
+   - Run PyTorch GPU tensor contraction on the cut-compiled formulas:
+     ```bash
+     python -c "
+     import sat_frontier.tensor_contract as tc
+     from sat_frontier.core import parse_dimacs
+     from pathlib import Path
+
+     for cnf in Path('evidence/cut-wmc-001/instances').glob('*.cnf'):
+         f, _ = parse_dimacs(cnf.read_text())
+         res = tc.tensor_solve(f, backend='torch', device='cuda', mode='bucket_elimination')
+         print(f'{cnf.stem}: {res}')
+     "
+     ```
+   - Save all GPU outputs to a fresh, distinct directory `evidence/gpu-tensor-001/` strictly adhering to `AGENTS.md`.
+
+4. **Automated Verification**:
+   - Re-verify all empirical evidence anytime using:
+     ```bash
+     python verify_epyc_evidence.py evidence/epyc-cube-001 evidence/epyc-cube-002
+     python verify_evidence.py evidence/cut-wmc-001
+     ```
      ```bash
      python verify_epyc_evidence.py
      ```
