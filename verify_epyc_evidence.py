@@ -97,6 +97,23 @@ def verify_epyc_run_directory(dir_path: Path):
                 raise ValueError(f"Cross-depth inconsistency on {inst_name}: {observations}")
             multi_depth_verified += 1
 
+    # 5. Cryptographic SHA256SUMS check if present
+    sha_file = dir_path / "SHA256SUMS"
+    sha_verified = 0
+    if sha_file.exists():
+        for line in sha_file.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            expected_hash, rel_path = line.split(maxsplit=1)
+            target_path = dir_path / rel_path
+            if not target_path.exists():
+                raise FileNotFoundError(f"Missing file in {sha_file.name}: {rel_path}")
+            actual_hash = sha(target_path)
+            if actual_hash != expected_hash:
+                raise ValueError(f"Hash mismatch for {rel_path}: {actual_hash} != {expected_hash}")
+            sha_verified += 1
+
     return {
         "status": "verified",
         "directory": str(dir_path.relative_to(ROOT) if dir_path.is_relative_to(ROOT) else dir_path),
@@ -105,6 +122,7 @@ def verify_epyc_run_directory(dir_path: Path):
         "unknown_runs": unknown_runs,
         "total_nodes_evaluated": total_nodes_evaluated,
         "multi_depth_instances_invariant": multi_depth_verified,
+        "sha256_verified_files": sha_verified,
     }
 
 
