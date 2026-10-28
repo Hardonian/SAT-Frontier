@@ -20,7 +20,7 @@ def verify(run):
     for name, digest in manifest['source_sha256'].items():
         path = (ROOT / name).resolve()
         require(path.is_relative_to(ROOT) and sha(path.read_bytes()) == digest, 'source mismatch: ' + name)
-    actual_paths = {str(p.relative_to(run)) for p in run.rglob('*') if p.is_file() and p.name != 'manifest.json'}
+    actual_paths = {p.relative_to(run).as_posix() for p in run.rglob('*') if p.is_file() and p.name != 'manifest.json'}
     require(actual_paths == set(manifest['artifact_sha256']), 'artifact inventory mismatch')
     for name, digest in manifest['artifact_sha256'].items():
         path = (run / name).resolve()

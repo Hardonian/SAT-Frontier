@@ -8,7 +8,19 @@ def main():
     if limit:
         import resource
         resource.setrlimit(resource.RLIMIT_AS, (limit, limit))
-    os.execv(sys.argv[2], sys.argv[2:])
+    target = sys.argv[2]
+    args = sys.argv[2:]
+    if sys.platform == "win32":
+        try:
+            with open(target, "rb") as f:
+                header = f.read(256)
+            if header.startswith(b"#!"):
+                shebang = header.split(b"\n")[0][2:].decode().strip()
+                target = shebang
+                args = [shebang, sys.argv[2]] + sys.argv[3:]
+        except OSError:
+            pass
+    os.execv(target, args)
 
 
 if __name__ == "__main__":

@@ -64,10 +64,13 @@ class CounterProcessTests(unittest.TestCase):
             self.assertEqual(count(Path(d)/"missing", f)["reason"], "missing_binary")
             p = self.make_binary(d, "print('not a count')")
             self.assertEqual(count(p, f)["reason"], "malformed_output")
-            p = self.make_binary(d, "import os, signal; os.kill(os.getpid(), signal.SIGKILL)")
+            p = self.make_binary(d, "import os, signal; os.kill(os.getpid(), getattr(signal, 'SIGKILL', signal.SIGTERM))")
             crash = count(p, f)
             self.assertEqual(crash["reason"], "process_exit")
-            self.assertLess(crash["returncode"], 0)
+            if sys.platform.startswith("linux"):
+                self.assertLess(crash["returncode"], 0)
+            else:
+                self.assertNotEqual(crash["returncode"], 0)
             p = self.make_binary(d, "import time; time.sleep(10)")
             timeout = count(p, f, seconds=0.1)
             self.assertEqual(timeout["status"], "unknown")
