@@ -127,56 +127,6 @@ class NetworkGraph:
         clauses.append(path_indicators)
         return WeightedFormula(clauses, n_vars=next_var - 1, weights=weights)
 
-    def find_all_minimal_cuts(self, source, target):
-        """Find all minimal (inclusion-minimal) s-t edge cuts."""
-        from itertools import combinations
-        all_nodes = list(self.adj.keys())
-        intermediate_nodes = [n for n in all_nodes if n != source and n != target]
-        raw_cuts = set()
-
-        for r in range(len(intermediate_nodes) + 1):
-            for subset in combinations(intermediate_nodes, r):
-                s_set = set(subset) | {source}
-                t_set = set(all_nodes) - s_set
-                cut_edges = []
-                for u, v in self.edges:
-                    if (u in s_set and v in t_set) or (v in s_set and u in t_set):
-                        for neighbor, eid in self.adj[u]:
-                            if neighbor == v:
-                                cut_edges.append(eid)
-                                break
-                if cut_edges:
-                    raw_cuts.add(tuple(sorted(cut_edges)))
-
-        minimal_cuts = []
-        for c in raw_cuts:
-            c_set = set(c)
-            if not any(set(other) < c_set for other in raw_cuts):
-                minimal_cuts.append(c)
-        return sorted(set(minimal_cuts))
-
-    def to_cut_cnf(self, source, target):
-        """Compile two-terminal reliability into a dual cut-based monotone WeightedFormula.
-
-        By Max-Flow Min-Cut / Menger's theorem, s is connected to t iff at least
-        one edge in every minimal s-t cut is operational:
-            Connected(s, t) <=> \\bigwedge_{C in Cuts} (\\bigvee_{e in C} e)
-        Eliminates all auxiliary path indicators, operating strictly on the edge variables.
-        """
-        min_cuts = self.find_all_minimal_cuts(source, target)
-        if not min_cuts:
-            return WeightedFormula([[1], [-1]], n_vars=1)
-
-        num_edges = len(self.edges)
-        weights = {}
-        for e in range(1, num_edges + 1):
-            p = self.edge_probs[e]
-            weights[e] = p
-            weights[-e] = Fraction(1) - p
-
-        clauses = [list(c) for c in min_cuts]
-        return WeightedFormula(clauses, n_vars=num_edges, weights=weights)
-
 
 def build_wheatstone_bridge(p=Fraction(9, 10)):
     """Classic 5-edge Wheatstone bridge benchmark between nodes 1 and 4."""
