@@ -1,0 +1,3 @@
+$ git clone --depth 1 --filter=blob:none --sparse https://github.com/openai/math.git /home/scott/.hermes/cache/scratch/openai-math-eth-audit
+Cloning into '/home/scott/.hermes/cache/scratch/openai-math-eth-audit'...
+exit=0

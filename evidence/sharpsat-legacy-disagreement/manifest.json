@@ -1,0 +1,38 @@
+{
+  "config_sha256": "c7a4fc22ec706438d4e00663ddb3bff266b479ac004efa9e09a7e77a095c1709",
+  "dependency": {
+    "binary_path": "/home/scott/.hermes/cache/scratch/sat-sharpsat-upstream/build/Release/sharpSAT",
+    "binary_sha256": "faf96ca7cab5dfab4b8e6f00058ed78be2b1eab1ffab65dc8f7c27ab2ac1e5fa",
+    "name": "sharpSAT",
+    "revision": "edfbde3424ce17d72d7f8d8f5b8681f2247f4932"
+  },
+  "environment": {
+    "backend": "CPU Python integers",
+    "gpu_used": false,
+    "lean_verified_locally": false,
+    "machine": "x86_64",
+    "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "git_dirty": true,
+  "git_revision": "5bf97406188d7a2da8dc23b9ba008c6dee2caa31",
+  "git_status_porcelain": " M sat_frontier/experiment.py\n M verify_evidence.py\n?? data.out\n?? evidence/sharpsat-legacy-disagreement/config.json\n?? sat_frontier/crosscheck.py\n?? sat_frontier/independent.py\n?? sat_frontier/process_exec.py\n?? tests/test_independent.py\n",
+  "measurement": "Linux direct-child peak RSS KiB; RLIMIT_AS bytes; solver elapsed excludes startup",
+  "schema_version": 1,
+  "source_sha256": {
+    "pyproject.toml": "d0592468f579b70c7658b3ef12c4a1c5e2ee2ff3e06d78031c18b49eaf698c28",
+    "sat_frontier/__init__.py": "0e93885f3c2f5bc4a623d4fdf7113f014fb7a80827fbd4eae83c3465d17a063f",
+    "sat_frontier/__main__.py": "7b25ae6cb66b94ca743d6060d9571f89994998db92ca0de017adca316f7f95b4",
+    "sat_frontier/core.py": "3cff957d7c560ab61e2d1b5fba7e20dab403a7c0f937dd161ec402ff86ba04c3",
+    "sat_frontier/crosscheck.py": "3f03b2c709f8b03c0e83943626c60c056dfae135d39e9bc0dc400abb743f40a9",
+    "sat_frontier/experiment.py": "7810b46461741633ab51237c83d66c94d9c49a4673fb9a07eaee037f258658e9",
+    "sat_frontier/generate.py": "7b0fdb60e0237ffb5200f055bed2741e387b7be2070d28d421949995ae5ebd52",
+    "sat_frontier/independent.py": "94047400963068de94d0740ae507e0de97bbc084ca42fc3b341a46cc0df4a874",
+    "sat_frontier/process_exec.py": "deb7c5989af8fec9e395a7b8da21606070c3f0aad31df29726f28f26ef10f439",
+    "tests/test_core.py": "6971205c6a974a725612d56d7355f85ca733947d1fe9b545483b6a56c69b839d",
+    "tests/test_independent.py": "1ad642a1991f8d797e4afd99cbaf8e2b676a2fc9efa51af572e160d03484f3ba",
+    "verify_evidence.py": "323282b45298183eb221d08da3424b091ea7b927447d23d38878a67d50ff91bb"
+  },
+  "split": "development_not_holdout",
+  "status": "running"
+}

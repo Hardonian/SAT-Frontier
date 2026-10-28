@@ -24,19 +24,35 @@ def doctor():
             "gpu_used": False, "lean_verified_locally": False}
 
 
-def _worker(conn, formula, algorithm, seconds, nodes, cache):
+def _worker(conn, formula, algorithm, seconds, nodes, cache, memory_bytes):
     try:
-        conn.send(solve(formula, algorithm, seconds, nodes, cache))
+        if memory_bytes is not None:
+            if not sys.platform.startswith("linux"):
+                conn.send({"status": "error", "count": None, "error": "memory_limit_unsupported",
+                           "memory_limit": "unsupported", "peak_rss_kib": None})
+                return
+            import resource
+            resource.setrlimit(resource.RLIMIT_AS, (memory_bytes, memory_bytes))
+        result = solve(formula, algorithm, seconds, nodes, cache)
+        if sys.platform.startswith("linux"):
+            import resource
+            result["peak_rss_kib"] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        else:
+            result["peak_rss_kib"] = None
+        result["memory_limit"] = "rlimit_as" if memory_bytes is not None else "not_requested"
+        conn.send(result)
     except Exception as e:
         conn.send({"status": "error", "count": None, "error": type(e).__name__})
     finally:
         conn.close()
 
 
-def isolated(formula, algorithm, seconds, nodes, cache):
+def isolated(formula, algorithm, seconds, nodes, cache, memory_bytes=None):
+    if memory_bytes is not None and (type(memory_bytes) is not int or memory_bytes <= 0):
+        raise ValueError("invalid memory limit")
     ctx = mp.get_context("spawn")
     receive, send = ctx.Pipe(duplex=False)
-    proc = ctx.Process(target=_worker, args=(send, formula, algorithm, seconds, nodes, cache))
+    proc = ctx.Process(target=_worker, args=(send, formula, algorithm, seconds, nodes, cache, memory_bytes))
     start = perf_counter()
     proc.start()
     send.close()
@@ -54,6 +70,8 @@ def isolated(formula, algorithm, seconds, nodes, cache):
             proc.terminate()
             proc.join()
         receive.close()
+    result.setdefault("peak_rss_kib", None)
+    result.setdefault("memory_limit", "requested_unverified" if memory_bytes is not None else "not_requested")
     result["wall_seconds"] = perf_counter()-start
     return result
 
@@ -61,8 +79,10 @@ def isolated(formula, algorithm, seconds, nodes, cache):
 def validate_config(c):
     required = {"sizes", "ratios", "families", "seeds", "algorithms", "repeats",
                 "seconds", "max_nodes", "cache_limit", "oracle_max_n"}
-    if set(c) != required or set(c["seeds"]) != {"train", "holdout"}:
+    if not required <= set(c) or set(c) - required - {"memory_bytes"} or set(c["seeds"]) != {"train", "holdout"}:
         raise ValueError("config keys must match the documented schema")
+    if "memory_bytes" in c and (type(c["memory_bytes"]) is not int or c["memory_bytes"] <= 0):
+        raise ValueError("invalid memory_bytes")
     def ints(xs, low, high):
         return (isinstance(xs, list) and bool(xs) and len(set(xs)) == len(xs)
                 and all(type(x) is int and low <= x <= high for x in xs))
@@ -103,11 +123,14 @@ def campaign(config_path, out, split):
     config_bytes = json.dumps(c, sort_keys=True, indent=2).encode()
     (out / "config.json").write_bytes(config_bytes)
     root = Path(__file__).resolve().parent.parent
-    source_hashes = {str(p.relative_to(root)): digest(p.read_bytes())
-                     for p in sorted((root / "sat_frontier").glob("*.py"))}
+    paths = sorted(list((root / "sat_frontier").glob("*.py")) + list((root / "tests").glob("*.py")) + [root / "pyproject.toml", root / "verify_evidence.py"])
+    source_hashes = {str(p.relative_to(root)): digest(p.read_bytes()) for p in paths}
     git = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True)
+    git_status = subprocess.run(["git", "status", "--porcelain", "--untracked-files=all"], cwd=root, capture_output=True, text=True)
     meta = {"schema_version": 1, "split": split, "environment": doctor(),
             "config_sha256": digest(config_bytes), "source_sha256": source_hashes,
+            "git_dirty": bool(git_status.stdout) if git_status.returncode == 0 else None,
+            "git_status_porcelain": git_status.stdout if git_status.returncode == 0 else None,
             "git_revision": git.stdout.strip() if git.returncode == 0 else None,
             "status": "running", "measurement": "solver elapsed excludes process startup; wall includes it"}
     (out / "manifest.json").write_text(json.dumps(meta, indent=2, sort_keys=True)+"\n")
@@ -127,7 +150,7 @@ def campaign(config_path, out, split):
                             algs = c["algorithms"]
                             offset = (seed+repeat) % len(algs)
                             for algorithm in algs[offset:] + algs[:offset]:
-                                result = isolated(f, algorithm, c["seconds"], c["max_nodes"], c["cache_limit"])
+                                result = isolated(f, algorithm, c["seconds"], c["max_nodes"], c["cache_limit"], c.get("memory_bytes"))
                                 if result["status"] == "exact":
                                     validation = ("oracle_pass" if expected == result["count"] else "oracle_fail") if expected is not None else "unchecked"
                                 else:

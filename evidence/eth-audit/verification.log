@@ -1,0 +1,7 @@
+PASS 42 dependency heads match
+PASS source graph has no missing OAI sources
+PASS target build timeout recorded
+PASS comparator failure recorded
+PASS cache success recorded
+PASS pinned commit documented
+PASS no likely secret markers

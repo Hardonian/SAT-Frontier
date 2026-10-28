@@ -1,0 +1,13 @@
+$ cd /home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean
+$ lake update
+/usr/bin/bash: line 5: lake: command not found
+exit=127
+$ lake exe cache get
+/usr/bin/bash: line 5: lake: command not found
+exit=127
+$ lake env comparator ComparatorChallenges/SubexponentialSAT.json
+/usr/bin/bash: line 5: lake: command not found
+exit=127
+$ lake build OAI.Algorithms.SubexponentialSAT.Main
+/usr/bin/bash: line 5: lake: command not found
+exit=127

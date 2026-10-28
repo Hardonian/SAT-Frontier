@@ -1,0 +1,22 @@
+{
+  "algorithm": "combined",
+  "families": [
+    "random",
+    "planted",
+    "disconnected",
+    "contradictory"
+  ],
+  "memory_bytes": 536870912,
+  "ratio": 3,
+  "seconds": 10,
+  "seeds": [
+    311,
+    719
+  ],
+  "sizes": [
+    18,
+    24,
+    32
+  ],
+  "split": "development_not_holdout"
+}

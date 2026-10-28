@@ -1,0 +1,2 @@
+# Preserve the exact raw campaign CSV bytes recorded by its SHA-256 manifest.
+evidence/policy-train-v02/runs.csv -text whitespace=cr-at-eol

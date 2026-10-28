@@ -1,0 +1,1255 @@
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build
+/usr/bin/cmake -S/home/scott/.hermes/cache/scratch/sat-sharpsat-td -B/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/CMakeFiles /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build//CMakeFiles/progress.marks
+/usr/bin/gmake  -f CMakeFiles/Makefile2 all
+gmake[1]: Entering directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+/usr/bin/gmake  -f CMakeFiles/sharpSAT.dir/build.make CMakeFiles/sharpSAT.dir/depend
+/usr/bin/gmake  -f flowcutter/CMakeFiles/libflowcutter.dir/build.make flowcutter/CMakeFiles/libflowcutter.dir/depend
+gmake[2]: Entering directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/scott/.hermes/cache/scratch/sat-sharpsat-td /home/scott/.hermes/cache/scratch/sat-sharpsat-td /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/CMakeFiles/sharpSAT.dir/DependInfo.cmake "--color="
+gmake[2]: Entering directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/scott/.hermes/cache/scratch/sat-sharpsat-td /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/flowcutter /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/flowcutter/CMakeFiles/libflowcutter.dir/DependInfo.cmake "--color="
+gmake[2]: Leaving directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+gmake[2]: Leaving directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+/usr/bin/gmake  -f flowcutter/CMakeFiles/libflowcutter.dir/build.make flowcutter/CMakeFiles/libflowcutter.dir/build
+/usr/bin/gmake  -f CMakeFiles/sharpSAT.dir/build.make CMakeFiles/sharpSAT.dir/build
+gmake[2]: Entering directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+gmake[2]: Entering directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+[  5%] Building CXX object CMakeFiles/sharpSAT.dir/src/main.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/main.cpp.o -MF CMakeFiles/sharpSAT.dir/src/main.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/main.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/main.cpp
+[ 11%] Building CXX object flowcutter/CMakeFiles/libflowcutter.dir/cell.cpp.o
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/flowcutter && /usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT flowcutter/CMakeFiles/libflowcutter.dir/cell.cpp.o -MF CMakeFiles/libflowcutter.dir/cell.cpp.o.d -o CMakeFiles/libflowcutter.dir/cell.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/cell.cpp
+[ 16%] Building CXX object flowcutter/CMakeFiles/libflowcutter.dir/greedy_order.cpp.o
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/flowcutter && /usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT flowcutter/CMakeFiles/libflowcutter.dir/greedy_order.cpp.o -MF CMakeFiles/libflowcutter.dir/greedy_order.cpp.o.d -o CMakeFiles/libflowcutter.dir/greedy_order.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.cpp
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.h:4,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.cpp:1:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h: In constructor ‘ArrayIDIDFunc::ArrayIDIDFunc(const IDFunc&, int)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h:153:43: warning: declaration of ‘image_count_’ shadows a member of ‘ArrayIDIDFunc’ [-Wshadow]
+  153 |         ArrayIDIDFunc(const IDFunc&f, int image_count_)
+      |                                       ~~~~^~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h:184:13: note: shadowed declaration is here
+  184 |         int image_count_;
+      |             ^~~~~~~~~~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.cpp:3:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator~(BitIDFunc)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:100:25: warning: redundant move in return statement [-Wredundant-move]
+  100 |         return std::move(f);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:100:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator^(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:137:25: warning: redundant move in return statement [-Wredundant-move]
+  137 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:137:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator|(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:142:25: warning: redundant move in return statement [-Wredundant-move]
+  142 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:142:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator&(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:147:25: warning: redundant move in return statement [-Wredundant-move]
+  147 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:147:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc and_not(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:152:25: warning: redundant move in return statement [-Wredundant-move]
+  152 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:152:25: note: remove ‘std::move’ call
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.cpp:5:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h: In constructor ‘kway_min_id_heap<keyT, k, key_orderT>::kway_min_id_heap(int, key_order_type)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:18:64: warning: declaration of ‘order’ shadows a member of ‘kway_min_id_heap<keyT, k, key_orderT>’ [-Wshadow]
+   18 |         explicit kway_min_id_heap(int id_count, key_order_type order = key_order_type()):
+      |                                                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:368:24: note: shadowed declaration is here
+  368 |         key_order_type order;
+      |                        ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h: In constructor ‘kway_min_id_heap<keyT, k, key_orderT>::kway_min_id_heap(key_order_type)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:24:50: warning: declaration of ‘order’ shadows a member of ‘kway_min_id_heap<keyT, k, key_orderT>’ [-Wshadow]
+   24 |         explicit kway_min_id_heap(key_order_type order = key_order_type()):
+      |                                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:368:24: note: shadowed declaration is here
+  368 |         key_order_type order;
+      |                        ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h: In constructor ‘kway_max_id_heap<keyT, k, key_orderT>::inverted_order::inverted_order(kway_max_id_heap<keyT, k, key_orderT>::key_order_type)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:487:47: warning: declaration of ‘order’ shadows a member of ‘kway_max_id_heap<keyT, k, key_orderT>::inverted_order’ [-Wshadow]
+  487 |                 inverted_order(key_order_type order):order(std::move(order)){}
+      |                                ~~~~~~~~~~~~~~~^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:491:32: note: shadowed declaration is here
+  491 |                 key_order_type order;
+      |                                ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.cpp: In constructor ‘CountOutputIterator<T>::CountOutputIterator(int&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.cpp:43:33: warning: declaration of ‘n’ shadows a member of ‘CountOutputIterator<T>’ [-Wshadow]
+   43 |         CountOutputIterator(int&n):
+      |                             ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.cpp:56:13: note: shadowed declaration is here
+   56 |         int*n;
+      |             ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h: In instantiation of ‘min_id_heap<keyT, key_orderT>::min_id_heap(int, key_order_type) [with keyT = int; key_orderT = std::less<int>; key_order_type = std::less<int>]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/greedy_order.cpp:138:31:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:505:59: warning: declaration of ‘order’ shadows a member of ‘min_id_heap<int>’ [-Wshadow]
+  505 |         explicit min_id_heap(int id_count, key_order_type order = key_order_type())
+      |                                            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:368:24: note: shadowed declaration is here
+  368 |         key_order_type order;
+      |                        ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:505:59: warning: declaration of ‘order’ shadows a member of ‘min_id_heap<int>’ [-Wshadow]
+  505 |         explicit min_id_heap(int id_count, key_order_type order = key_order_type())
+      |                                            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:368:24: note: shadowed declaration is here
+  368 |         key_order_type order;
+      |                        ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:505:59: warning: declaration of ‘order’ shadows a member of ‘min_id_heap<int>’ [-Wshadow]
+  505 |         explicit min_id_heap(int id_count, key_order_type order = key_order_type())
+      |                                            ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:368:24: note: shadowed declaration is here
+  368 |         key_order_type order;
+      |                        ^~~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/statistics.h:18,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:12,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/main.cpp:1:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_types/cacheable_component.h:94:3: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+   94 |   const CacheEntryID father() const {
+      |   ^~~~~
+[ 22%] Building CXX object flowcutter/CMakeFiles/libflowcutter.dir/list_graph.cpp.o
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/flowcutter && /usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT flowcutter/CMakeFiles/libflowcutter.dir/list_graph.cpp.o -MF CMakeFiles/libflowcutter.dir/list_graph.cpp.o.d -o CMakeFiles/libflowcutter.dir/list_graph.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/list_graph.cpp
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/instance.h:13,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:13:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/containers.h: In constructor ‘LiteralIndexedVector<_T>::LiteralIndexedVector(unsigned int)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/containers.h:17:39: warning: declaration of ‘size’ shadows a member of ‘LiteralIndexedVector<_T>’ [-Wshadow]
+   17 |         LiteralIndexedVector(unsigned size = 0) :
+      |                              ~~~~~~~~~^~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/containers.h:52:27: note: shadowed declaration is here
+   52 |         using vector<_T>::size;
+      |                           ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/containers.h: In constructor ‘LiteralIndexedVector<_T>::LiteralIndexedVector(unsigned int, const typename std::vector<T>::value_type&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/containers.h:20:39: warning: declaration of ‘size’ shadows a member of ‘LiteralIndexedVector<_T>’ [-Wshadow]
+   20 |         LiteralIndexedVector(unsigned size,
+      |                              ~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/containers.h:52:27: note: shadowed declaration is here
+   52 |         using vector<_T>::size;
+      |                           ^~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/list_graph.h:4,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/list_graph.cpp:1:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h: In constructor ‘ArrayIDIDFunc::ArrayIDIDFunc(const IDFunc&, int)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h:153:43: warning: declaration of ‘image_count_’ shadows a member of ‘ArrayIDIDFunc’ [-Wshadow]
+  153 |         ArrayIDIDFunc(const IDFunc&f, int image_count_)
+      |                                       ~~~~^~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h:184:13: note: shadowed declaration is here
+  184 |         int image_count_;
+      |             ^~~~~~~~~~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/permutation.h:4,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/sort_arc.h:6,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:7,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/list_graph.cpp:3:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator~(BitIDFunc)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:100:25: warning: redundant move in return statement [-Wredundant-move]
+  100 |         return std::move(f);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:100:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator^(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:137:25: warning: redundant move in return statement [-Wredundant-move]
+  137 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:137:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator|(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:142:25: warning: redundant move in return statement [-Wredundant-move]
+  142 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:142:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator&(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:147:25: warning: redundant move in return statement [-Wredundant-move]
+  147 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:147:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc and_not(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:152:25: warning: redundant move in return statement [-Wredundant-move]
+  152 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:152:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h: In constructor ‘SymmetricHead<Tail, Head>::SymmetricHead(Tail, Head)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:42:39: warning: declaration of ‘head’ shadows a member of ‘SymmetricHead<Tail, Head>’ [-Wshadow]
+   42 |         SymmetricHead(Tail tail, Head head):
+      |                                  ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:56:14: note: shadowed declaration is here
+   56 |         Head head;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:42:28: warning: declaration of ‘tail’ shadows a member of ‘SymmetricHead<Tail, Head>’ [-Wshadow]
+   42 |         SymmetricHead(Tail tail, Head head):
+      |                       ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:55:14: note: shadowed declaration is here
+   55 |         Tail tail;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h: In constructor ‘SymmetricTail<Tail, Head>::SymmetricTail(Tail, Head)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:67:39: warning: declaration of ‘head’ shadows a member of ‘SymmetricTail<Tail, Head>’ [-Wshadow]
+   67 |         SymmetricTail(Tail tail, Head head):
+      |                                  ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:81:14: note: shadowed declaration is here
+   81 |         Head head;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:67:28: warning: declaration of ‘tail’ shadows a member of ‘SymmetricTail<Tail, Head>’ [-Wshadow]
+   67 |         SymmetricTail(Tail tail, Head head):
+      |                       ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:80:14: note: shadowed declaration is here
+   80 |         Tail tail;
+      |              ^~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:14:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h: In instantiation of ‘ComponentManager<T_num>::ComponentManager(SolverConfiguration&, DataAndStatistics<T_num>&, LiteralIndexedVector<unsigned char>&, LiteralIndexedVector<T_num>&) [with T_num = Smpz]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:119:42:   required from ‘Solver<T_num>::Solver(std::mt19937_64&) [with T_num = Smpz; std::mt19937_64 = std::mersenne_twister_engine<long unsigned int, 64, 312, 156, 31, 13043109905998158313, 29, 6148914691236517205, 17, 8202884508482404352, 37, 18444473444759240704, 43, 6364136223846793005>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/main.cpp:199:31:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:96:25: warning: ‘ComponentManager<Smpz>::cache_’ will be initialized after [-Wreorder]
+   96 |   ComponentCache<T_num> cache_;
+      |                         ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:89:31: warning:   ‘AltComponentAnalyzer<Smpz> ComponentManager<Smpz>::ana_’ [-Wreorder]
+   89 |   AltComponentAnalyzer<T_num> ana_;
+      |                               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:29:3: warning:   when initialized here [-Wreorder]
+   29 |   ComponentManager(SolverConfiguration &config, DataAndStatistics<T_num> &statistics,
+      |   ^~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h: In instantiation of ‘ComponentManager<T_num>::ComponentManager(SolverConfiguration&, DataAndStatistics<T_num>&, LiteralIndexedVector<unsigned char>&, LiteralIndexedVector<T_num>&) [with T_num = SDouble]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:119:42:   required from ‘Solver<T_num>::Solver(std::mt19937_64&) [with T_num = SDouble; std::mt19937_64 = std::mersenne_twister_engine<long unsigned int, 64, 312, 156, 31, 13043109905998158313, 29, 6148914691236517205, 17, 8202884508482404352, 37, 18444473444759240704, 43, 6364136223846793005>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/main.cpp:241:36:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:96:25: warning: ‘ComponentManager<SDouble>::cache_’ will be initialized after [-Wreorder]
+   96 |   ComponentCache<T_num> cache_;
+      |                         ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:89:31: warning:   ‘AltComponentAnalyzer<SDouble> ComponentManager<SDouble>::ana_’ [-Wreorder]
+   89 |   AltComponentAnalyzer<T_num> ana_;
+      |                               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:29:3: warning:   when initialized here [-Wreorder]
+   29 |   ComponentManager(SolverConfiguration &config, DataAndStatistics<T_num> &statistics,
+      |   ^~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h: In instantiation of ‘ComponentManager<T_num>::ComponentManager(SolverConfiguration&, DataAndStatistics<T_num>&, LiteralIndexedVector<unsigned char>&, LiteralIndexedVector<T_num>&) [with T_num = Smpr]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:119:42:   required from ‘Solver<T_num>::Solver(std::mt19937_64&) [with T_num = Smpr; std::mt19937_64 = std::mersenne_twister_engine<long unsigned int, 64, 312, 156, 31, 13043109905998158313, 29, 6148914691236517205, 17, 8202884508482404352, 37, 18444473444759240704, 43, 6364136223846793005>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/main.cpp:253:33:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:96:25: warning: ‘ComponentManager<Smpr>::cache_’ will be initialized after [-Wreorder]
+   96 |   ComponentCache<T_num> cache_;
+      |                         ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:89:31: warning:   ‘AltComponentAnalyzer<Smpr> ComponentManager<Smpr>::ana_’ [-Wreorder]
+   89 |   AltComponentAnalyzer<T_num> ana_;
+      |                               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/component_management.h:29:3: warning:   when initialized here [-Wreorder]
+   29 |   ComponentManager(SolverConfiguration &config, DataAndStatistics<T_num> &statistics,
+      |   ^~~~~~~~~~~~~~~~
+[ 27%] Building CXX object flowcutter/CMakeFiles/libflowcutter.dir/tree_decomposition.cpp.o
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/flowcutter && /usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT flowcutter/CMakeFiles/libflowcutter.dir/tree_decomposition.cpp.o -MF CMakeFiles/libflowcutter.dir/tree_decomposition.cpp.o.d -o CMakeFiles/libflowcutter.dir/tree_decomposition.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/instance.h: In instantiation of ‘void Instance<T_num>::setGlue(ClauseOfs, bool) [with T_num = Smpz; ClauseOfs = unsigned int]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:190:28:   required from ‘bool Solver<T_num>::setLiteralIfFreeBase(LiteralID, Antecedent) [with T_num = Smpz]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:328:9:   required from ‘bool Solver<T_num>::setLiteralIfFree(LiteralID, Antecedent) [with T_num = Smpz]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:362:3:   required from ‘bool Solver<T_num>::simplePreProcess() [with T_num = Smpz]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:447:23:   required from ‘T_num Solver<T_num>::solve(const sspp::Instance&, const sspp::TreeDecomposition&) [with T_num = Smpz]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/main.cpp:204:36:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/instance.h:141:16: warning: unused variable ‘var’ [-Wunused-variable]
+  141 |       unsigned var = (*it).var();
+      |                ^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/instance.h: In instantiation of ‘void Instance<T_num>::setGlue(ClauseOfs, bool) [with T_num = SDouble; ClauseOfs = unsigned int]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:190:28:   required from ‘bool Solver<T_num>::setLiteralIfFreeBase(LiteralID, Antecedent) [with T_num = SDouble]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:328:9:   required from ‘bool Solver<T_num>::setLiteralIfFree(LiteralID, Antecedent) [with T_num = SDouble]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:362:3:   required from ‘bool Solver<T_num>::simplePreProcess() [with T_num = SDouble]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:447:23:   required from ‘T_num Solver<T_num>::solve(const sspp::Instance&, const sspp::TreeDecomposition&) [with T_num = SDouble]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/main.cpp:246:36:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/instance.h:141:16: warning: unused variable ‘var’ [-Wunused-variable]
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/instance.h: In instantiation of ‘void Instance<T_num>::setGlue(ClauseOfs, bool) [with T_num = Smpr; ClauseOfs = unsigned int]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:190:28:   required from ‘bool Solver<T_num>::setLiteralIfFreeBase(LiteralID, Antecedent) [with T_num = Smpr]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:328:9:   required from ‘bool Solver<T_num>::setLiteralIfFree(LiteralID, Antecedent) [with T_num = Smpr]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:362:3:   required from ‘bool Solver<T_num>::simplePreProcess() [with T_num = Smpr]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/solver.h:447:23:   required from ‘T_num Solver<T_num>::solve(const sspp::Instance&, const sspp::TreeDecomposition&) [with T_num = Smpr]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/main.cpp:258:42:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/instance.h:141:16: warning: unused variable ‘var’ [-Wunused-variable]
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.h:4,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:1:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h: In constructor ‘ArrayIDIDFunc::ArrayIDIDFunc(const IDFunc&, int)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h:153:43: warning: declaration of ‘image_count_’ shadows a member of ‘ArrayIDIDFunc’ [-Wshadow]
+  153 |         ArrayIDIDFunc(const IDFunc&f, int image_count_)
+      |                                       ~~~~^~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h:184:13: note: shadowed declaration is here
+  184 |         int image_count_;
+      |             ^~~~~~~~~~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:7:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h: In constructor ‘kway_min_id_heap<keyT, k, key_orderT>::kway_min_id_heap(int, key_order_type)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:18:64: warning: declaration of ‘order’ shadows a member of ‘kway_min_id_heap<keyT, k, key_orderT>’ [-Wshadow]
+   18 |         explicit kway_min_id_heap(int id_count, key_order_type order = key_order_type()):
+      |                                                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:368:24: note: shadowed declaration is here
+  368 |         key_order_type order;
+      |                        ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h: In constructor ‘kway_min_id_heap<keyT, k, key_orderT>::kway_min_id_heap(key_order_type)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:24:50: warning: declaration of ‘order’ shadows a member of ‘kway_min_id_heap<keyT, k, key_orderT>’ [-Wshadow]
+   24 |         explicit kway_min_id_heap(key_order_type order = key_order_type()):
+      |                                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:368:24: note: shadowed declaration is here
+  368 |         key_order_type order;
+      |                        ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h: In constructor ‘kway_max_id_heap<keyT, k, key_orderT>::inverted_order::inverted_order(kway_max_id_heap<keyT, k, key_orderT>::key_order_type)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:487:47: warning: declaration of ‘order’ shadows a member of ‘kway_max_id_heap<keyT, k, key_orderT>::inverted_order’ [-Wshadow]
+  487 |                 inverted_order(key_order_type order):order(std::move(order)){}
+      |                                ~~~~~~~~~~~~~~~^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/heap.h:491:32: note: shadowed declaration is here
+  491 |                 key_order_type order;
+      |                                ^~~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:8:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator~(BitIDFunc)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:100:25: warning: redundant move in return statement [-Wredundant-move]
+  100 |         return std::move(f);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:100:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator^(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:137:25: warning: redundant move in return statement [-Wredundant-move]
+  137 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:137:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator|(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:142:25: warning: redundant move in return statement [-Wredundant-move]
+  142 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:142:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator&(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:147:25: warning: redundant move in return statement [-Wredundant-move]
+  147 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:147:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc and_not(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:152:25: warning: redundant move in return statement [-Wredundant-move]
+  152 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:152:25: note: remove ‘std::move’ call
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:7,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:9:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h: In constructor ‘SymmetricHead<Tail, Head>::SymmetricHead(Tail, Head)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:42:39: warning: declaration of ‘head’ shadows a member of ‘SymmetricHead<Tail, Head>’ [-Wshadow]
+   42 |         SymmetricHead(Tail tail, Head head):
+      |                                  ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:56:14: note: shadowed declaration is here
+   56 |         Head head;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:42:28: warning: declaration of ‘tail’ shadows a member of ‘SymmetricHead<Tail, Head>’ [-Wshadow]
+   42 |         SymmetricHead(Tail tail, Head head):
+      |                       ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:55:14: note: shadowed declaration is here
+   55 |         Tail tail;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h: In constructor ‘SymmetricTail<Tail, Head>::SymmetricTail(Tail, Head)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:67:39: warning: declaration of ‘head’ shadows a member of ‘SymmetricTail<Tail, Head>’ [-Wshadow]
+   67 |         SymmetricTail(Tail tail, Head head):
+      |                                  ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:81:14: note: shadowed declaration is here
+   81 |         Head head;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:67:28: warning: declaration of ‘tail’ shadows a member of ‘SymmetricTail<Tail, Head>’ [-Wshadow]
+   67 |         SymmetricTail(Tail tail, Head head):
+      |                       ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:80:14: note: shadowed declaration is here
+   80 |         Tail tail;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp: In function ‘void print_tree_decompostion_of_order(std::ostream&, ArrayIDIDFunc, ArrayIDIDFunc, const ArrayIDIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:124:33: warning: declaration of ‘std::vector<int> tail’ shadows a parameter [-Wshadow]
+  124 |                 std::vector<int>tail, head, weight;
+      |                                 ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:13:71: note: shadowed declaration is here
+   13 | void print_tree_decompostion_of_order(std::ostream&out, ArrayIDIDFunc tail, ArrayIDIDFunc head, const ArrayIDIDFunc&order){
+      |                                                         ~~~~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:124:39: warning: declaration of ‘std::vector<int> head’ shadows a parameter [-Wshadow]
+  124 |                 std::vector<int>tail, head, weight;
+      |                                       ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:13:91: note: shadowed declaration is here
+   13 | void print_tree_decompostion_of_order(std::ostream&out, ArrayIDIDFunc tail, ArrayIDIDFunc head, const ArrayIDIDFunc&order){
+      |                                                                             ~~~~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp: In function ‘void print_tree_decompostion_of_multilevel_partition(std::ostream&, const ArrayIDIDFunc&, const ArrayIDIDFunc&, const ArrayIDIDFunc&, const std::vector<Cell>&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:189:92: warning: unused parameter ‘tail’ [-Wunused-parameter]
+  189 | void print_tree_decompostion_of_multilevel_partition(std::ostream&out, const ArrayIDIDFunc&tail, const ArrayIDIDFunc&head, const ArrayIDIDFunc&to_input_node_id, const std::vector<Cell>&cell_list){
+      |                                                                        ~~~~~~~~~~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tree_decomposition.cpp:189:118: warning: unused parameter ‘head’ [-Wunused-parameter]
+  189 | void print_tree_decompostion_of_multilevel_partition(std::ostream&out, const ArrayIDIDFunc&tail, const ArrayIDIDFunc&head, const ArrayIDIDFunc&to_input_node_id, const std::vector<Cell>&cell_list){
+      |                                                                                                  ~~~~~~~~~~~~~~~~~~~~^~~~
+[ 33%] Linking CXX static library liblibflowcutter.a
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/flowcutter && /usr/bin/cmake -P CMakeFiles/libflowcutter.dir/cmake_clean_target.cmake
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/flowcutter && /usr/bin/cmake -E cmake_link_script CMakeFiles/libflowcutter.dir/link.txt --verbose=1
+/usr/bin/ar qc liblibflowcutter.a CMakeFiles/libflowcutter.dir/cell.cpp.o CMakeFiles/libflowcutter.dir/greedy_order.cpp.o CMakeFiles/libflowcutter.dir/list_graph.cpp.o CMakeFiles/libflowcutter.dir/tree_decomposition.cpp.o
+/usr/bin/ranlib liblibflowcutter.a
+gmake[2]: Leaving directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+[ 33%] Built target libflowcutter
+[ 38%] Building CXX object CMakeFiles/sharpSAT.dir/src/preprocessor/graph.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/preprocessor/graph.cpp.o -MF CMakeFiles/sharpSAT.dir/src/preprocessor/graph.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/preprocessor/graph.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/graph.cpp
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/graph.cpp: In member function ‘sspp::Bitset sspp::Graph::AnotherComp(int, const sspp::Bitset&) const’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/graph.cpp:496:8: warning: variable ‘ffx’ set but not used [-Wunused-but-set-variable]
+  496 |   bool ffx = false;
+      |        ^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/graph.cpp:497:8: warning: variable ‘fnx’ set but not used [-Wunused-but-set-variable]
+  497 |   bool fnx = false;
+      |        ^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/graph.cpp: In member function ‘void sspp::TreeDecomposition::SetBag(int, std::vector<int>)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/graph.cpp:785:18: warning: unused variable ‘u’ [-Wunused-variable]
+  785 |         for (int u : bags[v]) {
+      |                  ^
+[ 44%] Building CXX object CMakeFiles/sharpSAT.dir/src/preprocessor/instance.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/preprocessor/instance.cpp.o -MF CMakeFiles/sharpSAT.dir/src/preprocessor/instance.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/preprocessor/instance.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp: In member function ‘void sspp::Instance::AddClause(std::vector<int>)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp:47:18: warning: unused variable ‘l’ [-Wunused-variable]
+   47 |         for (Lit l : clause) {
+      |                  ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp: In member function ‘void sspp::Instance::AddLearnedClause(std::vector<int>)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp:62:18: warning: unused variable ‘l’ [-Wunused-variable]
+   62 |         for (Lit l : clause) {
+      |                  ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp: In constructor ‘sspp::Instance::Instance(int, std::vector<std::vector<int> >)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp:98:29: warning: unused variable ‘v’ [-Wunused-variable]
+   98 |                         Var v = VarOf(clause[i]);
+      |                             ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp: In constructor ‘sspp::Instance::Instance(std::string, bool)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp:116:13: warning: declaration of ‘format’ shadows a member of ‘sspp::Instance’ [-Wshadow]
+  116 |         int format = 0;
+      |             ^~~~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.cpp:6:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.hpp:40:13: note: shadowed declaration is here
+   40 |         int format = 0;
+      |             ^~~~~~
+[ 50%] Building CXX object CMakeFiles/sharpSAT.dir/src/preprocessor/oracle.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/preprocessor/oracle.cpp.o -MF CMakeFiles/sharpSAT.dir/src/preprocessor/oracle.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/preprocessor/oracle.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp: In member function ‘bool sspp::oracle::Oracle::RemoveIfPossible(const std::vector<int>&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp:129:22: warning: variable ‘fo’ set but not used [-Wunused-but-set-variable]
+  129 |                 bool fo = false;
+      |                      ^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp: In member function ‘void sspp::oracle::Oracle::ResizeClauseDb()’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp:298:36: warning: variable ‘w’ set but not used [-Wunused-but-set-variable]
+  298 |                         for (Watch w : watches[l]) {
+      |                                    ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp: In member function ‘bool sspp::oracle::Oracle::HardSolve()’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp:816:13: warning: variable ‘last_var_ass_size’ set but not used [-Wunused-but-set-variable]
+  816 |         int last_var_ass_size = 0;
+      |             ^~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp: In member function ‘void sspp::oracle::Oracle::AddOrigClause(std::vector<int>, bool)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp:881:18: warning: unused variable ‘lit’ [-Wunused-variable]
+  881 |         for (Lit lit : clause) {
+      |                  ^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp: In member function ‘std::vector<int> sspp::oracle::Oracle::InferUnits(const std::vector<int>&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp:1084:18: warning: unused variable ‘lit’ [-Wunused-variable]
+ 1084 |         for (Lit lit : assumps) {
+      |                  ^~~
+[ 55%] Building CXX object CMakeFiles/sharpSAT.dir/src/preprocessor/preprocessor.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/preprocessor/preprocessor.cpp.o -MF CMakeFiles/sharpSAT.dir/src/preprocessor/preprocessor.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/preprocessor/preprocessor.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/preprocessor.cpp
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/preprocessor.cpp: In member function ‘void sspp::Preprocessor::Tighten(bool)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/preprocessor.cpp:133:26: warning: unused variable ‘lit’ [-Wunused-variable]
+  133 |                 for (Lit lit : clause) {
+      |                          ^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/preprocessor.cpp:142:26: warning: unused variable ‘lit’ [-Wunused-variable]
+  142 |                 for (Lit lit : clause) {
+      |                          ^~~
+In file included from /usr/include/c++/13/vector:62,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/instance.hpp:3,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.hpp:3,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp:1:
+In static member function ‘static _Up* std::__copy_move<_IsMove, true, std::random_access_iterator_tag>::__copy_m(_Tp*, _Tp*, _Up*) [with _Tp = const int; _Up = int; bool _IsMove = false]’,
+    inlined from ‘_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = const int*; _OI = int*]’ at /usr/include/c++/13/bits/stl_algobase.h:506:30,
+    inlined from ‘_OI std::__copy_move_a1(_II, _II, _OI) [with bool _IsMove = false; _II = const int*; _OI = int*]’ at /usr/include/c++/13/bits/stl_algobase.h:533:42,
+    inlined from ‘_OI std::__copy_move_a(_II, _II, _OI) [with bool _IsMove = false; _II = __gnu_cxx::__normal_iterator<const int*, vector<int> >; _OI = int*]’ at /usr/include/c++/13/bits/stl_algobase.h:540:31,
+    inlined from ‘_OI std::copy(_II, _II, _OI) [with _II = __gnu_cxx::__normal_iterator<const int*, vector<int> >; _OI = int*]’ at /usr/include/c++/13/bits/stl_algobase.h:633:7,
+    inlined from ‘static _ForwardIterator std::__uninitialized_copy<true>::__uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const int*, std::vector<int> >; _ForwardIterator = int*]’ at /usr/include/c++/13/bits/stl_uninitialized.h:147:27,
+    inlined from ‘_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const int*, vector<int> >; _ForwardIterator = int*]’ at /usr/include/c++/13/bits/stl_uninitialized.h:185:15,
+    inlined from ‘_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const int*, vector<int> >; _ForwardIterator = int*; _Tp = int]’ at /usr/include/c++/13/bits/stl_uninitialized.h:373:37,
+    inlined from ‘std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = int; _Alloc = std::allocator<int>]’ at /usr/include/c++/13/bits/stl_vector.h:606:31,
+    inlined from ‘bool sspp::oracle::Oracle::AddClauseIfNeeded(std::vector<int>, bool)’ at /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/oracle.cpp:1175:16:
+/usr/include/c++/13/bits/stl_algobase.h:437:30: warning: ‘void* __builtin_memmove(void*, const void*, long unsigned int)’ forming offset 4 is out of the bounds [0, 4] [-Warray-bounds=]
+  437 |             __builtin_memmove(__result, __first, sizeof(_Tp) * _Num);
+      |             ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 61%] Building CXX object CMakeFiles/sharpSAT.dir/src/preprocessor/subsumer.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/preprocessor/subsumer.cpp.o -MF CMakeFiles/sharpSAT.dir/src/preprocessor/subsumer.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/preprocessor/subsumer.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/subsumer.cpp
+[ 66%] Building CXX object CMakeFiles/sharpSAT.dir/src/preprocessor/treewidth.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/preprocessor/treewidth.cpp.o -MF CMakeFiles/sharpSAT.dir/src/preprocessor/treewidth.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/preprocessor/treewidth.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/treewidth.cpp
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/treewidth.cpp: In function ‘sspp::TreeDecomposition sspp::decomp::Treedecomp(const sspp::Graph&, double, std::string)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/treewidth.cpp:63:13: warning: unused variable ‘status’ [-Wunused-variable]
+   63 |         int status = system(cmd.c_str());
+      |             ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/treewidth.cpp:101:15: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  101 |         system(("rm -f " + tmp1).c_str());
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/treewidth.cpp:102:15: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  102 |         system(("rm -f " + tmp2).c_str());
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 72%] Building CXX object CMakeFiles/sharpSAT.dir/src/preprocessor/twpp.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/preprocessor/twpp.cpp.o -MF CMakeFiles/sharpSAT.dir/src/preprocessor/twpp.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/preprocessor/twpp.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/preprocessor/twpp.cpp
+[ 77%] Building CXX object CMakeFiles/sharpSAT.dir/src/decomposition.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/decomposition.cpp.o -MF CMakeFiles/sharpSAT.dir/src/decomposition.cpp.o.d -o CMakeFiles/sharpSAT.dir/src/decomposition.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp: In function ‘void decomp::{anonymous}::bfs(int, const Graph&, std::vector<int>&, std::vector<int>&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp:18:13: warning: unused variable ‘n’ [-Wunused-variable]
+   18 |         int n = graph.size()-1;
+      |             ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp: In function ‘std::pair<int, std::vector<int> > decomp::{anonymous}::Treewidth(const Graph&, double)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp:172:13: warning: unused variable ‘status’ [-Wunused-variable]
+  172 |         int status = system(cmd.c_str());
+      |             ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp:222:15: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  222 |         system(("rm -f " + tmp1).c_str());
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp:223:15: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  223 |         system(("rm -f " + tmp2).c_str());
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp: In function ‘std::string decomp::{anonymous}::TmpInstance(int, int, int)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/decomposition.cpp:75:9: warning: ignoring return value of ‘int system(const char*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   75 |   system(("mkdir -p " + dir).c_str());
+      |   ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 83%] Building C object CMakeFiles/sharpSAT.dir/src/clhash/clhash.c.o
+/usr/bin/cc -DMPFR_USE_NO_MACRO  -std=c99 -Wall -msse4.1 -mpclmul -O3 -DNDEBUG -MD -MT CMakeFiles/sharpSAT.dir/src/clhash/clhash.c.o -MF CMakeFiles/sharpSAT.dir/src/clhash/clhash.c.o.d -o CMakeFiles/sharpSAT.dir/src/clhash/clhash.c.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/src/clhash/clhash.c
+/usr/bin/gmake  -f CMakeFiles/flow_cutter_pace17.dir/build.make CMakeFiles/flow_cutter_pace17.dir/depend
+gmake[2]: Entering directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+cd /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/scott/.hermes/cache/scratch/sat-sharpsat-td /home/scott/.hermes/cache/scratch/sat-sharpsat-td /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/CMakeFiles/flow_cutter_pace17.dir/DependInfo.cmake "--color="
+gmake[2]: Leaving directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+/usr/bin/gmake  -f CMakeFiles/flow_cutter_pace17.dir/build.make CMakeFiles/flow_cutter_pace17.dir/build
+gmake[2]: Entering directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+[ 88%] Building CXX object CMakeFiles/flow_cutter_pace17.dir/flowcutter/pace.cpp.o
+/usr/bin/c++ -DMPFR_USE_NO_MACRO  -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -MD -MT CMakeFiles/flow_cutter_pace17.dir/flowcutter/pace.cpp.o -MF CMakeFiles/flow_cutter_pace17.dir/flowcutter/pace.cpp.o.d -o CMakeFiles/flow_cutter_pace17.dir/flowcutter/pace.cpp.o -c /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp
+[ 94%] Linking CXX executable sharpSAT
+/usr/bin/cmake -E cmake_link_script CMakeFiles/sharpSAT.dir/link.txt --verbose=1
+/usr/bin/c++ -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -rdynamic CMakeFiles/sharpSAT.dir/src/main.cpp.o CMakeFiles/sharpSAT.dir/src/preprocessor/graph.cpp.o CMakeFiles/sharpSAT.dir/src/preprocessor/instance.cpp.o CMakeFiles/sharpSAT.dir/src/preprocessor/oracle.cpp.o CMakeFiles/sharpSAT.dir/src/preprocessor/preprocessor.cpp.o CMakeFiles/sharpSAT.dir/src/preprocessor/subsumer.cpp.o CMakeFiles/sharpSAT.dir/src/preprocessor/treewidth.cpp.o CMakeFiles/sharpSAT.dir/src/preprocessor/twpp.cpp.o CMakeFiles/sharpSAT.dir/src/decomposition.cpp.o CMakeFiles/sharpSAT.dir/src/clhash/clhash.c.o -o sharpSAT  /lib/x86_64-linux-gnu/libmpfr.so.6 -lgmpxx /lib/x86_64-linux-gnu/libgmp.so.10 
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/list_graph.h:4,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:3:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h: In constructor ‘ArrayIDIDFunc::ArrayIDIDFunc(const IDFunc&, int)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h:153:43: warning: declaration of ‘image_count_’ shadows a member of ‘ArrayIDIDFunc’ [-Wshadow]
+  153 |         ArrayIDIDFunc(const IDFunc&f, int image_count_)
+      |                                       ~~~~^~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/array_id_func.h:184:13: note: shadowed declaration is here
+  184 |         int image_count_;
+      |             ^~~~~~~~~~~~
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/permutation.h:4,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/sort_arc.h:6,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:7,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:4:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator~(BitIDFunc)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:100:25: warning: redundant move in return statement [-Wredundant-move]
+  100 |         return std::move(f);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:100:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator^(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:137:25: warning: redundant move in return statement [-Wredundant-move]
+  137 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:137:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator|(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:142:25: warning: redundant move in return statement [-Wredundant-move]
+  142 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:142:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc operator&(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:147:25: warning: redundant move in return statement [-Wredundant-move]
+  147 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:147:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In function ‘BitIDFunc and_not(BitIDFunc, const BitIDFunc&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:152:25: warning: redundant move in return statement [-Wredundant-move]
+  152 |         return std::move(l);
+      |                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:152:25: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h: In constructor ‘SymmetricHead<Tail, Head>::SymmetricHead(Tail, Head)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:42:39: warning: declaration of ‘head’ shadows a member of ‘SymmetricHead<Tail, Head>’ [-Wshadow]
+   42 |         SymmetricHead(Tail tail, Head head):
+      |                                  ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:56:14: note: shadowed declaration is here
+   56 |         Head head;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:42:28: warning: declaration of ‘tail’ shadows a member of ‘SymmetricHead<Tail, Head>’ [-Wshadow]
+   42 |         SymmetricHead(Tail tail, Head head):
+      |                       ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:55:14: note: shadowed declaration is here
+   55 |         Tail tail;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h: In constructor ‘SymmetricTail<Tail, Head>::SymmetricTail(Tail, Head)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:67:39: warning: declaration of ‘head’ shadows a member of ‘SymmetricTail<Tail, Head>’ [-Wshadow]
+   67 |         SymmetricTail(Tail tail, Head head):
+      |                                  ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:81:14: note: shadowed declaration is here
+   81 |         Head head;
+      |              ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:67:28: warning: declaration of ‘tail’ shadows a member of ‘SymmetricTail<Tail, Head>’ [-Wshadow]
+   67 |         SymmetricTail(Tail tail, Head head):
+      |                       ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/multi_arc.h:80:14: note: shadowed declaration is here
+   80 |         Tail tail;
+      |              ^~~~
+gmake[2]: Leaving directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+[ 94%] Built target sharpSAT
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:4,
+                 from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:8:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In constructor ‘flow_cutter::Graph<Tail, Head, BackArc, Capacity, OutArc>::Graph(Tail, Head, BackArc, Capacity, OutArc)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:25:32: warning: declaration of ‘out_arc’ shadows a member of ‘flow_cutter::Graph<Tail, Head, BackArc, Capacity, OutArc>’ [-Wshadow]
+   25 |                         OutArc out_arc
+      |                         ~~~~~~~^~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:37:24: note: shadowed declaration is here
+   37 |                 OutArc out_arc;
+      |                        ^~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:24:34: warning: declaration of ‘capacity’ shadows a member of ‘flow_cutter::Graph<Tail, Head, BackArc, Capacity, OutArc>’ [-Wshadow]
+   24 |                         Capacity capacity,
+      |                         ~~~~~~~~~^~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:36:26: note: shadowed declaration is here
+   36 |                 Capacity capacity;
+      |                          ^~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:23:33: warning: declaration of ‘back_arc’ shadows a member of ‘flow_cutter::Graph<Tail, Head, BackArc, Capacity, OutArc>’ [-Wshadow]
+   23 |                         BackArc back_arc,
+      |                         ~~~~~~~~^~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:35:25: note: shadowed declaration is here
+   35 |                 BackArc back_arc;
+      |                         ^~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:22:30: warning: declaration of ‘head’ shadows a member of ‘flow_cutter::Graph<Tail, Head, BackArc, Capacity, OutArc>’ [-Wshadow]
+   22 |                         Head head,
+      |                         ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:34:22: note: shadowed declaration is here
+   34 |                 Head head;
+      |                      ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:21:30: warning: declaration of ‘tail’ shadows a member of ‘flow_cutter::Graph<Tail, Head, BackArc, Capacity, OutArc>’ [-Wshadow]
+   21 |                         Tail tail,
+      |                         ~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:33:22: note: shadowed declaration is here
+   33 |                 Tail tail;
+      |                      ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In lambda function:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:851:69: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  851 |                                 auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                 ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:850:38: note: shadowed declaration is here
+  850 |                                 auto&x = cutter_list[i];
+      |                                      ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In lambda function:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:899:77: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  899 |                                         auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                         ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:898:46: note: shadowed declaration is here
+  898 |                                         auto x = std::move(cutter_list[i]);
+      |                                              ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In constructor ‘flow_cutter::PierceNodeScore::PierceNodeScore(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:982:40: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::PierceNodeScore’ [-Wshadow]
+  982 |                 PierceNodeScore(Config config): config(config){
+      |                                 ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:990:24: note: shadowed declaration is here
+  990 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In constructor ‘flow_cutter::PierceNodeScore::PierceNodeScore(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:982:40: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::PierceNodeScore’ [-Wshadow]
+  982 |                 PierceNodeScore(Config config): config(config){
+      |                                 ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:990:24: note: shadowed declaration is here
+  990 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In constructor ‘flow_cutter::PierceNodeScore::PierceNodeScore(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:982:40: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::PierceNodeScore’ [-Wshadow]
+  982 |                 PierceNodeScore(Config config): config(config){
+      |                                 ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:990:24: note: shadowed declaration is here
+  990 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In member function ‘int flow_cutter::PierceNodeScore::operator()(int, int, bool, int, int, int) const’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:993:116: warning: unused parameter ‘cutter_id’ [-Wunused-parameter]
+  993 |                 int operator()(int x, int side, bool causes_augmenting_path, int source_dist, int target_dist, int cutter_id)const{
+      |                                                                                                                ~~~~^~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In constructor ‘flow_cutter::SimpleCutter<Graph>::SimpleCutter(const Graph&, flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1050:56: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::SimpleCutter<Graph>’ [-Wshadow]
+ 1050 |                 SimpleCutter(const Graph&graph, Config config):
+      |                                                 ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1124:24: note: shadowed declaration is here
+ 1124 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1050:42: warning: declaration of ‘graph’ shadows a member of ‘flow_cutter::SimpleCutter<Graph>’ [-Wshadow]
+ 1050 |                 SimpleCutter(const Graph&graph, Config config):
+      |                              ~~~~~~~~~~~~^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1121:29: note: shadowed declaration is here
+ 1121 |                 const Graph&graph;
+      |                             ^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h: In function ‘int flow_cutter::expanded_graph::original_arc_to_expanded_inter_arc(int, bool, int)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:27:94: warning: unused parameter ‘original_arc_count’ [-Wunused-parameter]
+   27 |                 inline int original_arc_to_expanded_inter_arc(int x, bool tail_out_flag, int original_arc_count){ return 2*x+tail_out_flag; }
+      |                                                                                          ~~~~^~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h: In constructor ‘flow_cutter::expanded_graph::OutArcIter<OriginalOutArc>::OutArcIter(int, bool, OriginalOutArcIter)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:128:90: warning: declaration of ‘base_iter’ shadows a member of ‘flow_cutter::expanded_graph::OutArcIter<OriginalOutArc>’ [-Wshadow]
+  128 |                         OutArcIter(int intra_arc, bool node_out_flag, OriginalOutArcIter base_iter):
+      |                                                                       ~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:160:44: note: shadowed declaration is here
+  160 |                         OriginalOutArcIter base_iter;
+      |                                            ^~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:128:56: warning: declaration of ‘node_out_flag’ shadows a member of ‘flow_cutter::expanded_graph::OutArcIter<OriginalOutArc>’ [-Wshadow]
+  128 |                         OutArcIter(int intra_arc, bool node_out_flag, OriginalOutArcIter base_iter):
+      |                                                   ~~~~~^~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:159:30: note: shadowed declaration is here
+  159 |                         bool node_out_flag;
+      |                              ^~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:128:40: warning: declaration of ‘intra_arc’ shadows a member of ‘flow_cutter::expanded_graph::OutArcIter<OriginalOutArc>’ [-Wshadow]
+  128 |                         OutArcIter(int intra_arc, bool node_out_flag, OriginalOutArcIter base_iter):
+      |                                    ~~~~^~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:158:29: note: shadowed declaration is here
+  158 |                         int intra_arc;
+      |                             ^~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h: In function ‘std::vector<flow_cutter::SourceTargetPair> flow_cutter::expanded_graph::expand_source_target_pair_list(std::vector<flow_cutter::SourceTargetPair>)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:289:41: warning: redundant move in return statement [-Wredundant-move]
+  289 |                         return std::move(p);
+      |                                ~~~~~~~~~^~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/node_flow_cutter.h:289:41: note: remove ‘std::move’ call
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:9:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h: In constructor ‘flow_cutter::ComputeSeparator::ComputeSeparator(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:15:50: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::ComputeSeparator’ [-Wshadow]
+   15 |                 explicit ComputeSeparator(Config config):config(config){}
+      |                                           ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:203:24: note: shadowed declaration is here
+  203 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h: In constructor ‘flow_cutter::ComputeSeparator::ComputeSeparator(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:15:50: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::ComputeSeparator’ [-Wshadow]
+   15 |                 explicit ComputeSeparator(Config config):config(config){}
+      |                                           ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:203:24: note: shadowed declaration is here
+  203 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h: In constructor ‘flow_cutter::ComputeSeparator::ComputeSeparator(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:15:50: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::ComputeSeparator’ [-Wshadow]
+   15 |                 explicit ComputeSeparator(Config config):config(config){}
+      |                                           ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:203:24: note: shadowed declaration is here
+  203 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h: In constructor ‘flow_cutter::ComputeSeparatorList::ComputeSeparatorList(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:210:54: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::ComputeSeparatorList’ [-Wshadow]
+  210 |                 explicit ComputeSeparatorList(Config config):config(config){}
+      |                                               ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:277:24: note: shadowed declaration is here
+  277 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h: In constructor ‘flow_cutter::ComputeSeparatorList::ComputeSeparatorList(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:210:54: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::ComputeSeparatorList’ [-Wshadow]
+  210 |                 explicit ComputeSeparatorList(Config config):config(config){}
+      |                                               ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:277:24: note: shadowed declaration is here
+  277 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h: In constructor ‘flow_cutter::ComputeSeparatorList::ComputeSeparatorList(flow_cutter::Config)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:210:54: warning: declaration of ‘config’ shadows a member of ‘flow_cutter::ComputeSeparatorList’ [-Wshadow]
+  210 |                 explicit ComputeSeparatorList(Config config):config(config){}
+      |                                               ~~~~~~~^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:277:24: note: shadowed declaration is here
+  277 |                 Config config;
+      |                        ^~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp: In function ‘void check_multilevel_partition_invariants(const Tail&, const Head&, const std::vector<Cell>&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:62:72: warning: declaration of ‘head’ shadows a global declaration [-Wshadow]
+   62 | void check_multilevel_partition_invariants(const Tail&tail, const Head&head, const std::vector<Cell>&multilevel_partition){
+      |                                                             ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:21: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |                     ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:62:55: warning: declaration of ‘tail’ shadows a global declaration [-Wshadow]
+   62 | void check_multilevel_partition_invariants(const Tail&tail, const Head&head, const std::vector<Cell>&multilevel_partition){
+      |                                            ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:15: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp: In function ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:102:63: warning: declaration of ‘head’ shadows a global declaration [-Wshadow]
+  102 | void compute_multilevel_partition(const Tail&tail, const Head&head, const ComputeSeparator&compute_separator, int smallest_known_treewidth, const OnNewMP&on_new_multilevel_partition){
+      |                                                    ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:21: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |                     ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:102:46: warning: declaration of ‘tail’ shadows a global declaration [-Wshadow]
+  102 | void compute_multilevel_partition(const Tail&tail, const Head&head, const ComputeSeparator&compute_separator, int smallest_known_treewidth, const OnNewMP&on_new_multilevel_partition){
+      |                                   ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:15: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:242:50: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  242 |                                         for(auto&x:new_cell_interior_node_list)
+      |                                                  ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:237:33: note: shadowed declaration is here
+  237 |                         for(int x=0; x<interior_node_count; ++x){
+      |                                 ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:253:58: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  253 |                                                 for(auto x:new_cell.separator_node_list)
+      |                                                          ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:237:33: note: shadowed declaration is here
+  237 |                         for(int x=0; x<interior_node_count; ++x){
+      |                                 ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp: In lambda function:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:259:73: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  259 |                                                                 [&](int x)->bool{
+      |                                                                     ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:237:33: note: shadowed declaration is here
+  237 |                         for(int x=0; x<interior_node_count; ++x){
+      |                                 ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp: In function ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&)’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:268:58: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  268 |                                                 for(auto x:new_cell.separator_node_list)
+      |                                                          ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:237:33: note: shadowed declaration is here
+  237 |                         for(int x=0; x<interior_node_count; ++x){
+      |                                 ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp: In lambda function:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:344:32: warning: unused parameter ‘y’ [-Wunused-parameter]
+  344 |                 [&](int x, int y){
+      |                            ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In instantiation of ‘TinyIntIDFunc<bit_count>::TinyIntIDFunc(const IDFunc&, typename std::enable_if<is_id_func<IDFunc>::value, void>::type*) [with IDFunc = LambdaIDFunc<flow_cutter::BasicCutter::dump_state() const::<lambda(int)> >; int bit_count = 1; typename std::enable_if<is_id_func<IDFunc>::value, void>::type = void]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:431:12:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:28:106: warning: unused parameter ‘dummy’ [-Wunused-parameter]
+   28 |         TinyIntIDFunc(const IDFunc&other, typename std::enable_if<is_id_func<IDFunc>::value, void>::type*dummy=0)
+      |                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In instantiation of ‘TinyIntIDFunc<bit_count>::TinyIntIDFunc(const IDFunc&, typename std::enable_if<is_id_func<IDFunc>::value, void>::type*) [with IDFunc = LambdaIDFunc<flow_cutter::BasicCutter::dump_state() const::<lambda(int)> >; int bit_count = 1; typename std::enable_if<is_id_func<IDFunc>::value, void>::type = void]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:437:12:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:28:106: warning: unused parameter ‘dummy’ [-Wunused-parameter]
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In instantiation of ‘TinyIntIDFunc<bit_count>::TinyIntIDFunc(const IDFunc&, typename std::enable_if<is_id_func<IDFunc>::value, void>::type*) [with IDFunc = LambdaIDFunc<flow_cutter::BasicCutter::dump_state() const::<lambda(int)> >; int bit_count = 1; typename std::enable_if<is_id_func<IDFunc>::value, void>::type = void]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:443:12:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:28:106: warning: unused parameter ‘dummy’ [-Wunused-parameter]
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In instantiation of ‘TinyIntIDFunc<bit_count>::TinyIntIDFunc(const IDFunc&, typename std::enable_if<is_id_func<IDFunc>::value, void>::type*) [with IDFunc = LambdaIDFunc<flow_cutter::BasicCutter::dump_state() const::<lambda(int)> >; int bit_count = 1; typename std::enable_if<is_id_func<IDFunc>::value, void>::type = void]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:449:12:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:28:106: warning: unused parameter ‘dummy’ [-Wunused-parameter]
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h: In instantiation of ‘TinyIntIDFunc<bit_count>::TinyIntIDFunc(const IDFunc&, typename std::enable_if<is_id_func<IDFunc>::value, void>::type*) [with IDFunc = LambdaIDFunc<flow_cutter::BasicCutter::dump_state() const::<lambda(int)> >; int bit_count = 1; typename std::enable_if<is_id_func<IDFunc>::value, void>::type = void]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:455:12:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/tiny_id_func.h:28:106: warning: unused parameter ‘dummy’ [-Wunused-parameter]
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp: In instantiation of ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:165:22: warning: redundant move in initialization [-Wredundant-move]
+  165 |                 auto current_cell = std::move(open_cells.top());
+      |                      ^~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:165:22: note: remove ‘std::move’ call
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:242:50: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  242 |                                         for(auto&x:new_cell_interior_node_list)
+      |                                                  ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:237:33: note: shadowed declaration is here
+  237 |                         for(int x=0; x<interior_node_count; ++x){
+      |                                 ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:253:58: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  253 |                                                 for(auto x:new_cell.separator_node_list)
+      |                                                          ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:237:33: note: shadowed declaration is here
+  237 |                         for(int x=0; x<interior_node_count; ++x){
+      |                                 ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:259:73: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  259 |                                                                 [&](int x)->bool{
+      |                                                                     ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:237:33: note: shadowed declaration is here
+  237 |                         for(int x=0; x<interior_node_count; ++x){
+      |                                 ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:268:58: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  268 |                                                 for(auto x:new_cell.separator_node_list)
+      |                                                          ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:237:33: note: shadowed declaration is here
+  237 |                         for(int x=0; x<interior_node_count; ++x){
+      |                                 ^
+In file included from /home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:13:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h: In instantiation of ‘NodeContractionGraph::NodeContractionGraph(const Tail&, const Head&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:170:23:   required from ‘int compute_chordal_supergraph(const Tail&, const Head&, const OnNewArc&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; OnNewArc = compute_max_bag_size_of_order(const ArrayIDIDFunc&)::<lambda(int, int)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:342:28:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:141:58: warning: declaration of ‘head’ shadows a global declaration [-Wshadow]
+  141 |         NodeContractionGraph(const Tail&tail, const Head&head):
+      |                                               ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:21: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |                     ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:141:41: warning: declaration of ‘tail’ shadows a global declaration [-Wshadow]
+  141 |         NodeContractionGraph(const Tail&tail, const Head&head):
+      |                              ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:15: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:141:58: warning: declaration of ‘head’ shadows a global declaration [-Wshadow]
+  141 |         NodeContractionGraph(const Tail&tail, const Head&head):
+      |                                               ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:21: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |                     ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:141:41: warning: declaration of ‘tail’ shadows a global declaration [-Wshadow]
+  141 |         NodeContractionGraph(const Tail&tail, const Head&head):
+      |                              ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:15: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp: In instantiation of ‘void check_multilevel_partition_invariants(const Tail&, const Head&, const std::vector<Cell>&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:133:41:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:62:102: warning: unused parameter ‘multilevel_partition’ [-Wunused-parameter]
+   62 | void check_multilevel_partition_invariants(const Tail&tail, const Head&head, const std::vector<Cell>&multilevel_partition){
+      |                                                                              ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h: In instantiation of ‘EdgeContractionGraph::EdgeContractionGraph(const Tail&, const Head&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:142:3:   required from ‘NodeContractionGraph::NodeContractionGraph(const Tail&, const Head&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:170:23:   required from ‘int compute_chordal_supergraph(const Tail&, const Head&, const OnNewArc&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; OnNewArc = compute_max_bag_size_of_order(const ArrayIDIDFunc&)::<lambda(int, int)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:342:28:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:85:58: warning: declaration of ‘head’ shadows a global declaration [-Wshadow]
+   85 |         EdgeContractionGraph(const Tail&tail, const Head&head):
+      |                                               ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:21: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |                     ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:85:41: warning: declaration of ‘tail’ shadows a global declaration [-Wshadow]
+   85 |         EdgeContractionGraph(const Tail&tail, const Head&head):
+      |                              ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:15: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:85:58: warning: declaration of ‘head’ shadows a global declaration [-Wshadow]
+   85 |         EdgeContractionGraph(const Tail&tail, const Head&head):
+      |                                               ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:21: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |                     ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/contraction_graph.h:85:41: warning: declaration of ‘tail’ shadows a global declaration [-Wshadow]
+   85 |         EdgeContractionGraph(const Tail&tail, const Head&head):
+      |                              ~~~~~~~~~~~^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:32:15: note: shadowed declaration is here
+   32 | ArrayIDIDFunc tail, head;
+      |               ^~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:851:69: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  851 |                                 auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                 ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:850:38: note: shadowed declaration is here
+  850 |                                 auto&x = cutter_list[i];
+      |                                      ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1072:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:851:69: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  851 |                                 auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                 ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:850:38: note: shadowed declaration is here
+  850 |                                 auto&x = cutter_list[i];
+      |                                      ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘bool flow_cutter::MultiCutter::advance(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1087:26:   required from ‘bool flow_cutter::SimpleCutter<Graph>::advance() [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:95:25:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:899:77: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  899 |                                         auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                         ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:898:46: note: shadowed declaration is here
+  898 |                                         auto x = std::move(cutter_list[i]);
+      |                                              ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘bool flow_cutter::MultiCutter::advance(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1090:26:   required from ‘bool flow_cutter::SimpleCutter<Graph>::advance() [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:95:25:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:899:77: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  899 |                                         auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                         ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:898:46: note: shadowed declaration is here
+  898 |                                         auto x = std::move(cutter_list[i]);
+      |                                              ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:851:69: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  851 |                                 auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                 ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:850:38: note: shadowed declaration is here
+  850 |                                 auto&x = cutter_list[i];
+      |                                      ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1072:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:851:69: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  851 |                                 auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                 ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:850:38: note: shadowed declaration is here
+  850 |                                 auto&x = cutter_list[i];
+      |                                      ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘bool flow_cutter::MultiCutter::advance(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1087:26:   required from ‘bool flow_cutter::SimpleCutter<Graph>::advance() [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:140:25:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:899:77: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  899 |                                         auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                         ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:898:46: note: shadowed declaration is here
+  898 |                                         auto x = std::move(cutter_list[i]);
+      |                                              ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘bool flow_cutter::MultiCutter::advance(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1090:26:   required from ‘bool flow_cutter::SimpleCutter<Graph>::advance() [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:140:25:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:899:77: warning: declaration of ‘x’ shadows a previous local [-Wshadow]
+  899 |                                         auto my_score_pierce_node = [&](int x, int side, bool causes_augmenting_path, int source_dist, int target_dist){
+      |                                                                         ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:898:46: note: shadowed declaration is here
+  898 |                                         auto x = std::move(cutter_list[i]);
+      |                                              ^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘static void flow_cutter::DistanceAwareCutter::compute_hop_distance_from(const Graph&, flow_cutter::TemporaryData&, int, ArrayIDFunc<int>&) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:767:30:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:740:54: warning: unused parameter ‘x’ [-Wunused-parameter]
+  740 |                         auto was_node_seen = [&](int x){return false;};
+      |                                                  ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:741:48: warning: unused parameter ‘x’ [-Wunused-parameter]
+  741 |                         auto see_node = [](int x){ return true; };
+      |                                            ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:750:51: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  750 |                         auto on_new_arc = [&](int xy){};
+      |                                               ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘static void flow_cutter::DistanceAwareCutter::compute_hop_distance_from(const Graph&, flow_cutter::TemporaryData&, int, ArrayIDFunc<int>&) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:767:30:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:740:54: warning: unused parameter ‘x’ [-Wunused-parameter]
+  740 |                         auto was_node_seen = [&](int x){return false;};
+      |                                                  ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:741:48: warning: unused parameter ‘x’ [-Wunused-parameter]
+  741 |                         auto see_node = [](int x){ return true; };
+      |                                            ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:750:51: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  750 |                         auto on_new_arc = [&](int xy){};
+      |                                               ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::grow_reachable_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:422:23:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:624:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  624 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:640:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  640 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:642:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  642 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::grow_assimilated_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:423:25:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:659:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  659 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:661:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  661 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:666:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  666 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:668:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  668 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::check_invariants(const Graph&) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:426:20:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:689:51: warning: unused parameter ‘graph’ [-Wunused-parameter]
+  689 |                 void check_invariants(const Graph&graph){
+      |                                       ~~~~~~~~~~~~^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::grow_reachable_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:422:23:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1072:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:624:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  624 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:640:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  640 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:642:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  642 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::grow_assimilated_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:423:25:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::BreadthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1072:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:659:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  659 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:661:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  661 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:666:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  666 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:668:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  668 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::grow_reachable_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:422:23:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:624:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  624 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:640:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  640 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:642:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  642 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::grow_assimilated_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:423:25:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:659:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  659 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:661:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  661 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:666:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  666 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:668:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  668 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::check_invariants(const Graph&) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:426:20:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:689:51: warning: unused parameter ‘graph’ [-Wunused-parameter]
+  689 |                 void check_invariants(const Graph&graph){
+      |                                       ~~~~~~~~~~~~^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::grow_reachable_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:422:23:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1072:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:624:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  624 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:640:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  640 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:642:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  642 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::grow_assimilated_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:423:25:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::BreadthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1072:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:659:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  659 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:661:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  661 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:666:60: warning: unused parameter ‘x’ [-Wunused-parameter]
+  666 |                                 auto on_new_node = [&](int x){return true;};
+      |                                                        ~~~~^
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:668:58: warning: unused parameter ‘xy’ [-Wunused-parameter]
+  668 |                                 auto on_new_arc = [](int xy){};
+      |                                                      ~~~~^~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicNodeSet::set_extra_node(const Graph&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:267:27:   required from ‘void flow_cutter::AssimilatedNodeSet::set_extra_node(const Graph&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:417:43:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:225:49: warning: unused parameter ‘graph’ [-Wunused-parameter]
+  225 |                 void set_extra_node(const Graph&graph, int x){
+      |                                     ~~~~~~~~~~~~^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::check_flow_conservation(const Graph&) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:628:29:   required from ‘void flow_cutter::BasicCutter::grow_reachable_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:422:23:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<flow_cutter::expanded_graph::Tail<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Head<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::BackArc<ConstRefIDIDFunc<ArrayIDIDFunc> >, flow_cutter::expanded_graph::Capacity, flow_cutter::expanded_graph::OutArc<ConstRefIDFunc<RangeIDIDMultiFunc> > >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:72:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:676:58: warning: unused parameter ‘graph’ [-Wunused-parameter]
+  676 |                 void check_flow_conservation(const Graph&graph){
+      |                                              ~~~~~~~~~~~~^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicNodeSet::set_extra_node(const Graph&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:267:27:   required from ‘void flow_cutter::AssimilatedNodeSet::set_extra_node(const Graph&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:417:43:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:225:49: warning: unused parameter ‘graph’ [-Wunused-parameter]
+  225 |                 void set_extra_node(const Graph&graph, int x){
+      |                                     ~~~~~~~~~~~~^~~~~
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h: In instantiation of ‘void flow_cutter::BasicCutter::check_flow_conservation(const Graph&) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’:
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:628:29:   required from ‘void flow_cutter::BasicCutter::grow_reachable_sets(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:422:23:   required from ‘void flow_cutter::BasicCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::SourceTargetPair) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:761:15:   required from ‘void flow_cutter::DistanceAwareCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, flow_cutter::DistanceType, flow_cutter::SourceTargetPair, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:855:11:   required from ‘void flow_cutter::MultiCutter::init(const Graph&, flow_cutter::TemporaryData&, const SearchAlgorithm&, const ScorePierceNode&, flow_cutter::DistanceType, const std::vector<flow_cutter::SourceTargetPair>&, int, bool) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >; SearchAlgorithm = flow_cutter::PseudoDepthFirstSearch; ScorePierceNode = flow_cutter::PierceNodeScore]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:1068:16:   required from ‘void flow_cutter::SimpleCutter<Graph>::init(const std::vector<flow_cutter::SourceTargetPair>&, int) [with Graph = flow_cutter::Graph<ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstRefIDIDFunc<ArrayIDIDFunc>, ConstIntIDFunc<1>, ConstRefIDFunc<RangeIDIDMultiFunc> >]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/separator.h:116:17:   required from ‘std::vector<int> flow_cutter::ComputeSeparator::operator()(const Tail&, const Head&) const [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:212:42:   required from ‘void compute_multilevel_partition(const Tail&, const Head&, const ComputeSeparator&, int, const OnNewMP&) [with Tail = ArrayIDIDFunc; Head = ArrayIDIDFunc; ComputeSeparator = flow_cutter::ComputeSeparator; OnNewMP = main(int, char**)::<lambda(const std::vector<Cell>&, bool)>]’
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/pace.cpp:470:34:   required from here
+/home/scott/.hermes/cache/scratch/sat-sharpsat-td/flowcutter/flow_cutter.h:676:58: warning: unused parameter ‘graph’ [-Wunused-parameter]
+  676 |                 void check_flow_conservation(const Graph&graph){
+      |                                              ~~~~~~~~~~~~^~~~~
+[100%] Linking CXX executable flow_cutter_pace17
+/usr/bin/cmake -E cmake_link_script CMakeFiles/flow_cutter_pace17.dir/link.txt --verbose=1
+/usr/bin/c++ -std=c++11 -O3 -Wall -Wextra -Wshadow -g -Wfatal-errors -Wno-sign-compare -Wno-literal-suffix -O3 -DNDEBUG -rdynamic CMakeFiles/flow_cutter_pace17.dir/flowcutter/pace.cpp.o -o flow_cutter_pace17  flowcutter/liblibflowcutter.a 
+gmake[2]: Leaving directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+[100%] Built target flow_cutter_pace17
+gmake[1]: Leaving directory '/home/scott/.hermes/cache/scratch/sat-sharpsat-td/build'
+/usr/bin/cmake -E cmake_progress_start /home/scott/.hermes/cache/scratch/sat-sharpsat-td/build/CMakeFiles 0

@@ -1,0 +1,14 @@
+$ git remote get-url origin
+https://github.com/openai/math.git
+exit=0
+$ git rev-parse HEAD
+7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a
+exit=0
+$ git status --short
+exit=0
+$ date -u +%FT%TZ
+2026-10-28T13:44:50Z
+exit=0
+$ sha256sum lean/lake-manifest.json
+cf6105a25d9dca2f166b241d9191bd12c7e13305890dc9c4d0952351cccc0794  lean/lake-manifest.json
+exit=0

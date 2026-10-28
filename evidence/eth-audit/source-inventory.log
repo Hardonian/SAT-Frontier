@@ -1,0 +1,88 @@
+$ python3 inspect_sources.py /home/scott/.hermes/cache/scratch/openai-math-eth-audit
+root module: OAI.Algorithms.SubexponentialSAT.Main
+OAI import traversal modules: 3091 missing source: 0
+missing:
+external import roots:
+  Lean.Elab.Tactic.Omega
+  Mathlib
+  Mathlib.Algebra.BigOperators.Fin
+  Mathlib.Algebra.BigOperators.Group.Finset.Powerset
+  Mathlib.Algebra.BigOperators.GroupWithZero.Finset
+  Mathlib.Algebra.BigOperators.Intervals
+  Mathlib.Algebra.MvPolynomial.Degrees
+  Mathlib.Algebra.MvPolynomial.Eval
+  Mathlib.Algebra.Order.BigOperators.Group.Finset
+  Mathlib.Algebra.Order.BigOperators.Group.List
+  Mathlib.Algebra.Order.BigOperators.Ring.Finset
+  Mathlib.Algebra.Polynomial.Eval.Coeff
+  Mathlib.Algebra.Ring.GeomSum
+  Mathlib.Algebra.Ring.InjSurj
+  Mathlib.Analysis.SpecialFunctions.Log.Base
+  Mathlib.Data.Fin.Basic
+  Mathlib.Data.Fin.Tuple.Basic
+  Mathlib.Data.Finset.Lattice.Fold
+  Mathlib.Data.Finset.Powerset
+  Mathlib.Data.Fintype.BigOperators
+  Mathlib.Data.Fintype.Card
+  Mathlib.Data.Fintype.EquivFin
+  Mathlib.Data.Fintype.Powerset
+  Mathlib.Data.Fintype.Prod
+  Mathlib.Data.Fintype.Sigma
+  Mathlib.Data.Fintype.Vector
+  Mathlib.Data.List.Defs
+  Mathlib.Data.List.Forall2
+  Mathlib.Data.List.Induction
+  Mathlib.Data.List.MinMax
+  Mathlib.Data.List.Nodup
+  Mathlib.Data.List.OfFn
+  Mathlib.Data.List.Range
+  Mathlib.Data.List.SplitLengths
+  Mathlib.Data.Nat.Choose.Bounds
+  Mathlib.Data.Nat.Digits.Lemmas
+  Mathlib.Data.Nat.Find
+  Mathlib.Data.Nat.Log
+  Mathlib.Data.Nat.Size
+  Mathlib.Data.Nat.Sqrt
+  Mathlib.Data.Prod.Lex
+  Mathlib.Data.Rat.Cast.Order
+  Mathlib.Data.Vector.Basic
+  Mathlib.Logic.Equiv.Fin.Basic
+  Mathlib.SetTheory.Cardinal.Finite
+  Mathlib.Tactic.FinCases
+  Mathlib.Tactic.GCongr
+  Mathlib.Tactic.Linarith
+  Mathlib.Tactic.NormNum
+  Mathlib.Tactic.NormNum.NatLog
+  Mathlib.Tactic.Ring
+lexical hits (may include comments; transitive external imports not scanned): 10
+OAI.Algorithms.SubexponentialSAT.Factor:61: /-- Locality is enforced by the table domain, rather than assumed as an axiom. -/
+OAI.Algorithms.SubexponentialSAT.BinomialInterpolation:67: /-- Arbitrary target values admit a unique binomial-basis coefficient vector. -/
+OAI.Algorithms.SubexponentialSAT.Subexp.UnaryCompare:11: The local conditional scores admit bounded natural numerators. Unary storage
+OAI.Algorithms.SubexponentialSAT.ExecCNFTupleEnumeration:580: for the runtime theorem; no separate universal callback-correctness axiom is needed. -/
+OAI.Algorithms.SubexponentialSAT.SubexpCosetCount:167: disjoint-support splitting module supply `D` without an extra dimension axiom. -/
+OAI.Algorithms.SubexponentialSAT.RowInterpolation:98: /-- Existence follows from the actual polynomial above, not an interpolation axiom. -/
+OAI.Algorithms.SubexponentialSAT.SqrtLog.LeafProgramFactorBounds:7: /-! The exact complete branch budgets admit a common polynomial bound.
+OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.FactorTableDenotation:203: /-- The actual producer's branch-sensitive bytes admit a valid typed witness
+OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.HeadSumCorrect:286: /-- The actual full key and correction words admit exactly the intended
+OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.NativeLeafContract:186: staging admit one fixed polynomial in the original input length. The genuine
+
+SHA-256 of inspected key files:
+c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4 LICENSE
+c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4 lean/LICENSE
+292ff9d539f494158dfbf68d989ba85a82782a4343b2fe43088f8fa62525bf1b lean/README.md
+051459a45da1bedd1c0a6585a5b5e5425c7c40a369f2922d7b519e2fd02333b0 lean/ComparatorChallenges/README.md
+d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b lean/lean-toolchain
+fc590a5d14923f79e71ea80e29efd42950bb3ec051481b5209157f0a01f63de1 lean/lakefile.lean
+cf6105a25d9dca2f166b241d9191bd12c7e13305890dc9c4d0952351cccc0794 lean/lake-manifest.json
+a2f7b390d6308997350b903be02c40a1227ebd2b9376982da528574500531f79 lean/docs/378.md
+4183b2057cff350d66848215ff7167196dfc20e1891b598fdddea59077a76685 lean/ComparatorChallenges/SubexponentialSAT.lean
+debbfdc9c01104d2369be80da5180978275106df8b685f693fba7ce7da7c5b19 lean/ComparatorChallenges/SubexponentialSAT.json
+cbd4cebf71f1d3239c21241f946d05e8de802dbb9c138713f8e7182d868b2d1c lean/OAI/Algorithms/SubexponentialSAT/Main.lean
+6875b913ebc1583e30f3a4f87dd547a94c7f73a279b6963110c613467c4efe6c lean/OAI/Algorithms/SubexponentialSAT/Encoding.lean
+c902d09be040c39b0266f13b16b900474df5ce419de83e092e9485ae3b84cd34 lean/OAI/Algorithms/SubexponentialSAT/Computation.lean
+f9dcbdfe24a68cbbf60b8bee61353890fc8071223356c0d4f6e83c28b15c402b lean/OAI/Algorithms/SubexponentialSAT/Algorithm.lean
+040360a8465957622d934e5f1bb4f2cce8dab950e78f52033fbf70da493184f5 lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.lean
+52f71867d9ad80092b6e016af7e456caced292456f70c7a83be34628498c05dc lean/OAI/Algorithms/SubexponentialSAT/SqrtLog/ExecutionNativeFinal.lean
+6ac9f1345111c1c8fb0711fff7bdc58dd8f92f0bd97752f01e13815aee26d93e lean/OAI/Algorithms/SubexponentialSAT/SubexpOrderedRawMainTheorem.lean
+5b1612dc2eebb2cad5b4cbe62d1fed2982f01ab1908c26f70010a651487e8123 preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf
+exit=0
