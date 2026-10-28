@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "split": "train",
+  "families": ["random", "planted", "disconnected", "contradictory"],
+  "n": 12,
+  "ratio": 4,
+  "seeds": [201, 202, 203, 204, 205, 206, 207, 208],
+  "repeats": 2,
+  "seconds": 0.5,
+  "max_nodes": 25,
+  "cache_limit": 10000,
+  "bootstrap_seed": 91309,
+  "bootstrap_samples": 2000,
+  "candidates": {
+    "occurrence": {"occurrence": 1, "polarity": 0, "short_clause": 0, "component_size": 0},
+    "polarity": {"occurrence": 1, "polarity": 2, "short_clause": 0, "component_size": 0},
+    "short": {"occurrence": 1, "polarity": 0, "short_clause": 2, "component_size": 0},
+    "mixed": {"occurrence": 1, "polarity": 1, "short_clause": 1, "component_size": 0},
+    "component": {"occurrence": 1, "polarity": 1, "short_clause": 1, "component_size": 1}
+  }
+}

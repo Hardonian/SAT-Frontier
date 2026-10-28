@@ -1,0 +1,26 @@
+{
+  "candidate": "component",
+  "holdout_consumed": false,
+  "ranking": [
+    "component",
+    "mixed",
+    "short",
+    "polarity",
+    "occurrence"
+  ],
+  "selection_rule": "most exact runs, then least total nodes including unknown, then ID",
+  "source_sha256": {
+    "configs/policy-train-v02.json": "73874f4dbb96e3b177169ae075f4484dabb05c5f947c12dbe7059482cabd6eed",
+    "docs/POLICY_PREREGISTRATION.md": "90c53104bd660e3f43b158bb5a7dff3a6109e2d07ecc655a13cf47a87e0a8b62",
+    "sat_frontier/core.py": "b2c325f7482d2ad7754bbe1ea1347a32dfcbed69bf65fa29bce7e84e367e4587",
+    "sat_frontier/generate.py": "7b0fdb60e0237ffb5200f055bed2741e387b7be2070d28d421949995ae5ebd52",
+    "sat_frontier/policy_train.py": "111fb3910fe559ee960c6299e2d89084197ba0d9f89e30cac30db4d2124409b2"
+  },
+  "train_only": true,
+  "weights": {
+    "component_size": 1,
+    "occurrence": 1,
+    "polarity": 1,
+    "short_clause": 1
+  }
+}
