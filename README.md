@@ -1,6 +1,6 @@
 # SAT-Frontier
 
-A CPU-first experimental lab for finding faster **correct** SAT and exact model-counting algorithms. Version 0.2.2 adds an independent exact-counter adapter, resource-aware cross-checks, a bounded policy study, graph separator decomposition, Weighted Model Counting (WMC) for network reliability, Tensor Network Contraction, and high-core parallel Cube-and-Conquer scaling on AMD EPYC. It does not claim a new asymptotic algorithm or P=NP proof.
+A CPU-first experimental lab for finding faster **correct** SAT and exact model-counting algorithms. Version 0.2.2 adds an independent exact-counter adapter, resource-aware cross-checks, a bounded policy study, graph separator decomposition, Weighted Model Counting (WMC) for network reliability, Tensor Network Contraction, Dual Cut-based monotone CNF compilation, and high-core parallel Cube-and-Conquer scaling on AMD EPYC. It does not claim a new asymptotic algorithm or P=NP proof.
 
 Start with Python 3.10 or newer. Core runtime and tests use only the standard library; NumPy and PyTorch are optional for tensor contractions.
 
@@ -25,6 +25,7 @@ The example has 18 satisfying assignments, including its unused variable. `solve
 | combined_wmc | on | on | most occurrences | Weighted Model Counting (rational) |
 | cube_conquer | on | on | lookahead cube pool | High-core parallel lookahead (EPYC) |
 | tensor_contract | N/A | N/A | min-degree bucket / einsum | Multi-linear tensor contraction |
+| cut_wmc | on | on | monotone cut compilation | Dual cut compilation (breaks hardness cliff) |
 
 These are established techniques implemented as transparent controls. They are not presented as discoveries or implementations of the released ETH-refuting construction. All variants use unit propagation; none use pure-literal elimination without proof.
 
@@ -32,4 +33,4 @@ Each campaign creates a fresh output directory, raw DIMACS formulas, JSONL and C
 
 Read [the research protocol](docs/RESEARCH_PROTOCOL.md), [milestones](docs/MILESTONES.md), [resume checkpoint](RESUME.md), and [Hermes & EPYC Execution Plan](docs/HERMES_EPYC_EXECUTION_PLAN.md).
 
-See [independent counter baseline](docs/INDEPENDENT_BASELINE.md), [policy preregistration](docs/POLICY_PREREGISTRATION.md), [held-out results](docs/POLICY_HOLDOUT_REPORT.md), [upstream ETH audit](docs/ETH_AUDIT_V02.md), [WMC reliability report](docs/WMC_RELIABILITY_REPORT.md), [tensor contraction report](docs/TENSOR_CONTRACTION_REPORT.md), and [EPYC scaling summary](evidence/epyc-cube-002/SCALING_SUMMARY.md).
+See [independent counter baseline](docs/INDEPENDENT_BASELINE.md), [policy preregistration](docs/POLICY_PREREGISTRATION.md), [held-out results](docs/POLICY_HOLDOUT_REPORT.md), [upstream ETH audit](docs/ETH_AUDIT_V02.md), [WMC reliability report](docs/WMC_RELIABILITY_REPORT.md), [tensor contraction report](docs/TENSOR_CONTRACTION_REPORT.md), [dual cut compilation report](docs/CUT_COMPILATION_REPORT.md), and [EPYC scaling summary](evidence/epyc-cube-002/SCALING_SUMMARY.md).

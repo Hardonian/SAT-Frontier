@@ -1,0 +1,12 @@
+{
+  "compiler_variants": [
+    "path_cnf",
+    "cut_cnf"
+  ],
+  "description": "Dual Cut-based CNF compilation versus Path enumeration on two-terminal network reliability",
+  "hypothesis": "H9",
+  "max_nodes": 100000,
+  "seconds_budget": 15.0,
+  "solver_algorithm": "combined_wmc",
+  "study_name": "cut-wmc-001"
+}

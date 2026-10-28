@@ -1,0 +1,25 @@
+instance_label,family,path_vars,path_clauses,path_status,path_nodes,path_time,cut_vars,cut_clauses,cut_status,cut_nodes,cut_time,speedup_nodes,notes
+grid_2x3,grid_2xn,11,19,exact,83,0.0005,7,9,exact,24,0.0001,3.46,Exact rational match
+grid_2x4,grid_2xn,18,49,exact,359,0.0023,10,16,exact,60,0.0003,5.98,Exact rational match
+grid_2x5,grid_2xn,29,121,exact,1646,0.0133,13,25,exact,143,0.0010,11.51,Exact rational match
+grid_2x6,grid_2xn,48,289,exact,7181,0.0670,16,36,exact,325,0.0025,22.10,Exact rational match
+grid_2x7,grid_2xn,83,673,exact,32027,0.3500,19,49,exact,667,0.0062,48.02,Exact rational match
+grid_2x8,grid_2xn,150,1537,unknown,100001,1.4260,22,64,exact,1321,0.0126,75.70,"Cut solved, path budget-exhausted"
+grid_2x9,grid_2xn,281,3457,unknown,100001,2.7917,25,81,exact,2449,0.0367,40.83,"Cut solved, path budget-exhausted"
+grid_2x10,grid_2xn,540,7681,unknown,100001,6.0976,28,100,exact,4465,0.0589,22.40,"Cut solved, path budget-exhausted"
+grid_2x11,grid_2xn,1055,16897,unknown,997,0.7276,31,121,exact,7901,0.1175,0.13,"Cut solved, path budget-exhausted"
+grid_2x12,grid_2xn,2082,36865,unknown,997,3.5265,34,144,exact,13867,0.2610,0.07,"Cut solved, path budget-exhausted"
+grid_3x3,grid_3xn,24,77,exact,954,0.0081,12,30,exact,149,0.0011,6.40,Exact rational match
+grid_3x4,grid_3xn,55,323,exact,14714,0.1950,17,81,exact,786,0.0090,18.72,Exact rational match
+grid_3x5,grid_3xn,147,1332,unknown,100001,1.4227,22,194,exact,3733,0.0517,26.79,"Cut solved, path budget-exhausted"
+grid_3x6,grid_3xn,441,5297,unknown,100001,3.2285,27,435,exact,17993,0.3408,5.56,"Cut solved, path budget-exhausted"
+grid_3x7,grid_3xn,1401,20430,unknown,997,1.1249,32,938,exact,80925,2.1349,0.01,"Cut solved, path budget-exhausted"
+grid_3x8,grid_3xn,4559,77111,unknown,997,8.3174,37,1973,unknown,100001,3.9740,0.01,Both budget-exhausted
+grid_4x3,grid_4xn,55,323,exact,14786,0.1600,17,81,exact,804,0.0102,18.39,Exact rational match
+grid_4x4,grid_4xn,208,2097,unknown,100001,1.9717,24,348,exact,9024,0.1882,11.08,"Cut solved, path budget-exhausted"
+grid_4x5,grid_4xn,1007,14109,unknown,997,0.7207,31,1353,exact,85451,2.7833,0.01,"Cut solved, path budget-exhausted"
+barbell_k3,barbell,11,13,exact,32,0.0002,7,5,exact,12,0.0001,2.67,Exact rational match
+barbell_k4,barbell,23,35,exact,186,0.0011,13,9,exact,34,0.0002,5.47,Exact rational match
+barbell_k5,barbell,53,133,exact,2784,0.0204,21,17,exact,144,0.0015,19.33,Exact rational match
+barbell_k6,barbell,161,655,exact,85246,1.0015,31,33,exact,698,0.0078,122.13,Exact rational match
+barbell_k7,barbell,695,3917,unknown,100001,3.1048,43,65,exact,3864,0.0429,25.88,"Cut solved, path budget-exhausted"

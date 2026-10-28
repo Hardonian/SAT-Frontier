@@ -1,0 +1,88 @@
+p cnf 19 49
+c p weight 1 9/10
+c p weight -1 1/10
+c p weight 2 9/10
+c p weight -2 1/10
+c p weight 3 9/10
+c p weight -3 1/10
+c p weight 4 9/10
+c p weight -4 1/10
+c p weight 5 9/10
+c p weight -5 1/10
+c p weight 6 9/10
+c p weight -6 1/10
+c p weight 7 9/10
+c p weight -7 1/10
+c p weight 8 9/10
+c p weight -8 1/10
+c p weight 9 9/10
+c p weight -9 1/10
+c p weight 10 9/10
+c p weight -10 1/10
+c p weight 11 9/10
+c p weight -11 1/10
+c p weight 12 9/10
+c p weight -12 1/10
+c p weight 13 9/10
+c p weight -13 1/10
+c p weight 14 9/10
+c p weight -14 1/10
+c p weight 15 9/10
+c p weight -15 1/10
+c p weight 16 9/10
+c p weight -16 1/10
+c p weight 17 9/10
+c p weight -17 1/10
+c p weight 18 9/10
+c p weight -18 1/10
+c p weight 19 9/10
+c p weight -19 1/10
+1 2 0
+1 4 6 8 10 12 19 0
+1 4 6 8 10 18 0
+1 4 6 8 17 0
+1 4 6 16 0
+1 4 15 0
+1 14 0
+2 3 4 0
+2 4 5 6 0
+2 4 6 7 8 0
+2 4 6 8 9 10 0
+2 4 6 8 10 11 12 0
+2 4 6 8 10 12 13 0
+3 4 14 0
+3 6 8 10 12 19 0
+3 6 8 10 18 0
+3 6 8 17 0
+3 6 16 0
+3 15 0
+4 5 6 14 0
+4 6 7 8 14 0
+4 6 8 9 10 14 0
+4 6 8 10 11 12 14 0
+4 6 8 10 12 13 14 0
+5 6 15 0
+5 8 10 12 19 0
+5 8 10 18 0
+5 8 17 0
+5 16 0
+6 7 8 15 0
+6 8 9 10 15 0
+6 8 10 11 12 15 0
+6 8 10 12 13 15 0
+7 8 16 0
+7 10 12 19 0
+7 10 18 0
+7 17 0
+8 9 10 16 0
+8 10 11 12 16 0
+8 10 12 13 16 0
+9 10 17 0
+9 12 19 0
+9 18 0
+10 11 12 17 0
+10 12 13 17 0
+11 12 18 0
+11 19 0
+12 13 18 0
+13 19 0

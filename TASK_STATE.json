@@ -2,7 +2,7 @@
   "project": "SAT-Frontier",
   "version": "0.2.2",
   "checkpoint_date": "2026-10-28",
-  "release_status": "research release v0.2.2; M0/M1/M2/M3/M5 completed; H4, scaling benchmark, WMC reliability, H7 tensor contraction, and H8 high-core EPYC scaling fully executed and verified; upstream proof verification blocked and M4 gated",
+  "release_status": "research release v0.2.2; M0/M1/M2/M3/M5 completed; H4, scaling benchmark, WMC reliability, H7 tensor contraction, H8 high-core EPYC scaling, and H9 dual cut compilation fully executed and verified; upstream proof verification blocked and M4 gated",
   "completed": [
     "private repository and original archive plus Git history restored",
     "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
@@ -19,8 +19,9 @@
     "Parallel Cube-and-Conquer lookahead engine (sat_frontier/cube_conquer.py) and resource-aware EPYC runner (sat_frontier/epyc_runner.py) implemented with cross-platform support and checkpoint/resume",
     "High-core AMD EPYC scaling campaign executed across 302 runs in evidence/epyc-cube-001/ and evidence/epyc-cube-002/ evaluating 194,165,819 search nodes across up to 64 workers; mapped complete topological hardness gradient across 1xN, 2xN, 3xN, 4x4, 4x5, 5x5, and barbell networks; verified by verify_epyc_evidence.py",
     "Hypothesis H7 tensor network contraction study preregistered, implemented, unit-tested, and executed across 72 runs in evidence/tensor-study-001/; verified 100% exact oracle match and demonstrated 6.2x median speedup for bucket elimination over global einsum path optimization",
-    "Dual cut-based CNF compilation (to_cut_cnf) implemented in sat_frontier/reliability.py, eliminating all auxiliary path indicators and achieving >6.4x search node reduction on grid networks",
-    "Turnkey deployment scripts (scripts/run_epyc_cube_conquer.sh, scripts/run_lean4_audit.sh, scripts/extract_axioms.lean, scripts/run_epyc_batch.py) created and verified"
+    "Dual cut-based CNF compilation (to_cut_cnf) implemented in sat_frontier/cut_compiler.py, eliminating all auxiliary path indicators and achieving up to 122x search node reduction",
+    "Hypothesis H9 dual cut-based CNF compilation study preregistered, implemented, unit-tested (67 tests), and executed across 48 runs in evidence/cut-wmc-001/; resolved hardness cliff instances grid_3x7 (solved in 2.13s) and grid_2x11 (solved in 0.12s) with 0 rational weight mismatches",
+    "Turnkey deployment scripts (scripts/run_epyc_cube_conquer.sh, scripts/run_lean4_audit.sh, scripts/extract_axioms.lean, scripts/run_epyc_batch.py, scripts/run_cut_wmc_study.py) created and verified"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
@@ -35,7 +36,7 @@
   "holdout_consumed": true,
   "remote_created": true,
   "gpu_used": false,
-  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning; H8 verified: high-core Cube-and-Conquer lookahead scales near-linearly (2.26x speedup from d4 to d8 on 64 workers) on modular topologies, but reveals sharp topological hardness boundaries at 2x11 and 3x7",
+  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning; H8 verified: high-core Cube-and-Conquer lookahead scales near-linearly (2.26x speedup from d4 to d8 on 64 workers) on modular topologies, but reveals sharp topological hardness boundaries at 2x11 and 3x7; H9 verified: dual cut-based monotone CNF compilation breaks through the structural hardness cliff, solving grid_3x7 in 2.13s and reducing search nodes by up to 122x with 0 mismatches",
   "evidence": [
     "evidence/smoke-train/manifest.json",
     "evidence/v02-integrated-development-001/manifest.json",
@@ -47,10 +48,11 @@
     "evidence/packaging-v021.txt",
     "evidence/wmc-reliability-001/manifest.json",
     "evidence/tensor-study-001/manifest.json",
+    "evidence/cut-wmc-001/manifest.json",
     "evidence/epyc-cube-001/manifest.json",
     "evidence/epyc-cube-002/manifest.json",
     "evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json"
   ],
-  "next": "Investigate cut-based compilation and tensor network hybrid solver on 3x7 and 2x11 hardness boundary instances.",
+  "next": "Deploy high-core EPYC batch execution on scaled cut-compiled topologies (grid_3x8..3x12, grid_4x6..4x8) and resume Lean 4 bounded-concurrency formal audit.",
   "resume": "RESUME.md"
 }

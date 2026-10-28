@@ -1,0 +1,9 @@
+{
+  "exact_runs": 35,
+  "mismatches": 0,
+  "study": "cut-wmc-001",
+  "total_instances": 24,
+  "total_runs": 48,
+  "unknown_runs": 13,
+  "verified_matches": 12
+}
