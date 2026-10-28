@@ -54,3 +54,4 @@ def to_cut_cnf(net: NetworkGraph, source, target):
 
     clauses = [list(c) for c in min_cuts]
     return WeightedFormula(clauses, n_vars=num_edges, weights=weights)
+

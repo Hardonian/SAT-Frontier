@@ -13,3 +13,4 @@ def main : IO Unit := do
   ]
   for target in targets do
     IO.println s!"Inspecting axioms for: {target}"
+
