@@ -1,130 +1,63 @@
 # Hermes & AMD EPYC Execution Plan: Scaled Exact Counting & WMC
 
 **Generated Date**: 2026-10-28  
-**Target Systems**: High-Core AMD EPYC Server (e.g., 64–128 Cores, 256 GB–1 TB+ RAM) & GPU Acceleration  
-**Related Milestones**: Milestone M1 (Lean Audit Continuation), Milestone M4 (Algorithmic Extraction), Milestone M5 (Useful Transfer Scale-Up)
+**Target Systems**: High-Core AMD EPYC Server (64 Cores / 128 Threads, 168 GB DDR5 RAM, 3x GPUs: V100-SXM2, Tesla P40, RTX 3060)  
+**Related Milestones**: Milestone M1 (Lean Audit Continuation), Milestone M4 (Algorithmic Extraction), Milestone M5 (Useful Transfer Scale-Up)  
+**Execution Status**: **Track 1 Completed & Verified** (302 EPYC runs, 194M search nodes); **Track 2 Blocker Pinned** (`evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json`); **Track 3 CPU Verified** (`evidence/tensor-study-001/`).
 
 ---
 
-## 1. Executive Summary & Purpose
+## 1. Executive Summary & Accomplishments
 
-The `SAT-Frontier` repository has completed local verification across Milestones M0, M1 (blocker recorded), M2, M3 (1,200-run held-out evaluation), H4 (graph separators), scaling benchmarks ($n=12..20$), and M5 (Weighted Model Counting for Network Reliability).
+The high-core compute workloads on the 64-core AMD EPYC server (168 GB RAM) via Hermes have completed with full mathematical verification:
 
-On standard workstations, two primary ceilings emerge:
-1. **Memory Ceiling on Formal Audit**: Compiling the 3,091 upstream Lean 4 modules in `openai/math` spawned 15 compiler processes, peaked at **11.9 GB RSS**, and was terminated by container/cgroup limits.
-2. **Search Tree Scalability on Industrial Instances**: While component decomposition solves $k=5$ modular networks in 0.018 seconds, larger benchmarks ($k \ge 8$ or $n \ge 40$) benefit from massive parallel lookahead partitioning (**Cube-and-Conquer**).
+1. **Track 1: High-Core Cube-and-Conquer Campaign**:
+   - **Runs Evaluated**: 302 total runs (98 in `evidence/epyc-cube-001/`, 204 in `evidence/epyc-cube-002/`).
+   - **Search Nodes Explored**: **194,165,819 nodes**.
+   - **Throughput & Scaling**: On `grid_3x6_mod`, increasing cube lookahead depth from $d=4$ to $d=8$ with 64 workers accelerated wall-clock time from 59.36s to 26.23s (**2.26x speedup**), maintaining 100% exact rational weight invariance (`484992228090957506024017833/500000000000000000000000000`).
+   - On `grid_4x4_mod`, Cube-and-Conquer successfully completed up to **depth 17** ($2^{17} = 131,072$ cubes) at 478 cubes/second, exploring 29,555,959 nodes before encountering the timeout ceiling at depth 18.
+   - **Topological Hardness Gradient Mapped**: Full scaling map across $1\times N$, $2\times N$, $3\times N$, $4\times N$, $5\times 5$, and barbell networks documented in [`evidence/epyc-cube-002/SCALING_SUMMARY.md`](../evidence/epyc-cube-002/SCALING_SUMMARY.md).
+   - **Cryptographic & Invariant Verification**: All runs verified by [`verify_epyc_evidence.py`](../verify_epyc_evidence.py).
 
-This document provides the turnkey instructions for executing high-core AMD EPYC and GPU compute workloads via Hermes.
+2. **Track 2: Upstream ETH Lean 4 Formal Audit Continuation**:
+   - Exact failure signature pinned in [`evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json`](../evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json): 3,091 transitive modules in `openai/math` spawn 15 concurrent compiler processes, peak at 11.9 GB RSS, and terminate with exit 137 / timeout before kernel verification or `#print axioms`. Milestone M1 closed with formal blocker; downstream M4 extraction gated.
+   - Turnkey bounded concurrency script provided: [`scripts/run_lean4_audit.sh`](../scripts/run_lean4_audit.sh) with [`scripts/extract_axioms.lean`](../scripts/extract_axioms.lean).
 
----
-
-## 2. Track 1: AMD EPYC High-Core Cube-and-Conquer Campaign
-
-Exact counting and Weighted Model Counting are **100% associative and commutative**:
-$$\text{WMC}(\Phi) = \sum_{i=1}^{2^d} \text{WMC}(\Phi \land \text{cube}_i)$$
-Subproblems require **zero inter-worker communication**, providing near-linear parallel scaling across 64–128 EPYC threads.
-
-### A. Environment Setup
-```bash
-# Clone and enter SAT-Frontier
-cd /workspace/SAT-Frontier
-
-# Verify environment and test suite
-python3 -m unittest discover -s tests -v
-
-# Ensure numactl is installed for memory affinity
-sudo apt-get update && sudo apt-get install -y numactl
-```
-
-### B. Execution Commands
-
-#### 1. Network Reliability & Fault Tree Scale-Up
-Run parallel Cube-and-Conquer across all available EPYC cores on large modular networks ($k=6, 8, 10$):
-
-```bash
-# EPYC run with depth 6 (64 cubes) or depth 7 (128 cubes)
-python3 -m sat_frontier.epyc_runner \
-  path/to/large_network.cnf \
-  --depth 6 \
-  --workers 64 \
-  --seconds-per-cube 30.0 \
-  --max-nodes-per-cube 200000 \
-  --out /workspace/SAT-Frontier/evidence/epyc-cube-001/results_k8.json
-```
-
-#### 2. Industrial Model Counting Competition Benchmarks (MC2022/MC2023)
-Download canonical unweighted/weighted instances from the Model Counting Competition track:
-```bash
-# Run with NUMA node interleave for maximum DDR5 bandwidth
-numactl --interleave=all python3 -m sat_frontier.epyc_runner \
-  benchmarks/track2_wmc/instance_042.cnf \
-  --depth 7 \
-  --workers 128 \
-  --algo combined_wmc \
-  --seconds-per-cube 60.0 \
-  --out /workspace/SAT-Frontier/evidence/epyc-cube-001/mc_instance_042.json
-```
+3. **Track 3: Tensor Network Contraction & Dual Cut Compilation**:
+   - Evaluated 72 runs across 18 instances in `evidence/tensor-study-001/` with 100% exact oracle agreement. Heuristic min-degree bucket elimination demonstrated a 6.2x median speedup over global einsum optimization.
+   - Implemented Dual Cut-Based CNF compilation (`to_cut_cnf`) in [`sat_frontier/reliability.py`](../sat_frontier/reliability.py), replacing path enumeration ($O(2^{|V|})$ auxiliary variables) with minimal cut constraints on edge variables alone, reducing search nodes by **>6.4x**.
 
 ---
 
-## 3. Track 2: Upstream ETH Lean 4 Formal Verification Audit
+## 2. Hardness Gradient Map & Structural Findings
 
-To resolve Milestone M1 by completing the build and executing `#print axioms`:
+The empirical findings from `evidence/epyc-cube-002/SCALING_SUMMARY.md`:
 
-### A. System Requirements
-- Dedicated AMD EPYC node with at least **32 GB available RAM**.
-- Lean toolchain `leanprover/lean4:v4.34.1`.
-
-### B. Step-by-Step Execution
-```bash
-# 1. Navigate to isolated scratch clone
-cd /home/scott/.hermes/cache/scratch/openai-math-eth-audit/lean
-
-# 2. Set single-core or bounded multi-core Lake build
-export LEAN_NUM_THREADS=4
-export TMPDIR=/tmp/lean_audit_scratch
-mkdir -p "$TMPDIR"
-
-# 3. Build target solution module with high memory allowance
-# (Lake will not hit the 11.9 GB ceiling on an EPYC system with 128GB+ RAM)
-timeout 3600 lake build OAI.Algorithms.SubexponentialSAT.Main
-
-# 4. Once Main.olean is built, extract the exact kernel axioms:
-lake env lean --run - << 'EOF'
-import OAI.Algorithms.SubexponentialSAT.Main
-#print axioms OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_and_sat
-EOF
-```
-
-### C. Acceptance Criteria for Milestone M1 Closure
-- If `#print axioms` outputs: `['propext', 'Quot.sound', 'Classical.choice']`, the proof relies only on standard Lean foundational axioms (no `sorryAx`).
-- Record the stdout to `/workspace/SAT-Frontier/evidence/eth-audit/continuation/epyc_axioms.log`.
+| Topology | Instances | Tracked Depths | Status & Hardness Boundary | Structural Root Cause |
+| :--- | :--- | :--- | :--- | :--- |
+| **$1 \times N$ Paths** | $1\times 5 .. 1\times 20$ | $d=10$ | **EXACT (trivial)**, <0.2s | Treewidth 1; no cycle interference |
+| **$2 \times N$ Ladders** | $2\times 5 .. 2\times 10$ | $d=5 .. 13$ | **EXACT**, tractable up to $2\times 10$ ($d=13$, 13.2M nodes) | Treewidth 2; tractable lookahead |
+| | $2\times 11, 2\times 12$ | $d=1 .. 8$ | **UNKNOWN (structural cliff)** | Dense hypergraph path enumeration (>16k clauses) |
+| **$3 \times N$ Meshes** | $3\times 3 .. 3\times 6$ | $d=4 .. 8$ | **EXACT** with 600s budget ($d=8$, 5.2M nodes, 26s) | Solvable via high-core lookahead decomposition |
+| | $3\times 7, 3\times 8$ | $d=1 .. 4$ | **UNKNOWN (structural cliff)** | Exponential path blowup (1,401 vars, 20,430 clauses) |
+| **$4 \times N$ Grids** | $4\times 3, 4\times 4$ | $d=5 .. 17$ | **EXACT** up to $d=17$ (29.6M nodes, 274s, 478 cubes/s) | Depth lookahead scales linearly until $d=18$ timeout |
+| | $4\times 5$ | $d=4$ | **UNKNOWN (hard)** | 14,109 clauses |
+| **$5 \times 5$ Mesh** | $5\times 5$ | $d=2$ | **UNKNOWN (intractable)** | 8,552 variables, 156,945 clauses |
+| **Barbell** | $k=6$ | $d=5 .. 8$ | **EXACT** (<0.2s) | Cut-edge bridge partitions components instantly |
+| | $k=8, k=10$ | $d=4 .. 5$ | **UNKNOWN / gen timeout** | Intra-cluster path cross-products |
 
 ---
 
-## 4. Track 3: GPU Tensor-Network Prototype (Preparation)
+## 3. Recommended Research Frontiers
 
-For dense sub-components identified by EPYC's graph separator:
-- Map dense Boolean clauses to 0/1 indicator tensors.
-- Use `opt_einsum` or `cuTENSOR` on NVIDIA GPUs (e.g., A100 / H100):
-```python
-import opt_einsum as oe
-import torch
-
-# Contract tensor network representing dense sub-circuit
-# Path optimizer: 'greedy' or 'kahypar' for low-treewidth networks
-def contract_dense_kernel(tensors, equation):
-    return oe.contract(equation, *tensors, backend='torch')
-```
-
----
-
-## 5. Scientific Integrity & Data Protocols
-
-In accordance with [`AGENTS.md`](../AGENTS.md) and [`docs/RESEARCH_PROTOCOL.md`](RESEARCH_PROTOCOL.md):
-1. **Evidence Separation**: All EPYC runs must be written to a fresh directory:
-   `evidence/epyc-cube-001/`
-2. **CPU vs GPU Distinction**: CPU Cube-and-Conquer outputs and GPU tensor contraction benchmarks must be cataloged in distinct evidence subdirectories.
-3. **Immutability & Checkpoints**: Generate `manifest.json` with SHA-256 digests of all instances and configurations upon completion.
-4. **No External Publication Without Approval**: Keep results local; do not push to public repositories or commit automated claims until formally reviewed.
-
+1. **Dual Cut-Based Compilation for Hardness Boundary Instances**:
+   - Apply `net.to_cut_cnf(s, t)` on `grid_2x11` and `grid_3x7`.
+   - By formulating network reliability directly over minimal edge cuts $\bigwedge_{C \in \text{Cuts}} \bigvee_{e \in C} e$, all 1,400+ auxiliary path variables are eliminated, yielding compact monotone CNFs on only the 31–33 edge variables.
+2. **GPU Tensor Network Acceleration on V100/RTX 3060**:
+   - The host system contains an NVIDIA V100-SXM2 (16 GB) and RTX 3060.
+   - For bounded-treewidth planar sub-circuits, contract tensor networks using PyTorch Tensor Cores (`sat_frontier/tensor_contract.py` with `device='cuda'`).
+3. **Automated Verification**:
+   - Keep all 302 EPYC runs immutable. Re-verify anytime using:
+     ```bash
+     python verify_epyc_evidence.py
+     ```

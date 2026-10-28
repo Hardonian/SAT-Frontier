@@ -2,6 +2,7 @@
 import unittest
 from fractions import Fraction
 from sat_frontier.wmc import WeightedFormula, wmc_oracle, wmc_solve
+from sat_frontier.cut_compiler import to_cut_cnf
 from sat_frontier.reliability import (
     build_wheatstone_bridge,
     wheatstone_analytic,
@@ -87,6 +88,23 @@ class WMCTests(unittest.TestCase):
         # All variants must agree on the exact rational probability
         unique_fractions = set(results.values())
         self.assertEqual(len(unique_fractions), 1)
+
+    def test_cut_cnf_matches_path_cnf_and_analytic(self):
+        """Verify dual cut CNF matches path CNF and exact analytic reliability."""
+        # 1. Wheatstone bridge
+        p_val = Fraction(9, 10)
+        net, s, t = build_wheatstone_bridge(p=p_val)
+        wf_cut = to_cut_cnf(net, s, t)
+        res_cut = wmc_solve(wf_cut, algorithm='combined_wmc')
+        self.assertEqual(Fraction(res_cut['weight_fraction']), wheatstone_analytic(p_val))
+
+        # 2. Grid 2x3 network
+        net_grid, sg, tg = build_grid_network(rows=2, cols=3, p=Fraction(85, 100))
+        wf_path = net_grid.to_weighted_cnf(sg, tg)
+        wf_grid_cut = to_cut_cnf(net_grid, sg, tg)
+        res_path = wmc_solve(wf_path, algorithm='combined_wmc')
+        res_grid_cut = wmc_solve(wf_grid_cut, algorithm='combined_wmc')
+        self.assertEqual(Fraction(res_path['weight_fraction']), Fraction(res_grid_cut['weight_fraction']))
 
 
 if __name__ == '__main__':
