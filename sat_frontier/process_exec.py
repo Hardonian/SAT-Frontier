@@ -1,5 +1,6 @@
 """Exec a configured child with an address-space limit, without preexec_fn."""
 import os
+import subprocess
 import sys
 
 
@@ -16,10 +17,11 @@ def main():
                 header = f.read(256)
             if header.startswith(b"#!"):
                 shebang = header.split(b"\n")[0][2:].decode().strip()
-                target = shebang
                 args = [shebang, sys.argv[2]] + sys.argv[3:]
         except OSError:
             pass
+        ret = subprocess.call(args)
+        sys.exit(ret)
     os.execv(target, args)
 
 

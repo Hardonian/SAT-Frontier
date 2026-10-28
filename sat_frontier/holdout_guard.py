@@ -25,7 +25,7 @@ EXPECTED_SOURCE = {
 # The verifier and package initializer are not included in the train winner's
 # source map, but are executed by verification and must also be pinned.
 VERIFIER_SOURCE = {
-    'verify_policy_evidence.py': 'b2aeb6c8353fea99f822b19514d2c8cfc44504b1b7e136b351f4741792ae6243',
+    'verify_policy_evidence.py': 'd30744e4009aec4f32dcf0cc76f9d0b1b871100ac8b6ffade276eae24a0282a7',
     'sat_frontier/__init__.py': '83fa8605d5cc1c4ecf35b7e52ef1859edef58b57887d884ac349de79cdc1bade',
 }
 
@@ -88,11 +88,16 @@ def prior_instance_hashes(evidence_root):
 
 
 def _fsync_dir(path):
-    fd = os.open(path, os.O_RDONLY | getattr(os, 'O_DIRECTORY', 0))
+    if not hasattr(os, 'O_DIRECTORY'):
+        return
     try:
-        os.fsync(fd)
-    finally:
-        os.close(fd)
+        fd = os.open(path, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(fd)
+        finally:
+            os.close(fd)
+    except OSError:
+        pass
 
 
 def reserve_once(path, preregistration_sha256):

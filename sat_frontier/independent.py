@@ -30,9 +30,23 @@ def count(binary, formula, seconds=5.0, memory_bytes=None):
     with tempfile.TemporaryDirectory(prefix="sat-counter-") as d:
         input_path = Path(d) / "input.cnf"
         input_path.write_text(formula.dimacs())
-        cmd = [sys.executable, str(Path(__file__).with_name("process_exec.py")),
-               str(memory_bytes or 0), binary, "-decot", "0", "-decow", "100",
-               "-tmpdir", d, "-cs", "64", str(input_path)]
+        solver_args = ["-decot", "0", "-decow", "100", "-tmpdir", d, "-cs", "64", str(input_path)]
+        if linux:
+            cmd = [sys.executable, str(Path(__file__).with_name("process_exec.py")),
+                   str(memory_bytes or 0), binary] + solver_args
+        else:
+            shebang = None
+            try:
+                with open(binary, "rb") as bf:
+                    hdr = bf.read(256)
+                if hdr.startswith(b"#!"):
+                    shebang = hdr.split(b"\n")[0][2:].decode().strip()
+            except OSError:
+                pass
+            if shebang:
+                cmd = [shebang, binary] + solver_args
+            else:
+                cmd = [binary] + solver_args
         with (Path(d)/"stdout").open("w+b") as out, (Path(d)/"stderr").open("w+b") as err:
             try:
                 proc = subprocess.Popen(cmd, stdout=out, stderr=err, start_new_session=True, cwd=d)

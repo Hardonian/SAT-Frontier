@@ -14,7 +14,12 @@ def _reserve_then_wait(path, ready):
     guard.reserve_once(path, 'a' * 64)
     ready.send(True)
     ready.close()
-    signal.pause()
+    if hasattr(signal, 'pause'):
+        signal.pause()
+    else:
+        import time
+        while True:
+            time.sleep(1)
 
 
 class HoldoutGuardTests(unittest.TestCase):
@@ -83,9 +88,14 @@ class HoldoutGuardTests(unittest.TestCase):
                 self.assertIsNotNone(proc.pid)
                 if proc.pid is None:
                     self.fail('child process has no PID')
-                os.kill(proc.pid, signal.SIGKILL)
-                proc.join(10)
-                self.assertEqual(proc.exitcode, -signal.SIGKILL)
+                if hasattr(signal, 'SIGKILL'):
+                    os.kill(proc.pid, signal.SIGKILL)
+                    proc.join(10)
+                    self.assertEqual(proc.exitcode, -signal.SIGKILL)
+                else:
+                    proc.kill()
+                    proc.join(10)
+                    self.assertNotEqual(proc.exitcode, 0)
                 with self.assertRaises(FileExistsError):
                     guard.reserve_once(path, 'a' * 64)
             finally:
