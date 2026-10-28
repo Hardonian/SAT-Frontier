@@ -21,6 +21,7 @@
     "Hypothesis H7 tensor network contraction study preregistered, implemented, unit-tested, and executed across 72 runs in evidence/tensor-study-001/; verified 100% exact oracle match and demonstrated 6.2x median speedup for bucket elimination over global einsum path optimization",
     "Dual cut-based CNF compilation (to_cut_cnf) implemented in sat_frontier/cut_compiler.py, eliminating all auxiliary path indicators and achieving up to 122x search node reduction",
     "Hypothesis H9 dual cut-based CNF compilation study preregistered, implemented, unit-tested (67 tests), and executed across 48 runs in evidence/cut-wmc-001/; resolved hardness cliff instances grid_3x7 (solved in 2.13s) and grid_2x11 (solved in 0.12s) with 0 rational weight mismatches",
+    "Parallel Cube-and-Conquer lookahead executed on dual cut-compiled instances in evidence/cut-cube-001/ (36 runs, 20 workers); proved that deeper lookahead (depth 6, 64 cubes) directly unlocks exact solutions on hard topologies grid_3x8 (3.26s), grid_3x9 (11.52s, 1.4M nodes), and grid_4x6 (11.06s, 1.3M nodes) that stall at shallow depths, with 19/19 cross-depth invariant checks matching",
     "Turnkey deployment scripts (scripts/run_epyc_cube_conquer.sh, scripts/run_lean4_audit.sh, scripts/extract_axioms.lean, scripts/run_epyc_batch.py, scripts/run_cut_wmc_study.py) created and verified"
   ],
   "failed_or_blocked": [
@@ -49,6 +50,7 @@
     "evidence/wmc-reliability-001/manifest.json",
     "evidence/tensor-study-001/manifest.json",
     "evidence/cut-wmc-001/manifest.json",
+    "evidence/cut-cube-001/manifest.json",
     "evidence/epyc-cube-001/manifest.json",
     "evidence/epyc-cube-002/manifest.json",
     "evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json"

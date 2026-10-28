@@ -1,0 +1,9 @@
+{
+  "cross_depth_invariance_checks": 19,
+  "exact_runs": 31,
+  "study": "cut-cube-001",
+  "total_instances": 12,
+  "total_runs": 36,
+  "unknown_runs": 5,
+  "workers": 20
+}

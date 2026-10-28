@@ -16,8 +16,9 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - Hypothesis H7 Tensor Network Contraction: Implemented in `sat_frontier/tensor_contract.py` supporting NumPy einsum, PyTorch einsum (CPU/GPU), and heuristic min-degree bucket elimination; unit-tested (4 tests). Executed 72 runs across 18 instances in `evidence/tensor-study-001/` with 100% exact oracle agreement. Bucket elimination demonstrated a 6.2x median speedup over global einsum path optimization. Documented in `docs/TENSOR_CONTRACTION_REPORT.md` and verified by `verify_evidence.py`.
 - Dual Cut-Based Reliability Compilation (`to_cut_cnf`): Implemented in `sat_frontier/cut_compiler.py`, compiling two-terminal connectivity directly over minimal $s-t$ cuts without auxiliary path indicators, reducing search nodes by up to 122x on bottleneck networks.
 - Hypothesis H9 Dual Cut-Based Compilation Campaign: Preregistered, unit-tested (5 tests in `tests/test_cut_compiler.py`), and executed across 48 runs in `evidence/cut-wmc-001/` over 24 topologies. Proved that Dual Cut monotone CNF compilation shatters the structural hardness cliff identified in the EPYC campaign, solving `grid_3x7` in 2.13s (from >600s timeout) and `grid_2x11` in 0.12s, with 100% exact rational agreement across all 12 mutually solved instances and 0 mismatches. Fully documented in `docs/CUT_COMPILATION_REPORT.md` and verified by `verify_evidence.py`.
-- Turnkey Deployment Scripts: Automated execution scripts `scripts/run_epyc_cube_conquer.sh`, `scripts/run_lean4_audit.sh`, `scripts/extract_axioms.lean`, `scripts/run_epyc_batch.py`, and `scripts/run_cut_wmc_study.py`.
-- Local integrated suite: 67 unit tests passed with cross-platform Windows and Linux support. All 9 empirical evidence suites pass (2,541 total verified runs).
+- High-Concurrency Cut Cube Lookahead Campaign: Executed across 36 runs in `evidence/cut-cube-001/` over 12 hardness-boundary topologies with 20 workers. Demonstrated that deeper lookahead (depth 6, 64 cubes) overcomes node budget exhaustion, solving `grid_3x8` in 3.26s, `grid_3x9` in 11.52s (1.4M nodes), and `grid_4x6` in 11.06s (1.3M nodes) with 19/19 cross-depth exact invariant checks matching. Fully documented in `evidence/cut-cube-001/SUMMARY.md` and verified by `verify_evidence.py`.
+- Turnkey Deployment Scripts: Automated execution scripts `scripts/run_epyc_cube_conquer.sh`, `scripts/run_lean4_audit.sh`, `scripts/extract_axioms.lean`, `scripts/run_epyc_batch.py`, `scripts/run_cut_wmc_study.py`, and `scripts/run_cut_cube_study.py`.
+- Local integrated suite: 67 unit tests passed with cross-platform Windows and Linux support. All 10 empirical evidence suites pass (2,577 total verified runs).
 
 ## Blocked, failed and untested
 
@@ -40,6 +41,7 @@ python3 verify_evidence.py evidence/scaling-benchmark-001
 python3 verify_evidence.py evidence/wmc-reliability-001
 python3 verify_evidence.py evidence/tensor-study-001
 python3 verify_evidence.py evidence/cut-wmc-001
+python3 verify_evidence.py evidence/cut-cube-001
 python3 verify_epyc_evidence.py evidence/epyc-cube-001 evidence/epyc-cube-002
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```

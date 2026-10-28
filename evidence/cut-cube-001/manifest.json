@@ -1,0 +1,43 @@
+{
+  "artifact_sha256": {
+    "SUMMARY.md": "2002756d9875f9ff096735b83be4c4b87e63d925342768e734356c8f9d49cf4a",
+    "config.json": "709bf91a4a734d21c03e7f9bbc1d0243eaddf8fc2311c27fa3d69bcc38aeb7e8",
+    "instances/02fdde861820607369acf29c557ed52b9e3bd5a6c5bcd60bfa797d86156b5862.cnf": "02fdde861820607369acf29c557ed52b9e3bd5a6c5bcd60bfa797d86156b5862",
+    "instances/14354f9a6a20bb5f228005518c1ba9ce3eb30c00eae657e66ce9d390a972d07b.cnf": "14354f9a6a20bb5f228005518c1ba9ce3eb30c00eae657e66ce9d390a972d07b",
+    "instances/1e7e3fcf432f141e0ac61223699ae00412733a5329ee3d0ab693baf9b1177ffb.cnf": "1e7e3fcf432f141e0ac61223699ae00412733a5329ee3d0ab693baf9b1177ffb",
+    "instances/2592429aa74f0d468c6a37bd22f546d51a40a2cad723ebca8252a762ed78a7c6.cnf": "2592429aa74f0d468c6a37bd22f546d51a40a2cad723ebca8252a762ed78a7c6",
+    "instances/2fa0a37227f71224b38116aabddc11a11c6611ab117e09fcee3944731bf3fd33.cnf": "2fa0a37227f71224b38116aabddc11a11c6611ab117e09fcee3944731bf3fd33",
+    "instances/35fe936b45b88ff0e64310458bc561ec8a9fb18fc1949b1e0f27093c9c850e82.cnf": "35fe936b45b88ff0e64310458bc561ec8a9fb18fc1949b1e0f27093c9c850e82",
+    "instances/5b8b2a88d43b36615406eaa165394157a7ac0d2d9dd75c2ab45ef4bc643ad57a.cnf": "5b8b2a88d43b36615406eaa165394157a7ac0d2d9dd75c2ab45ef4bc643ad57a",
+    "instances/7b02af205b8aa7ec799aa8a72fa87edd4516b359b0da7882b197f6bec5b2c32c.cnf": "7b02af205b8aa7ec799aa8a72fa87edd4516b359b0da7882b197f6bec5b2c32c",
+    "instances/9062760eed8e35c5b39d64f472e458621a747d4bfc24ba5176fbee9391cbf667.cnf": "9062760eed8e35c5b39d64f472e458621a747d4bfc24ba5176fbee9391cbf667",
+    "instances/a8fcf12b1528b479ea8db7eba675568731318525549a9aaae4fe10454e2085da.cnf": "a8fcf12b1528b479ea8db7eba675568731318525549a9aaae4fe10454e2085da",
+    "instances/d635b4c30c04b65b61fa6e9540c967e57be68cdb1d7eb592d71b2d67b99c4d85.cnf": "d635b4c30c04b65b61fa6e9540c967e57be68cdb1d7eb592d71b2d67b99c4d85",
+    "instances/dd9997dc8bdcac5713979995988fdaf98f42b2f8ee1aa1a8d9110e082e07e090.cnf": "dd9997dc8bdcac5713979995988fdaf98f42b2f8ee1aa1a8d9110e082e07e090",
+    "runs.csv": "5d342ff1427169f1dc2b19f46771cb1fab03a0809495f015d3f95d3f33795107",
+    "runs.jsonl": "e4606a4aeea41dd3937330c0b5398826b25c9eefc5f922cac7d458ea77d9454a",
+    "summary.json": "9f9995f8ae490a2870284579a6cd20b6cc8b588e12d3c85cc70c5090b73d80ea"
+  },
+  "config_sha256": "709bf91a4a734d21c03e7f9bbc1d0243eaddf8fc2311c27fa3d69bcc38aeb7e8",
+  "exact": 31,
+  "hardware": {
+    "cpu": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+    "logical_cores": 24,
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "system": "Windows"
+  },
+  "instances": 12,
+  "runs": 36,
+  "schema_version": 1,
+  "source_sha256": {
+    "pyproject.toml": "f664040752fd61bce01549b99d42fca6ab5cb1bdc268de117f3001efe34ffc4c",
+    "sat_frontier/__init__.py": "83fa8605d5cc1c4ecf35b7e52ef1859edef58b57887d884ac349de79cdc1bade",
+    "sat_frontier/core.py": "b2c325f7482d2ad7754bbe1ea1347a32dfcbed69bf65fa29bce7e84e367e4587",
+    "sat_frontier/cube_conquer.py": "33264943a49a28c061f4e3f59d144a5365e06886889ea8ccee1d7f33f8362e1e",
+    "sat_frontier/cut_compiler.py": "40afaaff2e1b07b9e2a4b1eeb7e6c6a6df84fe1f7eb3fa680395a24947fb337f",
+    "sat_frontier/reliability.py": "13ed706868499fed2c8848fd4c4f43454ebc129608a50297d7460649baee6798",
+    "sat_frontier/wmc.py": "69889aa2a3cd928ee1afeb24332be3d4dbd986215e92bc7c664d7c95a5c71e57"
+  },
+  "status": "complete",
+  "unknown": 5
+}

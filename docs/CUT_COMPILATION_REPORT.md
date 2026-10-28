@@ -98,3 +98,4 @@ barbell_k7   | cut_cnf  | 43    | 65      | exact   | 3864    | 0.043s   | >25.8
 ## 5. Summary & Preregistration Conclusion
 
 Hypothesis H9 is **verified**: Dual Cut-based monotone CNF compilation eliminates auxiliary variables, bounds clause density, and enables exact DPLL/WMC solvers to scale past the topological hardness boundaries that stalled path-enumeration compilers.
+

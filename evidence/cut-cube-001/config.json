@@ -1,0 +1,13 @@
+{
+  "algo": "combined_wmc",
+  "depths": [
+    2,
+    4,
+    6
+  ],
+  "description": "Parallel Cube-and-Conquer lookahead on Dual Cut-compiled network reliability",
+  "max_nodes_per_cube": 100000,
+  "seconds_per_cube": 15.0,
+  "study_name": "cut-cube-001",
+  "workers": 20
+}
