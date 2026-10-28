@@ -2,7 +2,10 @@
 import hashlib
 import json
 import os
-import resource
+try:
+    import resource
+except ImportError:
+    resource = None
 import statistics
 from collections import defaultdict
 from fractions import Fraction

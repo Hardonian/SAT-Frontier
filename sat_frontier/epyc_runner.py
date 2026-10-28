@@ -2,7 +2,10 @@
 import argparse
 import json
 import os
-import resource
+try:
+    import resource
+except ImportError:
+    resource = None
 import sys
 from pathlib import Path
 from time import perf_counter
