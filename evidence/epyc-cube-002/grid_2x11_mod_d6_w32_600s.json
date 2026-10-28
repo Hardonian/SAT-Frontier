@@ -1,0 +1,937 @@
+{
+  "status": "unknown",
+  "weight_fraction": null,
+  "weight_float": null,
+  "cubes_total": 64,
+  "cubes_incomplete": 64,
+  "workers": 32,
+  "total_nodes": 63412,
+  "elapsed_seconds": 10.947318534999795,
+  "partitioning_seconds": null,
+  "results": [
+    {
+      "cube": [
+        31,
+        30,
+        29,
+        28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 1.7050247280021722
+    },
+    {
+      "cube": [
+        31,
+        30,
+        29,
+        28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 2.4945954800023173
+    },
+    {
+      "cube": [
+        31,
+        30,
+        29,
+        28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.157665482001903
+    },
+    {
+      "cube": [
+        31,
+        30,
+        29,
+        28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.999848308001674
+    },
+    {
+      "cube": [
+        31,
+        30,
+        29,
+        -28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.202527483001177
+    },
+    {
+      "cube": [
+        31,
+        30,
+        29,
+        -28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.6747483189974446
+    },
+    {
+      "cube": [
+        31,
+        30,
+        29,
+        -28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.094817412998964
+    },
+    {
+      "cube": [
+        31,
+        30,
+        29,
+        -28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.7757131770013075
+    },
+    {
+      "cube": [
+        31,
+        30,
+        -29,
+        28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.3209386319977057
+    },
+    {
+      "cube": [
+        31,
+        30,
+        -29,
+        28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.891406812999776
+    },
+    {
+      "cube": [
+        31,
+        30,
+        -29,
+        28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.207846854998934
+    },
+    {
+      "cube": [
+        31,
+        30,
+        -29,
+        28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 5.323975404000521
+    },
+    {
+      "cube": [
+        31,
+        30,
+        -29,
+        -28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.0830808879982214
+    },
+    {
+      "cube": [
+        31,
+        30,
+        -29,
+        -28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 5.1511049029977585
+    },
+    {
+      "cube": [
+        31,
+        30,
+        -29,
+        -28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.362775920999411
+    },
+    {
+      "cube": [
+        31,
+        30,
+        -29,
+        -28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.325398259999929
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        29,
+        28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.294801988999097
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        29,
+        28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.73811319500237
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        29,
+        28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.761202574998606
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        29,
+        28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 3.50601651100078
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        29,
+        -28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.191685685000266
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        29,
+        -28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.077094862001104
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        29,
+        -28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 3.4159387840009003
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        29,
+        -28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.6816529050011013
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        -29,
+        28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.5929816530006065
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        -29,
+        28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 4.442592825002066
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        -29,
+        28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 3.3573195059980208
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        -29,
+        28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.3328355429985095
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        -29,
+        -28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.344067243000609
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        -29,
+        -28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.01283057999899
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        -29,
+        -28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.657374141999753
+    },
+    {
+      "cube": [
+        31,
+        -30,
+        -29,
+        -28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.549737868997909
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        29,
+        28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.693336120999447
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        29,
+        28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.3917182900004264
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        29,
+        28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.4234542029989825
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        29,
+        28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 5.321962957998039
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        29,
+        -28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.248906241999066
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        29,
+        -28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.580748678999953
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        29,
+        -28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 3.8895038589980686
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        29,
+        -28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.2509499980005785
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        -29,
+        28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.3140758219997224
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        -29,
+        28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.247490472000209
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        -29,
+        28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.387895550000394
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        -29,
+        28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.888250055999379
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        -29,
+        -28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 6.280408021000767
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        -29,
+        -28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 6.003239196998038
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        -29,
+        -28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.5102773220023664
+    },
+    {
+      "cube": [
+        -31,
+        30,
+        -29,
+        -28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.716985056998965
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        29,
+        28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.797049319000507
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        29,
+        28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 3.7089530329976697
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        29,
+        28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 3.6453907110008004
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        29,
+        28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.731083728001977
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        29,
+        -28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 990,
+      "elapsed": 3.6938074540012167
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        29,
+        -28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.9176174419990275
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        29,
+        -28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.457212139001058
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        29,
+        -28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.848096706002252
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        -29,
+        28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.615430355999706
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        -29,
+        28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.844652397001482
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        -29,
+        28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.384965534001822
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        -29,
+        28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 5.211037453002064
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        -29,
+        -28,
+        27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 3.6373777920016437
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        -29,
+        -28,
+        27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.613938042999507
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        -29,
+        -28,
+        -27,
+        26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.204369433999091
+    },
+    {
+      "cube": [
+        -31,
+        -30,
+        -29,
+        -28,
+        -27,
+        -26
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 4.192031806000159
+    }
+  ],
+  "cube_time_median": 4.22592995299965,
+  "cube_time_max": 6.280408021000767,
+  "checkpoint_dir": null,
+  "instance": "evidence/epyc-cube-001/instances/grid_2x11_mod.cnf",
+  "total_wall_seconds": 10.94824438899741,
+  "cubes_per_second": 5.845686095966006,
+  "peak_rss_mb": 26,
+  "numa_strategy": "interleave",
+  "resource_discovery": {
+    "cpu_count": 64,
+    "numa_nodes": 0,
+    "cpus_per_node": [],
+    "total_memory_mb": 172593,
+    "available_memory_mb": 153489,
+    "load_avg": [
+      22.0185546875,
+      28.0263671875,
+      33.62109375
+    ]
+  },
+  "worker_recommendation": {
+    "recommended_workers": 32,
+    "cpu_count": 64,
+    "numa_nodes": 0,
+    "available_memory_mb": 153489,
+    "load_avg_1m": 22.0185546875,
+    "reason": "cpu=64, mem_limited=3069, chosen=min(32)"
+  }
+}

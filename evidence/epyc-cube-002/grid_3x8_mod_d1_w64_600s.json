@@ -1,0 +1,59 @@
+{
+  "status": "unknown",
+  "weight_fraction": null,
+  "weight_float": null,
+  "cubes_total": 2,
+  "cubes_incomplete": 2,
+  "workers": 64,
+  "total_nodes": 1982,
+  "elapsed_seconds": 24.289647304998653,
+  "partitioning_seconds": null,
+  "results": [
+    {
+      "cube": [
+        30
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 7.395119005999732
+    },
+    {
+      "cube": [
+        -30
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 991,
+      "elapsed": 23.453236969999125
+    }
+  ],
+  "cube_time_median": 15.424177987999428,
+  "cube_time_max": 23.453236969999125,
+  "checkpoint_dir": null,
+  "instance": "evidence/epyc-cube-001/instances/grid_3x8_mod.cnf",
+  "total_wall_seconds": 24.29104522399939,
+  "cubes_per_second": 0.08233486791354756,
+  "peak_rss_mb": 51,
+  "numa_strategy": "interleave",
+  "resource_discovery": {
+    "cpu_count": 64,
+    "numa_nodes": 0,
+    "cpus_per_node": [],
+    "total_memory_mb": 172593,
+    "available_memory_mb": 155017,
+    "load_avg": [
+      22.671875,
+      27.974609375,
+      33.54443359375
+    ]
+  },
+  "worker_recommendation": {
+    "recommended_workers": 64,
+    "cpu_count": 64,
+    "numa_nodes": 0,
+    "available_memory_mb": 155017,
+    "load_avg_1m": 22.671875,
+    "reason": "cpu=64, mem_limited=3100, chosen=min(64)"
+  }
+}
