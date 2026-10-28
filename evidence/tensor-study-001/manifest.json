@@ -1,0 +1,48 @@
+{
+  "artifact_sha256": {
+    "config.json": "85d60f0cd1c7cf943cd762e5e23e3c8fc98e5755b2e13f4ac3a12de9a2a2b6a5",
+    "instances/2b303fc2590d6f0cbb2319ee85b3baa6b6ef0afaebfcbfa5e40820a0fd8aa935.cnf": "2b303fc2590d6f0cbb2319ee85b3baa6b6ef0afaebfcbfa5e40820a0fd8aa935",
+    "instances/40138b285bb790727580beb30f7edaec84e5c631a8dfb1320d9411cd9d9739e8.cnf": "40138b285bb790727580beb30f7edaec84e5c631a8dfb1320d9411cd9d9739e8",
+    "instances/59b82f45a286350e89de85592c72e99844d2fdfae3d2bbc040fb4e9edfd2c089.cnf": "59b82f45a286350e89de85592c72e99844d2fdfae3d2bbc040fb4e9edfd2c089",
+    "instances/6294968a0dbe6302321e9c0110acd42b9965ffcaf228e35a0bfef956cf22a0d2.cnf": "6294968a0dbe6302321e9c0110acd42b9965ffcaf228e35a0bfef956cf22a0d2",
+    "instances/67e591d593f0f4e154e5fb9baa6f8d0d4aeb946a59a96fcb4d2885e61526c49f.cnf": "67e591d593f0f4e154e5fb9baa6f8d0d4aeb946a59a96fcb4d2885e61526c49f",
+    "instances/81b43b9fb0ab505559b77ee195eb392f42767acefcb1b3148477e8e5adc09736.cnf": "81b43b9fb0ab505559b77ee195eb392f42767acefcb1b3148477e8e5adc09736",
+    "instances/867938cd92f3ced6760addd39b8c9b4bd695343010478d78022383d40b11993e.cnf": "867938cd92f3ced6760addd39b8c9b4bd695343010478d78022383d40b11993e",
+    "instances/944552c592d78918b280ca16f64a277b6085ff799fe6017989fe1ed388b883f2.cnf": "944552c592d78918b280ca16f64a277b6085ff799fe6017989fe1ed388b883f2",
+    "instances/98259c0ac0d0c660aa87bdefa6d13c1c39d3653bc1b31cca9eb8ba96c15893ca.cnf": "98259c0ac0d0c660aa87bdefa6d13c1c39d3653bc1b31cca9eb8ba96c15893ca",
+    "instances/a066e6f4af5a86174b1262bf8e8da798dd94ddf2a425544f46851c288368dfee.cnf": "a066e6f4af5a86174b1262bf8e8da798dd94ddf2a425544f46851c288368dfee",
+    "instances/a1b4b19a1c6d8e324f4a8d29ad3a4ddad19677c1bd164550fabb179806c85cc0.cnf": "a1b4b19a1c6d8e324f4a8d29ad3a4ddad19677c1bd164550fabb179806c85cc0",
+    "instances/a2ab364c83fbd6132ee4e9caf2227be22b33d4c7d10b10a66ee73208e2e5fa1d.cnf": "a2ab364c83fbd6132ee4e9caf2227be22b33d4c7d10b10a66ee73208e2e5fa1d",
+    "instances/b3d67a73ede9ff605d3868cbe1b74a6abb4922412e1b45fd8e76b65546475dbe.cnf": "b3d67a73ede9ff605d3868cbe1b74a6abb4922412e1b45fd8e76b65546475dbe",
+    "instances/b512337803ac2346b9f7617898f63538248da642e9fc826c54992108e0c7540a.cnf": "b512337803ac2346b9f7617898f63538248da642e9fc826c54992108e0c7540a",
+    "instances/c849b1598fcdd2040f605a7aa64563a0dcb5641674aed3d225da08906325df30.cnf": "c849b1598fcdd2040f605a7aa64563a0dcb5641674aed3d225da08906325df30",
+    "instances/d864bca74674c4e66d7db223b04864331e6cd32a5c2c9b81716b2c8e9290cb9e.cnf": "d864bca74674c4e66d7db223b04864331e6cd32a5c2c9b81716b2c8e9290cb9e",
+    "instances/e2b518de3b39f3a0c706438060b3b59cfc320182dc93fd052581c140a61b1bf9.cnf": "e2b518de3b39f3a0c706438060b3b59cfc320182dc93fd052581c140a61b1bf9",
+    "instances/e40be6b1e4cd3a4c49efcb12ae785d7a48ae89921ead133472c6a4ad6c52bdc7.cnf": "e40be6b1e4cd3a4c49efcb12ae785d7a48ae89921ead133472c6a4ad6c52bdc7",
+    "runs.csv": "29ded7b47b070b0034e44a6c472ab777ab1af14b0fcf7e6699ed68f94a690d1f",
+    "runs.jsonl": "28b637a0f50afa4c00ce20f26d686f9e91ef9ba1753bbb6789b6a1ac2eb1cd58",
+    "summary.json": "8c3d66ead6f5543d7ffcadddf73bf7273d639dbe5a9863dea59130eb1ca91cb8"
+  },
+  "config_sha256": "85d60f0cd1c7cf943cd762e5e23e3c8fc98e5755b2e13f4ac3a12de9a2a2b6a5",
+  "exact": 72,
+  "hardware": {
+    "cpu": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "system": "Windows"
+  },
+  "instances": 18,
+  "runs": 72,
+  "schema_version": 1,
+  "source_sha256": {
+    "pyproject.toml": "f664040752fd61bce01549b99d42fca6ab5cb1bdc268de117f3001efe34ffc4c",
+    "sat_frontier/__init__.py": "83fa8605d5cc1c4ecf35b7e52ef1859edef58b57887d884ac349de79cdc1bade",
+    "sat_frontier/core.py": "b2c325f7482d2ad7754bbe1ea1347a32dfcbed69bf65fa29bce7e84e367e4587",
+    "sat_frontier/generate.py": "7b0fdb60e0237ffb5200f055bed2741e387b7be2070d28d421949995ae5ebd52",
+    "sat_frontier/reliability.py": "13ed706868499fed2c8848fd4c4f43454ebc129608a50297d7460649baee6798",
+    "sat_frontier/tensor_contract.py": "fcfa0f1e037b238f1d8991b82cab2402908625d65fbe175a21b4ae0b21f2fb69",
+    "sat_frontier/tensor_study.py": "0b5a79ba66549d3d11a181bba16cfb2ab556d1cd37c8ced39a8af1a1b556701e",
+    "sat_frontier/wmc.py": "69889aa2a3cd928ee1afeb24332be3d4dbd986215e92bc7c664d7c95a5c71e57"
+  },
+  "status": "complete",
+  "unknown": 0
+}

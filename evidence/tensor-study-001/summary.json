@@ -1,0 +1,106 @@
+{
+  "grid": {
+    "baseline": {
+      "exact_runs": 2,
+      "mean_ms": 0.25439999990339857,
+      "median_ms": 0.25439999990339857,
+      "total_runs": 2
+    },
+    "combined": {
+      "exact_runs": 2,
+      "mean_ms": 0.2587000017229002,
+      "median_ms": 0.2587000017229002,
+      "total_runs": 2
+    },
+    "tensor_bucket": {
+      "exact_runs": 2,
+      "mean_ms": 0.975950000793091,
+      "median_ms": 0.975950000793091,
+      "total_runs": 2
+    },
+    "tensor_einsum": {
+      "exact_runs": 2,
+      "mean_ms": 2.1056499990663724,
+      "median_ms": 2.1056499990663724,
+      "total_runs": 2
+    }
+  },
+  "ladder": {
+    "baseline": {
+      "exact_runs": 3,
+      "mean_ms": 4.35736666743954,
+      "median_ms": 1.946600001247134,
+      "total_runs": 3
+    },
+    "combined": {
+      "exact_runs": 3,
+      "mean_ms": 4.313366665883223,
+      "median_ms": 1.8774999989545904,
+      "total_runs": 3
+    },
+    "tensor_bucket": {
+      "exact_runs": 3,
+      "mean_ms": 162.7125000001494,
+      "median_ms": 3.068000001803739,
+      "total_runs": 3
+    },
+    "tensor_einsum": {
+      "exact_runs": 3,
+      "mean_ms": 2247.3259333346505,
+      "median_ms": 19.216100001358427,
+      "total_runs": 3
+    }
+  },
+  "random_expander": {
+    "baseline": {
+      "exact_runs": 12,
+      "mean_ms": 1.740891666789442,
+      "median_ms": 2.0841500008828007,
+      "total_runs": 12
+    },
+    "combined": {
+      "exact_runs": 12,
+      "mean_ms": 1.884191666249535,
+      "median_ms": 2.2778499987907708,
+      "total_runs": 12
+    },
+    "tensor_bucket": {
+      "exact_runs": 12,
+      "mean_ms": 2.782025000669819,
+      "median_ms": 2.517400000215275,
+      "total_runs": 12
+    },
+    "tensor_einsum": {
+      "exact_runs": 12,
+      "mean_ms": 10.317033333497724,
+      "median_ms": 9.3393000006472,
+      "total_runs": 12
+    }
+  },
+  "wheatstone": {
+    "baseline": {
+      "exact_runs": 1,
+      "mean_ms": 0.28329999986453913,
+      "median_ms": 0.28329999986453913,
+      "total_runs": 1
+    },
+    "combined": {
+      "exact_runs": 1,
+      "mean_ms": 0.2810000005410984,
+      "median_ms": 0.2810000005410984,
+      "total_runs": 1
+    },
+    "tensor_bucket": {
+      "exact_runs": 1,
+      "mean_ms": 1.0953000019071624,
+      "median_ms": 1.0953000019071624,
+      "total_runs": 1
+    },
+    "tensor_einsum": {
+      "exact_runs": 1,
+      "mean_ms": 1.348500001768116,
+      "median_ms": 1.348500001768116,
+      "total_runs": 1
+    }
+  }
+}

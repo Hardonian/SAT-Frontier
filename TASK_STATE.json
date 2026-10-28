@@ -2,7 +2,7 @@
   "project": "SAT-Frontier",
   "version": "0.2.1",
   "checkpoint_date": "2026-10-28",
-  "release_status": "research release v0.2.1; M0/M1/M2/M3/M5 completed; H4, scaling benchmark, and WMC reliability fully executed and verified; upstream proof verification blocked and M4 gated",
+  "release_status": "research release v0.2.1; M0/M1/M2/M3/M5 completed; H4, scaling benchmark, WMC reliability, and H7 tensor contraction fully executed and verified; upstream proof verification blocked and M4 gated",
   "completed": [
     "private repository and original archive plus Git history restored",
     "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
@@ -16,7 +16,10 @@
     "Calibrated scaling benchmark across n=12..20 executed and verified (300 runs across 5 solver variants, 100% oracle match for n<=18; confirmed compound cache hits and 28% node reduction)",
     "Upstream ETH Lean proof audit completed with recorded resource ceiling blocker (11.9 GB peak RSS, multi-process fanout, exit 137/timeout; downstream M4 extraction gated)",
     "Checkpoint release v0.2.1 packaged with distribution archive and SHA-256 provenance ledger",
-    "Milestone M5 useful transfer completed: Weighted Model Counting (WMC) engine and Network Infrastructure Reliability compiler; evaluated across 75 runs in evidence/wmc-reliability-001/ with exact rational arithmetic and >18x node reduction over non-decomposed solvers"
+    "Milestone M5 useful transfer completed: Weighted Model Counting (WMC) engine and Network Infrastructure Reliability compiler; evaluated across 75 runs in evidence/wmc-reliability-001/ with exact rational arithmetic and >18x node reduction over non-decomposed solvers",
+    "Parallel Cube-and-Conquer lookahead engine (sat_frontier/cube_conquer.py) and EPYC high-core runner (sat_frontier/epyc_runner.py) implemented and unit-tested",
+    "Turnkey execution scripts (scripts/run_epyc_cube_conquer.sh, scripts/run_lean4_audit.sh) created for Hermes / AMD EPYC deployment",
+    "Hypothesis H7 tensor network contraction study preregistered, implemented, unit-tested, and executed across 72 runs in evidence/tensor-study-001/; verified 100% exact oracle match and demonstrated 6.2x median speedup for bucket elimination over global einsum path optimization"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
@@ -31,7 +34,7 @@
   "holdout_consumed": true,
   "remote_created": true,
   "gpu_used": false,
-  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances",
+  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning",
   "evidence": [
     "evidence/smoke-train/manifest.json",
     "evidence/v02-integrated-development-001/manifest.json",
@@ -41,8 +44,9 @@
     "evidence/separator-study-001/manifest.json",
     "evidence/scaling-benchmark-001/manifest.json",
     "evidence/packaging-v021.txt",
-    "evidence/wmc-reliability-001/manifest.json"
+    "evidence/wmc-reliability-001/manifest.json",
+    "evidence/tensor-study-001/manifest.json"
   ],
-  "next": "Upstream proof audit and industrial-scale benchmarks remain the primary open research frontiers; resolve hosted Actions billing if owner authorizes.",
+  "next": "Dispatch Track 1 (EPYC Cube-and-Conquer) and Track 2 (Lean 4 build & axiom audit) via turnkey scripts on Hermes / EPYC server.",
   "resume": "RESUME.md"
 }

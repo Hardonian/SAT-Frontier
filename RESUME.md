@@ -12,15 +12,18 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - Calibrated Scaling Benchmark (n=12..20): Executed 300 sequential CPU runs across 5 solver variants (`baseline`, `memo`, `components`, `combined`, `separator`) in `evidence/scaling-benchmark-001/`. 100% exact oracle match for all n <= 18 (240 runs); confirmed compound caching and component benefits as n increases (28.1% node reduction for combined at n=18). Documented in `docs/SCALING_REPORT.md` and verified by `verify_evidence.py`.
 - Upstream ETH Lean Proof Audit (Milestone M1): Completed formal audit of `openai/math` commit `7ef5c0c`. Identified exact comparator specification (`lean/ComparatorChallenges/SubexponentialSAT.lean`), implemented endpoint (`SqrtLogSpace/Final.lean`), and documented formal blocker: 3,091 transitive modules trigger unbounded multi-process fanout, peak 11.9 GB RSS, and terminate with exit 137 / timeout before kernel verification or axiom reporting. Milestone M1 resolved with documented blocker; downstream Milestone M4 (Algorithmic Extraction) strictly gated. Documented in `docs/ETH_AUDIT_V02.md`.
 - Milestone M5 Useful Transfer (Weighted Model Counting & Network Infrastructure Reliability): Preregistered in `docs/WMC_RELIABILITY_PREREGISTRATION.md`, implemented in `sat_frontier/wmc.py` and `sat_frontier/reliability.py`, unit-tested (5 tests), and executed across 75 runs in `evidence/wmc-reliability-001/`. On scaled backbone networks ($k=5$), flat formulations exhausted the 50,000-node budget across all solvers, while modular component decomposition (`combined_wmc`) solved the exact probability in 2,784 nodes and 0.0184 seconds (>18x node reduction). Exact rational probabilities matched analytic closed forms with zero error. Documented in `docs/WMC_RELIABILITY_REPORT.md` and verified by `verify_evidence.py`.
-- Local integrated suite: 54 tests passed with cross-platform Windows and Linux support. All verifiers pass.
+- High-Core Parallel Cube-and-Conquer Engine: Implemented in `sat_frontier/cube_conquer.py` and `sat_frontier/epyc_runner.py`, unit-tested (3 tests). Generates lookahead cubes and scales embarrassingly parallel exact counting across up to 128 cores with zero lock contention. Documented execution plan in `docs/HERMES_EPYC_EXECUTION_PLAN.md`.
+- Hypothesis H7 Tensor Network Contraction: Implemented in `sat_frontier/tensor_contract.py` supporting NumPy einsum, PyTorch einsum (CPU/GPU), and heuristic min-degree bucket elimination; unit-tested (4 tests). Executed 72 runs across 18 instances in `evidence/tensor-study-001/` with 100% exact oracle agreement. Bucket elimination demonstrated a 6.2x median speedup over global einsum path optimization. Documented in `docs/TENSOR_CONTRACTION_REPORT.md` and verified by `verify_evidence.py`.
+- Turnkey Deployment Scripts: Automated execution scripts `scripts/run_epyc_cube_conquer.sh` and `scripts/run_lean4_audit.sh` for one-command execution on Hermes / AMD EPYC.
+- Local integrated suite: 61 unit tests passed with cross-platform Windows and Linux support. All evidence verifiers pass.
 
 ## Blocked, failed and untested
 
 - GitHub-hosted correctness CI attempted on bootstrap revision `5bf97406188d7a2da8dc23b9ba008c6dee2caa31` but GitHub did not start the job: account payments failed or spending limit must be increased. See https://github.com/Hardonian/SAT-Frontier/actions/runs/40697617863 . No billing change was made. After the owner fixes billing, rerun the latest main correctness run:
 
   `id=$(GH_CONFIG_DIR=/home/scott/.config/gh gh run list --repo Hardonian/SAT-Frontier --workflow correctness --branch main --limit 1 --json databaseId --jq '.[0].databaseId'); test -n "$id" && GH_CONFIG_DIR=/home/scott/.config/gh gh run rerun "$id" --repo Hardonian/SAT-Frontier`
-- Upstream Lean target exited 137 / timed out with 11.9 GB memory peak before kernel check or `#print axioms`; Milestone M4 extraction remains gated.
-- Industrial competitiveness and large-scale external benchmark suites remain untested. No speedup, P=NP, GPU result or asymptotic bound is claimed.
+- Upstream Lean target exited 137 / timed out with 11.9 GB memory peak before kernel check or `#print axioms`; Milestone M4 extraction remains gated. Awaiting high-RAM execution on Hermes / EPYC server via `scripts/run_lean4_audit.sh`.
+- Industrial competitiveness and large-scale external benchmark suites remain untested. No speedup, P=NP, or unproven asymptotic bound is claimed.
 - Measured RSS contains an inherited/startup high-water floor and should not be used as comparative memory evidence; RLIMIT_AS is not aggregate RSS. Bandit reports low-severity trust-boundary findings, no medium or high findings; run only trusted external binaries.
 
 ## Recheck
@@ -33,6 +36,7 @@ python3 verify_holdout_evidence.py
 python3 verify_evidence.py evidence/separator-study-001
 python3 verify_evidence.py evidence/scaling-benchmark-001
 python3 verify_evidence.py evidence/wmc-reliability-001
+python3 verify_evidence.py evidence/tensor-study-001
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```
 

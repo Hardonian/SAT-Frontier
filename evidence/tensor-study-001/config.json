@@ -1,0 +1,14 @@
+{
+  "algorithms": [
+    "tensor_einsum",
+    "tensor_bucket",
+    "combined",
+    "baseline"
+  ],
+  "device": "cpu",
+  "hypothesis": "H7",
+  "max_nodes": 50000,
+  "preregistration": "docs/TENSOR_CONTRACTION_PREREGISTRATION.md",
+  "seconds_per_run": 10.0,
+  "study": "tensor-study-001"
+}
