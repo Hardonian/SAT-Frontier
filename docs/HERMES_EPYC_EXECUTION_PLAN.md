@@ -1,7 +1,7 @@
 # Hermes & AMD EPYC Execution Plan: Scaled Exact Counting & WMC
 
 **Generated Date**: 2026-10-28  
-**Target Systems**: High-Core AMD EPYC Server (64 Cores / 128 Threads, 168 GB DDR5 RAM, 3x GPUs: V100-SXM2, Tesla P40, RTX 3060)  
+**Target Systems**: High-Core AMD EPYC Server (64 Cores / 128 Threads, 168 GB DDR4 RAM, 3x GPUs: V100-SXM2, Tesla P40, RTX 3060)  
 **Related Milestones**: Milestone M1 (Lean Audit Continuation), Milestone M4 (Algorithmic Extraction), Milestone M5 (Useful Transfer Scale-Up)  
 **Execution Status**: **Track 1 Completed & Verified** (302 EPYC runs, 194M search nodes); **Track 2 Blocker Pinned** (`evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json`); **Track 3 CPU Verified** (`evidence/tensor-study-001/`).
 

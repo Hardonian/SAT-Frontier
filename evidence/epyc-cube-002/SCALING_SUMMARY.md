@@ -3,7 +3,7 @@ Generated: 2026-10-28 (final v2)
 
 ## Environment
 - CPU: 64-core AMD EPYC
-- Memory: 172 GB DDR5
+- Memory: 172 GB DDR4
 - NUMA: single node, interleave mode
 - Runner: resource-aware epyc_runner.py with checkpoint/resume
 
