@@ -11,7 +11,8 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - Hypothesis H4 (Graph Separators & Structural Decomposition): Preregistered, implemented in `sat_frontier/separator.py`, unit-tested (5 tests), and executed across 160 CPU runs in `evidence/separator-study-001/`. On barbell bottleneck graphs, cut-vertex branching doubled component splits (2.0 vs 1.0) and yielded a faster median solve time (ratio 0.915). On unstructured expander 3-SAT, search overhead reached 53–59% with zero cut vertices found. Fully documented in `docs/SEPARATOR_REPORT.md` and verified by `verify_evidence.py`.
 - Calibrated Scaling Benchmark (n=12..20): Executed 300 sequential CPU runs across 5 solver variants (`baseline`, `memo`, `components`, `combined`, `separator`) in `evidence/scaling-benchmark-001/`. 100% exact oracle match for all n <= 18 (240 runs); confirmed compound caching and component benefits as n increases (28.1% node reduction for combined at n=18). Documented in `docs/SCALING_REPORT.md` and verified by `verify_evidence.py`.
 - Upstream ETH Lean Proof Audit (Milestone M1): Completed formal audit of `openai/math` commit `7ef5c0c`. Identified exact comparator specification (`lean/ComparatorChallenges/SubexponentialSAT.lean`), implemented endpoint (`SqrtLogSpace/Final.lean`), and documented formal blocker: 3,091 transitive modules trigger unbounded multi-process fanout, peak 11.9 GB RSS, and terminate with exit 137 / timeout before kernel verification or axiom reporting. Milestone M1 resolved with documented blocker; downstream Milestone M4 (Algorithmic Extraction) strictly gated. Documented in `docs/ETH_AUDIT_V02.md`.
-- Local integrated suite: 49 tests passed with cross-platform Windows and Linux support. All verifiers pass.
+- Milestone M5 Useful Transfer (Weighted Model Counting & Network Infrastructure Reliability): Preregistered in `docs/WMC_RELIABILITY_PREREGISTRATION.md`, implemented in `sat_frontier/wmc.py` and `sat_frontier/reliability.py`, unit-tested (5 tests), and executed across 75 runs in `evidence/wmc-reliability-001/`. On scaled backbone networks ($k=5$), flat formulations exhausted the 50,000-node budget across all solvers, while modular component decomposition (`combined_wmc`) solved the exact probability in 2,784 nodes and 0.0184 seconds (>18x node reduction). Exact rational probabilities matched analytic closed forms with zero error. Documented in `docs/WMC_RELIABILITY_REPORT.md` and verified by `verify_evidence.py`.
+- Local integrated suite: 54 tests passed with cross-platform Windows and Linux support. All verifiers pass.
 
 ## Blocked, failed and untested
 
@@ -31,6 +32,7 @@ python3 verify_policy_evidence.py
 python3 verify_holdout_evidence.py
 python3 verify_evidence.py evidence/separator-study-001
 python3 verify_evidence.py evidence/scaling-benchmark-001
+python3 verify_evidence.py evidence/wmc-reliability-001
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```
 

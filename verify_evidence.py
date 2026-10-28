@@ -36,7 +36,7 @@ def verify(run, source_root=None):
         if len(instance) != 64 or any(c not in "0123456789abcdef" for c in instance):
             raise ValueError("invalid instance digest")
         ids.add(instance)
-        if row["status"] != "exact" and row["count"] is not None:
+        if row["status"] != "exact" and (row.get("count") is not None or row.get("weight_fraction") is not None):
             raise ValueError("incomplete result contains a count")
     for instance in ids:
         if sha(run/"instances"/(instance+".cnf")) != instance:

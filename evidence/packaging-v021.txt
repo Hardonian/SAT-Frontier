@@ -1,10 +1,10 @@
 {
   "archive_zip": "sat-frontier-v0.2.1.zip",
-  "archive_sha256": "8dd65da2f138b54285ac881b817c61b8727da92e07e2027f9cdeddb85b87826c",
-  "archive_size_bytes": 1537442,
+  "archive_sha256": "1887de473437cedca8a8475dec49a25746ba275322988e0ebc65aacaea5d713f",
+  "archive_size_bytes": 1580095,
   "wheel_name": "sat_frontier-0.2.1-py3-none-any.whl",
-  "wheel_sha256": "a55e41e499e16e47cfd683a9c9832625164382424ba2a5d91ce93ebc6157779f",
-  "wheel_size_bytes": 31530,
+  "wheel_sha256": "9fdaff0155a0139e31a720d5034e344663cd33a14600643efe6bc52e6a5ce4a5",
+  "wheel_size_bytes": 39537,
   "pip_install_stdout": "Processing c:\\users\\scott\\sat-frontier\\dist\\sat_frontier-0.2.1-py3-none-any.whl\nInstalling collected packages: sat-frontier\nSuccessfully installed sat-frontier-0.2.1",
   "cli_solve_stdout": {
     "algorithm": "combined",
@@ -12,7 +12,7 @@
     "cache_hits": 0,
     "component_splits": 1,
     "count": 18,
-    "elapsed_seconds": 0.00012690000221482478,
+    "elapsed_seconds": 7.43000018701423e-05,
     "nodes": 7,
     "reason": null,
     "status": "exact",

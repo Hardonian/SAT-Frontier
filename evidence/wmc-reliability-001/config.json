@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "study": "wmc_network_reliability_m5",
+  "seconds": 5.0,
+  "max_nodes": 50000,
+  "algorithms": [
+    "baseline_wmc",
+    "memo_wmc",
+    "components_wmc",
+    "combined_wmc",
+    "separator_wmc"
+  ]
+}
