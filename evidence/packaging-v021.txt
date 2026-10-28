@@ -1,0 +1,22 @@
+{
+  "archive_zip": "sat-frontier-v0.2.1.zip",
+  "archive_sha256": "6c13dbbc60bd2d9406a4e4987b79cca2a86b671eb593876284620f3536108ffe",
+  "archive_size_bytes": 1536750,
+  "wheel_name": "sat_frontier-0.2.1-py3-none-any.whl",
+  "wheel_sha256": "ea3fe9f2f9ea7aeb79354e10558225d9f43f02bef10942716621682ba6e19071",
+  "wheel_size_bytes": 31531,
+  "pip_install_stdout": "Processing c:\\users\\scott\\sat-frontier\\dist\\sat_frontier-0.2.1-py3-none-any.whl\nInstalling collected packages: sat-frontier\nSuccessfully installed sat-frontier-0.2.1",
+  "cli_solve_stdout": {
+    "algorithm": "combined",
+    "cache_entries": 3,
+    "cache_hits": 0,
+    "component_splits": 1,
+    "count": 18,
+    "elapsed_seconds": 6.750000102329068e-05,
+    "nodes": 7,
+    "reason": null,
+    "status": "exact",
+    "unit_assignments": 2
+  },
+  "verification": "PASS: wheel installed and CLI executed in isolated clean venv outside source root"
+}

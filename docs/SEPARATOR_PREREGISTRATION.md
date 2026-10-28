@@ -48,3 +48,4 @@ For each candidate variable $v \in V$:
 - Acceptance criteria for H4:
   - Separator branching strictly reduces recursive nodes on structured/bridge formulas.
   - Search node reduction must be accompanied by an increase in component split operations.
+

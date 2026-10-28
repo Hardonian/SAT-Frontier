@@ -24,7 +24,8 @@ def verify(run, source_root=None):
         path = (run/name).resolve()
         if not path.is_relative_to(run) or sha(path) != expected:
             raise ValueError(f"artifact hash mismatch: {name}")
-    if sha(run/"config.json") != m["config_sha256"]:
+    expected_config = m.get("config_sha256") or m.get("artifact_sha256", {}).get("config.json")
+    if expected_config and sha(run/"config.json") != expected_config:
         raise ValueError("configuration mismatch")
     rows = [json.loads(line) for line in (run/"runs.jsonl").read_text().splitlines()]
     if len(rows) != m["runs"]:

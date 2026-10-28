@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "families": [
+    "barbell",
+    "disconnected",
+    "planted",
+    "random"
+  ],
+  "seeds": [
+    501,
+    502,
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510
+  ],
+  "repeats": 2,
+  "seconds": 2.0,
+  "max_nodes": 50000,
+  "algorithms": [
+    "control",
+    "separator"
+  ]
+}

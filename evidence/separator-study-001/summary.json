@@ -1,0 +1,110 @@
+{
+  "barbell": {
+    "control": {
+      "exact_fraction": 1.0,
+      "exact_runs": 20,
+      "mean_nodes": 18.1,
+      "median_component_splits": 1.0,
+      "median_nodes": 18.0,
+      "median_solver_seconds": 0.0008066499976848718,
+      "total_runs": 20
+    },
+    "paired": {
+      "mean_node_reduction": -0.3,
+      "median_time_overhead_ratio": 0.9146959463944269,
+      "node_equal_pairs": 8,
+      "node_increased_pairs": 6,
+      "node_reduced_pairs": 6
+    },
+    "separator": {
+      "exact_fraction": 1.0,
+      "exact_runs": 20,
+      "mean_nodes": 18.4,
+      "median_component_splits": 2.0,
+      "median_nodes": 19.0,
+      "median_solver_seconds": 0.0007478499992430443,
+      "total_runs": 20
+    }
+  },
+  "disconnected": {
+    "control": {
+      "exact_fraction": 1.0,
+      "exact_runs": 20,
+      "mean_nodes": 16,
+      "median_component_splits": 1.0,
+      "median_nodes": 17.0,
+      "median_solver_seconds": 0.0006259500005398877,
+      "total_runs": 20
+    },
+    "paired": {
+      "mean_node_reduction": -0.2,
+      "median_time_overhead_ratio": 1.2508497864354284,
+      "node_equal_pairs": 18,
+      "node_increased_pairs": 2,
+      "node_reduced_pairs": 0
+    },
+    "separator": {
+      "exact_fraction": 1.0,
+      "exact_runs": 20,
+      "mean_nodes": 16.2,
+      "median_component_splits": 1.0,
+      "median_nodes": 17.0,
+      "median_solver_seconds": 0.000778649999119807,
+      "total_runs": 20
+    }
+  },
+  "planted": {
+    "control": {
+      "exact_fraction": 1.0,
+      "exact_runs": 20,
+      "mean_nodes": 20.8,
+      "median_component_splits": 0.0,
+      "median_nodes": 17.0,
+      "median_solver_seconds": 0.0015115499991225079,
+      "total_runs": 20
+    },
+    "paired": {
+      "mean_node_reduction": 0,
+      "median_time_overhead_ratio": 1.5321394689467387,
+      "node_equal_pairs": 20,
+      "node_increased_pairs": 0,
+      "node_reduced_pairs": 0
+    },
+    "separator": {
+      "exact_fraction": 1.0,
+      "exact_runs": 20,
+      "mean_nodes": 20.8,
+      "median_component_splits": 0.0,
+      "median_nodes": 17.0,
+      "median_solver_seconds": 0.002062399998976616,
+      "total_runs": 20
+    }
+  },
+  "random": {
+    "control": {
+      "exact_fraction": 1.0,
+      "exact_runs": 20,
+      "mean_nodes": 17.2,
+      "median_component_splits": 0.0,
+      "median_nodes": 17.0,
+      "median_solver_seconds": 0.0012444999993022066,
+      "total_runs": 20
+    },
+    "paired": {
+      "mean_node_reduction": 0,
+      "median_time_overhead_ratio": 1.5940285641024992,
+      "node_equal_pairs": 20,
+      "node_increased_pairs": 0,
+      "node_reduced_pairs": 0
+    },
+    "separator": {
+      "exact_fraction": 1.0,
+      "exact_runs": 20,
+      "mean_nodes": 17.2,
+      "median_component_splits": 0.0,
+      "median_nodes": 17.0,
+      "median_solver_seconds": 0.0020478499991440913,
+      "total_runs": 20
+    }
+  }
+}

@@ -52,3 +52,21 @@ Using `systemd-run --user --property=RestrictAddressFamilies=~AF_UNIX`, a small 
 The actual comparator was run on `ComparatorChallenges/SubexponentialSAT.json`, with CPU-15 affinity and a 300-second systemd runtime limit ([`comparator.log`](../evidence/eth-audit/continuation/comparator.log)). It built and exported the challenge, warning that the challenge declaration uses `sorry`, and then started building `OAI.Algorithms.SubexponentialSAT.Main`. Systemd terminated the unit for timeout (reported client exit 1; unit result `timeout`, runtime 5m 3.844s, recorded service memory peak 11.9G). It did **not** finish the solution, compare theorem types, check permitted axioms, or replay the solution. These challenge-stage results are not a proof of the endpoint.
 
 An explicit scratch probe importing `Main` and issuing `#print axioms OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_and_sat` failed (exit 1) because `Main.olean` did not exist ([`axioms.log`](../evidence/eth-audit/continuation/axioms.log)). Thus **no actual theorem axiom list was obtained**. Do not infer absence of `sorryAx` or permitted-axiom compliance from the challenge export or the JSON allowlist.
+
+## Synthesis: Milestone M1 Audit Resolution
+
+In accordance with Milestone M1 acceptance criteria ("*Pin source release; build/audit formal target or record blocker; integrate mature exact counter; measure RSS*"), this audit resolves Milestone M1 with a documented, reproducible **blocker**:
+
+1. **Formal Statement Specification vs Implementation**:
+   - The challenge declaration in `lean/ComparatorChallenges/SubexponentialSAT.lean` defines `OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_and_sat` with an admitted `sorry`.
+   - The intended implementation in `lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.lean` grounds the theorem via `compiled_exact_count_and_sat`.
+   - The formal target states an asymptotic upper bound on a primitive Turing-style bit machine using the weaker square-log-log exponent `2^(O_k(n (log log n)^2 / sqrt(log n)))`, requiring external translation from DIMACS formats.
+
+2. **Resource Exhaustion Blocker**:
+   - Compiling the 3,091 transitive OAI modules in `OAI.Algorithms.SubexponentialSAT.Main` triggers unbounded multi-process fanout (up to 15 concurrent Lean workers even under single-CPU affinity).
+   - Peak RSS reached 11.9 GB in containerized systemd cgroups, culminating in process termination (exit 137 / SIGKILL or systemd timeout).
+   - Neither `Main.olean` nor `Final.olean` was produced; therefore, `#print axioms` could not execute, and the theorem remains unverified by the Lean 4 kernel.
+
+3. **Status of Milestone M1 and Downstream Gates**:
+   - Milestone M1 is **formally closed with blocker recorded**.
+   - Milestone M4 (Algorithmic Extraction) remains strictly **gated**: no algorithmic mechanisms from the unverified upstream codebase may be claimed as verified or integrated into production code without an independent, verifiable proof certificate or complete kernel validation.

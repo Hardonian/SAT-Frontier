@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "sizes": [
+    12,
+    14,
+    16,
+    18,
+    20
+  ],
+  "families": [
+    "random",
+    "planted",
+    "disconnected",
+    "barbell"
+  ],
+  "algorithms": [
+    "baseline",
+    "memo",
+    "components",
+    "combined",
+    "separator"
+  ],
+  "seeds": [
+    701,
+    702,
+    703
+  ],
+  "seconds": 3.0,
+  "max_nodes": 50000
+}
