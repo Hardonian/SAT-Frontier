@@ -1,0 +1,48 @@
+{
+  "status": "all_verified",
+  "total_verified_runs": 2577,
+  "suites_verified": 10,
+  "suites": {
+    "policy-train-v02": {
+      "status": "verified",
+      "runs": 384
+    },
+    "policy-holdout-v02": {
+      "status": "verified",
+      "runs": 1200
+    },
+    "separator-study-001": {
+      "status": "verified",
+      "runs": 160
+    },
+    "scaling-benchmark-001": {
+      "status": "verified",
+      "runs": 300
+    },
+    "wmc-reliability-001": {
+      "status": "verified",
+      "runs": 75
+    },
+    "tensor-study-001": {
+      "status": "verified",
+      "runs": 72
+    },
+    "cut-wmc-001": {
+      "status": "verified",
+      "runs": 48
+    },
+    "cut-cube-001": {
+      "status": "verified",
+      "runs": 36
+    },
+    "epyc-cube-001": {
+      "status": "verified",
+      "runs": 98
+    },
+    "epyc-cube-002": {
+      "status": "verified",
+      "runs": 204
+    }
+  },
+  "elapsed_seconds": 14.13652229309082
+}
