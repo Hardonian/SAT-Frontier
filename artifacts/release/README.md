@@ -5,18 +5,18 @@ This directory contains the distribution release archive for `SAT-Frontier` chec
 ## Release Archive Integrity
 
 ```
-6c13dbbc60bd2d9406a4e4987b79cca2a86b671eb593876284620f3536108ffe  sat-frontier-v0.2.1.zip
+8dd65da2f138b54285ac881b817c61b8727da92e07e2027f9cdeddb85b87826c  sat-frontier-v0.2.1.zip
 ```
 
 - **File Name**: `sat-frontier-v0.2.1.zip`
-- **File Size**: 1,536,750 bytes
-- **File Count**: 1,472 files
+- **File Size**: 1,537,442 bytes
+- **File Count**: 1,473 files
 - **Root Directory**: `sat-frontier-v0.2.1/`
 
 ## Built Python Wheel
 
 ```
-ea3fe9f2f9ea7aeb79354e10558225d9f43f02bef10942716621682ba6e19071  sat_frontier-0.2.1-py3-none-any.whl
+a55e41e499e16e47cfd683a9c9832625164382424ba2a5d91ce93ebc6157779f  sat_frontier-0.2.1-py3-none-any.whl
 ```
 
 - **Package**: `sat_frontier-0.2.1-py3-none-any.whl`
