@@ -1,0 +1,232 @@
+{
+  "status": "exact",
+  "count": 8,
+  "cubes_total": 16,
+  "cubes_incomplete": 0,
+  "workers": 16,
+  "total_nodes": 26,
+  "elapsed_seconds": 0.08678537699961453,
+  "partitioning_seconds": null,
+  "results": [
+    {
+      "cube": [
+        2,
+        9,
+        5,
+        10
+      ],
+      "status": "exact",
+      "count": 2,
+      "nodes": 7,
+      "elapsed": 0.000672534999466734
+    },
+    {
+      "cube": [
+        2,
+        9,
+        5,
+        -10
+      ],
+      "status": "exact",
+      "count": 2,
+      "nodes": 3,
+      "elapsed": 0.0003890999978466425
+    },
+    {
+      "cube": [
+        2,
+        9,
+        -5,
+        10
+      ],
+      "status": "exact",
+      "count": 2,
+      "nodes": 3,
+      "elapsed": 0.000676882998959627
+    },
+    {
+      "cube": [
+        2,
+        9,
+        -5,
+        -10
+      ],
+      "status": "exact",
+      "count": 2,
+      "nodes": 1,
+      "elapsed": 0.0003382259965292178
+    },
+    {
+      "cube": [
+        2,
+        -9,
+        5,
+        10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0003539459976309445
+    },
+    {
+      "cube": [
+        2,
+        -9,
+        5,
+        -10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005271759982861113
+    },
+    {
+      "cube": [
+        2,
+        -9,
+        -5,
+        10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00042088899863301776
+    },
+    {
+      "cube": [
+        2,
+        -9,
+        -5,
+        -10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00032517200088477693
+    },
+    {
+      "cube": [
+        -2,
+        9,
+        5,
+        10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0003235500007576775
+    },
+    {
+      "cube": [
+        -2,
+        9,
+        5,
+        -10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0003241399972466752
+    },
+    {
+      "cube": [
+        -2,
+        9,
+        -5,
+        10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00037736900048912503
+    },
+    {
+      "cube": [
+        -2,
+        9,
+        -5,
+        -10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00032825800008140504
+    },
+    {
+      "cube": [
+        -2,
+        -9,
+        5,
+        10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.000370316000044113
+    },
+    {
+      "cube": [
+        -2,
+        -9,
+        5,
+        -10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00032706500132917427
+    },
+    {
+      "cube": [
+        -2,
+        -9,
+        -5,
+        10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00039089400161174126
+    },
+    {
+      "cube": [
+        -2,
+        -9,
+        -5,
+        -10
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00033993900069617666
+    }
+  ],
+  "cube_time_median": 0.00036213099883752875,
+  "cube_time_max": 0.000676882998959627,
+  "checkpoint_dir": null,
+  "instance": "evidence/policy-train-v02/instances/c531a090ea74b702505ded60b9cd7fc89ea8340ce7b9f336016e53853f722fce.cnf",
+  "total_wall_seconds": 0.08741107599780662,
+  "cubes_per_second": 183.04316492341866,
+  "peak_rss_mb": 21,
+  "numa_strategy": "interleave",
+  "resource_discovery": {
+    "cpu_count": 64,
+    "numa_nodes": 0,
+    "cpus_per_node": [],
+    "total_memory_mb": 172593,
+    "available_memory_mb": 156884,
+    "load_avg": [
+      37.74755859375,
+      34.42919921875,
+      16.7041015625
+    ]
+  },
+  "worker_recommendation": {
+    "recommended_workers": 16,
+    "cpu_count": 64,
+    "numa_nodes": 0,
+    "available_memory_mb": 156884,
+    "load_avg_1m": 37.74755859375,
+    "reason": "cpu=64, mem_limited=3137, chosen=min(16)"
+  }
+}

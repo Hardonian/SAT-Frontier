@@ -1,0 +1,910 @@
+{
+  "status": "exact",
+  "count": 0,
+  "cubes_total": 64,
+  "cubes_incomplete": 0,
+  "workers": 64,
+  "total_nodes": 68,
+  "elapsed_seconds": 0.7639171529990563,
+  "results": [
+    {
+      "cube": [
+        11,
+        8,
+        4,
+        2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006424290004360955
+    },
+    {
+      "cube": [
+        11,
+        8,
+        4,
+        2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006622159999096766
+    },
+    {
+      "cube": [
+        11,
+        8,
+        4,
+        2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006421890029741917
+    },
+    {
+      "cube": [
+        11,
+        8,
+        4,
+        2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006735370006936137
+    },
+    {
+      "cube": [
+        11,
+        8,
+        4,
+        -2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0037521070007642265
+    },
+    {
+      "cube": [
+        11,
+        8,
+        4,
+        -2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006655019969912246
+    },
+    {
+      "cube": [
+        11,
+        8,
+        4,
+        -2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004843460010306444
+    },
+    {
+      "cube": [
+        11,
+        8,
+        4,
+        -2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005346200014173519
+    },
+    {
+      "cube": [
+        11,
+        8,
+        -4,
+        2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004156100003456231
+    },
+    {
+      "cube": [
+        11,
+        8,
+        -4,
+        2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.002606736001325771
+    },
+    {
+      "cube": [
+        11,
+        8,
+        -4,
+        2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004808310004591476
+    },
+    {
+      "cube": [
+        11,
+        8,
+        -4,
+        2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005524530024558771
+    },
+    {
+      "cube": [
+        11,
+        8,
+        -4,
+        -2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004490320025070105
+    },
+    {
+      "cube": [
+        11,
+        8,
+        -4,
+        -2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004944360007357318
+    },
+    {
+      "cube": [
+        11,
+        8,
+        -4,
+        -2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005538360019272659
+    },
+    {
+      "cube": [
+        11,
+        8,
+        -4,
+        -2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005559900018852204
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        4,
+        2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005711179983336478
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        4,
+        2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004642100029741414
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        4,
+        2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006264399999054149
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        4,
+        2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00045168599899625406
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        4,
+        -2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 3,
+      "elapsed": 0.0035714420009753667
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        4,
+        -2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004099489997315686
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        4,
+        -2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005119570014358032
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        4,
+        -2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004434610018506646
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        -4,
+        2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00032516200008103624
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        -4,
+        2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00040194400207838044
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        -4,
+        2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0003873470013786573
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        -4,
+        2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004531899976427667
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        -4,
+        -2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005618409995804541
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        -4,
+        -2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004444330006663222
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        -4,
+        -2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005380260008678306
+    },
+    {
+      "cube": [
+        11,
+        -8,
+        -4,
+        -2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004294950012990739
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        4,
+        2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00042101999861188233
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        4,
+        2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0003069179983867798
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        4,
+        2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.000627431996690575
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        4,
+        2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00038332999974954873
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        4,
+        -2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00040491899926564656
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        4,
+        -2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00044410199916455895
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        4,
+        -2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.000522798000019975
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        4,
+        -2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0003185899986419827
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        -4,
+        2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005037529990659095
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        -4,
+        2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00044001499918522313
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        -4,
+        2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005313139990903437
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        -4,
+        2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00042455600123503245
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        -4,
+        -2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.000541181998414686
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        -4,
+        -2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004137460018682759
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        -4,
+        -2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0004332429998612497
+    },
+    {
+      "cube": [
+        -11,
+        8,
+        -4,
+        -2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.000422862998675555
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        4,
+        2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005915850015298929
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        4,
+        2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005267050000838935
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        4,
+        2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00044529500155476853
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        4,
+        2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006673150019196328
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        4,
+        -2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006324509995465633
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        4,
+        -2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 3,
+      "elapsed": 0.0006101800026954152
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        4,
+        -2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.00047501899825874716
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        4,
+        -2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005146120020071976
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        -4,
+        2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005675510001310613
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        -4,
+        2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005751349999627564
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        -4,
+        2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.000532295998709742
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        -4,
+        2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005415630002971739
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        -4,
+        -2,
+        1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.018523196002206532
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        -4,
+        -2,
+        1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0006001410001772456
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        -4,
+        -2,
+        -1,
+        9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005817380006192252
+    },
+    {
+      "cube": [
+        -11,
+        -8,
+        -4,
+        -2,
+        -1,
+        -9
+      ],
+      "status": "exact",
+      "count": 0,
+      "nodes": 1,
+      "elapsed": 0.0005668499979947228
+    }
+  ],
+  "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6374970689d7aecaa25d1f704906872daee465bfabc7f3c3d3d6bb8791e8ae25.cnf",
+  "total_wall_seconds": 0.7863507000001846,
+  "cubes_per_second": 81.38862215037766
+}

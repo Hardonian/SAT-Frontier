@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "study": "resource_aware_cube_conquer_bounded",
+  "created": "2026-10-28T15:00:00Z",
+  "host": "epyc",
+  "cpus": 64,
+  "memory_gib": 168,
+  "runner": "epyc_runner_resource_aware_v1",
+  "track": "Track1_EPYC_CubeConquer"
+}

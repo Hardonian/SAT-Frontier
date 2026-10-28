@@ -1,0 +1,688 @@
+{
+  "schema_version": 1,
+  "study": "epyc_cube_and_conquer_scale_up",
+  "created": "2026-10-28T14:00:00Z",
+  "host": "epyc",
+  "cpus": 64,
+  "memory_gib": 168,
+  "gpus": [
+    "V100-SXM2-16GB",
+    "Tesla P40",
+    "RTX 3060"
+  ],
+  "track": "Track1_EPYC_CubeConquer",
+  "runs": [
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/635f9fb97c90ccaf34b9180d5844796c78130f3b0d5c9134c345c79be369efa9.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/635f9fb97c90ccaf34b9180d5844796c78130f3b0d5c9134c345c79be369efa9_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/8ed9558c97c1aa861d4a25dcc86182925e75a66332cf10f7958a76fc0bfcff8b.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/8ed9558c97c1aa861d4a25dcc86182925e75a66332cf10f7958a76fc0bfcff8b_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/187bf672078cf330b3b48a8049abd5543c4d09420c6d4a32ac22d195343ab18f.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/187bf672078cf330b3b48a8049abd5543c4d09420c6d4a32ac22d195343ab18f_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/8ed9558c97c1aa861d4a25dcc86182925e75a66332cf10f7958a76fc0bfcff8b.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/8ed9558c97c1aa861d4a25dcc86182925e75a66332cf10f7958a76fc0bfcff8b_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/8ed9558c97c1aa861d4a25dcc86182925e75a66332cf10f7958a76fc0bfcff8b.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/8ed9558c97c1aa861d4a25dcc86182925e75a66332cf10f7958a76fc0bfcff8b_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/187bf672078cf330b3b48a8049abd5543c4d09420c6d4a32ac22d195343ab18f.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/187bf672078cf330b3b48a8049abd5543c4d09420c6d4a32ac22d195343ab18f_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/635f9fb97c90ccaf34b9180d5844796c78130f3b0d5c9134c345c79be369efa9.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/635f9fb97c90ccaf34b9180d5844796c78130f3b0d5c9134c345c79be369efa9_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/187bf672078cf330b3b48a8049abd5543c4d09420c6d4a32ac22d195343ab18f.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/187bf672078cf330b3b48a8049abd5543c4d09420c6d4a32ac22d195343ab18f_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/635f9fb97c90ccaf34b9180d5844796c78130f3b0d5c9134c345c79be369efa9.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/635f9fb97c90ccaf34b9180d5844796c78130f3b0d5c9134c345c79be369efa9_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/0862481b60de4669dba7a8a45c49da2a99c5f84c3047a98b03fe109c49dd4a28.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/0862481b60de4669dba7a8a45c49da2a99c5f84c3047a98b03fe109c49dd4a28_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/0862481b60de4669dba7a8a45c49da2a99c5f84c3047a98b03fe109c49dd4a28.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/0862481b60de4669dba7a8a45c49da2a99c5f84c3047a98b03fe109c49dd4a28_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/0862481b60de4669dba7a8a45c49da2a99c5f84c3047a98b03fe109c49dd4a28.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/0862481b60de4669dba7a8a45c49da2a99c5f84c3047a98b03fe109c49dd4a28_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6e1e173ef6d69e4c5abd40041f032ec8e8f4085d28668548e87f7dbb5a7b1302.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6e1e173ef6d69e4c5abd40041f032ec8e8f4085d28668548e87f7dbb5a7b1302_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/80aa444655ca87daaac6bf70e61023594f2ac62f62c368d973686e5b14716ac6.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/80aa444655ca87daaac6bf70e61023594f2ac62f62c368d973686e5b14716ac6_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/80aa444655ca87daaac6bf70e61023594f2ac62f62c368d973686e5b14716ac6.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/80aa444655ca87daaac6bf70e61023594f2ac62f62c368d973686e5b14716ac6_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/80aa444655ca87daaac6bf70e61023594f2ac62f62c368d973686e5b14716ac6.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/80aa444655ca87daaac6bf70e61023594f2ac62f62c368d973686e5b14716ac6_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6e1e173ef6d69e4c5abd40041f032ec8e8f4085d28668548e87f7dbb5a7b1302.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6e1e173ef6d69e4c5abd40041f032ec8e8f4085d28668548e87f7dbb5a7b1302_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6e1e173ef6d69e4c5abd40041f032ec8e8f4085d28668548e87f7dbb5a7b1302.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6e1e173ef6d69e4c5abd40041f032ec8e8f4085d28668548e87f7dbb5a7b1302_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6374970689d7aecaa25d1f704906872daee465bfabc7f3c3d3d6bb8791e8ae25.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6374970689d7aecaa25d1f704906872daee465bfabc7f3c3d3d6bb8791e8ae25_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/3e7dc01123562a67df9a58b82f61c13df6f511a9a5eb219ec7d0f4361f99b59e.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/3e7dc01123562a67df9a58b82f61c13df6f511a9a5eb219ec7d0f4361f99b59e_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/3e7dc01123562a67df9a58b82f61c13df6f511a9a5eb219ec7d0f4361f99b59e.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/3e7dc01123562a67df9a58b82f61c13df6f511a9a5eb219ec7d0f4361f99b59e_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/3e7dc01123562a67df9a58b82f61c13df6f511a9a5eb219ec7d0f4361f99b59e.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/3e7dc01123562a67df9a58b82f61c13df6f511a9a5eb219ec7d0f4361f99b59e_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6374970689d7aecaa25d1f704906872daee465bfabc7f3c3d3d6bb8791e8ae25.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6374970689d7aecaa25d1f704906872daee465bfabc7f3c3d3d6bb8791e8ae25_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6374970689d7aecaa25d1f704906872daee465bfabc7f3c3d3d6bb8791e8ae25.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6374970689d7aecaa25d1f704906872daee465bfabc7f3c3d3d6bb8791e8ae25_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/e1550dd98d675d699cf86f409e325e4c2d5774ea6b3d20aca1684049a65b7bb4.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/e1550dd98d675d699cf86f409e325e4c2d5774ea6b3d20aca1684049a65b7bb4_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/c531a090ea74b702505ded60b9cd7fc89ea8340ce7b9f336016e53853f722fce.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/c531a090ea74b702505ded60b9cd7fc89ea8340ce7b9f336016e53853f722fce_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/e1550dd98d675d699cf86f409e325e4c2d5774ea6b3d20aca1684049a65b7bb4.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/e1550dd98d675d699cf86f409e325e4c2d5774ea6b3d20aca1684049a65b7bb4_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/e1550dd98d675d699cf86f409e325e4c2d5774ea6b3d20aca1684049a65b7bb4.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/e1550dd98d675d699cf86f409e325e4c2d5774ea6b3d20aca1684049a65b7bb4_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/c531a090ea74b702505ded60b9cd7fc89ea8340ce7b9f336016e53853f722fce.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/c531a090ea74b702505ded60b9cd7fc89ea8340ce7b9f336016e53853f722fce_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/2bf52017f021dd8cb6a267f101a34c932f878c8b28a9b8b1eaf01f20c5aad78d.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/2bf52017f021dd8cb6a267f101a34c932f878c8b28a9b8b1eaf01f20c5aad78d_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/2bf52017f021dd8cb6a267f101a34c932f878c8b28a9b8b1eaf01f20c5aad78d.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/2bf52017f021dd8cb6a267f101a34c932f878c8b28a9b8b1eaf01f20c5aad78d_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/c531a090ea74b702505ded60b9cd7fc89ea8340ce7b9f336016e53853f722fce.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/c531a090ea74b702505ded60b9cd7fc89ea8340ce7b9f336016e53853f722fce_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/2bf52017f021dd8cb6a267f101a34c932f878c8b28a9b8b1eaf01f20c5aad78d.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/2bf52017f021dd8cb6a267f101a34c932f878c8b28a9b8b1eaf01f20c5aad78d_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ee5a648bec1fddfa4c0550fc396b15c9aac51f91c91a64e5706e7bc06f46f89f.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ee5a648bec1fddfa4c0550fc396b15c9aac51f91c91a64e5706e7bc06f46f89f_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ee5a648bec1fddfa4c0550fc396b15c9aac51f91c91a64e5706e7bc06f46f89f.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ee5a648bec1fddfa4c0550fc396b15c9aac51f91c91a64e5706e7bc06f46f89f_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/0dbaddb51beee0d848e9de9a456142d1f9c0ce4d17cb4db1615853c507cc1890.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/0dbaddb51beee0d848e9de9a456142d1f9c0ce4d17cb4db1615853c507cc1890_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/0dbaddb51beee0d848e9de9a456142d1f9c0ce4d17cb4db1615853c507cc1890.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/0dbaddb51beee0d848e9de9a456142d1f9c0ce4d17cb4db1615853c507cc1890_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/d334a8e9c9a89ce43f9161544880a9a093ca75efa732621b8bbcdcbee654e57a.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/d334a8e9c9a89ce43f9161544880a9a093ca75efa732621b8bbcdcbee654e57a_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ee5a648bec1fddfa4c0550fc396b15c9aac51f91c91a64e5706e7bc06f46f89f.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ee5a648bec1fddfa4c0550fc396b15c9aac51f91c91a64e5706e7bc06f46f89f_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/0dbaddb51beee0d848e9de9a456142d1f9c0ce4d17cb4db1615853c507cc1890.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/0dbaddb51beee0d848e9de9a456142d1f9c0ce4d17cb4db1615853c507cc1890_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/d334a8e9c9a89ce43f9161544880a9a093ca75efa732621b8bbcdcbee654e57a.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/d334a8e9c9a89ce43f9161544880a9a093ca75efa732621b8bbcdcbee654e57a_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/d334a8e9c9a89ce43f9161544880a9a093ca75efa732621b8bbcdcbee654e57a.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/d334a8e9c9a89ce43f9161544880a9a093ca75efa732621b8bbcdcbee654e57a_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/72799bbaad049ccd021162fd9f29ce0a0504e6f8d3ee6763f5df2727606c9e9b.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/72799bbaad049ccd021162fd9f29ce0a0504e6f8d3ee6763f5df2727606c9e9b_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/c129b275094d76b868455a0be11689be79df4bb646eb2b6430595417c042d465.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/c129b275094d76b868455a0be11689be79df4bb646eb2b6430595417c042d465_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5e09c7e2d195b25e884b29c81e4d052153d76a25e708edbaafd1a3d929941166.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5e09c7e2d195b25e884b29c81e4d052153d76a25e708edbaafd1a3d929941166_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/c129b275094d76b868455a0be11689be79df4bb646eb2b6430595417c042d465.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/c129b275094d76b868455a0be11689be79df4bb646eb2b6430595417c042d465_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5e09c7e2d195b25e884b29c81e4d052153d76a25e708edbaafd1a3d929941166.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5e09c7e2d195b25e884b29c81e4d052153d76a25e708edbaafd1a3d929941166_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5e09c7e2d195b25e884b29c81e4d052153d76a25e708edbaafd1a3d929941166.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5e09c7e2d195b25e884b29c81e4d052153d76a25e708edbaafd1a3d929941166_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/c129b275094d76b868455a0be11689be79df4bb646eb2b6430595417c042d465.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/c129b275094d76b868455a0be11689be79df4bb646eb2b6430595417c042d465_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/72799bbaad049ccd021162fd9f29ce0a0504e6f8d3ee6763f5df2727606c9e9b.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/72799bbaad049ccd021162fd9f29ce0a0504e6f8d3ee6763f5df2727606c9e9b_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/72799bbaad049ccd021162fd9f29ce0a0504e6f8d3ee6763f5df2727606c9e9b.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/72799bbaad049ccd021162fd9f29ce0a0504e6f8d3ee6763f5df2727606c9e9b_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/86eb0df74f9d58f769d6454efe0c76ea4bceb2312129cbf6a61faa7dd6bd4da9.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/86eb0df74f9d58f769d6454efe0c76ea4bceb2312129cbf6a61faa7dd6bd4da9_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/85c9328f49aadfee34593c7f29a06fbb5d5432f90063255f44cb7851ed064041.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/85c9328f49aadfee34593c7f29a06fbb5d5432f90063255f44cb7851ed064041_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/85c9328f49aadfee34593c7f29a06fbb5d5432f90063255f44cb7851ed064041.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/85c9328f49aadfee34593c7f29a06fbb5d5432f90063255f44cb7851ed064041_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/86eb0df74f9d58f769d6454efe0c76ea4bceb2312129cbf6a61faa7dd6bd4da9.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/86eb0df74f9d58f769d6454efe0c76ea4bceb2312129cbf6a61faa7dd6bd4da9_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/85c9328f49aadfee34593c7f29a06fbb5d5432f90063255f44cb7851ed064041.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/85c9328f49aadfee34593c7f29a06fbb5d5432f90063255f44cb7851ed064041_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/86eb0df74f9d58f769d6454efe0c76ea4bceb2312129cbf6a61faa7dd6bd4da9.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/86eb0df74f9d58f769d6454efe0c76ea4bceb2312129cbf6a61faa7dd6bd4da9_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/688aed5b75130722beeebf27c6fdc79aea69b8afa1c4c3fc98cf60106cc12517.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/688aed5b75130722beeebf27c6fdc79aea69b8afa1c4c3fc98cf60106cc12517_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/688aed5b75130722beeebf27c6fdc79aea69b8afa1c4c3fc98cf60106cc12517.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/688aed5b75130722beeebf27c6fdc79aea69b8afa1c4c3fc98cf60106cc12517_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/688aed5b75130722beeebf27c6fdc79aea69b8afa1c4c3fc98cf60106cc12517.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/688aed5b75130722beeebf27c6fdc79aea69b8afa1c4c3fc98cf60106cc12517_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/884c3a87bebaaf08ecddcd77fd942a84bfc2c143b20a0a37d3798b1a4970414d.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/884c3a87bebaaf08ecddcd77fd942a84bfc2c143b20a0a37d3798b1a4970414d_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/884c3a87bebaaf08ecddcd77fd942a84bfc2c143b20a0a37d3798b1a4970414d.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/884c3a87bebaaf08ecddcd77fd942a84bfc2c143b20a0a37d3798b1a4970414d_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/e8686a9b864977d74aac6e2f6d8af7d1b7078de9fc45863df4989ff59d0ef451.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/e8686a9b864977d74aac6e2f6d8af7d1b7078de9fc45863df4989ff59d0ef451_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/884c3a87bebaaf08ecddcd77fd942a84bfc2c143b20a0a37d3798b1a4970414d.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/884c3a87bebaaf08ecddcd77fd942a84bfc2c143b20a0a37d3798b1a4970414d_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/e8686a9b864977d74aac6e2f6d8af7d1b7078de9fc45863df4989ff59d0ef451.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/e8686a9b864977d74aac6e2f6d8af7d1b7078de9fc45863df4989ff59d0ef451_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/75e42f17f9f2cb3c15d052ebe7445ca4f4074500094d23c30403bf319ea30ebc.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/75e42f17f9f2cb3c15d052ebe7445ca4f4074500094d23c30403bf319ea30ebc_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/75e42f17f9f2cb3c15d052ebe7445ca4f4074500094d23c30403bf319ea30ebc.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/75e42f17f9f2cb3c15d052ebe7445ca4f4074500094d23c30403bf319ea30ebc_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/e8686a9b864977d74aac6e2f6d8af7d1b7078de9fc45863df4989ff59d0ef451.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/e8686a9b864977d74aac6e2f6d8af7d1b7078de9fc45863df4989ff59d0ef451_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ca161af16d8369bc42d95ff7157de106ef33265265b471cf4a77bae0c52e709f.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ca161af16d8369bc42d95ff7157de106ef33265265b471cf4a77bae0c52e709f_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ca161af16d8369bc42d95ff7157de106ef33265265b471cf4a77bae0c52e709f.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ca161af16d8369bc42d95ff7157de106ef33265265b471cf4a77bae0c52e709f_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ca161af16d8369bc42d95ff7157de106ef33265265b471cf4a77bae0c52e709f.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ca161af16d8369bc42d95ff7157de106ef33265265b471cf4a77bae0c52e709f_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/75e42f17f9f2cb3c15d052ebe7445ca4f4074500094d23c30403bf319ea30ebc.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/75e42f17f9f2cb3c15d052ebe7445ca4f4074500094d23c30403bf319ea30ebc_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/61c2735ef7e5a500cca62107c25c9205bdfebac1eea2b25511904841f2ea65d3.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/61c2735ef7e5a500cca62107c25c9205bdfebac1eea2b25511904841f2ea65d3_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/61c2735ef7e5a500cca62107c25c9205bdfebac1eea2b25511904841f2ea65d3.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/61c2735ef7e5a500cca62107c25c9205bdfebac1eea2b25511904841f2ea65d3_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6265a07d249c039fc3ade1aff830dfe20afeaf8d9e1b80639a227134a963e493.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6265a07d249c039fc3ade1aff830dfe20afeaf8d9e1b80639a227134a963e493_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6265a07d249c039fc3ade1aff830dfe20afeaf8d9e1b80639a227134a963e493.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6265a07d249c039fc3ade1aff830dfe20afeaf8d9e1b80639a227134a963e493_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/61c2735ef7e5a500cca62107c25c9205bdfebac1eea2b25511904841f2ea65d3.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/61c2735ef7e5a500cca62107c25c9205bdfebac1eea2b25511904841f2ea65d3_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6265a07d249c039fc3ade1aff830dfe20afeaf8d9e1b80639a227134a963e493.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6265a07d249c039fc3ade1aff830dfe20afeaf8d9e1b80639a227134a963e493_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/b1e5169ff917f2957f93622198c785c777ff79fdf1b4345718028556cf99c82d.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/b1e5169ff917f2957f93622198c785c777ff79fdf1b4345718028556cf99c82d_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/b1e5169ff917f2957f93622198c785c777ff79fdf1b4345718028556cf99c82d.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/b1e5169ff917f2957f93622198c785c777ff79fdf1b4345718028556cf99c82d_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6b02f166a619b73b638ddb599fd8614215ddf1824f920ecdfe4035f05ae622c7.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6b02f166a619b73b638ddb599fd8614215ddf1824f920ecdfe4035f05ae622c7_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/b1e5169ff917f2957f93622198c785c777ff79fdf1b4345718028556cf99c82d.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/b1e5169ff917f2957f93622198c785c777ff79fdf1b4345718028556cf99c82d_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6b02f166a619b73b638ddb599fd8614215ddf1824f920ecdfe4035f05ae622c7.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6b02f166a619b73b638ddb599fd8614215ddf1824f920ecdfe4035f05ae622c7_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5d2c57d673797baaa169795ec912bad8b5d8f6589ae4a09066a9f9809e1aed5b.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5d2c57d673797baaa169795ec912bad8b5d8f6589ae4a09066a9f9809e1aed5b_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ff0a83015690507cccb04d0172dfb55ae607b9e42df1d165a50d1b1732138a99.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ff0a83015690507cccb04d0172dfb55ae607b9e42df1d165a50d1b1732138a99_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ff0a83015690507cccb04d0172dfb55ae607b9e42df1d165a50d1b1732138a99.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ff0a83015690507cccb04d0172dfb55ae607b9e42df1d165a50d1b1732138a99_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/ff0a83015690507cccb04d0172dfb55ae607b9e42df1d165a50d1b1732138a99.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/ff0a83015690507cccb04d0172dfb55ae607b9e42df1d165a50d1b1732138a99_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/6b02f166a619b73b638ddb599fd8614215ddf1824f920ecdfe4035f05ae622c7.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/6b02f166a619b73b638ddb599fd8614215ddf1824f920ecdfe4035f05ae622c7_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5d2c57d673797baaa169795ec912bad8b5d8f6589ae4a09066a9f9809e1aed5b.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5d2c57d673797baaa169795ec912bad8b5d8f6589ae4a09066a9f9809e1aed5b_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5d2c57d673797baaa169795ec912bad8b5d8f6589ae4a09066a9f9809e1aed5b.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5d2c57d673797baaa169795ec912bad8b5d8f6589ae4a09066a9f9809e1aed5b_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5be281a370c2cc7ca97e8c597398d998ca2f2a93beff46f7fa83ddae494842fa.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5be281a370c2cc7ca97e8c597398d998ca2f2a93beff46f7fa83ddae494842fa_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5aa144330daa742daf987c20ed1101af56965304aabf9cacfeb8972e3a6ce7e1.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5aa144330daa742daf987c20ed1101af56965304aabf9cacfeb8972e3a6ce7e1_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5be281a370c2cc7ca97e8c597398d998ca2f2a93beff46f7fa83ddae494842fa.cnf",
+      "depth": 5,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5be281a370c2cc7ca97e8c597398d998ca2f2a93beff46f7fa83ddae494842fa_d5_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5aa144330daa742daf987c20ed1101af56965304aabf9cacfeb8972e3a6ce7e1.cnf",
+      "depth": 4,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5aa144330daa742daf987c20ed1101af56965304aabf9cacfeb8972e3a6ce7e1_d4_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5be281a370c2cc7ca97e8c597398d998ca2f2a93beff46f7fa83ddae494842fa.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5be281a370c2cc7ca97e8c597398d998ca2f2a93beff46f7fa83ddae494842fa_d6_w64.json"
+    },
+    {
+      "instance": "/home/scott/SAT-Frontier/evidence/policy-train-v02/instances/5aa144330daa742daf987c20ed1101af56965304aabf9cacfeb8972e3a6ce7e1.cnf",
+      "depth": 6,
+      "workers": 64,
+      "exit_code": 0,
+      "out": "/home/scott/SAT-Frontier/evidence/epyc-cube-001/5aa144330daa742daf987c20ed1101af56965304aabf9cacfeb8972e3a6ce7e1_d6_w64.json"
+    }
+  ]
+}
