@@ -1,0 +1,51 @@
+p cnf 16 18
+c p weight 1 9/10
+c p weight -1 1/10
+c p weight 2 9/10
+c p weight -2 1/10
+c p weight 3 9/10
+c p weight -3 1/10
+c p weight 4 9/10
+c p weight -4 1/10
+c p weight 5 9/10
+c p weight -5 1/10
+c p weight 6 9/10
+c p weight -6 1/10
+c p weight 7 9/10
+c p weight -7 1/10
+c p weight 8 9/10
+c p weight -8 1/10
+c p weight 9 9/10
+c p weight -9 1/10
+c p weight 10 9/10
+c p weight -10 1/10
+c p weight 11 9/10
+c p weight -11 1/10
+c p weight 12 9/10
+c p weight -12 1/10
+c p weight 13 9/10
+c p weight -13 1/10
+c p weight 14 9/10
+c p weight -14 1/10
+c p weight 15 1
+c p weight -15 1
+c p weight 16 1
+c p weight -16 1
+15 0
+-16 2 0
+-16 3 0
+-16 4 0
+-16 5 0
+-16 6 0
+-16 7 0
+-16 8 0
+-16 9 0
+-16 10 0
+-16 11 0
+-16 12 0
+-16 13 0
+-16 14 0
+-14 -13 -12 -11 -10 -9 -8 -7 -6 -5 -4 -3 -2 16 0
+15 0
+1 0
+16 0
