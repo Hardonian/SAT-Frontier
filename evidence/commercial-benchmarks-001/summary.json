@@ -1,0 +1,7 @@
+{
+  "all_exact": true,
+  "exact_runs": 5,
+  "study": "commercial-benchmarks-001",
+  "total_runs": 5,
+  "total_systems": 5
+}

@@ -1,0 +1,31 @@
+p cnf 9 12
+c p weight 1 999/1000
+c p weight -1 1/1000
+c p weight 2 499/500
+c p weight -2 1/500
+c p weight 3 997/1000
+c p weight -3 3/1000
+c p weight 4 999/1000
+c p weight -4 1/1000
+c p weight 5 999/1000
+c p weight -5 1/1000
+c p weight 6 999/1000
+c p weight -6 1/1000
+c p weight 7 1999/2000
+c p weight -7 1/2000
+c p weight 8 1999/2000
+c p weight -8 1/2000
+c p weight 9 999/1000
+c p weight -9 1/1000
+1 2 0
+1 4 6 0
+1 4 8 9 0
+2 3 0
+2 4 7 9 0
+2 5 0
+3 4 6 0
+3 4 8 9 0
+4 5 6 0
+4 5 8 9 0
+6 7 9 0
+7 8 0

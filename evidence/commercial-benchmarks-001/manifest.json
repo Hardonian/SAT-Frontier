@@ -1,0 +1,34 @@
+{
+  "artifact_sha256": {
+    "AUDIT_REPORTS.md": "be20f901b1abda14f40f9253c62d2a69c35396c033ab09e55dccbd1dce26a223",
+    "config.json": "2460d23c38e3323187bc668cb742259dc1e3252fd793d75c9fea1b5506fd0c33",
+    "instances/1ceff92d389d69c46183eb9fc2f129024860619a6026d22103dc4d98b95aa0de.cnf": "1ceff92d389d69c46183eb9fc2f129024860619a6026d22103dc4d98b95aa0de",
+    "instances/28967ff9a78f6caa069e7c38f0226b15b5ca7b27afd467be760cfc8eb0bc5566.cnf": "28967ff9a78f6caa069e7c38f0226b15b5ca7b27afd467be760cfc8eb0bc5566",
+    "instances/66e33e7ed17d83ecba2bc2ad82bcba124825017d1a6e7f140269ecb7c639224d.cnf": "66e33e7ed17d83ecba2bc2ad82bcba124825017d1a6e7f140269ecb7c639224d",
+    "instances/9f746e28c0a708f15619b880f8c38cfd0c52d04886ecaaf9d9ab0b656ae7affb.cnf": "9f746e28c0a708f15619b880f8c38cfd0c52d04886ecaaf9d9ab0b656ae7affb",
+    "instances/d8b0d12ce61e464534dce0b168551a208843cba27d12b217ac7e1b77093c04d7.cnf": "d8b0d12ce61e464534dce0b168551a208843cba27d12b217ac7e1b77093c04d7",
+    "runs.csv": "944c002d8e743efd19ed5063af44eee0936f5a4cb26e300c62e13154d913081d",
+    "runs.jsonl": "b33a0bf2749a37eb6fd3fc668f85a54a1f668a978a89d6c42abb8305ba723cc2",
+    "summary.json": "34f34934e9745150e641bf97216586eaaac53669c55452c498ac0f8c8336c496"
+  },
+  "config_sha256": "2460d23c38e3323187bc668cb742259dc1e3252fd793d75c9fea1b5506fd0c33",
+  "exact": 5,
+  "hardware": {
+    "cpu": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "system": "Windows"
+  },
+  "instances": 5,
+  "runs": 5,
+  "schema_version": 1,
+  "source_sha256": {
+    "pyproject.toml": "f664040752fd61bce01549b99d42fca6ab5cb1bdc268de117f3001efe34ffc4c",
+    "sat_frontier/__init__.py": "83fa8605d5cc1c4ecf35b7e52ef1859edef58b57887d884ac349de79cdc1bade",
+    "sat_frontier/core.py": "b2c325f7482d2ad7754bbe1ea1347a32dfcbed69bf65fa29bce7e84e367e4587",
+    "sat_frontier/cut_compiler.py": "40afaaff2e1b07b9e2a4b1eeb7e6c6a6df84fe1f7eb3fa680395a24947fb337f",
+    "sat_frontier/reliability.py": "13ed706868499fed2c8848fd4c4f43454ebc129608a50297d7460649baee6798",
+    "sat_frontier/wmc.py": "69889aa2a3cd928ee1afeb24332be3d4dbd986215e92bc7c664d7c95a5c71e57"
+  },
+  "status": "complete",
+  "unknown": 0
+}

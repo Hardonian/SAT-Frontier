@@ -1,7 +1,7 @@
 """Unified Master Verifier for all empirical evidence suites in SAT-Frontier.
 
 Executes all independent verifiers and asserts 100% cryptographic SHA-256 integrity,
-mathematical invariance, and zero relabeling across all 10 research campaigns.
+mathematical invariance, and zero relabeling across all 11 research campaigns.
 """
 import json
 import subprocess
@@ -35,6 +35,7 @@ def main():
         ("cut-cube-001", ["verify_evidence.py", "evidence/cut-cube-001"], 36),
         ("epyc-cube-001", ["verify_epyc_evidence.py", "evidence/epyc-cube-001"], 98),
         ("epyc-cube-002", ["verify_epyc_evidence.py", "evidence/epyc-cube-002"], 204),
+        ("commercial-benchmarks-001", ["verify_evidence.py", "evidence/commercial-benchmarks-001"], 5),
     ]
 
     total_runs = 0
@@ -78,7 +79,7 @@ def main():
     elapsed = time.time() - t0
     print("\n" + "=" * 70)
     if all_passed:
-        print(f"VERIFICATION SUCCESS: All 10 suites ({total_runs:,} total empirical runs)")
+        print(f"VERIFICATION SUCCESS: All {len(suites)} suites ({total_runs:,} total empirical runs)")
         print(f"                      and all unit tests pass with 100% integrity.")
         print(f"                      Verification completed in {elapsed:.2f} seconds.")
     else:

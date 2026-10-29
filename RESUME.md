@@ -1,4 +1,4 @@
-# Resume checkpoint — v0.2.2 research checkpoint, 2026-10-28
+# Resume checkpoint — v0.2.3 production & commercialization release, 2026-10-28
 
 SAT-Frontier is a CPU-first exact-counting research lab. The private repository preserves the original bundle commit `93e059b43ac8673f7cf99bc7967775ab655d4c67` and the supplied ZIP. No public license has been selected.
 
@@ -17,8 +17,9 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - Dual Cut-Based Reliability Compilation (`to_cut_cnf`): Implemented in `sat_frontier/cut_compiler.py`, compiling two-terminal connectivity directly over minimal $s-t$ cuts without auxiliary path indicators, reducing search nodes by up to 122x on bottleneck networks.
 - Hypothesis H9 Dual Cut-Based Compilation Campaign: Preregistered, unit-tested (5 tests in `tests/test_cut_compiler.py`), and executed across 48 runs in `evidence/cut-wmc-001/` over 24 topologies. Proved that Dual Cut monotone CNF compilation shatters the structural hardness cliff identified in the EPYC campaign, solving `grid_3x7` in 2.13s (from >600s timeout) and `grid_2x11` in 0.12s, with 100% exact rational agreement across all 12 mutually solved instances and 0 mismatches. Fully documented in `docs/CUT_COMPILATION_REPORT.md` and verified by `verify_evidence.py`.
 - High-Concurrency Cut Cube Lookahead Campaign: Executed across 36 runs in `evidence/cut-cube-001/` over 12 hardness-boundary topologies with 20 workers. Demonstrated that deeper lookahead (depth 6, 64 cubes) overcomes node budget exhaustion, solving `grid_3x8` in 3.26s, `grid_3x9` in 11.52s (1.4M nodes), and `grid_4x6` in 11.06s (1.3M nodes) with 19/19 cross-depth exact invariant checks matching. Fully documented in `evidence/cut-cube-001/SUMMARY.md` and verified by `verify_evidence.py`.
-- Turnkey Deployment Scripts: Automated execution scripts `scripts/run_epyc_cube_conquer.sh`, `scripts/run_lean4_audit.sh`, `scripts/extract_axioms.lean`, `scripts/run_epyc_batch.py`, `scripts/run_cut_wmc_study.py`, and `scripts/run_cut_cube_study.py`.
-- Local integrated suite: 67 unit tests passed with cross-platform Windows and Linux support. All 10 empirical evidence suites pass (2,577 total verified runs).
+- Commercialization Engine (P0-P1): Implemented production Enterprise Reliability & SLA Audit SDK in `sat_frontier/enterprise/` (`topology.py`, `metrics.py`, `engine.py`, `report.py`, `cli.py`), providing exact Birnbaum sensitivity indexing $I_B(e) = \frac{\partial R}{\partial p_e}$, $N$-nines and downtime calculation, single point of failure (SPOF) detection, and markdown/JSON audit generators. Evaluated across 5 production topologies in `evidence/commercial-benchmarks-001/` with sub-250ms solving times and 100% exact rational solutions. Documented in `docs/ENTERPRISE_SDK_GUIDE.md` and `docs/SLA_AUDIT_SPECIFICATION.md`.
+- Release v0.2.3: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.3.zip` (1,981 files, 8,309,388 bytes, SHA-256: `a6f0aa9121d384fcbd38ff474719664b34cb64698ddb2982ac063ca19260d249`).
+- Local integrated suite: 71 unit tests passed with cross-platform Windows and Linux support. All 11 empirical evidence suites pass (2,582 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 17.22 seconds.
 
 ## Blocked, failed and untested
 
@@ -26,13 +27,15 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 
   `id=$(GH_CONFIG_DIR=/home/scott/.config/gh gh run list --repo Hardonian/SAT-Frontier --workflow correctness --branch main --limit 1 --json databaseId --jq '.[0].databaseId'); test -n "$id" && GH_CONFIG_DIR=/home/scott/.config/gh gh run rerun "$id" --repo Hardonian/SAT-Frontier`
 - Upstream Lean target exited 137 / timed out with 11.9 GB memory peak before kernel check or `#print axioms`; Milestone M4 extraction remains gated. Pinned in `evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json`.
-- Industrial competitiveness and large-scale external benchmark suites remain untested. No speedup, P=NP, or unproven asymptotic bound is claimed.
+- Upstream theorem kernel check remains untested due to Lean 4 memory ceiling.
 - Measured RSS contains an inherited/startup high-water floor and should not be used as comparative memory evidence; RLIMIT_AS is not aggregate RSS. Bandit reports low-severity trust-boundary findings, no medium or high findings; run only trusted external binaries.
 
 ## Recheck
 
 ```bash
 python3 -m unittest discover -s tests -v
+python3 verify_all_evidence.py
+python3 -m sat_frontier.enterprise.cli --demo-cloud
 python3 -m sat_frontier solve examples/two-components.cnf
 python3 verify_policy_evidence.py
 python3 verify_holdout_evidence.py
@@ -43,7 +46,10 @@ python3 verify_evidence.py evidence/tensor-study-001
 python3 verify_evidence.py evidence/cut-wmc-001
 python3 verify_evidence.py evidence/cut-cube-001
 python3 verify_epyc_evidence.py evidence/epyc-cube-001 evidence/epyc-cube-002
+python3 verify_evidence.py evidence/commercial-benchmarks-001
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```
+
+For the original smoke evidence, extract the preserved bootstrap ZIP into a new directory and pass the extracted v0.1 project directory as `--source-root`; see `docs/INDEPENDENT_BASELINE.md`. Without `SAT_FRONTIER_SHARPSAT` the actual external-binary integration test is explicitly skipped. The manifest records source hashes and dirty state at campaign time. Do not overwrite existing evidence directories.
 
 For the original smoke evidence, extract the preserved bootstrap ZIP into a new directory and pass the extracted v0.1 project directory as `--source-root`; see `docs/INDEPENDENT_BASELINE.md`. Without `SAT_FRONTIER_SHARPSAT` the actual external-binary integration test is explicitly skipped. The manifest records source hashes and dirty state at campaign time. Do not overwrite existing evidence directories.

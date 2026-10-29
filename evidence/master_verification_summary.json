@@ -1,7 +1,7 @@
 {
   "status": "all_verified",
-  "total_verified_runs": 2577,
-  "suites_verified": 10,
+  "total_verified_runs": 2582,
+  "suites_verified": 11,
   "suites": {
     "policy-train-v02": {
       "status": "verified",
@@ -42,7 +42,11 @@
     "epyc-cube-002": {
       "status": "verified",
       "runs": 204
+    },
+    "commercial-benchmarks-001": {
+      "status": "verified",
+      "runs": 5
     }
   },
-  "elapsed_seconds": 19.6657235622406
+  "elapsed_seconds": 19.414469718933105
 }

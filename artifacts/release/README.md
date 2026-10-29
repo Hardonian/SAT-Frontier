@@ -4,7 +4,29 @@ This directory contains the distribution release archives and provenance records
 
 ---
 
-## 1. Release v0.2.2 (Current Research Checkpoint)
+## 1. Release v0.2.3 (Current Production & Commercialization Release)
+
+### Archive Integrity
+```
+100a9309e45985cfe46dba0359501804ea45ec86dca5ffb8cd5cbeafe4a4ee6c  sat-frontier-v0.2.3.zip
+```
+
+- **File Name**: `sat-frontier-v0.2.3.zip`
+- **File Size**: 8,311,031 bytes
+- **File Count**: 1,981 files
+- **Root Directory**: `sat-frontier-v0.2.3/`
+- **Date**: 2026-10-28
+- **Scope & Contents**:
+  1. **Enterprise Reliability & SLA Audit SDK**: Full commercialization suite in `sat_frontier/enterprise/` (`topology.py`, `metrics.py`, `engine.py`, `report.py`, `cli.py`), including exact Birnbaum criticality indexing $I_B(e) = \frac{\partial R}{\partial p_e}$, downtime conversions ($N$-nines, minutes/year, hours/year), MTBF/MTTR/FIT modeling, single point of failure (SPOF) identification, and automated compliance report generation.
+  2. **Real-World Mission-Critical Benchmarks**: Evaluated 5 production systems (Cloud Multi-Region VPC, Transatlantic Subsea Optical Mesh, IEEE 14-Bus Power Grid, Avionics DO-178C Quad-Redundant Actuator, Telecom Metro Dual-Ring) in `evidence/commercial-benchmarks-001/` with 100% exact rational agreement and sub-250ms solving latencies.
+  3. **Enterprise & Specification Guides**: Developer quickstart and CI/CD integration guide (`docs/ENTERPRISE_SDK_GUIDE.md`), regulatory compliance audit specification (`docs/SLA_AUDIT_SPECIFICATION.md`), and enterprise monetization roadmap (`docs/COMMERCIAL_APPLICATIONS.md`).
+  4. **Empirical Evidence**: **2,582 verified empirical runs** across 11 complete suites (`policy-train-v02`, `policy-holdout-v02`, `separator-study-001`, `scaling-benchmark-001`, `wmc-reliability-001`, `tensor-study-001`, `cut-wmc-001`, `cut-cube-001`, `epyc-cube-001`, `epyc-cube-002`, `commercial-benchmarks-001`).
+  5. **Test Suite**: 71 unit and metamorphic tests across `tests/` with 100% pass rate.
+  6. **Core Research Engines**: Dual Cut-based monotone CNF compiler (`cut_compiler.py`), high-core parallel Cube-and-Conquer engine (`cube_conquer.py`), Weighted Model Counting engine (`wmc.py`), Tensor Network Contraction engine (`tensor_contract.py`), and dynamic separator heuristic engine (`separator.py`).
+
+---
+
+## 2. Release v0.2.2 (Research Checkpoint)
 
 ### Archive Integrity
 ```

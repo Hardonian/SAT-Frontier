@@ -1,0 +1,13 @@
+{
+  "benchmarks": [
+    "Cloud_MultiRegion_VPC",
+    "Transatlantic_Subsea_Optical_Mesh",
+    "IEEE_14Bus_Transmission_Grid",
+    "Avionics_DO178C_QuadRedundant_Actuator",
+    "Telecom_Metro_DualRing_Optical"
+  ],
+  "compiler": "dual_cut_monotone_cnf",
+  "description": "Real-world mission-critical enterprise reliability benchmarks (#WMC)",
+  "solver": "combined_wmc",
+  "study_name": "commercial-benchmarks-001"
+}

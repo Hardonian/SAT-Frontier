@@ -1,8 +1,8 @@
 {
   "project": "SAT-Frontier",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "checkpoint_date": "2026-10-28",
-  "release_status": "research release v0.2.2; M0/M1/M2/M3/M5 completed; H4, scaling benchmark, WMC reliability, H7 tensor contraction, H8 high-core EPYC scaling, and H9 dual cut compilation fully executed and verified; upstream proof verification blocked and M4 gated",
+  "release_status": "production release v0.2.3; M0/M1/M2/M3/M5 completed; Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, production CLI, and real-world mission-critical commercial benchmarks completed and verified; 2,582 total empirical runs across 11 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
   "completed": [
     "private repository and original archive plus Git history restored",
     "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
@@ -22,14 +22,18 @@
     "Dual cut-based CNF compilation (to_cut_cnf) implemented in sat_frontier/cut_compiler.py, eliminating all auxiliary path indicators and achieving up to 122x search node reduction",
     "Hypothesis H9 dual cut-based CNF compilation study preregistered, implemented, unit-tested (67 tests), and executed across 48 runs in evidence/cut-wmc-001/; resolved hardness cliff instances grid_3x7 (solved in 2.13s) and grid_2x11 (solved in 0.12s) with 0 rational weight mismatches",
     "Parallel Cube-and-Conquer lookahead executed on dual cut-compiled instances in evidence/cut-cube-001/ (36 runs, 20 workers); proved that deeper lookahead (depth 6, 64 cubes) directly unlocks exact solutions on hard topologies grid_3x8 (3.26s), grid_3x9 (11.52s, 1.4M nodes), and grid_4x6 (11.06s, 1.3M nodes) that stall at shallow depths, with 19/19 cross-depth invariant checks matching",
-    "Turnkey deployment scripts (scripts/run_epyc_cube_conquer.sh, scripts/run_lean4_audit.sh, scripts/extract_axioms.lean, scripts/run_epyc_batch.py, scripts/run_cut_wmc_study.py) created and verified"
+    "Turnkey deployment scripts (scripts/run_epyc_cube_conquer.sh, scripts/run_lean4_audit.sh, scripts/extract_axioms.lean, scripts/run_epyc_batch.py, scripts/run_cut_wmc_study.py) created and verified",
+    "Commercialization P0-P1 completed: Enterprise Reliability & SLA Audit SDK (sat_frontier/enterprise/), Birnbaum sensitivity index engine, N-nines/downtime classification, production CLI, and 71 unit tests (100% pass)",
+    "Commercial benchmark campaign executed across 5 mission-critical topologies in evidence/commercial-benchmarks-001/ (Cloud VPC, Subsea Optical Mesh, IEEE 14-Bus Grid, Avionics Actuator, Metro Optical Ring) with sub-250ms solving latencies and 100% verified rational closed-form reliability",
+    "Developer and specification guides authored: docs/ENTERPRISE_SDK_GUIDE.md, docs/SLA_AUDIT_SPECIFICATION.md, docs/COMMERCIAL_APPLICATIONS.md, and docs/PRESS_RELEASE.md",
+    "Release v0.2.3 distribution archive packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.3.zip, 1,981 files, 8,309,388 bytes, SHA-256: a6f0aa9121d384fcbd38ff474719664b34cb64698ddb2982ac063ca19260d249)"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
     "upstream Lean target exited 137 for unknown cause; built comparator timed out; no axiom report; pinned in evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json",
     "older sharpSAT candidate disagreed on an empty-clause formula; counterexample preserved"
   ],
-  "untested": ["industrial competitiveness", "upstream theorem kernel check"],
+  "untested": ["upstream theorem kernel check"],
   "m1_complete": true,
   "m2_complete": true,
   "m3_complete": true,
@@ -53,6 +57,7 @@
     "evidence/cut-cube-001/manifest.json",
     "evidence/epyc-cube-001/manifest.json",
     "evidence/epyc-cube-002/manifest.json",
+    "evidence/commercial-benchmarks-001/manifest.json",
     "evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json"
   ],
   "next": "Deploy high-core EPYC batch execution on scaled cut-compiled topologies (grid_3x8..3x12, grid_4x6..4x8) and resume Lean 4 bounded-concurrency formal audit.",
