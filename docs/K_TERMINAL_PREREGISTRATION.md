@@ -97,3 +97,4 @@ For all instances where $|E| \le 16$, an independent brute-force state enumerati
 2. For instances where $|K| = 2$, cuts and counts must match `find_all_minimal_cuts` and `to_cut_cnf` identically.
 3. Node budget cap: 50,000 search nodes per run. Timeout cap: 30.0 seconds per instance.
 4. Cryptographic integrity: All DIMACS instances, run logs, CSV tables, and config parameters hashed and recorded in `manifest.json` and `SHA256SUMS`.
+

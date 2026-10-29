@@ -79,3 +79,4 @@ $$\Phi_{K\text{-cut}} = \bigwedge_{C \in \mathcal{C}_{\text{min}}(K)} \left( \bi
 ## 4. Synthesis with Academic Paper Draft
 
 This empirical breakthrough completes Section 3 of [`docs/RESEARCH_PAPERS/DUAL_CUT_WMC_PAPER.md`](file:///c:/Users/scott/SAT-Frontier/docs/RESEARCH_PAPERS/DUAL_CUT_WMC_PAPER.md), demonstrating that Menger cut duality is not limited to two-terminal pairs, but extends to general multi-terminal and all-terminal network reliability with zero auxiliary variables.
+
