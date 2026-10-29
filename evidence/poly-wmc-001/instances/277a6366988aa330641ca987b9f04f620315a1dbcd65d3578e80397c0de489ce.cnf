@@ -1,0 +1,9 @@
+p cnf 3 2
+c p weight 1 9/10
+c p weight -1 1/10
+c p weight 2 9/10
+c p weight -2 1/10
+c p weight 3 9/10
+c p weight -3 1/10
+1 2 0
+2 3 0

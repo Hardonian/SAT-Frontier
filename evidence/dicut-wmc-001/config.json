@@ -1,0 +1,9 @@
+{
+  "study": "dicut-wmc-001",
+  "hypothesis": "H12",
+  "description": "Dual Dicut Monotone CNF Compilation for Directed Network Reliability (s ~> t)",
+  "instances_count": 24,
+  "timeout_seconds": 30.0,
+  "max_search_nodes": 100000,
+  "oracle_edge_limit": 16
+}

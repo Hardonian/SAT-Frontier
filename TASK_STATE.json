@@ -1,8 +1,8 @@
 {
   "project": "SAT-Frontier",
-  "version": "0.2.3",
-  "checkpoint_date": "2026-10-28",
-  "release_status": "production release v0.2.3; M0/M1/M2/M3/M5 completed; Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, production CLI, and real-world mission-critical commercial benchmarks completed and verified; 2,582 total empirical runs across 11 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
+  "version": "0.2.4",
+  "checkpoint_date": "2026-10-29",
+  "release_status": "production release v0.2.4; M0/M1/M2/M3/M5 completed; Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, production CLI, and real-world mission-critical commercial benchmarks completed and verified; 2,654 total empirical runs across 14 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
   "completed": [
     "private repository and original archive plus Git history restored",
     "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
@@ -28,7 +28,10 @@
     "Developer and specification guides authored: docs/ENTERPRISE_SDK_GUIDE.md, docs/SLA_AUDIT_SPECIFICATION.md, docs/COMMERCIAL_APPLICATIONS.md, and docs/PRESS_RELEASE.md",
     "Release v0.2.3 distribution archive packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.3.zip, 1,981 files, 8,309,388 bytes, SHA-256: a6f0aa9121d384fcbd38ff474719664b34cb64698ddb2982ac063ca19260d249)",
     "Hypothesis H10 Multi-Terminal (K-Terminal) Network Reliability via Dual K-Cut Monotone CNF Compilation preregistered (docs/K_TERMINAL_PREREGISTRATION.md), implemented (sat_frontier/k_cut_compiler.py), unit-tested (8 tests in tests/test_k_cut_compiler.py; 80 tests total), and executed across 24 benchmark instances in evidence/k-terminal-wmc-001/; 17/17 independent brute-force oracle checks matched with 100% exact rational precision; evaluated 4-corner multi-terminal grid_4x4 in 0.39s (506 cuts, 19,535 nodes); documented in docs/K_TERMINAL_REPORT.md",
-    "Multi-terminal SLA audit capability integrated into Enterprise Reliability Engine (sat_frontier/enterprise/engine.py: audit_multi_terminal)"
+    "Multi-terminal SLA audit capability integrated into Enterprise Reliability Engine (sat_frontier/enterprise/engine.py: audit_multi_terminal)",
+    "Hypothesis H11 Algebraic Model Counting over Z[x] evaluates exact network reliability polynomials and continuous percolation susceptibility in a single search pass (sat_frontier/poly_wmc.py); preregistered (docs/POLYNOMIAL_WMC_PREREGISTRATION.md), unit-tested (9 tests), and executed across 24 instances in evidence/poly-wmc-001/; 17/17 independent brute-force oracle checks matched with 100% exact integer coefficient equality; solved grid_4x5 (degree 31, 1,353 clauses) in 2.05s via DLCS; documented in docs/POLYNOMIAL_WMC_REPORT.md",
+    "Hypothesis H12 Dual Dicut Monotone CNF Compilation for Directed Network Reliability (s ~> t) formulated and proven with zero auxiliary variables and zero MTZ subtour elimination bloat (sat_frontier/dicut_compiler.py); preregistered (docs/DICUT_RELIABILITY_PREREGISTRATION.md), unit-tested (9 tests), and executed across 24 instances in evidence/dicut-wmc-001/; 18/18 independent brute-force oracle checks matched with 100% exact rational precision; sub-45ms solving latency across layered DAGs, cyclic meshes, and enterprise systems; documented in docs/DICUT_RELIABILITY_REPORT.md",
+    "Enterprise Reliability Engine expanded with audit_parametric_curve and audit_directed_network in sat_frontier/enterprise/engine.py; unit tests increased to 100 (100% pass)"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
@@ -43,7 +46,7 @@
   "holdout_consumed": true,
   "remote_created": true,
   "gpu_used": false,
-  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning; H8 verified: high-core Cube-and-Conquer lookahead scales near-linearly (2.26x speedup from d4 to d8 on 64 workers) on modular topologies, but reveals sharp topological hardness boundaries at 2x11 and 3x7; H9 verified: dual cut-based monotone CNF compilation breaks through the structural hardness cliff, solving grid_3x7 in 2.13s and reducing search nodes by up to 122x with 0 mismatches; H10 verified: dual K-cut monotone CNF compilation generalizes Menger duality to K-terminal and all-terminal network reliability with zero auxiliary variables, achieving 100% exact rational agreement across 17 independent brute-force oracle checks and solving multi-terminal grid_4x4 in 0.39s",
+  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning; H8 verified: high-core Cube-and-Conquer lookahead scales near-linearly (2.26x speedup from d4 to d8 on 64 workers) on modular topologies, but reveals sharp topological hardness boundaries at 2x11 and 3x7; H9 verified: dual cut-based monotone CNF compilation breaks through the structural hardness cliff, solving grid_3x7 in 2.13s and reducing search nodes by up to 122x with 0 mismatches; H10 verified: dual K-cut monotone CNF compilation generalizes Menger duality to K-terminal and all-terminal network reliability with zero auxiliary variables, achieving 100% exact rational agreement across 17 independent brute-force oracle checks and solving multi-terminal grid_4x4 in 0.39s; H11 verified: algebraic model counting over Z[x] evaluates exact closed-form reliability polynomials and finite-size percolation thresholds in a single search pass with 100% integer coefficient equality across 17 oracle checks; H12 verified: dual dicut monotone CNF compilation solves directed network reliability without auxiliary variables or MTZ constraints, achieving 100% exact rational agreement across 18 oracle checks",
   "evidence": [
     "evidence/smoke-train/manifest.json",
     "evidence/v02-integrated-development-001/manifest.json",
@@ -61,6 +64,8 @@
     "evidence/epyc-cube-002/manifest.json",
     "evidence/commercial-benchmarks-001/manifest.json",
     "evidence/k-terminal-wmc-001/manifest.json",
+    "evidence/poly-wmc-001/manifest.json",
+    "evidence/dicut-wmc-001/manifest.json",
     "evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json"
   ],
   "next": "Deploy high-core EPYC batch execution on scaled cut-compiled topologies (grid_3x8..3x12, grid_4x6..4x8) and resume Lean 4 bounded-concurrency formal audit.",

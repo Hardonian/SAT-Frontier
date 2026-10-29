@@ -4,7 +4,29 @@ This directory contains the distribution release archives and provenance records
 
 ---
 
-## 1. Release v0.2.3 (Current Production & Commercialization Release)
+## 1. Release v0.2.4 (Current Production & Research Breakthrough Release)
+
+### Archive Integrity
+```
+741068c116f079df75c9b4cbcfe089c8251e2b0fb3ae5c4314657df19bf19247  sat-frontier-v0.2.4.zip
+```
+
+- **File Name**: `sat-frontier-v0.2.4.zip`
+- **File Size**: 8,446,536 bytes
+- **File Count**: 2,089 files
+- **Root Directory**: `sat-frontier-v0.2.4/`
+- **Date**: 2026-10-29
+- **Scope & Contents**:
+  1. **Dual Dicut Monotone CNF Compilation (Hypothesis H12)**: Directed two-terminal reliability ($s \leadsto t$) compiler in `sat_frontier/dicut_compiler.py` with zero auxiliary variables and zero MTZ subtour elimination bloat. Evaluated across 24 benchmark instances in `evidence/dicut-wmc-001/` with 18/18 independent brute-force oracle checks matching with 100% exact rational precision. Documented in `docs/DICUT_RELIABILITY_PREREGISTRATION.md` and `docs/DICUT_RELIABILITY_REPORT.md`.
+  2. **Algebraic Model Counting over $\mathbb{Z}[x]$ & Percolation Susceptibility (Hypothesis H11)**: Closed-form reliability polynomial engine in `sat_frontier/poly_wmc.py` evaluating complete polynomial spectra and continuous percolation thresholds $p_c$ in a single DPLL search pass. Evaluated across 24 benchmark instances in `evidence/poly-wmc-001/` with 17/17 independent brute-force oracle checks matching with 100% exact integer coefficient equality. Documented in `docs/POLYNOMIAL_WMC_PREREGISTRATION.md` and `docs/POLYNOMIAL_WMC_REPORT.md`.
+  3. **Multi-Terminal & All-Terminal Reliability (Hypothesis H10)**: Dual K-Cut monotone CNF compiler in `sat_frontier/k_cut_compiler.py` generalizing Menger duality to multi-terminal ($K \ge 2$) and all-terminal ($K = V$) reliability with zero auxiliary variables. Evaluated across 24 instances in `evidence/k-terminal-wmc-001/` with 17/17 independent oracle matches.
+  4. **Enterprise Reliability SDK Expansion**: Integrated `audit_parametric_curve` and `audit_directed_network` into `sat_frontier/enterprise/engine.py`.
+  5. **Empirical Evidence**: **2,654 verified empirical runs** across 14 complete suites with 100% cryptographic SHA-256 and invariant validation (`verify_all_evidence.py`).
+  6. **Unit Test Suite**: 100 unit and metamorphic tests across `tests/` with 100% pass rate.
+
+---
+
+## 2. Release v0.2.3 (Commercialization Baseline)
 
 ### Archive Integrity
 ```

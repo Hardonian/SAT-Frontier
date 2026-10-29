@@ -1,0 +1,10 @@
+{
+  "compiler": "dual_cut_monotone_cnf",
+  "description": "Exact Reliability Polynomials and Percolation Susceptibility via Algebraic Model Counting over Z[x]",
+  "hypothesis": "H11",
+  "instances_count": 24,
+  "max_nodes": 100000,
+  "semiring": "Z[x]",
+  "study_name": "poly-wmc-001",
+  "timeout_seconds": 30.0
+}

@@ -1,7 +1,7 @@
 {
   "status": "all_verified",
-  "total_verified_runs": 2606,
-  "suites_verified": 12,
+  "total_verified_runs": 2654,
+  "suites_verified": 14,
   "suites": {
     "policy-train-v02": {
       "status": "verified",
@@ -50,7 +50,15 @@
     "k-terminal-wmc-001": {
       "status": "verified",
       "runs": 24
+    },
+    "poly-wmc-001": {
+      "status": "verified",
+      "runs": 24
+    },
+    "dicut-wmc-001": {
+      "status": "verified",
+      "runs": 24
     }
   },
-  "elapsed_seconds": 19.339858293533325
+  "elapsed_seconds": 12.516498804092407
 }

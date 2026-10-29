@@ -108,6 +108,32 @@ class EnterpriseSDKTests(unittest.TestCase):
         # Each link is a SPOF
         self.assertEqual(len(audit.single_points_of_failure), 3)
 
+    def test_parametric_curve_enterprise_audit(self):
+        """Verify parametric reliability polynomial curve computation."""
+        topo = EnterpriseTopology("BridgeParametric")
+        topo.add_link("Client", "Gateway", availability=0.99)
+        topo.add_link("Gateway", "Server", availability=0.99)
+
+        engine = EnterpriseReliabilityEngine(topo)
+        curve = engine.audit_parametric_curve("Client", "Server")
+
+        self.assertEqual(curve["status"], "exact")
+        self.assertEqual(curve["coefficients"], [0, 0, 1])  # Only the state with both edges active connects
+        self.assertAlmostEqual(curve["evaluations"]["p=0.90"], 0.81, places=4)
+        self.assertAlmostEqual(curve["evaluations"]["p=0.99"], 0.9801, places=4)
+
+    def test_directed_network_enterprise_audit(self):
+        """Verify directed reachability audit on microservices DAG."""
+        from sat_frontier.dicut_compiler import DirectedNetworkGraph
+        dnet = DirectedNetworkGraph()
+        dnet.add_edge("Ingress", "API", Fraction(99, 100))
+        dnet.add_edge("API", "DB", Fraction(99, 100))
+
+        res = EnterpriseReliabilityEngine.audit_directed_network(dnet, "Ingress", "DB")
+        self.assertEqual(res["status"], "exact")
+        self.assertEqual(res["availability_fraction"], "9801/10000")
+        self.assertEqual(res["minimal_dicuts_count"], 2)
+
 
 if __name__ == "__main__":
     unittest.main()

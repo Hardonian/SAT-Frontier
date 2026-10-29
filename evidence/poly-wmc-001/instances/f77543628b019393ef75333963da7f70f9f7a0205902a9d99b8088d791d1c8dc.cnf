@@ -1,0 +1,29 @@
+p cnf 10 8
+c p weight 1 9/10
+c p weight -1 1/10
+c p weight 2 9/10
+c p weight -2 1/10
+c p weight 3 9/10
+c p weight -3 1/10
+c p weight 4 9/10
+c p weight -4 1/10
+c p weight 5 9/10
+c p weight -5 1/10
+c p weight 6 9/10
+c p weight -6 1/10
+c p weight 7 9/10
+c p weight -7 1/10
+c p weight 8 9/10
+c p weight -8 1/10
+c p weight 9 9/10
+c p weight -9 1/10
+c p weight 10 9/10
+c p weight -10 1/10
+1 2 0
+2 3 0
+4 0
+5 0
+6 0
+7 0
+8 9 0
+9 10 0

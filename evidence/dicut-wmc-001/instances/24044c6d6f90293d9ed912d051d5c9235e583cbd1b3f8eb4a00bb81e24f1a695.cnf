@@ -1,0 +1,20 @@
+c Directed Dicut CNF for cycle_directed_ring_8 (cyclic_mesh) s=1 t=5
+c Vertices: 8, Arcs: 11, Minimal Dicuts: 6
+c w 1 9/10
+c w 2 9/10
+c w 3 9/10
+c w 4 9/10
+c w 5 9/10
+c w 6 9/10
+c w 7 9/10
+c w 8 9/10
+c w 9 9/10
+c w 10 9/10
+c w 11 9/10
+p cnf 11 6
+1 3 0
+1 4 0
+1 9 0
+2 9 10 0
+3 10 0
+4 10 0

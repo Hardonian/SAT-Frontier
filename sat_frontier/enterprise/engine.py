@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 from fractions import Fraction
 import time
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 from .metrics import (
     ComponentImportance,
@@ -14,7 +14,9 @@ from .metrics import (
 )
 from .topology import EnterpriseTopology
 from ..cut_compiler import find_all_minimal_cuts, to_cut_cnf
+from ..dicut_compiler import DirectedNetworkGraph, find_all_minimal_dicuts, to_dicut_cnf
 from ..k_cut_compiler import find_all_minimal_k_cuts, to_k_cut_cnf
+from ..poly_wmc import ReliabilityPolynomial, solve_poly_wmc
 from ..wmc import WeightedFormula, wmc_solve
 
 
@@ -248,4 +250,98 @@ class EnterpriseReliabilityEngine:
             total_seconds=t_total,
             search_nodes=res["nodes"],
         )
+
+    def audit_parametric_curve(
+        self,
+        source: Union[int, str],
+        target: Union[int, str],
+        timeout_seconds: float = 30.0,
+        max_search_nodes: int = 100000,
+    ) -> Dict[str, Any]:
+        """Compute closed-form reliability polynomial over Z[x] and percolation phase transition."""
+        t_start = time.perf_counter()
+        s_id = self.topology.node_to_id.get(source)
+        t_id = self.topology.node_to_id.get(target)
+        if s_id is None:
+            raise ValueError(f"Source terminal '{source}' not found in topology.")
+        if t_id is None:
+            raise ValueError(f"Target terminal '{target}' not found in topology.")
+
+        cuts = find_all_minimal_cuts(self.net, s_id, t_id)
+        if not cuts:
+            return {
+                "status": "unsat",
+                "coefficients": [0] * (len(self.net.edges) + 1),
+                "percolation_threshold_pc": 0.0,
+                "peak_susceptibility": 0.0,
+                "evaluations": {},
+                "elapsed_seconds": time.perf_counter() - t_start,
+            }
+
+        clauses = [list(c) for c in cuts]
+        active_vars = set(range(1, len(self.net.edges) + 1))
+        coeffs, status, nodes = solve_poly_wmc(
+            clauses, active_vars, timeout_seconds=timeout_seconds, max_nodes=max_search_nodes
+        )
+        poly = ReliabilityPolynomial(coeffs)
+        p_c, max_chi = poly.peak_susceptibility()
+
+        evals = {
+            "p=0.90": poly.evaluate(0.90),
+            "p=0.95": poly.evaluate(0.95),
+            "p=0.99": poly.evaluate(0.99),
+            "p=0.999": poly.evaluate(0.999),
+        }
+
+        return {
+            "status": status,
+            "coefficients": coeffs,
+            "total_edges": poly.total_edges,
+            "total_connected_subgraphs": poly.total_connected_subgraphs,
+            "percolation_threshold_pc": round(p_c, 4),
+            "peak_susceptibility": round(max_chi, 4),
+            "evaluations": evals,
+            "search_nodes": nodes,
+            "elapsed_seconds": time.perf_counter() - t_start,
+        }
+
+    @staticmethod
+    def audit_directed_network(
+        dnet: DirectedNetworkGraph,
+        source: Any,
+        target: Any,
+        timeout_seconds: float = 30.0,
+        max_search_nodes: int = 100000,
+    ) -> Dict[str, Any]:
+        """Audit directed two-terminal reachability via dual dicut compilation."""
+        t_start = time.perf_counter()
+        cuts = find_all_minimal_dicuts(dnet, source, target)
+        wf = to_dicut_cnf(dnet, source, target)
+        comp_s = time.perf_counter() - t_start
+
+        t0 = time.perf_counter()
+        res = wmc_solve(
+            wf,
+            algorithm="combined_wmc",
+            seconds=timeout_seconds,
+            max_nodes=max_search_nodes,
+        )
+        solv_s = time.perf_counter() - t0
+
+        avail_frac = Fraction(res["weight_fraction"]) if res["status"] == "exact" else Fraction(0)
+        downtime = calculate_downtime_metrics(avail_frac)
+
+        return {
+            "status": res["status"],
+            "source": str(source),
+            "target": str(target),
+            "availability_fraction": str(avail_frac),
+            "availability_float": float(avail_frac),
+            "metrics": downtime,
+            "minimal_dicuts_count": len(cuts),
+            "search_nodes": res["nodes"],
+            "compilation_seconds": comp_s,
+            "solving_seconds": solv_s,
+            "total_seconds": time.perf_counter() - t_start,
+        }
 

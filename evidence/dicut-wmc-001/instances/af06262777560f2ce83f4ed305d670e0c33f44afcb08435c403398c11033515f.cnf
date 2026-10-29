@@ -1,0 +1,12 @@
+c Directed Dicut CNF for dag_diamond_cross (layered_dag) s=1 t=4
+c Vertices: 4, Arcs: 5, Minimal Dicuts: 4
+c w 1 9/10
+c w 2 9/10
+c w 3 9/10
+c w 4 9/10
+c w 5 9/10
+p cnf 5 4
+1 2 0
+1 4 0
+2 3 5 0
+3 4 0

@@ -1,0 +1,25 @@
+c Directed Dicut CNF for enterprise_fedwire_settlement (enterprise) s=Originator_Bank t=Beneficiary_Bank
+c Vertices: 8, Arcs: 11, Minimal Dicuts: 11
+c w 1 999/1000
+c w 2 99/100
+c w 3 9999/10000
+c w 4 999/1000
+c w 5 499/500
+c w 6 499/500
+c w 7 199/200
+c w 8 199/200
+c w 9 99/100
+c w 10 99/100
+c w 11 999/1000
+p cnf 11 11
+1 2 0
+1 4 0
+2 3 0
+3 4 0
+5 6 0
+5 8 10 0
+5 10 11 0
+6 7 9 0
+6 9 11 0
+7 8 9 10 0
+9 10 11 0

@@ -168,4 +168,3 @@ def brute_force_k_terminal_oracle(net: NetworkGraph, terminals: Iterable[Any]) -
             total_prob += state_prob
 
     return total_prob
-

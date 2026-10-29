@@ -1,0 +1,21 @@
+c Directed Dicut CNF for mesh_directed_2x3 (cyclic_mesh) s=r0c0 t=r1c2
+c Vertices: 6, Arcs: 9, Minimal Dicuts: 9
+c w 1 9/10
+c w 2 9/10
+c w 3 9/10
+c w 4 9/10
+c w 5 9/10
+c w 6 9/10
+c w 7 9/10
+c w 8 4/5
+c w 9 9/10
+p cnf 9 9
+1 2 0
+1 7 0
+1 9 0
+2 3 4 5 0
+2 4 5 6 0
+3 4 5 7 0
+3 5 9 0
+4 5 6 7 0
+5 6 9 0

@@ -1,0 +1,8 @@
+{
+  "study": "dicut-wmc-001",
+  "instances": 24,
+  "exact_solved": 24,
+  "oracle_checked": 18,
+  "oracle_matches": 18,
+  "all_oracle_passed": true
+}

@@ -1,0 +1,11 @@
+c Directed Dicut CNF for dag_layered_2x2 (layered_dag) s=s t=t
+c Vertices: 4, Arcs: 4, Minimal Dicuts: 4
+c w 1 9/10
+c w 2 9/10
+c w 3 9/10
+c w 4 9/10
+p cnf 4 4
+1 2 0
+1 4 0
+2 3 0
+3 4 0

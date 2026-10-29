@@ -1,0 +1,25 @@
+c Directed Dicut CNF for barbell_dir_3_3_bridge2 (bottleneck_barbell) s=a1 t=b3
+c Vertices: 6, Arcs: 14, Minimal Dicuts: 8
+c w 1 9/10
+c w 2 9/10
+c w 3 9/10
+c w 4 9/10
+c w 5 9/10
+c w 6 9/10
+c w 7 9/10
+c w 8 9/10
+c w 9 9/10
+c w 10 9/10
+c w 11 9/10
+c w 12 9/10
+c w 13 9/10
+c w 14 9/10
+p cnf 14 8
+1 2 7 8 0
+1 2 13 0
+1 6 7 8 0
+1 6 13 0
+7 8 14 0
+8 10 0
+9 10 13 0
+13 14 0

@@ -1,4 +1,4 @@
-# Resume checkpoint — v0.2.3 production & commercialization release, 2026-10-28
+# Resume checkpoint — v0.2.4 production & research breakthrough release, 2026-10-29
 
 SAT-Frontier is a CPU-first exact-counting research lab. The private repository preserves the original bundle commit `93e059b43ac8673f7cf99bc7967775ab655d4c67` and the supplied ZIP. No public license has been selected.
 
@@ -19,8 +19,10 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - High-Concurrency Cut Cube Lookahead Campaign: Executed across 36 runs in `evidence/cut-cube-001/` over 12 hardness-boundary topologies with 20 workers. Demonstrated that deeper lookahead (depth 6, 64 cubes) overcomes node budget exhaustion, solving `grid_3x8` in 3.26s, `grid_3x9` in 11.52s (1.4M nodes), and `grid_4x6` in 11.06s (1.3M nodes) with 19/19 cross-depth exact invariant checks matching. Fully documented in `evidence/cut-cube-001/SUMMARY.md` and verified by `verify_evidence.py`.
 - Commercialization Engine (P0-P1): Implemented production Enterprise Reliability & SLA Audit SDK in `sat_frontier/enterprise/` (`topology.py`, `metrics.py`, `engine.py`, `report.py`, `cli.py`), providing exact Birnbaum sensitivity indexing $I_B(e) = \frac{\partial R}{\partial p_e}$, $N$-nines and downtime calculation, single point of failure (SPOF) detection, and markdown/JSON audit generators. Evaluated across 5 production topologies in `evidence/commercial-benchmarks-001/` with sub-250ms solving times and 100% exact rational solutions. Documented in `docs/ENTERPRISE_SDK_GUIDE.md` and `docs/SLA_AUDIT_SPECIFICATION.md`.
 - Hypothesis H10 Multi-Terminal (K-Terminal) Network Reliability: Generalized Menger cut duality to multi-terminal ($K \ge 2$) and all-terminal ($K = V$) reliability in `sat_frontier/k_cut_compiler.py`, completely eliminating Steiner tree enumeration. Executed 24 benchmark instances in `evidence/k-terminal-wmc-001/` with 17/17 independent brute force oracle checks matching (100% exact rational agreement). Solved 4-corner multi-terminal `grid_4x4` (16 nodes, 24 edges, 506 cuts) in 0.39s and integrated multi-terminal auditing into `EnterpriseReliabilityEngine.audit_multi_terminal`. Documented in `docs/K_TERMINAL_REPORT.md` and `docs/K_TERMINAL_PREREGISTRATION.md`.
-- Release v0.2.3: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.3.zip` (1,981 files, 8,309,388 bytes, SHA-256: `a6f0aa9121d384fcbd38ff474719664b34cb64698ddb2982ac063ca19260d249`).
-- Local integrated suite: 80 unit tests passed with cross-platform Windows and Linux support. All 12 empirical evidence suites pass (2,606 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 20.05 seconds.
+- Hypothesis H11 Algebraic Model Counting over $\mathbb{Z}[x]$: Implemented polynomial weighted model counting in `sat_frontier/poly_wmc.py` evaluating complete closed-form reliability polynomials $P(x) = \sum c_k x^k$, continuous derivatives $\chi(p) = \frac{dR}{dp}$, and exact finite-size percolation phase transitions $p_c$. Executed 24 benchmark instances in `evidence/poly-wmc-001/` with 17/17 independent brute force oracle checks matching (100% exact integer coefficient equality). Solved `grid_4x5` (degree 31, 1,353 clauses) in 2.05s via DLCS heuristic. Documented in `docs/POLYNOMIAL_WMC_REPORT.md`.
+- Hypothesis H12 Dual Dicut Monotone CNF Compilation: Formulated and proved the directed cut duality theorem for directed two-terminal reliability ($s \leadsto t$) in `sat_frontier/dicut_compiler.py`, eliminating simple path enumeration and MTZ subtour elimination bloat with strictly $|A|$ variables. Executed 24 benchmark instances in `evidence/dicut-wmc-001/` across layered DAGs, cyclic meshes, barbells, and enterprise systems with 18/18 independent oracle checks matching (100% exact rational agreement). Documented in `docs/DICUT_RELIABILITY_REPORT.md`.
+- Release v0.2.4: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.4.zip` (2,089 files, 8,446,536 bytes, SHA-256: `741068c116f079df75c9b4cbcfe089c8251e2b0fb3ae5c4314657df19bf19247`).
+- Local integrated suite: 100 unit tests passed with cross-platform Windows and Linux support. All 14 empirical evidence suites pass (2,654 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 12.50 seconds.
 
 ## Blocked, failed and untested
 
@@ -49,6 +51,8 @@ python3 verify_evidence.py evidence/cut-cube-001
 python3 verify_epyc_evidence.py evidence/epyc-cube-001 evidence/epyc-cube-002
 python3 verify_evidence.py evidence/commercial-benchmarks-001
 python3 verify_evidence.py evidence/k-terminal-wmc-001
+python3 verify_evidence.py evidence/poly-wmc-001
+python3 verify_evidence.py evidence/dicut-wmc-001
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```
 
