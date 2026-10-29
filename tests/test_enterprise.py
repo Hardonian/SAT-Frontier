@@ -91,6 +91,23 @@ class EnterpriseSDKTests(unittest.TestCase):
         self.assertEqual(data["system"], "WheatstoneCloud")
         self.assertEqual(data["vulnerabilities"]["total_minimal_cuts"], 4)
 
+    def test_multi_terminal_enterprise_audit(self):
+        """Verify multi-terminal SLA audit on 3-AZ cloud VPC topology."""
+        topo = EnterpriseTopology("AWS_TriAZ_VPC")
+        topo.add_link("AZ_East", "TGW", availability=0.999)
+        topo.add_link("AZ_West", "TGW", availability=0.999)
+        topo.add_link("AZ_Central", "TGW", availability=0.999)
+
+        engine = EnterpriseReliabilityEngine(topo)
+        audit = engine.audit_multi_terminal(["AZ_East", "AZ_West", "AZ_Central"])
+
+        self.assertEqual(audit.status, "exact")
+        # All 3 links must operate for all 3 AZs to be connected to each other through TGW
+        # R = 0.999^3 = (999/1000)^3 = 997002999 / 1000000000
+        self.assertEqual(audit.availability_fraction, Fraction(997002999, 1000000000))
+        # Each link is a SPOF
+        self.assertEqual(len(audit.single_points_of_failure), 3)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,7 +1,7 @@
 {
   "status": "all_verified",
-  "total_verified_runs": 2582,
-  "suites_verified": 11,
+  "total_verified_runs": 2606,
+  "suites_verified": 12,
   "suites": {
     "policy-train-v02": {
       "status": "verified",
@@ -46,7 +46,11 @@
     "commercial-benchmarks-001": {
       "status": "verified",
       "runs": 5
+    },
+    "k-terminal-wmc-001": {
+      "status": "verified",
+      "runs": 24
     }
   },
-  "elapsed_seconds": 18.967156887054443
+  "elapsed_seconds": 19.500194787979126
 }

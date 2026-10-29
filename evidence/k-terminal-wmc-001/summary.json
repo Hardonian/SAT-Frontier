@@ -1,0 +1,10 @@
+{
+  "all_oracle_checked_match": true,
+  "exact_runs": 24,
+  "hypothesis": "H10",
+  "oracle_checked_instances": 20,
+  "oracle_matches": 20,
+  "study": "k-terminal-wmc-001",
+  "total_instances": 24,
+  "total_runs": 24
+}

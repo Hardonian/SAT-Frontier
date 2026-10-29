@@ -1,0 +1,10 @@
+{
+  "compiler": "dual_k_cut_monotone_cnf",
+  "description": "Multi-Terminal and All-Terminal Network Reliability via Dual K-Cut Monotone CNF Compilation",
+  "hypothesis": "H10",
+  "instances_count": 24,
+  "max_nodes": 50000,
+  "solver": "combined_wmc",
+  "study_name": "k-terminal-wmc-001",
+  "timeout_seconds": 30.0
+}

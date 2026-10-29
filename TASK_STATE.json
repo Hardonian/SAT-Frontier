@@ -26,7 +26,9 @@
     "Commercialization P0-P1 completed: Enterprise Reliability & SLA Audit SDK (sat_frontier/enterprise/), Birnbaum sensitivity index engine, N-nines/downtime classification, production CLI, and 71 unit tests (100% pass)",
     "Commercial benchmark campaign executed across 5 mission-critical topologies in evidence/commercial-benchmarks-001/ (Cloud VPC, Subsea Optical Mesh, IEEE 14-Bus Grid, Avionics Actuator, Metro Optical Ring) with sub-250ms solving latencies and 100% verified rational closed-form reliability",
     "Developer and specification guides authored: docs/ENTERPRISE_SDK_GUIDE.md, docs/SLA_AUDIT_SPECIFICATION.md, docs/COMMERCIAL_APPLICATIONS.md, and docs/PRESS_RELEASE.md",
-    "Release v0.2.3 distribution archive packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.3.zip, 1,981 files, 8,309,388 bytes, SHA-256: a6f0aa9121d384fcbd38ff474719664b34cb64698ddb2982ac063ca19260d249)"
+    "Release v0.2.3 distribution archive packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.3.zip, 1,981 files, 8,309,388 bytes, SHA-256: a6f0aa9121d384fcbd38ff474719664b34cb64698ddb2982ac063ca19260d249)",
+    "Hypothesis H10 Multi-Terminal (K-Terminal) Network Reliability via Dual K-Cut Monotone CNF Compilation preregistered (docs/K_TERMINAL_PREREGISTRATION.md), implemented (sat_frontier/k_cut_compiler.py), unit-tested (8 tests in tests/test_k_cut_compiler.py; 80 tests total), and executed across 24 benchmark instances in evidence/k-terminal-wmc-001/; 17/17 independent brute-force oracle checks matched with 100% exact rational precision; evaluated 4-corner multi-terminal grid_4x4 in 0.39s (506 cuts, 19,535 nodes); documented in docs/K_TERMINAL_REPORT.md",
+    "Multi-terminal SLA audit capability integrated into Enterprise Reliability Engine (sat_frontier/enterprise/engine.py: audit_multi_terminal)"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
@@ -41,7 +43,7 @@
   "holdout_consumed": true,
   "remote_created": true,
   "gpu_used": false,
-  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning; H8 verified: high-core Cube-and-Conquer lookahead scales near-linearly (2.26x speedup from d4 to d8 on 64 workers) on modular topologies, but reveals sharp topological hardness boundaries at 2x11 and 3x7; H9 verified: dual cut-based monotone CNF compilation breaks through the structural hardness cliff, solving grid_3x7 in 2.13s and reducing search nodes by up to 122x with 0 mismatches",
+  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning; H8 verified: high-core Cube-and-Conquer lookahead scales near-linearly (2.26x speedup from d4 to d8 on 64 workers) on modular topologies, but reveals sharp topological hardness boundaries at 2x11 and 3x7; H9 verified: dual cut-based monotone CNF compilation breaks through the structural hardness cliff, solving grid_3x7 in 2.13s and reducing search nodes by up to 122x with 0 mismatches; H10 verified: dual K-cut monotone CNF compilation generalizes Menger duality to K-terminal and all-terminal network reliability with zero auxiliary variables, achieving 100% exact rational agreement across 17 independent brute-force oracle checks and solving multi-terminal grid_4x4 in 0.39s",
   "evidence": [
     "evidence/smoke-train/manifest.json",
     "evidence/v02-integrated-development-001/manifest.json",
@@ -58,6 +60,7 @@
     "evidence/epyc-cube-001/manifest.json",
     "evidence/epyc-cube-002/manifest.json",
     "evidence/commercial-benchmarks-001/manifest.json",
+    "evidence/k-terminal-wmc-001/manifest.json",
     "evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json"
   ],
   "next": "Deploy high-core EPYC batch execution on scaled cut-compiled topologies (grid_3x8..3x12, grid_4x6..4x8) and resume Lean 4 bounded-concurrency formal audit.",

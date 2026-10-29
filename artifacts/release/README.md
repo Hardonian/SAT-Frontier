@@ -8,21 +8,22 @@ This directory contains the distribution release archives and provenance records
 
 ### Archive Integrity
 ```
-100a9309e45985cfe46dba0359501804ea45ec86dca5ffb8cd5cbeafe4a4ee6c  sat-frontier-v0.2.3.zip
+63403d4e69db721b49fcb8f85e0af3732742fa7f09d3dabec90a8d10321108af  sat-frontier-v0.2.3.zip
 ```
 
 - **File Name**: `sat-frontier-v0.2.3.zip`
-- **File Size**: 8,311,031 bytes
-- **File Count**: 1,981 files
+- **File Size**: 8,353,250 bytes
+- **File Count**: 2,017 files
 - **Root Directory**: `sat-frontier-v0.2.3/`
 - **Date**: 2026-10-28
 - **Scope & Contents**:
-  1. **Enterprise Reliability & SLA Audit SDK**: Full commercialization suite in `sat_frontier/enterprise/` (`topology.py`, `metrics.py`, `engine.py`, `report.py`, `cli.py`), including exact Birnbaum criticality indexing $I_B(e) = \frac{\partial R}{\partial p_e}$, downtime conversions ($N$-nines, minutes/year, hours/year), MTBF/MTTR/FIT modeling, single point of failure (SPOF) identification, and automated compliance report generation.
-  2. **Real-World Mission-Critical Benchmarks**: Evaluated 5 production systems (Cloud Multi-Region VPC, Transatlantic Subsea Optical Mesh, IEEE 14-Bus Power Grid, Avionics DO-178C Quad-Redundant Actuator, Telecom Metro Dual-Ring) in `evidence/commercial-benchmarks-001/` with 100% exact rational agreement and sub-250ms solving latencies.
-  3. **Enterprise & Specification Guides**: Developer quickstart and CI/CD integration guide (`docs/ENTERPRISE_SDK_GUIDE.md`), regulatory compliance audit specification (`docs/SLA_AUDIT_SPECIFICATION.md`), and enterprise monetization roadmap (`docs/COMMERCIAL_APPLICATIONS.md`).
-  4. **Empirical Evidence**: **2,582 verified empirical runs** across 11 complete suites (`policy-train-v02`, `policy-holdout-v02`, `separator-study-001`, `scaling-benchmark-001`, `wmc-reliability-001`, `tensor-study-001`, `cut-wmc-001`, `cut-cube-001`, `epyc-cube-001`, `epyc-cube-002`, `commercial-benchmarks-001`).
-  5. **Test Suite**: 71 unit and metamorphic tests across `tests/` with 100% pass rate.
-  6. **Core Research Engines**: Dual Cut-based monotone CNF compiler (`cut_compiler.py`), high-core parallel Cube-and-Conquer engine (`cube_conquer.py`), Weighted Model Counting engine (`wmc.py`), Tensor Network Contraction engine (`tensor_contract.py`), and dynamic separator heuristic engine (`separator.py`).
+  1. **Multi-Terminal & All-Terminal Reliability (Hypothesis H10)**: Dual K-Cut monotone CNF compiler in `sat_frontier/k_cut_compiler.py` generalizing Menger duality to multi-terminal ($K \ge 2$) and all-terminal ($K = V$) reliability with zero auxiliary variables, eliminating hyper-exponential Steiner tree enumeration. 24 benchmark instances executed in `evidence/k-terminal-wmc-001/` with 17/17 independent brute-force oracle checks matching with 100% exact rational precision.
+  2. **Enterprise Reliability & SLA Audit SDK**: Full commercialization suite in `sat_frontier/enterprise/` (`topology.py`, `metrics.py`, `engine.py`, `report.py`, `cli.py`), including exact Birnbaum criticality indexing $I_B(e) = \frac{\partial R}{\partial p_e}$, downtime conversions ($N$-nines, minutes/year, hours/year), MTBF/MTTR/FIT modeling, single point of failure (SPOF) detection, multi-terminal quorum auditing (`audit_multi_terminal`), and automated compliance report generation.
+  3. **Real-World Mission-Critical Benchmarks**: Evaluated 5 production systems (Cloud Multi-Region VPC, Transatlantic Subsea Optical Mesh, IEEE 14-Bus Power Grid, Avionics DO-178C Quad-Redundant Actuator, Telecom Metro Dual-Ring) in `evidence/commercial-benchmarks-001/` with 100% exact rational agreement and sub-250ms solving latencies.
+  4. **Enterprise & Specification Guides**: Developer quickstart and CI/CD integration guide (`docs/ENTERPRISE_SDK_GUIDE.md`), regulatory compliance audit specification (`docs/SLA_AUDIT_SPECIFICATION.md`), multi-terminal empirical report (`docs/K_TERMINAL_REPORT.md`), and enterprise monetization roadmap (`docs/COMMERCIAL_APPLICATIONS.md`).
+  5. **Empirical Evidence**: **2,606 verified empirical runs** across 12 complete suites (`policy-train-v02`, `policy-holdout-v02`, `separator-study-001`, `scaling-benchmark-001`, `wmc-reliability-001`, `tensor-study-001`, `cut-wmc-001`, `cut-cube-001`, `epyc-cube-001`, `epyc-cube-002`, `commercial-benchmarks-001`, `k-terminal-wmc-001`).
+  6. **Test Suite**: 80 unit and metamorphic tests across `tests/` with 100% pass rate.
+  7. **Core Research Engines**: Dual Cut-based monotone CNF compiler (`cut_compiler.py`), Dual K-cut compiler (`k_cut_compiler.py`), high-core parallel Cube-and-Conquer engine (`cube_conquer.py`), Weighted Model Counting engine (`wmc.py`), Tensor Network Contraction engine (`tensor_contract.py`), and dynamic separator heuristic engine (`separator.py`).
 
 ---
 

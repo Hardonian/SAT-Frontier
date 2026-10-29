@@ -14,6 +14,7 @@ from .metrics import (
 )
 from .topology import EnterpriseTopology
 from ..cut_compiler import find_all_minimal_cuts, to_cut_cnf
+from ..k_cut_compiler import find_all_minimal_k_cuts, to_k_cut_cnf
 from ..wmc import WeightedFormula, wmc_solve
 
 
@@ -131,6 +132,110 @@ class EnterpriseReliabilityEngine:
             topology_name=self.topology.name,
             source_terminal=str(source),
             target_terminal=str(target),
+            status=res["status"],
+            availability_fraction=avail_frac,
+            metrics=downtime,
+            minimal_cuts_count=len(cuts),
+            single_points_of_failure=spofs,
+            top_vulnerabilities=all_vulns,
+            component_criticality=criticality,
+            compilation_seconds=t_compilation,
+            solving_seconds=t_solving,
+            total_seconds=t_total,
+            search_nodes=res["nodes"],
+        )
+
+    def audit_multi_terminal(
+        self,
+        terminals: List[Union[int, str]],
+        timeout_seconds: float = 30.0,
+        max_search_nodes: int = 200000,
+        compute_sensitivity: bool = True,
+    ) -> EnterpriseAuditResult:
+        """Run an exhaustive SLA reliability and vulnerability audit across multi-terminal set K."""
+        t_start = time.perf_counter()
+
+        term_ids = []
+        for term in terminals:
+            tid = self.topology.node_to_id.get(term)
+            if tid is None:
+                raise ValueError(f"Terminal '{term}' not found in topology.")
+            term_ids.append(tid)
+
+        if len(term_ids) < 2:
+            raise ValueError("Multi-terminal audit requires at least 2 terminals.")
+
+        # 1. Dual K-Cut Compilation
+        t0 = time.perf_counter()
+        cuts = find_all_minimal_k_cuts(self.net, term_ids)
+        wf = to_k_cut_cnf(self.net, term_ids)
+        t_compilation = time.perf_counter() - t0
+
+        # 2. Exact #WMC Solving
+        t0 = time.perf_counter()
+        res = wmc_solve(
+            wf,
+            algorithm="combined_wmc",
+            seconds=timeout_seconds,
+            max_nodes=max_search_nodes,
+        )
+        t_solving = time.perf_counter() - t0
+
+        if res["status"] != "exact":
+            raise RuntimeError(f"Solver failed to achieve exact count: {res['status']}")
+
+        avail_frac = Fraction(res["weight_fraction"])
+        downtime = calculate_downtime_metrics(avail_frac)
+
+        # 3. Cut Vulnerability Analysis
+        edge_labels = {
+            eid: f"{attr.u}<->{attr.v}" for eid, attr in self.edge_attr_map.items()
+        }
+        all_vulns = rank_cut_vulnerabilities(
+            cuts,
+            edge_probs=self.net.edge_probs,
+            edge_labels=edge_labels,
+            limit=20,
+        )
+        spofs = [v for v in all_vulns if v.is_single_point_of_failure]
+
+        # 4. Component Sensitivity (Birnbaum Importance)
+        criticality = []
+        if compute_sensitivity:
+            def fast_eval(probs_dict: Dict[int, Fraction]) -> Fraction:
+                w_dict = {}
+                for e, p in probs_dict.items():
+                    w_dict[e] = p
+                    w_dict[-e] = Fraction(1) - p
+                wf_temp = WeightedFormula(
+                    wf.clauses, n_vars=wf.n_vars, weights=w_dict
+                )
+                r_temp = wmc_solve(
+                    wf_temp,
+                    algorithm="combined_wmc",
+                    seconds=5.0,
+                    max_nodes=max_search_nodes,
+                )
+                return (
+                    Fraction(r_temp["weight_fraction"])
+                    if r_temp["status"] == "exact"
+                    else Fraction(0)
+                )
+
+            all_edge_ids = list(range(1, len(self.net.edges) + 1))
+            criticality = compute_birnbaum_importance(
+                eval_func=fast_eval,
+                all_edge_ids=all_edge_ids,
+                edge_probs=self.net.edge_probs,
+                edge_labels=edge_labels,
+            )
+
+        t_total = time.perf_counter() - t_start
+
+        return EnterpriseAuditResult(
+            topology_name=self.topology.name,
+            source_terminal=f"K_terminals[{','.join(str(t) for t in terminals[:3])}{'...' if len(terminals)>3 else ''}]",
+            target_terminal="mutual_connectivity",
             status=res["status"],
             availability_fraction=avail_frac,
             metrics=downtime,

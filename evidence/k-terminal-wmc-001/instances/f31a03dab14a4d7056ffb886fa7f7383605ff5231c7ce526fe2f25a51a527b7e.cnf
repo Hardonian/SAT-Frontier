@@ -1,0 +1,28 @@
+p cnf 7 13
+c p weight 1 19/20
+c p weight -1 1/20
+c p weight 2 19/20
+c p weight -2 1/20
+c p weight 3 19/20
+c p weight -3 1/20
+c p weight 4 19/20
+c p weight -4 1/20
+c p weight 5 19/20
+c p weight -5 1/20
+c p weight 6 19/20
+c p weight -6 1/20
+c p weight 7 19/20
+c p weight -7 1/20
+1 2 0
+1 4 5 0
+1 4 7 0
+1 6 0
+2 3 4 0
+2 4 5 0
+2 4 7 0
+2 6 0
+3 4 6 0
+3 5 0
+3 7 0
+4 5 6 0
+5 7 0
