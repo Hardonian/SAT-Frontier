@@ -132,3 +132,4 @@ To ensure complete chain-of-custody for compliance auditors (e.g., FAA, NERC, SE
 | **NERC CIP-005 / CIP-007** | Bulk Electric System Availability | IEEE power grid substation connectivity under line trips; Birnbaum transformer ranking. |
 | **EU DORA (Digital Operational Resilience)** | Article 6 (ICT Risk Management Framework) | Automated CI/CD SLA audit gate; mathematical bounds on annual financial ledger downtime. |
 | **ITU-T G.808 / Telcordia GR-253** | Self-Healing Optical Ring Protection | Sub-50ms protection switching availability verification on SONET/SDH dual-rings. |
+

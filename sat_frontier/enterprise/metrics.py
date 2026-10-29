@@ -152,3 +152,4 @@ def compute_birnbaum_importance(
         ci.sensitivity_rank = rank
 
     return importances
+

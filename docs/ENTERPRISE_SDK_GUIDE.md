@@ -278,3 +278,4 @@ Validated against mission-critical topologies in evidence suite `evidence/commer
 | **Telecom Metro Dual-Ring** | SONET / Optical | 8 / 16 | `99.993638%` (Four Nines) | `33.44 min` | `5.88 ms` |
 
 All results verified under strict cryptographic pinning with 100% exact closed-form agreement.
+

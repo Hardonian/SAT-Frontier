@@ -140,3 +140,4 @@ def generate_json_audit_summary(result: EnterpriseAuditResult) -> str:
         },
     }
     return json.dumps(data, indent=2) + "\n"
+
