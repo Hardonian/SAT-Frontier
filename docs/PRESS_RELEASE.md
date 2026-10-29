@@ -66,3 +66,4 @@ The complete source code, test suites, empirical evidence directories, replicati
 
 ### About SAT-Frontier
 SAT-Frontier is an independent, CPU-first exact-counting research laboratory dedicated to advancing exact model counting, structural decomposition, and automated theorem verification.
+

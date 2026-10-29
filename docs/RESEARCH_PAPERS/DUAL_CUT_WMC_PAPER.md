@@ -136,3 +136,4 @@ Dual Cut Monotone CNF Compilation eliminates the path-explosion pathology that h
 3. Provan, J. S., & Shier, D. R. (1983). A paradigm for listing $(s, t)$-cuts in graphs. *Networks*, 13(4), 517-531.
 4. Heule, M. J., Kullmann, O., & Wieringa, S. (2018). Cube-and-Conquer for Satisfiability. *Handbook of Satisfiability*.
 5. OpenAI (2026). The Exponential Time Hypothesis is False. Preprint and formal repository `openai/math` commit `7ef5c0c`.
+

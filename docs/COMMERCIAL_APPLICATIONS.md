@@ -70,3 +70,4 @@ SAT-Frontier's technology can be packaged into three commercial product tiers:
 1. **Algorithmic Moat (Dual Cut Duality)**: While existing WMC tools (D4, Cachet, miniC2D, sharpSAT) operate on path-based or monolithic CNFs that blow up on planar meshes, SAT-Frontier's dual cut compilation eliminates auxiliary variables, creating an unbridgeable efficiency gap on network topologies.
 2. **Mathematical Exactness**: Unlike Monte Carlo simulators that produce loose statistical confidence intervals, SAT-Frontier guarantees exact rational arithmetic using arbitrary-precision fractions, essential for regulatory and safety certification.
 3. **High-Core Scalability**: Our Cube-and-Conquer engine scales near-linearly across high-core enterprise server hardware (64-core AMD EPYC servers), transforming overnight computational jobs into real-time interactive queries.
+

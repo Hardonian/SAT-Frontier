@@ -103,3 +103,4 @@ To definitively resolve Milestone M1 and determine whether OpenAI's proof is ker
    - **Sound Verification**: The output reports exclusively `propext`, `Quot.sound`, `Classical.choice`. Milestone M4 (Algorithmic Extraction) is unblocked.
    - **Admitted Subgoal**: The output reports `sorryAx`. The proof is incomplete.
    - **Resource Limit**: Lake fails even under bounded concurrency on 168 GB RAM. The blocker remains architectural.
+
