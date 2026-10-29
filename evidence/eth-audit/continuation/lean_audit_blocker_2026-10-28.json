@@ -22,9 +22,11 @@
     "OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.sat_polynomial_space",
     "OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.original_sat_main"
   ],
-  "blocker": "Upstream build requires compiling 3,091 transitive modules via lake. Build spawns 15 compiler processes, peaks at 11.9 GB RSS, and is terminated by container/cgroup limits (exit 137/timeout). No axiom report or kernel verification was produced.",
+  "blocker": "Upstream build requires compiling 3,091 transitive modules via lake. Build spawns 15 compiler processes, peaks at 11.9 GB RSS, and is terminated by container/cgroup limits (exit 137/timeout). No axiom report or kernel verification was produced. As of 2026-10-28 22:00 UTC, a single-threaded background build is still in progress with 8 threads; 115 .olean files built in SqrtLogSpace but Final.olean not yet produced. M1 remains blocked pending build completion or alternative verification path.",
   "commands_attempted": [
-    "cd /home/scott/.hermes/cache/scratch/math/lean && lake build OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.Final"
+    "cd /home/scott/.hermes/cache/scratch/math/lean && lake build OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.Final",
+    "cd /home/scott/.hermes/cache/scratch/math/lean && LEAN_NUM_THREADS=1 timeout 1800 lake build OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.Final",
+    "cd /home/scott/.hermes/cache/scratch/math/lean && LEAN_NUM_THREADS=8 timeout 1800 lake build OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.Final"
   ],
   "exit_codes": [137, 124],
   "resource_measurements": {
