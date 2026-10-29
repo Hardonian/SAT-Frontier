@@ -80,3 +80,4 @@ Evaluated with node budget cap 100,000 nodes and timeout cap 30.0s on Windows 11
 ## 4. Conclusion & Impact
 
 Hypothesis H12 is confirmed. Dual dicut monotone CNF compilation solves the longstanding challenge of encoding directed network reliability in Boolean satisfiability with zero auxiliary variables and zero subtour elimination bloat. Combined with algebraic polynomial counting, it provides an exact, robust, sub-50ms engine for directed reachability and SLA auditing.
+

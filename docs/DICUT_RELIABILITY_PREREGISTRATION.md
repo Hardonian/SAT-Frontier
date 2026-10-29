@@ -48,3 +48,4 @@ We design a suite of 24 benchmark instances spanning 4 diverse directed topologi
 - Every instance with $|A| \le 16$ will be verified against an independent brute-force state enumeration oracle (`brute_force_directed_oracle`).
 - Exact rational equality (`Fraction`) is strictly required: 0 tolerance for floating-point approximation error.
 - All runs will be logged in `evidence/dicut-wmc-001/` with cryptographically verified `manifest.json` and `SHA256SUMS`.
+
