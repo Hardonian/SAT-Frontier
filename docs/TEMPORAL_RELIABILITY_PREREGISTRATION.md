@@ -48,3 +48,4 @@ $$\int_0^\infty R(t) \, dt = \sum_{j=1}^m a_j \int_0^\infty e^{-j \lambda t} \, 
 Similarly, integrating by parts for $\mathbb{E}[T^2] = \int_0^\infty 2t R(t) \, dt$:
 $$\int_0^\infty t e^{-j \lambda t} \, dt = \frac{1}{(j \lambda)^2} \int_0^\infty u e^{-u} \, du = \frac{1}{(j \lambda)^2} \Gamma(2) = \frac{1}{(j \lambda)^2}$$
 Multiplying by 2 gives $\mathbb{E}[T^2] = 2 \sum_{j=1}^m \frac{a_j}{(j \lambda)^2}$. The variance follows by definition. $\blacksquare$
+

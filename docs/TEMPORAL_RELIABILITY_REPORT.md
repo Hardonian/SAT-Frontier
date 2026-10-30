@@ -32,3 +32,4 @@
 2. **Exponential Bottlenecks vs Redundancy Gains**:
    - As ladder length increases from $2 \times 3$ to $2 \times 10$, system MTTF declines monotonically from 5,857.1 hours to 2,782.7 hours due to compounding serial failure risk.
    - For dense meshes, redundant cross-links preserve high $B_{10}$ lifetimes ($>1,800$ hours), confirming that component wear-out is absorbed gracefully by alternate topological paths.
+

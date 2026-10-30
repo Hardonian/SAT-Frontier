@@ -65,3 +65,4 @@ Every instance is independently evaluated by:
 1. Dual Cut Threshold Monotone CNF compilation and Weighted Model Counting.
 2. Complete truth-table enumeration using Dinic's blocking flow algorithm on every surviving state subgraph.
 The exact rational reliability values must match identically.
+
