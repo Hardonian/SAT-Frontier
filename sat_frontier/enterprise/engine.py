@@ -383,4 +383,67 @@ class EnterpriseReliabilityEngine:
             "total_seconds": time.perf_counter() - t_start,
         }
 
+    def audit_temporal_reliability(
+        self,
+        source: Any,
+        target: Any,
+        hazard_rate_per_hour: float = 1e-4,
+    ) -> Dict[str, Any]:
+        """Audit continuous temporal network reliability, exact MTTF, and B10 lifetime."""
+        from sat_frontier.temporal_reliability import evaluate_temporal_reliability
+        t_start = time.perf_counter()
+        s_id = self.topology.node_to_id.get(source, source)
+        t_id = self.topology.node_to_id.get(target, target)
+        res = evaluate_temporal_reliability(
+            self.net, s_id, t_id, hazard_rate_per_hour=hazard_rate_per_hour
+        )
+        return {
+            "status": "exact",
+            "source": str(source),
+            "target": str(target),
+            "mttf_exact": str(res.mttf_exact),
+            "mttf_hours": res.mttf_hours,
+            "variance_exact": str(res.variance_exact),
+            "variance_hours2": res.variance_hours2,
+            "std_dev_hours": res.std_dev_hours,
+            "b10_life_hours": res.b10_life_hours,
+            "b1_life_hours": res.b1_life_hours,
+            "lambda_per_hour": res.lambda_per_hour,
+            "monomial_coefficients": res.monomial_coefficients,
+            "elapsed_seconds": time.perf_counter() - t_start,
+        }
+
+    @staticmethod
+    def audit_capacitated_reliability(
+        cap_net: Any,
+        source: Any,
+        target: Any,
+        demand: int = 1,
+        timeout_seconds: float = 30.0,
+        max_search_nodes: int = 100000,
+    ) -> Dict[str, Any]:
+        """Audit capacitated flow reliability P(MaxFlow >= demand) via dual cut threshold compilation."""
+        from sat_frontier.capacitated_compiler import find_all_capacitated_cuts, solve_capacitated_reliability
+        t_start = time.perf_counter()
+        cuts = find_all_capacitated_cuts(cap_net, source, target)
+        rel_frac, nodes, solve_time = solve_capacitated_reliability(
+            cap_net, source, target, demand=demand, timeout_seconds=timeout_seconds, max_nodes=max_search_nodes
+        )
+        metrics = calculate_downtime_metrics(rel_frac)
+        return {
+            "status": "exact",
+            "source": str(source),
+            "target": str(target),
+            "demand": demand,
+            "availability_fraction": str(rel_frac),
+            "availability_float": float(rel_frac),
+            "metrics": metrics,
+            "minimal_cuts_count": len(cuts),
+            "search_nodes": nodes,
+            "solve_time_seconds": solve_time,
+            "total_seconds": time.perf_counter() - t_start,
+        }
+
+
+
 

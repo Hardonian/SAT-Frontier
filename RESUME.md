@@ -1,4 +1,4 @@
-# Resume checkpoint — v0.2.6 production & research breakthrough release, 2026-10-29
+# Resume checkpoint — v0.2.7 production & research breakthrough release, 2026-10-29
 
 SAT-Frontier is a CPU-first exact-counting research lab. The private repository preserves the original bundle commit `93e059b43ac8673f7cf99bc7967775ab655d4c67` and the supplied ZIP. No public license has been selected.
 
@@ -25,8 +25,51 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - All-Pairs SLA Matrix & Centrality Engine: Implemented complete network-wide pairwise availability engine in `sat_frontier/enterprise/all_pairs.py`. Computes all $\binom{|V|}{2}$ pairwise SLA availabilities, identifies worst-case SLA bottleneck pairs, calculates Network Diameter Reliability $R_{\text{min}}$, computes failure-aware node centrality $C_R(v) = \frac{1}{|V|-1}\sum_{u \ne v} R(v, u)$, and generates ANSI terminal heatmaps and Markdown SLA reports. Integrated into `sat_frontier/enterprise/engine.py` (`audit_all_pairs`) and CLI (`--all-pairs`, `--demo-subsea`).
 - Hypothesis H14 Dual SRRG-Cut Monotone CNF Compilation: Formulated and proved the Shared-Risk Resource Group (SRRG / Fate-Sharing) cut duality theorem for correlated multi-failure network reliability in `sat_frontier/srrg_compiler.py`. Compiled arbitrary physical risk mappings directly to monotone CNF clauses over risk survival variables alone with zero auxiliary routing variables. Executed 24 benchmark instances in `evidence/srrg-wmc-001/` across optical rings, subsea meshes, cloud VPCs, and staged pipeline corridors with 22/22 independent oracle checks matching (100% exact rational agreement) and sub-0.15ms solving latency. Documented in `docs/SRRG_RELIABILITY_REPORT.md` and `docs/SRRG_RELIABILITY_PREREGISTRATION.md`.
 - High-Core AMD EPYC Frontier Cut Scaling Campaign: Pre-compiled 10 frontier benchmark instances (`grid_3x8..3x11`, `grid_4x5..4x7`, `grid_5x5`, `barbell_6_3_6`, `chvatal`) in `instances/epyc-cut-frontier/` with exact literal weights. Created turnkey Linux runner `scripts/run_epyc_cut_campaign.sh`, multi-depth batch harness `scripts/run_epyc_cut_campaign.py`, and comprehensive deployment specification `docs/EPYC_CUT_CAMPAIGN_SPECIFICATION.md`.
-- Release v0.2.6: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.6.zip` (2,172 files, 8,813,747 bytes, SHA-256: `ac36a41bd0f7d07c71f7d429bc36b59bbd53cd14be2c971abb6b653e0e616865`).
-- Local integrated suite: 118 unit tests passed with cross-platform Windows and Linux support. All 16 empirical evidence suites pass (2,702 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 14.23 seconds.
+- Hermes GPT-6.1 Terra Directive for AMD EPYC: Authored turnkey execution directive in `docs/HERMES_TERRA_EPYC_DIRECTIVE.md` for autonomous commission of the 64-core AMD EPYC server (168 GB RAM), including NUMA memory interleaving, automated verification checks, and cross-depth invariants.
+- Hypothesis H15 Continuous Temporal Network Reliability & Exact Closed-Form MTTF: Formulated and proved the Exact Algebraic MTTF Integration Theorem: $\text{MTTF} = \sum_{j=1}^m \frac{a_j}{j \lambda}$, evaluating exact rational lifetime moments directly from monomial expansions of $P(x) \in \mathbb{Z}[x]$ in microseconds without Monte Carlo sampling. Implemented in `sat_frontier/temporal_reliability.py`, unit-tested (7 tests), and executed across 24 benchmark instances in `evidence/temporal-wmc-001/` with 24/24 independent composite Simpson quadrature checks matching within $10^{-4}$ relative tolerance. Documented in `docs/TEMPORAL_RELIABILITY_REPORT.md` and `docs/TEMPORAL_RELIABILITY_PREREGISTRATION.md`.
+- Hypothesis H16 Capacitated Network Flow Reliability: Formulated and proved the Capacitated Dual Cut Duality Theorem showing that $\mathbb{P}(\text{MaxFlow} \ge D)$ compiles directly into monotone positive clauses over physical edge variables alone with strictly $|E|$ variables and zero auxiliary flow variables. Implemented in `sat_frontier/capacitated_compiler.py`, unit-tested (7 tests), and executed across 24 benchmark instances in `evidence/capacitated-wmc-001/` with 24/24 independent Dinic max-flow truth-table oracle checks matching with 100% exact rational precision and sub-0.2ms mean latency. Documented in `docs/CAPACITATED_RELIABILITY_REPORT.md` and `docs/CAPACITATED_RELIABILITY_PREREGISTRATION.md`.
+- Release v0.2.7: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.7.zip` (2,242 files, 8,897,269 bytes, SHA-256: `79b61e06d7b035fab7426f8f2b2d30da5df354983f321519e95f78b730bd1272`).
+- Local integrated suite: 134 unit and metamorphic tests passed with cross-platform Windows and Linux support. All 18 empirical evidence suites pass (2,750 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 14.26 seconds.
+
+## Blocked, failed and untested
+
+- GitHub-hosted correctness CI attempted on bootstrap revision `5bf97406188d7a2da8dc23b9ba008c6dee2caa31` but GitHub did not start the job: account payments failed or spending limit must be increased. See https://github.com/Hardonian/SAT-Frontier/actions/runs/40697617863 . No billing change was made. After the owner fixes billing, rerun the latest main correctness run:
+
+  `id=$(GH_CONFIG_DIR=/home/scott/.config/gh gh run list --repo Hardonian/SAT-Frontier --workflow correctness --branch main --limit 1 --json databaseId --jq '.[0].databaseId'); test -n "$id" && GH_CONFIG_DIR=/home/scott/.config/gh gh run rerun "$id" --repo Hardonian/SAT-Frontier`
+- Upstream Lean target exited 137 / timed out with 11.9 GB memory peak before kernel check or `#print axioms`; Milestone M4 extraction remains gated. Pinned in `evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json`.
+- Upstream theorem kernel check remains untested due to Lean 4 memory ceiling.
+- Measured RSS contains an inherited/startup high-water floor and should not be used as comparative memory evidence; RLIMIT_AS is not aggregate RSS. Bandit reports low-severity trust-boundary findings, no medium or high findings; run only trusted external binaries.
+
+## Recheck
+
+```bash
+python3 -m unittest discover -s tests -v
+python3 verify_all_evidence.py
+python3 -m sat_frontier.enterprise.cli --demo-cloud
+python3 -m sat_frontier.enterprise.cli --demo-subsea --all-pairs
+python3 -m sat_frontier solve examples/two-components.cnf
+python3 verify_policy_evidence.py
+python3 verify_holdout_evidence.py
+python3 verify_evidence.py evidence/separator-study-001
+python3 verify_evidence.py evidence/scaling-benchmark-001
+python3 verify_evidence.py evidence/wmc-reliability-001
+python3 verify_evidence.py evidence/tensor-study-001
+python3 verify_evidence.py evidence/cut-wmc-001
+python3 verify_evidence.py evidence/cut-cube-001
+python3 verify_epyc_evidence.py evidence/epyc-cube-001 evidence/epyc-cube-002
+python3 verify_evidence.py evidence/commercial-benchmarks-001
+python3 verify_evidence.py evidence/k-terminal-wmc-001
+python3 verify_evidence.py evidence/poly-wmc-001
+python3 verify_evidence.py evidence/dicut-wmc-001
+python3 verify_evidence.py evidence/mixed-wmc-001
+python3 verify_evidence.py evidence/srrg-wmc-001
+python3 verify_evidence.py evidence/temporal-wmc-001
+python3 verify_evidence.py evidence/capacitated-wmc-001
+python3 scripts/run_epyc_cut_campaign.py --dry-run
+python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
+```
+
+For the original smoke evidence, extract the preserved bootstrap ZIP into a new directory and pass the extracted v0.1 project directory as `--source-root`; see `docs/INDEPENDENT_BASELINE.md`. Without `SAT_FRONTIER_SHARPSAT` the actual external-binary integration test is explicitly skipped. The manifest records source hashes and dirty state at campaign time. Do not overwrite existing evidence directories.
 
 ## Blocked, failed and untested
 

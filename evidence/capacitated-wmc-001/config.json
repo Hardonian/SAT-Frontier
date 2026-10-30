@@ -1,0 +1,11 @@
+{
+  "study": "capacitated-wmc-001",
+  "description": "Hypothesis H16: Capacitated Network Reliability via Dual Cut Threshold Compilation",
+  "timestamp": "2026-10-30T02:36:10Z",
+  "total_instances": 24,
+  "hardware": {
+    "system": "Windows",
+    "cpu": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+    "python": "3.12.10"
+  }
+}

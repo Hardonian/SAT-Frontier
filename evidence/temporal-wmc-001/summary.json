@@ -1,0 +1,8 @@
+{
+  "study": "temporal-wmc-001",
+  "instances": 24,
+  "total_solved": 24,
+  "quadrature_checks_performed": 24,
+  "quadrature_matches_verified": 24,
+  "quadrature_pass_rate": 1.0
+}

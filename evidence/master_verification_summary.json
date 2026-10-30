@@ -1,7 +1,7 @@
 {
   "status": "all_verified",
-  "total_verified_runs": 2702,
-  "suites_verified": 16,
+  "total_verified_runs": 2750,
+  "suites_verified": 18,
   "suites": {
     "policy-train-v02": {
       "status": "verified",
@@ -66,7 +66,15 @@
     "srrg-wmc-001": {
       "status": "verified",
       "runs": 24
+    },
+    "temporal-wmc-001": {
+      "status": "verified",
+      "runs": 24
+    },
+    "capacitated-wmc-001": {
+      "status": "verified",
+      "runs": 24
     }
   },
-  "elapsed_seconds": 15.293769359588623
+  "elapsed_seconds": 14.23084020614624
 }

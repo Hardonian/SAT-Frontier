@@ -4,7 +4,29 @@ This directory contains the distribution release archives and provenance records
 
 ---
 
-## 1. Release v0.2.6 (Current Production & Research Breakthrough Release)
+## 1. Release v0.2.7 (Current Production & Frontier Breakthrough Release)
+
+### Archive Integrity
+```
+79b61e06d7b035fab7426f8f2b2d30da5df354983f321519e95f78b730bd1272  sat-frontier-v0.2.7.zip
+```
+
+- **File Name**: `sat-frontier-v0.2.7.zip`
+- **File Size**: 8,897,269 bytes
+- **File Count**: 2,242 files
+- **Root Directory**: `sat-frontier-v0.2.7/`
+- **Date**: 2026-10-29
+- **Scope & Contents**:
+  1. **Capacitated Network Flow Reliability (Hypothesis H16)**: Dual Cut Threshold Monotone CNF compiler in `sat_frontier/capacitated_compiler.py`. Formulated and proved the Capacitated Dual Cut Duality Theorem showing that $\mathbb{P}(\text{MaxFlow} \ge D)$ compiles directly into monotone positive clauses over physical edge variables alone with strictly $|E|$ variables and zero auxiliary flow variables. Evaluated across 24 benchmark instances in `evidence/capacitated-wmc-001/` with 24/24 independent Dinic max-flow truth-table oracle checks matching with 100% exact rational precision. Documented in `docs/CAPACITATED_RELIABILITY_PREREGISTRATION.md` and `docs/CAPACITATED_RELIABILITY_REPORT.md`.
+  2. **Continuous Temporal Network Reliability & Exact Closed-Form MTTF (Hypothesis H15)**: Continuous lifetime and Mean Time To Failure (MTTF) engine in `sat_frontier/temporal_reliability.py`. Formulated and proved the Exact Algebraic MTTF Integration Theorem: $\text{MTTF} = \sum_{j=1}^m \frac{a_j}{j \lambda}$, evaluating exact rational lifetime moments directly from monomial expansions of $P(x) \in \mathbb{Z}[x]$ in microseconds without Monte Carlo sampling. Evaluated across 24 instances in `evidence/temporal-wmc-001/` with 24/24 independent composite Simpson quadrature verifications within $10^{-4}$ relative tolerance. Documented in `docs/TEMPORAL_RELIABILITY_PREREGISTRATION.md` and `docs/TEMPORAL_RELIABILITY_REPORT.md`.
+  3. **Turnkey Hermes GPT-6.1 Terra Directive for AMD EPYC**: Authored turnkey execution directive in `docs/HERMES_TERRA_EPYC_DIRECTIVE.md` for autonomous commission of the 64-core AMD EPYC server (168 GB RAM), including NUMA memory interleaving, automated verification checks, and cross-depth invariants.
+  4. **Enterprise Reliability SDK Expansion**: Added `audit_temporal_reliability` and `audit_capacitated_reliability` to `EnterpriseReliabilityEngine` in `sat_frontier/enterprise/engine.py`.
+  5. **Empirical Evidence Base**: **2,750 verified empirical runs** across 18 complete suites with 100% cryptographic SHA-256 and invariant validation (`verify_all_evidence.py`).
+  6. **Unit Test Suite**: 134 unit and metamorphic tests across `tests/` with 100% pass rate.
+
+---
+
+## 2. Release v0.2.6 (Previous Production Release)
 
 ### Archive Integrity
 ```

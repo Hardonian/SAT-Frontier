@@ -134,7 +134,33 @@ class EnterpriseSDKTests(unittest.TestCase):
         self.assertEqual(res["availability_fraction"], "9801/10000")
         self.assertEqual(res["minimal_dicuts_count"], 2)
 
+    def test_temporal_enterprise_audit(self):
+        """Verify temporal MTTF audit via EnterpriseReliabilityEngine."""
+        topo = EnterpriseTopology("SingleLink")
+        topo.add_link("A", "B", availability=0.95)
+        engine = EnterpriseReliabilityEngine(topo)
+        res = engine.audit_temporal_reliability("A", "B", hazard_rate_per_hour=1e-3)
+        self.assertEqual(res["status"], "exact")
+        self.assertEqual(res["mttf_hours"], 1000.0)
+
+    def test_capacitated_enterprise_audit(self):
+        """Verify capacitated flow reliability audit via EnterpriseReliabilityEngine."""
+        from sat_frontier.capacitated_compiler import CapacitatedNetwork
+        cnet = CapacitatedNetwork()
+        cnet.add_edge("S", "T", capacity=2, prob=Fraction(9, 10))
+        cnet.add_edge("S", "T", capacity=1, prob=Fraction(8, 10))
+        # Demand 2: at least edge 1 survives, or both survive
+        res = EnterpriseReliabilityEngine.audit_capacitated_reliability(cnet, "S", "T", demand=2)
+        self.assertEqual(res["status"], "exact")
+        # Cut total cap 3. Demand 2 breaking subsets:
+        # F: capacity removed leaves < 2.
+        # If edge 1 (cap 2) fails, cap left is 1 (< 2), so {e1} is a breaking set!
+        # Thus e1 must survive. Reliability = 9/10 = 0.9.
+        self.assertEqual(res["availability_fraction"], "9/10")
+        self.assertEqual(res["demand"], 2)
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
