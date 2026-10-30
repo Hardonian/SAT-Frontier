@@ -358,3 +358,29 @@ class EnterpriseReliabilityEngine:
             max_search_nodes=max_search_nodes,
         )
 
+    @staticmethod
+    def audit_srrg_reliability(
+        srrg_net: Any,
+        source: int,
+        target: int,
+    ) -> Dict[str, Any]:
+        """Audit network reliability under Shared-Risk Resource Groups (SRRG / Fate-Sharing)."""
+        from sat_frontier.srrg_compiler import find_minimal_srrg_cuts, solve_srrg_reliability
+        t_start = time.perf_counter()
+        cuts = find_minimal_srrg_cuts(srrg_net, source, target)
+        rel_frac, nodes, solve_time = solve_srrg_reliability(srrg_net, source, target)
+        metrics = calculate_downtime_metrics(rel_frac)
+        return {
+            "status": "exact",
+            "source": source,
+            "target": target,
+            "availability_fraction": str(rel_frac),
+            "availability_float": float(rel_frac),
+            "metrics": metrics,
+            "srrg_cuts_count": len(cuts),
+            "search_nodes": nodes,
+            "solve_time_seconds": solve_time,
+            "total_seconds": time.perf_counter() - t_start,
+        }
+
+

@@ -1,0 +1,82 @@
+{
+  "grid_3x8": {
+    "file": "grid_3x8.cnf",
+    "vars": 37,
+    "clauses": 1973,
+    "sha256": "d635b4c30c04b65b61fa6e9540c967e57be68cdb1d7eb592d71b2d67b99c4d85",
+    "size_bytes": 62821,
+    "compilation_sec": 0.6815
+  },
+  "grid_3x9": {
+    "file": "grid_3x9.cnf",
+    "vars": 42,
+    "clauses": 4082,
+    "sha256": "02fdde861820607369acf29c557ed52b9e3bd5a6c5bcd60bfa797d86156b5862",
+    "size_bytes": 146358,
+    "compilation_sec": 3.6265
+  },
+  "grid_3x10": {
+    "file": "grid_3x10.cnf",
+    "vars": 47,
+    "clauses": 8351,
+    "sha256": "57ca8fa20851c40417d13bf6ff344b793a225a84ea3f5d8237bfaa2187a19d62",
+    "size_bytes": 334479,
+    "compilation_sec": 15.8974
+  },
+  "grid_3x11": {
+    "file": "grid_3x11.cnf",
+    "vars": 52,
+    "clauses": 16954,
+    "sha256": "49512aeba413fa7f54a656bfbf1a9d4b9c575562252d3436c9c489cd2235ca61",
+    "size_bytes": 752095,
+    "compilation_sec": 71.5486
+  },
+  "grid_4x5": {
+    "file": "grid_4x5.cnf",
+    "vars": 31,
+    "clauses": 1353,
+    "sha256": "2592429aa74f0d468c6a37bd22f546d51a40a2cad723ebca8252a762ed78a7c6",
+    "size_bytes": 37891,
+    "compilation_sec": 0.1134
+  },
+  "grid_4x6": {
+    "file": "grid_4x6.cnf",
+    "vars": 38,
+    "clauses": 5024,
+    "sha256": "14354f9a6a20bb5f228005518c1ba9ce3eb30c00eae657e66ce9d390a972d07b",
+    "size_bytes": 170478,
+    "compilation_sec": 0.9717
+  },
+  "grid_4x7": {
+    "file": "grid_4x7.cnf",
+    "vars": 45,
+    "clauses": 18187,
+    "sha256": "faece45a06eb21debf27e85751978ad8bfd003f0b2f0e5fc7c8fbaadc2ed035d",
+    "size_bytes": 734710,
+    "compilation_sec": 9.0416
+  },
+  "grid_5x5": {
+    "file": "grid_5x5.cnf",
+    "vars": 40,
+    "clauses": 8742,
+    "sha256": "278fb3b371be8a32343a218c89473cbdb1edac6b7adeb792506eb7aef49f8a20",
+    "size_bytes": 315340,
+    "compilation_sec": 1.9315
+  },
+  "barbell_6_3_6": {
+    "file": "barbell_6_3_6.cnf",
+    "vars": 31,
+    "clauses": 33,
+    "sha256": "caa211f16b0033f438c17a2ee7a9ac00c8c885c2a11e8c79cc0ead60479dfcf5",
+    "size_bytes": 1810,
+    "compilation_sec": 0.0026
+  },
+  "chvatal": {
+    "file": "chvatal.cnf",
+    "vars": 23,
+    "clauses": 539,
+    "sha256": "f47d818d3b3dc185bbe3296005b887783a17ed2dcab3f8c37becfc5e2fd6ce91",
+    "size_bytes": 16383,
+    "compilation_sec": 0.0081
+  }
+}

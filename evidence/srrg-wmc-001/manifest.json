@@ -1,0 +1,53 @@
+{
+  "study": "srrg-wmc-001",
+  "schema_version": 1,
+  "runs": 24,
+  "instances": 24,
+  "exact": 24,
+  "unknown": 0,
+  "status": "complete",
+  "hardware": {
+    "system": "Windows",
+    "cpu": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+    "python": "3.12.10"
+  },
+  "config_sha256": "39f9399576a23633763ac202d0450ce935e6231553ea80d65c7b62e17864ebae",
+  "artifact_sha256": {
+    "SUMMARY.md": "459f2838b85d8faaef94a5d34838a376a5918cb1e8ca80e5070d1bc533404994",
+    "config.json": "39f9399576a23633763ac202d0450ce935e6231553ea80d65c7b62e17864ebae",
+    "instances/0800169e860f9787c06f93fda5b53358492aa00f2ee2ce2e6931e4c6335ded7e.cnf": "0800169e860f9787c06f93fda5b53358492aa00f2ee2ce2e6931e4c6335ded7e",
+    "instances/118b7d238a95315202f48bca4b1e56f41514b1cd33a3431fa567a4c73b4307c4.cnf": "118b7d238a95315202f48bca4b1e56f41514b1cd33a3431fa567a4c73b4307c4",
+    "instances/1e505d46a676a4d1cde0925a3462e45117a590edb78549edc56b0414e0a5e1f8.cnf": "1e505d46a676a4d1cde0925a3462e45117a590edb78549edc56b0414e0a5e1f8",
+    "instances/2359af4a06b9ea7cd812e117594c62b50d13d34dc0f15ac87e3578b8116ca93f.cnf": "2359af4a06b9ea7cd812e117594c62b50d13d34dc0f15ac87e3578b8116ca93f",
+    "instances/263a0d2c77da3f889fbfc6624ae5ec13b91cc0bfbfcc0580a54745296737eb3e.cnf": "263a0d2c77da3f889fbfc6624ae5ec13b91cc0bfbfcc0580a54745296737eb3e",
+    "instances/30ef281aa1aacffc29c3797c08e6894c1dff4fbbfef811f558d68485061baf70.cnf": "30ef281aa1aacffc29c3797c08e6894c1dff4fbbfef811f558d68485061baf70",
+    "instances/365759a3f5be75d0887aab6ea2bf2f71f664cf039d7a47e6a26cf11e61b6474f.cnf": "365759a3f5be75d0887aab6ea2bf2f71f664cf039d7a47e6a26cf11e61b6474f",
+    "instances/40fc72623c9fb01feaa9efbc2ff781237a7d35fae3c0e40f70553b48f086ccaa.cnf": "40fc72623c9fb01feaa9efbc2ff781237a7d35fae3c0e40f70553b48f086ccaa",
+    "instances/54bd6355f573374a0f6aa8558cc4e924c15e6437cf8a143ce6bb8ed95d0e9492.cnf": "54bd6355f573374a0f6aa8558cc4e924c15e6437cf8a143ce6bb8ed95d0e9492",
+    "instances/69350da1afe4549b770c1b3e3c599cba1f45bfdadbd35863b2db23dc14ea867a.cnf": "69350da1afe4549b770c1b3e3c599cba1f45bfdadbd35863b2db23dc14ea867a",
+    "instances/6ee9643e0ab436b154e884127266b8073d869c33ff6f6684a0e147739a907e29.cnf": "6ee9643e0ab436b154e884127266b8073d869c33ff6f6684a0e147739a907e29",
+    "instances/7cf3675ff7dced00034fadd3df7f3bc53c5d1fcd930ee7590d26a242bb871c8e.cnf": "7cf3675ff7dced00034fadd3df7f3bc53c5d1fcd930ee7590d26a242bb871c8e",
+    "instances/80fff472db7c2cf9e907c684b876110c0f47d97e1ef9aacd587016d65d12f221.cnf": "80fff472db7c2cf9e907c684b876110c0f47d97e1ef9aacd587016d65d12f221",
+    "instances/9283b6ae2c3e693918bebd0128f61ed74312ccca7686c89902de426bd434f36d.cnf": "9283b6ae2c3e693918bebd0128f61ed74312ccca7686c89902de426bd434f36d",
+    "instances/d623797a8d71144f56c7e89a891122ad62366ed6530294852a3fd060c7456855.cnf": "d623797a8d71144f56c7e89a891122ad62366ed6530294852a3fd060c7456855",
+    "instances/da6cee14ed5c7007ea7c1386ea11229242425c2cafa16073ab7d60fa65d86834.cnf": "da6cee14ed5c7007ea7c1386ea11229242425c2cafa16073ab7d60fa65d86834",
+    "instances/ed4f3f5d0ad29c56c7e34a7cd8dd2970ae4a29d0c7bbf14ae5c3755f279b86fb.cnf": "ed4f3f5d0ad29c56c7e34a7cd8dd2970ae4a29d0c7bbf14ae5c3755f279b86fb",
+    "instances/f353a25eaf2c112560745f02ae33b19ac8cebf592503c40419260686b916aff6.cnf": "f353a25eaf2c112560745f02ae33b19ac8cebf592503c40419260686b916aff6",
+    "runs.csv": "af1810c66fc788e0cf3b89d371ec69861fdaeb5b7ebf1dc37d177234a29bdfdc",
+    "runs.jsonl": "12edef81b2c5471b5b9e6ecea24e17a4f6e6441e099464c0c1e4d64d63a063e0",
+    "summary.json": "0d3844a3a0b439b01fafec5d9c4dc59319c9665c00ab38ad88d33e43c6ebb983"
+  },
+  "source_sha256": {
+    "pyproject.toml": "f664040752fd61bce01549b99d42fca6ab5cb1bdc268de117f3001efe34ffc4c",
+    "sat_frontier/__init__.py": "83fa8605d5cc1c4ecf35b7e52ef1859edef58b57887d884ac349de79cdc1bade",
+    "sat_frontier/core.py": "b2c325f7482d2ad7754bbe1ea1347a32dfcbed69bf65fa29bce7e84e367e4587",
+    "sat_frontier/reliability.py": "13ed706868499fed2c8848fd4c4f43454ebc129608a50297d7460649baee6798",
+    "sat_frontier/wmc.py": "69889aa2a3cd928ee1afeb24332be3d4dbd986215e92bc7c664d7c95a5c71e57",
+    "sat_frontier/cut_compiler.py": "40afaaff2e1b07b9e2a4b1eeb7e6c6a6df84fe1f7eb3fa680395a24947fb337f",
+    "sat_frontier/k_cut_compiler.py": "1cb3ac39618a155564eba73d9d879eb64ca615f91d99c6a526a7cce267828f75",
+    "sat_frontier/poly_wmc.py": "dd77f40e0546cb0b180ee0372d93c7d2d9423a19c12696dfd9bfba71691b6e36",
+    "sat_frontier/dicut_compiler.py": "06c1519d21091c6ec47e084f981affc28b570b8a7f18260acb897ec8a0909cea",
+    "sat_frontier/mixed_cut_compiler.py": "c7f6148f3b8862c3d8a6602898609ed10891fbab36a0095f55a4bf9c8afa5ba3",
+    "sat_frontier/srrg_compiler.py": "fd245b64f6fdc942bd2856526fb2549f80735d57720e22eeca080b29e90d64e8"
+  }
+}

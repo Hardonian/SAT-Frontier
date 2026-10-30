@@ -1,0 +1,11 @@
+{
+  "study": "srrg-wmc-001",
+  "description": "Hypothesis H14: Dual SRRG-Cut Monotone CNF Compilation for Correlated Multi-Failure Networks",
+  "timestamp": "2026-10-30T00:27:54Z",
+  "total_instances": 24,
+  "hardware": {
+    "system": "Windows",
+    "cpu": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+    "python": "3.12.10"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "study": "srrg-wmc-001",
+  "instances": 24,
+  "total_solved": 24,
+  "oracle_checks_performed": 22,
+  "oracle_matches_verified": 22,
+  "oracle_pass_rate": 1.0
+}

@@ -4,7 +4,28 @@ This directory contains the distribution release archives and provenance records
 
 ---
 
-## 1. Release v0.2.5 (Current Production & Research Breakthrough Release)
+## 1. Release v0.2.6 (Current Production & Research Breakthrough Release)
+
+### Archive Integrity
+```
+ac36a41bd0f7d07c71f7d429bc36b59bbd53cd14be2c971abb6b653e0e616865  sat-frontier-v0.2.6.zip
+```
+
+- **File Name**: `sat-frontier-v0.2.6.zip`
+- **File Size**: 8,813,747 bytes
+- **File Count**: 2,172 files
+- **Root Directory**: `sat-frontier-v0.2.6/`
+- **Date**: 2026-10-29
+- **Scope & Contents**:
+  1. **Dual SRRG-Cut Monotone CNF Compilation (Hypothesis H14)**: Shared-Risk Resource Group (SRRG / Fate-Sharing) correlated multi-failure network reliability compiler in `sat_frontier/srrg_compiler.py`. Formulated and proved that network connectivity under arbitrary physical risk group mappings compiles directly into monotone CNF clauses over risk survival variables alone with zero auxiliary routing variables. Evaluated across 24 benchmark instances in `evidence/srrg-wmc-001/` with 22/22 independent brute-force oracle checks matching with 100% exact rational precision (`Fraction`). Sub-0.15ms solving latencies across all 24 instances. Documented in `docs/SRRG_RELIABILITY_PREREGISTRATION.md` and `docs/SRRG_RELIABILITY_REPORT.md`.
+  2. **High-Core AMD EPYC Cut-Compilation Campaign Infrastructure**: Pre-compiled 10 frontier benchmark formulas in `instances/epyc-cut-frontier/` (`grid_3x8..3x11`, `grid_4x5..4x7`, `grid_5x5`, `barbell_6_3_6`, `chvatal`), complete with turnkey batch runners (`scripts/run_epyc_cut_campaign.sh`, `scripts/run_epyc_cut_campaign.py`), cross-depth invariant checks, and specification guide (`docs/EPYC_CUT_CAMPAIGN_SPECIFICATION.md`).
+  3. **Enterprise Reliability SDK Expansion**: Added `audit_srrg_reliability` to `sat_frontier/enterprise/engine.py`.
+  4. **Empirical Evidence**: **2,702 verified empirical runs** across 16 complete suites with 100% cryptographic SHA-256 and invariant validation (`verify_all_evidence.py`).
+  5. **Unit Test Suite**: 118 unit and metamorphic tests across `tests/` with 100% pass rate.
+
+---
+
+## 2. Release v0.2.5 (Previous Breakthrough Release)
 
 ### Archive Integrity
 ```
