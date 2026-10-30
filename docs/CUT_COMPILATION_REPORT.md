@@ -10,17 +10,21 @@
 ## 1. Problem Context: The Structural Hardness Cliff in WMC Reliability
 
 During the 64-core AMD EPYC Cube-and-Conquer campaign (`evidence/epyc-cube-002/SCALING_SUMMARY.md`), lookahead partitioning evaluated 194 million search nodes across up to 64 workers. While modular topologies scaled near-linearly (2.26x speedup on `grid_3x6_mod`), the campaign uncovered sharp topological hardness cliffs:
+
 - On planar mesh graphs $3\times 7$ and $2\times 11$, all lookahead configurations (depths $d=1..17$, 64 workers) stalled at >600 seconds per cube timeout without completing.
 - Even on high-performance multi-threaded DPLL solvers, these instances exhibited zero progress.
 
 ### Diagnosis of the Failure Mode: Path-Based Compilation Blowup
+
 Standard Two-Terminal Network Reliability is conventionally compiled to CNF by enumerating all self-avoiding paths between terminal $s$ and terminal $t$:
+
 1. For each path $P_k = \{e_1, e_2, \dots, e_m\}$, introduce an auxiliary variable $z_k$:
    $$z_k \longleftrightarrow \bigwedge_{e \in P_k} e$$
 2. Impose connectivity as the disjunction of all path indicators:
    $$Connected(s, t) \longleftrightarrow \bigvee_{k=1}^K z_k$$
 
 **The Structural Pathology**:
+
 - On planar grids and clustered graphs, the number of self-avoiding walks $K$ scales as $O(2^{|V|})$.
 - For `grid_3x7`, $K = 1,368$ paths. The resulting CNF required **1,401 variables**, **20,430 clauses**, and a massive 1,368-literal hyperedge clause $\bigvee_{k=1}^{1368} z_k$.
 - Because each path shares edges with hundreds of other paths, setting an edge literal to false only falsifies a tiny fraction of paths, failing to trigger unit propagation. The search space decomposes into an exponential branch tree where component decomposition cannot isolate subproblems due to the hyperedge constraint.
@@ -32,14 +36,17 @@ Standard Two-Terminal Network Reliability is conventionally compiled to CNF by e
 To eradicate auxiliary indicator explosion, we formulated the connectivity problem in terms of minimal cuts rather than paths.
 
 ### Theorem (Menger's Theorem / Max-Flow Min-Cut Duality)
+
 Let $G = (V, E)$ be a finite undirected graph with distinguished terminals $s, t \in V$. A subset of edges $E' \subseteq E$ connects $s$ and $t$ if and only if $E'$ intersects every inclusion-minimal $s-t$ edge cut of $G$:
 $$s \stackrel{E'}{\longleftrightarrow} t \iff \forall C \in \mathcal{C}_{\text{min}}(s, t), \quad E' \cap C \neq \emptyset$$
 
 ### Formulation of the Dual Cut CNF
+
 By assigning a Boolean decision variable $x_e \in \{1, \dots, |E|\}$ to each physical edge (where $x_e = 1$ denotes operational status with weight $p_e$, and $x_e = 0$ denotes failure with weight $1 - p_e$), the condition that at least one edge in each cut $C$ is operational translates into a **purely monotone CNF**:
 $$\Phi_{\text{cut}}(G, s, t) = \bigwedge_{C \in \mathcal{C}_{\text{min}}(s, t)} \left( \bigvee_{e \in C} x_e \right)$$
 
-### Structural Advantages:
+### Structural Advantages
+
 1. **Zero Auxiliary Variables**: $n_{\text{vars}} = |E|$ exactly. For `grid_3x7`, the formula requires **32 variables** instead of 1,401 variables.
 2. **Bounded Clause Sizes**: The length of each clause is bounded by the cut size (e.g., 2 to 5 literals on grid meshes), eliminating 1,000+-literal hyperedges.
 3. **Aggressive Unit Propagation**: Setting an edge literal $x_e = 0$ immediately decrements the degree of every cut containing $e$. If any cut reaches size 1, the remaining edge is immediately forced to 1 by unit propagation; if a cut becomes empty, conflict is detected instantly.
@@ -51,6 +58,7 @@ $$\Phi_{\text{cut}}(G, s, t) = \bigwedge_{C \in \mathcal{C}_{\text{min}}(s, t)} 
 A cut $\delta(S)$ separating $s$ and $t$ in a connected graph $G$ is inclusion-minimal if and only if both induced subgraphs $G[S]$ and $G[V \setminus S]$ are connected.
 
 Rather than iterating over all $2^{|V|-2}$ vertex bipartitions and executing $O(M^2)$ subset comparisons, the algorithm in `sat_frontier/cut_compiler.py` performs a canonical frontier expansion search:
+
 - Starts with $S = \{s\}$.
 - Recursively expands $S$ strictly along adjacent neighbors, pruning any branch that touches $t$.
 - When $G[V \setminus S]$ is verified connected via BFS from $t$, emits the unique cut $\delta(S)$.
@@ -66,7 +74,7 @@ The empirical study evaluated 24 network topologies across grid ladders ($2\time
 
 ### Key Findings & Hardness Cliff Resolution
 
-```
+```text
 Topology     | Compiler | Vars  | Clauses | Status  | Nodes   | Time (s) | Node Speedup
 ---------------------------------------------------------------------------------------
 grid_2x11    | path_cnf | 1055  | 16897   | unknown | 997*    | 0.73s    | 
@@ -90,6 +98,7 @@ barbell_k7   | cut_cnf  | 43    | 65      | exact   | 3864    | 0.043s   | >25.8
 *\*Note: 997 nodes indicates solver timeout during propagation overhead on the 10,000+ clause hyperedge representation.*
 
 ### Soundness & Independent Verification
+
 - Across all 12 mutually solved instances, the computed rational probability fraction matched identically between `path_cnf` and `cut_cnf` with **0 mismatches**.
 - Tested and verified against the exhaustive truth-table oracle (`wmc_oracle`) and closed-form analytic solutions (e.g. Wheatstone bridge) in `tests/test_cut_compiler.py`.
 
@@ -98,4 +107,3 @@ barbell_k7   | cut_cnf  | 43    | 65      | exact   | 3864    | 0.043s   | >25.8
 ## 5. Summary & Preregistration Conclusion
 
 Hypothesis H9 is **verified**: Dual Cut-based monotone CNF compilation eliminates auxiliary variables, bounds clause density, and enables exact DPLL/WMC solvers to scale past the topological hardness boundaries that stalled path-enumeration compilers.
-

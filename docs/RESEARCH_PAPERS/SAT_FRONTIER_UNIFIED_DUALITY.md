@@ -11,6 +11,7 @@
 Evaluating exact network infrastructure availability, multi-terminal reachability, directed flow capacity, and continuous lifetime moments under probabilistic component failures is a foundational #P-complete problem with critical applications in cloud computing, subsea telecommunications, electrical power grids, and aerospace avionics. Traditional reductions to Weighted Model Counting (#WMC) rely on self-avoiding path or Steiner tree enumeration, introducing $O(2^{|V|})$ auxiliary indicator variables and dense hyperedge disjunctions that trigger catastrophic combinatorial explosion on planar grid and mesh topologies.
 
 In this monograph, we establish a comprehensive, unified theory of **Dual Cut Monotone CNF Compilation**. By systematically exploiting Menger cut duality, Ford-Fulkerson min-cut duality, and internal vertex-splitting transformations, we formulate and prove nine foundational duality theorems:
+
 1. **Two-Terminal Cut Duality**: Exact $s-t$ connectivity via inclusion-minimal edge cuts with zero auxiliary variables.
 2. **Multi-Terminal ($K$-Terminal) & All-Terminal Duality**: Generalizing Menger duality to $K \ge 2$ terminals, completely eliminating hyper-exponential Steiner tree enumeration.
 3. **Directed Dicut Duality**: Exact reachability ($s \leadsto t$) in directed graphs without auxiliary variables or Miller-Tucker-Zemlin (MTZ) subtour elimination constraints.
@@ -30,6 +31,7 @@ We validate this theoretical framework across 19 empirical research suites compr
 The assessment of physical and logical infrastructure resilience is one of the central challenges of modern computational engineering. Given a graph $G = (V, E)$ where vertices represent compute nodes, routers, or substations, and edges represent communication links or transmission lines subject to stochastic failures with independent operational probabilities $p_e \in (0, 1]$, operators require exact guarantees on network survivability.
 
 Valiant (1979) proved that computing the Two-Terminal Network Reliability $R(G, s, t) = \mathbb{P}[s \longleftrightarrow t]$ is #P-complete, even when restricted to planar graphs or graphs with maximum vertex degree 3. Subsequent hardness results by Provan and Ball (1983) established that multi-terminal reliability ($K$-terminal), all-terminal reliability, and directed reachability are likewise #P-complete. Consequently, exact evaluation requires either:
+
 1. Complete state-space truth-table enumeration ($2^{|E|}$ evaluations), which is intractable for $|E| > 25$;
 2. Binary Decision Diagrams (BDDs) or Zero-Suppressed Decision Diagrams (ZDDs), which suffer from extreme variable ordering sensitivity; or
 3. Reduction to Weighted Model Counting (#WMC) over Conjunctive Normal Form (CNF) formulas solved via DPLL-style backtracking search with component caching and clause learning.
@@ -44,6 +46,7 @@ Network connectivity is then asserted via a single global disjunction:
 $$\bigvee_{k=1}^m z_k$$
 
 This encoding exhibits catastrophic failure modes on meshed topologies:
+
 1. **Auxiliary Variable Explosion**: The number of simple paths $m$ scales as $O(2^{|V|})$. On a $3\times 7$ grid, $m = 1,368$ paths, requiring 1,401 variables and 20,430 clauses. On a $4\times 6$ grid, $m$ exceeds 80,000 paths.
 2. **Hyperedge Dense Clauses**: The global disjunction spans all $m$ path indicator variables. Setting any physical edge variable $x_e = 0$ falsifies only a small fraction of paths, leaving the hyperedge clause active and unsimplified.
 3. **Destruction of Component Decomposition**: Because the hyperedge clause references every path variable, the formula's variable incidence graph remains a single monolithic clique, completely neutralizing modern DPLL component caching heuristics.
@@ -54,7 +57,7 @@ This encoding exhibits catastrophic failure modes on meshed topologies:
 
 To overcome the path-enumeration pathology, we invert the foundational model from operational paths to failure cuts.
 
-```
+```text
        Path Formulation (Primal)                 Dual Cut Formulation (Dual)
  ------------------------------------      ------------------------------------
   * Enumerates Simple Paths                 * Enumerates Minimal Cuts
@@ -64,6 +67,7 @@ To overcome the path-enumeration pathology, we invert the foundational model fro
 ```
 
 ### Theorem 1 (Undirected Two-Terminal Cut Duality)
+
 Let $G = (V, E)$ be an undirected graph, $s, t \in V$, and $\mathcal{C}_{\text{min}}(s, t)$ the set of all inclusion-minimal $s-t$ edge cuts in $G$. Under operational edge state $\mathbf{x} \in \{0, 1\}^{|E|}$:
 $$s \stackrel{\mathbf{x}}{\longleftrightarrow} t \iff \bigwedge_{C \in \mathcal{C}_{\text{min}}(s, t)} \left( \bigvee_{e \in C} x_e \right) = 1$$
 
@@ -72,6 +76,7 @@ $(\implies)$ Suppose $s$ and $t$ are connected under $\mathbf{x}$. There exists 
 $(\impliedby)$ Suppose $s$ and $t$ are disconnected under $\mathbf{x}$. Let $S \subset V$ be the connected component containing $s$ in the operational subgraph $G_{\mathbf{x}}$. Since $t \notin S$, the edge cut $\Delta(S) = \{e = (u, v) \in E : u \in S, v \notin S\}$ separates $s$ from $t$. By definition of $S$, no operational edge crosses $\Delta(S)$, meaning $x_e = 0$ for all $e \in \Delta(S)$. Because every edge cut contains at least one inclusion-minimal cut $C^* \subseteq \Delta(S)$, we have $x_e = 0$ for all $e \in C^*$. Thus, $\bigvee_{e \in C^*} x_e = 0$, falsifying the formula. $\blacksquare$
 
 ### Theorem 2 (Multi-Terminal & All-Terminal Dual K-Cut Duality)
+
 Let $K \subseteq V$ be a set of terminal vertices ($|K| \ge 2$). Let $\mathcal{C}_{\text{min}}(K)$ be the set of all inclusion-minimal edge cuts whose removal partitions $K$ into two or more disconnected terminal subsets. Under operational edge state $\mathbf{x} \in \{0, 1\}^{|E|}$:
 $$K \text{ is mutually connected under } \mathbf{x} \iff \bigwedge_{C \in \mathcal{C}_{\text{min}}(K)} \left( \bigvee_{e \in C} x_e \right) = 1$$
 
@@ -79,6 +84,7 @@ $$K \text{ is mutually connected under } \mathbf{x} \iff \bigwedge_{C \in \mathc
 Mutual connectivity of $K$ requires that for every pair $u, v \in K$, $u$ and $v$ are connected. By Theorem 1, $u \longleftrightarrow v$ if and only if no $u-v$ cut has all its edges failed. An edge set $C$ partitions $K$ if and only if there exist $u, v \in K$ separated by $C$. Thus, the minimal cuts partitioning $K$ are precisely the union of minimal pairwise cuts separating pairs in $K$. At least one operational edge survives in every such cut if and only if no terminal pair is disconnected, establishing $K$-terminal connectivity with zero auxiliary Steiner tree variables. $\blacksquare$
 
 ### Theorem 3 (Directed Dual Dicut Duality)
+
 Let $D = (V, A)$ be a directed graph, $s, t \in V$, and $\mathcal{D}_{\text{min}}(s, t)$ the set of all inclusion-minimal directed cuts (dicuts) $\delta^+(S) = \{(u, v) \in A : u \in S, v \notin S\}$ with $s \in S, t \notin S$. Under operational arc state $\mathbf{x} \in \{0, 1\}^{|A|}$:
 $$s \stackrel{\mathbf{x}}{\leadsto} t \iff \bigwedge_{D \in \mathcal{D}_{\text{min}}(s, t)} \left( \bigvee_{a \in D} x_a \right) = 1$$
 
@@ -86,8 +92,10 @@ $$s \stackrel{\mathbf{x}}{\leadsto} t \iff \bigwedge_{D \in \mathcal{D}_{\text{m
 By the directed reachability theorem, $t$ is reachable from $s$ via a directed path if and only if for every vertex partition $(S, V \setminus S)$ with $s \in S$ and $t \notin S$, the forward cut $\delta^+(S)$ contains at least one operational arc. If all arcs in some forward cut fail, no directed path can cross from $S$ to $V \setminus S$, disconnecting $s$ from $t$. Minimal dicuts correspond to partitions where both $D[S]$ and $D[V \setminus S]$ have valid reachability structures. This compiles directed reachability with strictly $|A|$ variables, completely eliminating Miller-Tucker-Zemlin (MTZ) subtour elimination constraints. $\blacksquare$
 
 ### Theorem 4 (Mixed Node-and-Edge Failure Duality via Split Graph $G^*$)
+
 Let $G = (V, E)$ be a network where both edges $e \in E$ (prob $p_e$) and internal vertices $v \in V \setminus \{s, t\}$ (prob $q_v$) fail independently.
 Construct directed split graph $G^* = (V^*, A^*)$:
+
 1. For each $v \in V \setminus \{s, t\}$, create two nodes $v_{\text{in}}, v_{\text{out}}$ and an internal directed arc $a_v = (v_{\text{in}}, v_{\text{out}})$ with operational probability $q_v$. Terminals $s$ and $t$ are unsplit.
 2. For each undirected edge $e = (u, v) \in E$, create cross arcs $(u_{\text{out}}, v_{\text{in}})$ and $(v_{\text{out}}, u_{\text{in}})$ with operational probability $p_e$.
 Then:
@@ -97,6 +105,7 @@ $$s \text{ connected to } t \text{ in } G \iff s \stackrel{\mathbf{x}^*}{\leadst
 Any simple path $P = (s, v_1, v_2, \dots, t)$ in $G$ corresponds bijectively to directed path $P^* = (s, v_{1,\text{in}}, v_{1,\text{out}}, v_{2,\text{in}}, v_{2,\text{out}}, \dots, t)$ in $G^*$. $P$ is operational if and only if all physical edges and all intermediate vertices survive, which occurs if and only if all cross arcs and all internal node arcs on $P^*$ are operational. By Theorem 3, directed connectivity in $G^*$ compiles into monotone clauses over physical edge and node variables alone. $\blacksquare$
 
 ### Theorem 5 (Shared-Risk Resource Group (SRRG) Cut Duality)
+
 Let $G = (V, E)$ be a network where physical edges map to a set of underlying risk groups $\mathcal{R} = \{r_1, r_2, \dots, r_k\}$ via mapping $\rho: E \to 2^\mathcal{R}$. Each risk group $r \in \mathcal{R}$ fails independently with probability $1 - q_r$, causing all edges $e$ with $r \in \rho(e)$ to fail simultaneously.
 For any minimal $s-t$ cut $C \in \mathcal{C}_{\text{min}}(s, t)$, let $R(C) = \bigcup_{e \in C} \rho(e)$ be the set of risk groups covering $C$.
 A subset of risk groups $H \subseteq R(C)$ is a **cut-breaking risk set** if failing all $r \in H$ severs all edges in $C$:
@@ -109,6 +118,7 @@ Cut $C$ is entirely failed if and only if every edge $e \in C$ fails. Edge $e$ f
 Taking the contrapositive: cut $C$ survives if and only if for every $H \in \mathcal{H}_{\text{min}}(C)$, $H \not\subseteq R_{\text{fail}}$, which requires at least one risk group $r \in H$ to survive ($y_r = 1$). Conjoining across all minimal cuts yields a monotone CNF with strictly $|\mathcal{R}|$ variables and zero auxiliary routing variables. $\blacksquare$
 
 ### Theorem 6 (Algebraic Model Counting over $\mathbb{Z}[x]$)
+
 Let $G = (V, E)$ with uniform edge survivability $x \in [0, 1]$. Let $\Phi(G)$ be the Dual Cut monotone CNF over edge variables $x_1, \dots, x_m$.
 Evaluating #WMC over the polynomial semiring $\mathbb{Z}[x]$ with variable weights $w(e) = x$ and $w(\neg e) = 1 - x$ computes the exact reliability polynomial in a single DPLL search pass:
 $$P(x) = \sum_{k=0}^m c_k x^k (1 - x)^{m - k} = \sum_{j=1}^m a_j x^j \in \mathbb{Z}[x]$$
@@ -121,9 +131,11 @@ $$a_j = \sum_{k=0}^j c_k \binom{m - k}{j - k} (-1)^{j - k}$$
 The derivative $\chi(x) = \sum_{j=1}^m j a_j x^{j - 1}$ is rational and smooth, permitting root-finding for $p_c$ without numerical simulation. $\blacksquare$
 
 ### Theorem 7 (Exact Algebraic MTTF Integration)
+
 Let components fail exponentially with constant hazard rate $\lambda > 0$, such that link survival probability at time $t \ge 0$ is $x(t) = e^{-\lambda t}$.
 Let $P(x) = \sum_{j=1}^m a_j x^j$ be the exact reliability polynomial in standard monomial basis.
 Then:
+
 1. The continuous reliability function is:
    $$R(t) = \sum_{j=1}^m a_j e^{-j \lambda t}$$
 2. The exact Mean Time To Failure (MTTF) is:
@@ -142,6 +154,7 @@ $$\int_0^\infty t e^{-j \lambda t} \, dt = \left[ -\frac{t e^{-j \lambda t}}{j \
 Multiplying by 2 gives $\mathbb{E}[T^2] = 2 \sum_{j=1}^m \frac{a_j}{(j \lambda)^2}$. $\blacksquare$
 
 ### Theorem 8 (Capacitated Dual Cut Threshold Duality)
+
 Let $G = (V, E)$ where edge $e \in E$ has integer capacity $c_e \ge 1$ and operational probability $p_e \in (0, 1]$. Let $D \ge 1$ be target demand.
 For minimal cut $C \in \mathcal{C}_{\text{min}}(s, t)$, subset $F \subseteq C$ is an **inclusion-minimal capacity-breaking subset** if:
 $$\sum_{e \in C \setminus F} c_e < D \quad \text{and} \quad \forall e \in F, \; \sum_{e' \in (C \setminus F) \cup \{e\}} c_{e'} \ge D$$
@@ -155,6 +168,7 @@ Taking the contrapositive: surviving capacity across $C$ is at least $D$ if and 
 Conjoining over all cuts yields a monotone CNF with strictly $|E|$ variables and zero auxiliary flow variables. $\blacksquare$
 
 ### Theorem 9 (Bounded-Diameter / Latency-Constrained Cut Duality)
+
 Let $G = (V, E)$ be a network, $s, t \in V$, and $L \ge 1$ a maximum hop/latency bound. Let $\mathcal{P}_{\le L}(s, t)$ be the set of all simple $s-t$ paths of length at most $L$.
 An edge subset $C \subseteq E$ is an **$L$-hop cut** if every path in $\mathcal{P}_{\le L}(s, t)$ contains at least one edge in $C$. Let $\mathcal{C}_{\text{min}}(s, t, L)$ be the inclusion-minimal $L$-hop cuts (minimal transversals of $\mathcal{P}_{\le L}(s, t)$).
 Under operational edge state $\mathbf{x} \in \{0, 1\}^{|E|}$:
@@ -223,6 +237,7 @@ Across 19 pre-registered empirical campaigns, SAT-Frontier has executed 2,774 ve
 In October 2026, OpenAI's research repository (`openai/math`, commit `7ef5c0c`) claimed a breakthrough theoretical refutation of the Exponential Time Hypothesis (ETH), asserting a subexponential-time algorithm for 3-SAT running in $2^{O(\sqrt{n \log n})}$ time formalized in the Lean 4 proof assistant.
 
 Milestone M1 of SAT-Frontier mandated an independent formal audit of this upstream target before permitting downstream algorithmic extraction (Milestone M4). Our audit (`docs/ETH_AUDIT_V02.md`) revealed the following ground truth:
+
 1. **Target Specification Located**: The core comparator challenge was identified in `lean/ComparatorChallenges/SubexponentialSAT.lean`, targeting endpoint `SqrtLogSpace/Final.lean`.
 2. **Resource Ceiling Blocker Identified**: Verification of `SqrtLogSpace/Final.lean` imports 3,091 transitive Lean modules. During compilation, the Lean 4 elaborator spawns unbounded worker processes, exhausting host memory and terminating with **Exit 137 (Out Of Memory / SIGKILL)** at **11.9 GB peak RSS**.
 3. **Gating Downstream Extraction**: Because the upstream proof target fails to complete kernel verification or emit `#print axioms`, Milestone M4 remains strictly gated. No unproven theoretical asymptotic is assumed in SAT-Frontier's empirical engines.
@@ -247,4 +262,3 @@ The theory of Dual Cut Monotone CNF Compilation establishes that exact network r
 
 All source code, empirical evidence ledgers, pre-compiled frontier instances, and release archives are open and reproducible under Production Release `v0.2.7` at:
 [`https://github.com/Hardonian/SAT-Frontier.git`](https://github.com/Hardonian/SAT-Frontier.git).
-

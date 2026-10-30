@@ -9,14 +9,14 @@ Data: 32 generated 12-variable instances (8 per family), 2 repeats, 6 policies i
 Each fraction has 16 runs on 8 independent instances; both repeats of an instance are clustered for bootstrap. The 95% intervals are percentile bootstrap over instances with 2,000 resamples and are exploratory, uncorrected for five-candidate search. The paired solved difference and CI were 0.000 [0.000, 0.000] for every family; all error and wall-timeout fractions were 0. The only unknowns were four node-limited planted runs for each method. Solved-regression and solved-improvement instance counts were both zero in every family.
 
 | Family | Control / candidate exact fraction | Unknown fraction each | Median solver ms control / candidate, exact only | Median wall ms candidate, all | Median nodes candidate, all | Max worker RSS KiB candidate |
-|---|---:|---:|---:|---:|---:|---:|
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | random | 1.00 / 1.00 | 0.00 | 4.253 / 4.147 | 46.375 | 13 | 20,420 |
 | planted | 0.75 / 0.75 | 0.25 | 4.925 / 5.033 | 58.246 | 15 | 20,388 |
 | disconnected | 1.00 / 1.00 | 0.00 | 4.174 / 4.385 | 51.492 | 18 | 20,412 |
 | contradictory | 1.00 / 1.00 | 0.00 | 3.128 / 3.389 | 46.197 | 1 | 20,444 |
 
 | Family | Complete paired instances | Median candidate/control solver-time ratio | Median control/candidate speed ratio [95% CI] | Timing-regression instances |
-|---|---:|---:|---:|---:|
+| --- | ---: | ---: | ---: | ---: |
 | random | 8 | 1.011 | 0.990 [0.968, 1.140] | 5 |
 | planted | 6 | 1.020 | 0.980 [0.925, 1.123] | 4 |
 | disconnected | 8 | 1.061 | 0.943 [0.869, 1.000] | 7 |

@@ -17,6 +17,7 @@ The **$K$-Terminal Network Reliability** $R_K(G, K, \mathbf{p})$ is the exact pr
 $$R_K(G, K, \mathbf{p}) = \sum_{\substack{E' \subseteq E \\ \forall u, v \in K, \, u \stackrel{E'}{\longleftrightarrow} v}} \left( \prod_{e \in E'} p_e \prod_{e \notin E'} (1 - p_e) \right)$$
 
 Special cases:
+
 - $|K| = 2$: Two-Terminal Reliability ($s-t$).
 - $|K| = |V|$: All-Terminal Reliability (Spanning network connectivity).
 - $2 < |K| < |V|$: Multi-Terminal Reliability (e.g., quorum consensus, multi-region cloud VPCs).
@@ -32,6 +33,7 @@ The terminal set $K$ is connected in the operational subgraph $(V, E')$ if and o
 
 **Characterization of Minimal $K$-Cuts**:  
 An edge cut $\delta(S)$ is an inclusion-minimal $K$-cut if and only if:
+
 1. $G[S]$ is connected;
 2. $G[V \setminus S]$ is connected;
 3. $S \cap K \neq \emptyset$; and
@@ -43,6 +45,7 @@ Fixing a reference terminal $k_0 \in K$ and collecting all subsets $S \ni k_0$ s
 $$\Phi_{K\text{-cut}}(G, K) = \bigwedge_{C \in \mathcal{C}_{\text{min}}(K)} \left( \bigvee_{e \in C} x_e \right)$$
 
 Properties:
+
 - **Zero Auxiliary Variables**: Variables are strictly physical edge literals $\{x_e\}_{e \in E}$.
 - **Monotone Structure**: Positive literals only; unit propagation activates immediately upon edge failure.
 - **Unified**: Handles 2-terminal, $K$-terminal, and all-terminal connectivity within a single formulation.
@@ -93,8 +96,8 @@ The empirical campaign (`evidence/k-terminal-wmc-001/`) evaluates 24 benchmark i
 For all instances where $|E| \le 16$, an independent brute-force state enumeration oracle (`brute_force_k_terminal`) exhaustively iterates over all $2^{|E|}$ subgraphs, verifies terminal connectivity via BFS, and accumulates exact rational probabilities in $\mathbb{Q}$.
 
 **Acceptance Criteria**:
+
 1. 100% exact match between `to_k_cut_cnf` + `wmc_solve` and the independent brute force oracle (`bf_fraction == cut_fraction`). Zero discrepancies allowed.
 2. For instances where $|K| = 2$, cuts and counts must match `find_all_minimal_cuts` and `to_cut_cnf` identically.
 3. Node budget cap: 50,000 search nodes per run. Timeout cap: 30.0 seconds per instance.
 4. Cryptographic integrity: All DIMACS instances, run logs, CSV tables, and config parameters hashed and recorded in `manifest.json` and `SHA256SUMS`.
-

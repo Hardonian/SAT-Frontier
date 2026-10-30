@@ -32,21 +32,25 @@ flowchart TD
 ```
 
 ### 1. Hyperscale Cloud Infrastructure & Datacenter Resiliency
+
 - **Market Problem**: Cloud providers (AWS, Azure, GCP) and enterprise clients contractually guarantee "Five Nines" (99.999% uptime) in Service Level Agreements (SLAs). Violations trigger millions of dollars in enterprise penalties. Current availability modeling relies on heuristic simulations or loose bounds that fail to account for correlated component failures across Availability Zones and fiber links.
 - **SAT-Frontier Solution**: Compiles VPC network topologies and multi-region transit gateways into dual cut monotone CNFs with exact physical component failure probabilities. Solves exact two-terminal and all-terminal connectivity probabilities down to exact rational fractions in seconds.
 - **Commercial Value**: Enables automated, mathematically rigorous SLA verification and optimal redundant link placement during cloud architecture design.
 
 ### 2. Telecommunications & Optical Fiber Backbone Planning
+
 - **Market Problem**: Subsea cables and terrestrial optical backbones suffer from physical fiber cuts (anchors, seismic activity, construction accidents). Telecom carriers must maintain survivable topologies under simultaneous multi-edge failures while minimizing the capital expenditure of laying redundant fiber.
 - **SAT-Frontier Solution**: Dual cut compilation directly identifies minimal cuts, ranking the most critical infrastructure vulnerabilities and calculating exact disconnection probabilities between core metropolitan switching centers.
 - **Commercial Value**: Slashes fiber over-provisioning capital expenditures by 15–25% by identifying mathematically optimal reinforcement paths rather than naive heuristic over-building.
 
 ### 3. Smart Electrical Power Grids & Critical Infrastructure
+
 - **Market Problem**: Renewable energy sources (wind, solar) introduce severe volatility into regional transmission grids. Regional transmission operators (e.g., PJM, CAISO, ERCOT) face strict regulatory mandates (FERC/NERC) to prevent cascading blackout propagation under extreme weather conditions.
 - **SAT-Frontier Solution**: Models power grid substations and high-voltage transmission lines as weighted network graphs. Computes the exact probability that load centers remain connected to generation sources under probabilistic transformer and line trips.
 - **Commercial Value**: Regulatory compliance software and real-time contingency dispatch planning, preventing catastrophic multi-billion-dollar power grid failures.
 
 ### 4. Aerospace & Defense Safety-Critical Fault Tree Analysis
+
 - **Market Problem**: Certification for commercial avionics (FAA DO-178C, ARP4761) and defense systems requires demonstrating catastrophic failure probabilities below $10^{-9}$ per flight hour. Monte Carlo sampling cannot reliably evaluate tail probabilities of order $10^{-9}$ within reasonable runtime budgets.
 - **SAT-Frontier Solution**: Represents complex fault trees directly as Boolean formulas over independent component failure probabilities, computing exact failure rates without statistical variance or approximation error.
 - **Commercial Value**: Multi-million-dollar software licensing to aerospace primes (Boeing, Airbus, Lockheed Martin, Northrop Grumman) for automated, certifiable system safety analysis.
@@ -70,4 +74,3 @@ SAT-Frontier's technology can be packaged into three commercial product tiers:
 1. **Algorithmic Moat (Dual Cut Duality)**: While existing WMC tools (D4, Cachet, miniC2D, sharpSAT) operate on path-based or monolithic CNFs that blow up on planar meshes, SAT-Frontier's dual cut compilation eliminates auxiliary variables, creating an unbridgeable efficiency gap on network topologies.
 2. **Mathematical Exactness**: Unlike Monte Carlo simulators that produce loose statistical confidence intervals, SAT-Frontier guarantees exact rational arithmetic using arbitrary-precision fractions, essential for regulatory and safety certification.
 3. **High-Core Scalability**: Our Cube-and-Conquer engine scales near-linearly across high-core enterprise server hardware (64-core AMD EPYC servers), transforming overnight computational jobs into real-time interactive queries.
-

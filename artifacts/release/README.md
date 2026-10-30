@@ -6,8 +6,9 @@ This directory contains the distribution release archives and provenance records
 
 ## 1. Release v0.2.7 (Current Production & Frontier Breakthrough Release)
 
-### Archive Integrity
-```
+### Archive Integrity (Release v0.2.7)
+
+```text
 e75abff1c56824448481a0688c0eabd600550e5f8eaf31b53475b53abdf15e5c  sat-frontier-v0.2.7.zip
 ```
 
@@ -32,8 +33,9 @@ e75abff1c56824448481a0688c0eabd600550e5f8eaf31b53475b53abdf15e5c  sat-frontier-v
 
 ## 2. Release v0.2.6 (Previous Production Release)
 
-### Archive Integrity
-```
+### Archive Integrity (Release v0.2.6)
+
+```text
 ac36a41bd0f7d07c71f7d429bc36b59bbd53cd14be2c971abb6b653e0e616865  sat-frontier-v0.2.6.zip
 ```
 
@@ -51,10 +53,11 @@ ac36a41bd0f7d07c71f7d429bc36b59bbd53cd14be2c971abb6b653e0e616865  sat-frontier-v
 
 ---
 
-## 2. Release v0.2.5 (Previous Breakthrough Release)
+## 3. Release v0.2.5 (Previous Breakthrough Release)
 
-### Archive Integrity
-```
+### Archive Integrity (Release v0.2.5)
+
+```text
 c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v0.2.5.zip
 ```
 
@@ -71,10 +74,11 @@ c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v
 
 ---
 
-## 2. Release v0.2.4 (Previous Breakthrough Release)
+## 4. Release v0.2.4 (Previous Breakthrough Release)
 
-### Archive Integrity
-```
+### Archive Integrity (Release v0.2.4)
+
+```text
 741068c116f079df75c9b4cbcfe089c8251e2b0fb3ae5c4314657df19bf19247  sat-frontier-v0.2.4.zip
 ```
 
@@ -93,10 +97,11 @@ c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v
 
 ---
 
-## 2. Release v0.2.3 (Commercialization Baseline)
+## 5. Release v0.2.3 (Commercialization Baseline)
 
-### Archive Integrity
-```
+### Archive Integrity (Release v0.2.3)
+
+```text
 63403d4e69db721b49fcb8f85e0af3732742fa7f09d3dabec90a8d10321108af  sat-frontier-v0.2.3.zip
 ```
 
@@ -116,10 +121,11 @@ c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v
 
 ---
 
-## 2. Release v0.2.2 (Research Checkpoint)
+## 6. Release v0.2.2 (Research Checkpoint)
 
-### Archive Integrity
-```
+### Archive Integrity (Release v0.2.2)
+
+```text
 7af321ae10f969d8c69c5bb903edece3badbbef4423e9deed7e120787898d1e6  sat-frontier-v0.2.2.zip
 ```
 
@@ -138,10 +144,11 @@ c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v
 
 ---
 
-## 2. Release v0.2.1
+## 7. Release v0.2.1
 
-### Archive Integrity
-```
+### Archive Integrity (Release v0.2.1)
+
+```text
 a593b828409dbe89931e1d2dd71c17e1e3dda22c0673771ee1deb3ec782e730d  sat-frontier-v0.2.1.zip
 ```
 
@@ -151,7 +158,9 @@ a593b828409dbe89931e1d2dd71c17e1e3dda22c0673771ee1deb3ec782e730d  sat-frontier-v
 - **Root Directory**: `sat-frontier-v0.2.1/`
 
 ### Built Python Wheel
-```
+
+```text
 88846e268d8151364d1bbf6c2568bcb2625aac2ff10e386691b4246d6b9b3ba4  dist/sat_frontier-0.2.1-py3-none-any.whl
 ```
+
 - **Validation**: Installed into an isolated virtual environment and executed via CLI against `examples/two-components.cnf`, returning exact model count 18 with 0 errors. Provenance recorded in `evidence/packaging-v021.txt`.

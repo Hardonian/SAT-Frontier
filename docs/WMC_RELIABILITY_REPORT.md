@@ -17,13 +17,14 @@ The target domain is **Two-Terminal Network Infrastructure Reliability (2TR)**:
 Given a communication network or cloud infrastructure graph $G = (V, E)$, source $s$, destination $t$, and independent edge operational probabilities $p_e \in (0, 1) \cap \mathbb{Q}$, compute the exact rational probability:
 $$R(G, s, t) = \sum_{F \subseteq E : s \leftrightarrow_F t} \prod_{e \in F} p_e \prod_{e \notin F} (1 - p_e)$$
 
-Computing $R(G, s, t)$ is $\sharp\text{P}$-complete. 
+Computing $R(G, s, t)$ is $\sharp\text{P}$-complete.
 
 ---
 
 ## 2. Theoretical Formulation & Count Preservation
 
 ### Reduction
+
 1. **Edge Variables**: Each physical link $e \in E$ is represented by a Boolean variable $x_e$ with literal weights:
    $$w(x_e) = p_e, \quad w(\neg x_e) = 1 - p_e \quad \text{such that } w(x_e) + w(\neg x_e) = 1$$
 2. **Path Indicators**: For each simple path $P_i$ from $s$ to $t$, indicator $y_i \iff \bigwedge_{e \in P_i} x_e$ is encoded in CNF:
@@ -38,6 +39,7 @@ Computing $R(G, s, t)$ is $\sharp\text{P}$-complete.
 ## 3. Empirical Results
 
 We evaluated 5 solver variants across 15 benchmark network instances (75 total runs):
+
 - `baseline_wmc`: Pure DPLL branch-and-bound with weighted unit propagation.
 - `memo_wmc`: Weighted DPLL with component formula memoization.
 - `components_wmc`: Dynamic incidence graph connected-component decomposition.
@@ -54,7 +56,7 @@ We evaluated 5 solver variants across 15 benchmark network instances (75 total r
 | | `combined_wmc` | 6 | 6 | 359 | 465.3 | 0 | 21 | 3.71 ms |
 | **Barbell (Modular)** | `baseline_wmc` | 3 | 2 | 2,100 | 2,100.0 | 0 | 0 | 6.75 ms |
 | | `combined_wmc` | 3 | **3** | **186** | **1,000.7** | **5** | **8** | **1.72 ms** |
-| | `components_wmc`| 3 | **3** | **238** | **1,414.7** | **5** | **0** | **1.11 ms** |
+| | `components_wmc` | 3 | **3** | **238** | **1,414.7** | **5** | **0** | **1.11 ms** |
 | **Barbell (Flat)** | `baseline_wmc` | 3 | 2 | 3,394 | 3,393.5 | 0 | 0 | 16.52 ms |
 | | `combined_wmc` | 3 | 2 | 2,229 | 2,229.0 | 33 | 179 | 17.86 ms |
 
@@ -78,6 +80,7 @@ Flat             [all 5 solvers]  unknown  >50,001 / TO  0                 >0.88
 ```
 
 ### Analysis of the Result
+
 1. **Intractability of Flat Cross-Product Compilation**: Without structural awareness, simple path cross-products link all edge variables into monolithic clauses, causing all 5 solver variants to exceed the 50,000-node search budget or timeout.
 2. **Power of Structural Component Decomposition**: On the modular network formulation:
    - Non-decomposed solvers (`baseline_wmc` and `memo_wmc`) completely failed, exhausting the 50,000-node budget.
@@ -91,6 +94,7 @@ Flat             [all 5 solvers]  unknown  >50,001 / TO  0                 >0.88
 ## 5. Industrial & Commercial Applications
 
 This transfer directly addresses commercial problems in three high-value industries:
+
 1. **Safety-Critical Hardware & Fault Tree Analysis (ISO 26262 ASIL-D / FAA DO-254)**:
    - Complex redundant architectures (e.g. fly-by-wire voting gates, automotive brake-by-wire) model component failure distributions as WMC instances.
    - Component decomposition enables exact analytical failure probabilities on modular fault trees where brute-force state enumeration fails.
@@ -98,4 +102,3 @@ This transfer directly addresses commercial problems in three high-value industr
    - Quantifying 99.999% ("five nines") connectivity availability across distributed regional datacenters joined by transoceanic backbone links.
 3. **Cybersecurity & Quantitative Information Flow (QIF)**:
    - Measuring exact cryptographic side-channel entropy leakage across conditional branching paths.
-

@@ -53,6 +53,7 @@ The empirical findings from `evidence/epyc-cube-002/SCALING_SUMMARY.md`:
 1. **High-Core Cube Scaling on Dual Cut Hardness Boundary Instances**:
    - The Dual Cut compiler (`sat_frontier/cut_compiler.py`) has been verified in `evidence/cut-wmc-001/`, eliminating auxiliary path variables and reducing search nodes by up to 122x (solving `grid_3x7` in 2.13s and `grid_2x11` in 0.12s).
    - Deploy high-core Cube-and-Conquer lookahead on the cut CNFs across the 64-core AMD EPYC server:
+
      ```bash
      python scripts/run_epyc_batch.py \
        --evidence-dir evidence/epyc-cube-003 \
@@ -60,14 +61,18 @@ The empirical findings from `evidence/epyc-cube-002/SCALING_SUMMARY.md`:
        --workers 64 \
        --depths 4 6 8
      ```
+
    - This tests whether high-core parallel lookahead combines multiplicatively with monotone cut pruning on large topologies ($3\times 8$, $4\times 5$, $5\times 5$).
 
 2. **Upstream Lean 4 Kernel Audit with Bounded Concurrency (Track 2)**:
    - On the 168 GB DDR4 EPYC host, execute the bounded concurrency audit to resolve the multi-process memory ceiling blocker:
+
      ```bash
      bash scripts/run_lean4_audit.sh 4
      ```
+
    - If build succeeds, run the axiom extractor:
+
      ```bash
      lake env lean scripts/extract_axioms.lean
      ```
@@ -75,6 +80,7 @@ The empirical findings from `evidence/epyc-cube-002/SCALING_SUMMARY.md`:
 3. **GPU Tensor Network Acceleration on NVIDIA V100 / RTX 3060 (Track 3)**:
    - The host contains an NVIDIA V100-SXM2 (16 GB) and RTX 3060 (12 GB).
    - Run PyTorch GPU tensor contraction on the cut-compiled formulas:
+
      ```bash
      python -c "
      import sat_frontier.tensor_contract as tc
@@ -87,14 +93,17 @@ The empirical findings from `evidence/epyc-cube-002/SCALING_SUMMARY.md`:
          print(f'{cnf.stem}: {res}')
      "
      ```
+
    - Save all GPU outputs to a fresh, distinct directory `evidence/gpu-tensor-001/` strictly adhering to `AGENTS.md`.
 
 4. **Automated Verification**:
    - Re-verify all empirical evidence anytime using:
+
      ```bash
      python verify_epyc_evidence.py evidence/epyc-cube-001 evidence/epyc-cube-002
      python verify_evidence.py evidence/cut-wmc-001
      ```
+
      ```bash
      python verify_epyc_evidence.py
      ```

@@ -37,7 +37,8 @@ $$(\neg z_k \lor x_e) \quad \forall e \in P_k, \qquad \left( \bigvee_{e \in P_k}
 Network connectivity is then asserted via a single global disjunction:
 $$\bigvee_{k=1}^K z_k$$
 
-### The Failure Modes on Planar Meshes:
+### The Failure Modes on Planar Meshes
+
 1. **Auxiliary Variable Explosion**: The number of paths $K$ scales as $O(2^{|V|})$. For a $3\times 7$ grid, $K = 1,368$ paths, requiring 1,401 variables and 20,430 clauses.
 2. **Hyperedge Dense Clauses**: The global disjunctive clause contains 1,368 positive literals. Setting any individual edge variable $x_e$ to false only falsifies a small subset of paths, leaving the hyperedge clause largely unsimplified.
 3. **Impaired Component Decomposition**: Because the hyperedge clause references every path indicator variable, the formula incidence graph remains a single dense clique, completely neutralizing component decomposition heuristics.
@@ -49,6 +50,7 @@ $$\bigvee_{k=1}^K z_k$$
 To resolve this bottleneck, we invert the formulation from paths to cuts.
 
 ### 3.1 Mathematical Foundation
+
 Let $\mathcal{C}_{\text{min}}(s, t)$ denote the set of all inclusion-minimal $s-t$ edge cuts in $G$.
 
 **Theorem 1 (Menger / Max-Flow Min-Cut Duality)**:
@@ -58,12 +60,14 @@ $$s \stackrel{E_{\text{op}}}{\longleftrightarrow} t \iff \forall C \in \mathcal{
 *Proof*: If $E_{\text{op}}$ disconnects $s$ and $t$, then the set of failed edges $E \setminus E_{\text{op}}$ forms an $s-t$ cut, which contains at least one inclusion-minimal cut $C^* \in \mathcal{C}_{\text{min}}(s, t)$. Consequently, $C^* \cap E_{\text{op}} = \emptyset$. Conversely, if $E_{\text{op}}$ intersects every minimal cut, no cut can be formed entirely of failed edges; hence, a path connecting $s$ and $t$ must exist. $\blacksquare$
 
 ### 3.2 Dual Cut CNF Representation
+
 Assigning a Boolean literal $x_e$ to each physical edge $e \in E$, the condition that every minimal cut contains at least one operational edge yields a **purely positive monotone CNF**:
 $$\Phi_{\text{cut}}(G, s, t) = \bigwedge_{C \in \mathcal{C}_{\text{min}}(s, t)} \left( \bigvee_{e \in C} x_e \right)$$
 with weights:
 $$w(x_e) = p_e, \qquad w(\neg x_e) = 1 - p_e$$
 
-### Structural Properties:
+### Structural Properties
+
 - **Zero Auxiliary Variables**: $n_{\text{vars}} = |E|$ exactly.
 - **Small Clause Widths**: Clause lengths equal cut cardinalities (e.g. 2 to 5 literals on planar grids).
 - **Eager Unit Propagation**: Falsifying an edge literal $x_e$ decrements all clauses containing $e$. If a clause reaches length 1, the remaining edge is immediately forced to true; if a clause becomes empty, a contradiction is detected immediately.
@@ -75,6 +79,7 @@ $$w(x_e) = p_e, \qquad w(\neg x_e) = 1 - p_e$$
 A cut $\delta(S)$ separating $s$ from $t$ in a connected graph $G$ is inclusion-minimal if and only if both induced subgraphs $G[S]$ and $G[V \setminus S]$ are connected.
 
 We developed a canonical DFS frontier expansion algorithm that enumerates connected subsets $S \ni s$:
+
 1. Initialize $S = \{s\}$ with active frontier $\text{adj}(s) \setminus \{t\}$.
 2. Recursively expand $S$ strictly along adjacent vertices, pruning branches that include $t$.
 3. When $G[V \setminus S]$ is verified connected via Breadth-First Search from $t$, emit the cut $\delta(S)$.
@@ -94,12 +99,12 @@ Evaluations were conducted on a dedicated benchmark suite across 24 network topo
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | `grid_2x11` | 1,055 | 16,897 | 997 (timeout) | 0.73s | **31** | **121** | **7,901** | **0.12s** | **Solves timeout** |
 | `grid_2x12` | 2,082 | 36,865 | 997 (timeout) | 3.53s | **34** | **144** | **13,867** | **0.26s** | **Solves timeout** |
-| `grid_3x6` | 441 | 5,297 | 100,001 (timeout)| 3.23s | **27** | **435** | **17,993** | **0.34s** | **>5.5x** |
+| `grid_3x6` | 441 | 5,297 | 100,001 (timeout) | 3.23s | **27** | **435** | **17,993** | **0.34s** | **>5.5x** |
 | `grid_3x7` | 1,401 | 20,430 | 997 (timeout) | 1.12s | **32** | **938** | **80,925** | **2.13s** | **Solves timeout** |
-| `grid_4x4` | 208 | 2,097 | 100,001 (timeout)| 1.97s | **24** | **348** | **9,024** | **0.19s** | **>11.0x** |
+| `grid_4x4` | 208 | 2,097 | 100,001 (timeout) | 1.97s | **24** | **348** | **9,024** | **0.19s** | **>11.0x** |
 | `grid_4x5` | 1,007 | 14,109 | 997 (timeout) | 0.72s | **31** | **1,353** | **85,451** | **2.78s** | **Solves timeout** |
-| `barbell_k6`| 161 | 655 | 85,246 | 1.00s | **31** | **33** | **698** | **0.0078s**| **122.1x** |
-| `barbell_k7`| 695 | 3,917 | 100,001 (timeout)| 3.10s | **43** | **65** | **3,864** | **0.043s** | **>25.8x** |
+| `barbell_k6` | 161 | 655 | 85,246 | 1.00s | **31** | **33** | **698** | **0.0078s** | **122.1x** |
+| `barbell_k7` | 695 | 3,917 | 100,001 (timeout) | 3.10s | **43** | **65** | **3,864** | **0.043s** | **>25.8x** |
 
 ### Table 2: High-Concurrency Cube-and-Conquer Lookahead (`cut-cube-001`)
 
@@ -136,4 +141,3 @@ Dual Cut Monotone CNF Compilation eliminates the path-explosion pathology that h
 3. Provan, J. S., & Shier, D. R. (1983). A paradigm for listing $(s, t)$-cuts in graphs. *Networks*, 13(4), 517-531.
 4. Heule, M. J., Kullmann, O., & Wieringa, S. (2018). Cube-and-Conquer for Satisfiability. *Handbook of Satisfiability*.
 5. OpenAI (2026). The Exponential Time Hypothesis is False. Preprint and formal repository `openai/math` commit `7ef5c0c`.
-

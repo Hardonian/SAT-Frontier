@@ -9,6 +9,7 @@
 ## 1. Executive Summary & Purpose
 
 Modern mission-critical systems contractually commit to high-availability Service Level Agreements (SLAs) ranging from **99.9% ("Three Nines")** to **99.9999% ("Six Nines")**. However, industry verification historically relies on either:
+
 1. **Simplified serial-parallel block approximations**, which fail catastrophically on non-series-parallel cross-linked network meshes; or
 2. **Monte Carlo simulations**, which are inherently non-deterministic, have $O(1/\sqrt{N})$ sampling error, and cannot statistically certify the absence of rare-event simultaneous multi-point failures.
 
@@ -21,6 +22,7 @@ The **SLA-MVS-01 Specification** defines a rigorous, deterministic, mathematical
 ### 2.1 Network Reliability Model
 
 Let $G = (V, E)$ be a finite network graph where:
+
 - $V$ is the set of infrastructure nodes (servers, switches, substations, actuators).
 - $E$ is the set of directed or undirected links.
 - $s, t \in V$ are the designated source and target terminals.
@@ -46,6 +48,7 @@ $$W(F_{\text{cut}}) = \sum_{\tau \models F_{\text{cut}}} \prod_{e \in E} W(\tau(
 ### 2.3 Proof of Monotonicity & Search Optimality
 
 Because $F_{\text{cut}}$ contains **only positive literals**:
+
 1. No pure-literal eliminations can alter model counts without count preservation.
 2. Every clause corresponds to a physical failure boundary (cut).
 3. Whenever an edge fails ($x_e = \bot$), unit propagation immediately propagates down to smaller sub-cuts without traversing exponential path representations.
@@ -84,6 +87,7 @@ $$\Delta t_{\text{day}} = Q \times 24 \text{ hours} = Q \times 86400 \text{ seco
 ### 4.1 Single Points of Failure (SPOF)
 
 An edge $e \in E$ is a **Single Point of Failure (SPOF)** if and only if there exists a minimal cut $C \in \mathcal{C}(s, t)$ such that $|C| = 1$ and $C = \{e\}$.
+
 - **Standard Requirement**: Any mission-critical architecture claiming $\ge$ Five Nines **must have zero SPOFs**. The presence of a single SPOF caps maximum availability at $p_e$.
 
 ### 4.2 Cut Order & Failure Probability
@@ -132,4 +136,3 @@ To ensure complete chain-of-custody for compliance auditors (e.g., FAA, NERC, SE
 | **NERC CIP-005 / CIP-007** | Bulk Electric System Availability | IEEE power grid substation connectivity under line trips; Birnbaum transformer ranking. |
 | **EU DORA (Digital Operational Resilience)** | Article 6 (ICT Risk Management Framework) | Automated CI/CD SLA audit gate; mathematical bounds on annual financial ledger downtime. |
 | **ITU-T G.808 / Telcordia GR-253** | Self-Healing Optical Ring Protection | Sub-50ms protection switching availability verification on SONET/SDH dual-rings. |
-

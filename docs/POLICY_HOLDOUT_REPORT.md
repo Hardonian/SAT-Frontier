@@ -1,6 +1,7 @@
 # Preregistered branch-policy held-out campaign report (v0.2)
 
 **Final outcome: definitive negative result.** The frozen v0.2 candidate `component` (weights: `occurrence=1, polarity=1, short_clause=1, component_size=1`), selected during the train campaign and preregistered in `docs/POLICY_HOLDOUT_PREREGISTRATION.md`, failed the M3 performance gate across all four held-out instance families. The protocol's performance gate requires the lower bound of the 95% bootstrap confidence interval on the paired speedup ratio (control over candidate) to exceed 1.10. On all target families, the measured speedup was either negligible or negative:
+
 - `random`: median speedup 0.959 [0.941, 0.986] (lower bound well below 1.10; candidate is slower)
 - `planted`: median speedup 0.963 [0.945, 0.974] (lower bound well below 1.10; candidate is slower)
 - `disconnected`: median speedup 0.927 [0.907, 0.939] (candidate exhibits severe timing regression due to feature computation overhead)
@@ -13,6 +14,7 @@ No novel algorithm, asymptotic bound, P versus NP breakthrough, or practical spe
 ## 1. Protocol and fail-closed execution
 
 The held-out study executed under strict, uncompromised preregistered guards:
+
 1. **Source freeze**: Pinned train winner and exact source hashes verified against `evidence/policy-train-v02/winner.json` before execution.
 2. **Atomic reservation**: Split consumed atomically via `evidence/policy-holdout-v02-consumed/reservation.json` with preregistration digest `fa5ac9ca2d135d85779c6adbc7950718780c4070b50447eddbe644a3b8a0a14d`.
 3. **Instance overlap guard**: Zero byte overlap between the 120 holdout instances and any prior CNF in `evidence/` (smoke, development, or train campaigns).
@@ -27,7 +29,7 @@ The held-out study executed under strict, uncompromised preregistered guards:
 ### Table 1: Solved fractions, unknown fractions, and runtime metrics
 
 | Family | Control / candidate exact fraction | Unknown fraction (each) | Median solver ms control / candidate (exact only) | Median wall ms candidate (all runs) | Median nodes candidate (all runs) |
-|---|---:|---:|---:|---:|---:|
+| --- | ---: | ---: | ---: | ---: | ---: |
 | **random** | 0.867 / 0.933 | 0.133 / 0.067 | 1.146 / 1.200 | 178.08 | 13 |
 | **planted** | 0.833 / 0.867 | 0.167 / 0.133 | 1.127 / 1.196 | 172.28 | 15 |
 | **disconnected** | 0.967 / 0.967 | 0.033 / 0.033 | 0.557 / 0.596 | 173.52 | 17 |
@@ -38,7 +40,7 @@ The held-out study executed under strict, uncompromised preregistered guards:
 ### Table 2: Paired speedup ratios and timing regressions (completed pairs only)
 
 | Family | Completed paired instances (all 5 repeats exact) | Median candidate/control time ratio | Median control/candidate speed ratio [95% CI] | Timing regression instances (candidate slower) |
-|---|---:|---:|---:|---:|
+| --- | ---: | ---: | ---: | ---: |
 | **random** | 26 | 1.043 | 0.959 [0.941, 0.986] | 19 / 26 |
 | **planted** | 24 | 1.038 | 0.963 [0.945, 0.974] | 19 / 24 |
 | **disconnected** | 29 | 1.079 | 0.927 [0.907, 0.939] | 26 / 29 |
@@ -63,8 +65,9 @@ The held-out study executed under strict, uncompromised preregistered guards:
 - Summary statistics: `evidence/policy-holdout-v02/summary.json`
 - Integrity manifest: `evidence/policy-holdout-v02/manifest.json`
 - Verification command:
+
   ```bash
   python verify_holdout_evidence.py
   ```
-  All 1,200 runs, 120 instances, source hashes, and oracle counts pass independent verification.
 
+  All 1,200 runs, 120 instances, source hashes, and oracle counts pass independent verification.

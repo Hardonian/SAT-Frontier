@@ -148,9 +148,9 @@ def to_bounded_hop_cnf(
     if () in min_cuts or not min_cuts:
         # Either no operational path of length <= max_hops is topologically possible,
         # or the target is completely unreachable. Return UNSAT formula.
-        unsat_clauses: List[List[int]] = [[1], [-1]]
-        wf = WeightedFormula(unsat_clauses, n_vars=1, weights={1: Fraction(1, 2), -1: Fraction(1, 2)})
-        return wf, unsat_clauses
+        clauses = [[1], [-1]]
+        wf = WeightedFormula(clauses, n_vars=1, weights={1: Fraction(1, 2), -1: Fraction(1, 2)})
+        return wf, clauses
 
     clauses: List[List[int]] = []
     seen: Set[Tuple[int, ...]] = set()

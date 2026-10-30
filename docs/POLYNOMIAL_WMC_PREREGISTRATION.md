@@ -29,6 +29,7 @@ where $c_k \in \mathbb{N}$ is the **exact number of operational subgraphs of car
 ### 1.3 Exact Closed-Form Reliability & Susceptibility
 
 Once the polynomial vector $\mathbf{c} = (c_0, c_1, \dots, c_m)$ is computed:
+
 1. **Instantaneous Point Evaluation**: For any edge probability $p \in [0, 1]$:
    $$R(p) = \sum_{k=0}^m c_k p^k (1 - p)^{m - k}$$
    Evaluated in $O(m)$ arithmetic operations with zero solver re-execution.
@@ -85,8 +86,8 @@ For all instances where $|E| \le 16$, an independent brute-force state enumerati
 $$\text{oracle\_c}[k] = |\{ E' \subseteq E : |E'| = k \text{ and } s \stackrel{E'}{\longleftrightarrow} t \}|$$
 
 **Acceptance Criteria**:
+
 1. **100% Exact Vector Agreement**: $\mathbf{c}_{\text{poly}} \equiv \mathbf{c}_{\text{oracle}}$ for all $k \in \{0, \dots, |E|\}$.
 2. **Point Evaluation Consistency**: Evaluating $R(0.9)$ from the polynomial must identically match `to_cut_cnf` + `wmc_solve` down to the exact irreducible rational fraction.
 3. **Analytic Consistency**: For $K_3$, $K_4$, and the Wheatstone bridge, the polynomial must match the known algebraic closed forms.
 4. **Cryptographic Integrity**: All DIMACS CNF files, polynomial vectors, and execution logs recorded in `manifest.json` and `SHA256SUMS`.
-

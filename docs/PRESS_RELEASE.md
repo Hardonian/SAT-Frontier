@@ -7,7 +7,7 @@
 
 ---
 
-# SAT-Frontier Unveils Breakthrough Dual Cut Compilation for Exact Network Reliability (#WMC) and Releases Independent Formal Audit of OpenAI's ETH Refutation
+## SAT-Frontier Unveils Breakthrough Dual Cut Compilation for Exact Network Reliability (#WMC) and Releases Independent Formal Audit of OpenAI's ETH Refutation
 
 **SEATTLE, WA** — The SAT-Frontier Research Lab today announced a dual milestone in computational complexity and automated reasoning: the invention and empirical verification of **Dual Cut Monotone CNF Compilation**, solving a decades-old structural hardness bottleneck in exact Two-Terminal Network Reliability (#WMC), alongside the release of the first comprehensive, independent formal audit and verification harness for OpenAI's claimed refutation of the Exponential Time Hypothesis (ETH).
 
@@ -23,6 +23,7 @@ To overcome this fundamental limit, SAT-Frontier formulated the connectivity pro
 $$\text{Connected}(s, t) \iff \bigwedge_{C \in \mathcal{C}_{\text{min}}(s, t)} \left( \bigvee_{e \in C} e \right)$$
 
 By compiling connectivity directly over minimal $s-t$ edge cuts:
+
 1. **Zero Auxiliary Variables**: Variables correspond strictly to physical network edges, slashing formula variables on $3\times 7$ from 1,401 down to **32**.
 2. **Immediate Conflict Pruning**: Clause lengths are bounded by cut sizes (2–5 literals), enabling unit propagation to detect edge failures and cut disconnections instantaneously.
 3. **Hardness Cliff Shattered**: In rigorous empirical evaluations across 24 benchmark topologies:
@@ -40,6 +41,7 @@ When combined with distributed Cube-and-Conquer lookahead across 20 cores, this 
 SAT-Frontier also published its comprehensive audit of OpenAI's formal mathematics repository (`openai/math`, commit `7ef5c0c`), which claims a deterministic algorithm solving 3-SAT in subexponential time ($2^{O(n / \sqrt{\log n})}$), refuting the Exponential Time Hypothesis.
 
 Key findings from the SAT-Frontier audit include:
+
 1. **Formal Comparator Gap**: The public comparator challenge (`ComparatorChallenges/SubexponentialSAT.lean`) is declared with `sorry` as a specification challenge; it does not constitute a proof of the theorem.
 2. **Transitive Dependency Fanout**: The upstream solution imports 3,091 transitive modules. In automated builds, this triggers an unconstrained multi-process compiler fanout, exceeding an 11.9 GB RSS memory ceiling and terminating with `exit 137` / timeout prior to Lean 4 kernel verification or axiom generation.
 3. **Turnkey Bounded-Memory Verification Harness**: SAT-Frontier has created and open-sourced an isolated verification script (`scripts/run_lean4_audit.sh`) and Lean axiom extractor (`scripts/extract_axioms.lean`) designed to constrain Lake compiler concurrency (`-j 4`) and enable formal verification without memory exhaustion.
@@ -49,6 +51,7 @@ Key findings from the SAT-Frontier audit include:
 ### Uncompromising Verification: 2,577 Cryptographically Pinned Runs
 
 In accordance with strict scientific reproducibility protocols:
+
 - SAT-Frontier has executed and verified **2,577 empirical runs** across 10 distinct research campaigns.
 - Every run is cryptographically anchored with SHA-256 ledgers, raw DIMACS formulas, and JSONL event streams.
 - A single master verification script (`verify_all_evidence.py`) validates the cryptographic integrity of all 2,577 runs and passes all 67 unit and metamorphic tests in under 15 seconds.
@@ -59,11 +62,12 @@ In accordance with strict scientific reproducibility protocols:
 ### Availability
 
 The complete source code, test suites, empirical evidence directories, replication runners, and audit dossiers are available in the repository:
+
 - **Repository**: [https://github.com/Hardonian/SAT-Frontier](https://github.com/Hardonian/SAT-Frontier)
 - **Technical Whitepaper**: `docs/RESEARCH_PAPERS/DUAL_CUT_WMC_PAPER.md`
 - **ETH Audit Dossier**: `docs/ETH_AUDIT_V02.md` & `docs/OPENAI_ETH_ANALYSIS.md`
 - **Commercialization Blueprint**: `docs/COMMERCIAL_APPLICATIONS.md`
 
 ### About SAT-Frontier
-SAT-Frontier is an independent, CPU-first exact-counting research laboratory dedicated to advancing exact model counting, structural decomposition, and automated theorem verification.
 
+SAT-Frontier is an independent, CPU-first exact-counting research laboratory dedicated to advancing exact model counting, structural decomposition, and automated theorem verification.

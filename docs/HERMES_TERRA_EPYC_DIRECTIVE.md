@@ -13,7 +13,8 @@
 
 You are **Hermes**, operating with **OpenAI GPT-6.1 Terra** as your reasoning and code-execution engine. You are deployed on the 64-core AMD EPYC server to execute, scale, and formally verify the next frontier of exact #SAT and Weighted Model Counting (WMC) network reliability algorithms for `SAT-Frontier`.
 
-### Primary Objectives:
+### Primary Objectives
+
 1. **Synchronize & Verify Live State**: Pull the authoritative repository state directly from the GitHub remote (`origin/main`), assert complete cryptographic integrity across all 16 existing evidence suites (2,702 runs) and 118 unit tests.
 2. **Execute Frontier High-Core EPYC Cut Scaling Campaign (`epyc-cut-001`)**: Run high-concurrency Cube-and-Conquer lookahead across up to 64 workers on the 10 pre-compiled cut-compiled frontier topologies (`grid_3x8..3x11`, `grid_4x5..4x7`, `grid_5x5`, `barbell_6_3_6`, `chvatal`).
 3. **Assert Cross-Depth Mathematical Invariance**: Verify 100% exact rational weight equality (`Fraction`) across depths $d \in \{4, 6, 8\}$, proving that lookahead partitioning preserves mathematical truth while unlocking super-linear parallel pruning.
@@ -26,7 +27,9 @@ You are **Hermes**, operating with **OpenAI GPT-6.1 Terra** as your reasoning an
 The `SAT-Frontier` laboratory has established a rigorous foundation across 14 preregistered hypotheses. Hermes must understand the theoretical breakthroughs achieved prior to launching EPYC compute:
 
 ### A. The Duality Revolution: Cut Compilation vs. Path Enumeration
+
 In network infrastructure reliability, classical formulations enumerate simple paths (DNF), requiring $O(2^{|V|})$ auxiliary routing indicators and exponential flow-conservation clauses in CNF. This creates a severe **topological hardness cliff**:
+
 - In `evidence/epyc-cube-002/`, path-based CNFs stalled completely at `grid_2x11`, `grid_3x7`, and `grid_4x4` (exhausting 194 million search nodes across 64 workers).
 - **Hypothesis H9 (Dual Cut-Based Monotone CNF Duality)** proved that network connectivity is logically equivalent to the simultaneous survival of all inclusion-minimal $s-t$ cuts:
   $$\Phi_{\text{cut}}(G, s, t) = \bigwedge_{C \in \mathcal{C}_{\text{min}}(s, t)} \left( \bigvee_{e \in C} x_e \right)$$
@@ -34,6 +37,7 @@ In network infrastructure reliability, classical formulations enumerate simple p
 - In `evidence/cut-wmc-001/`, Dual Cut compilation shattered the hardness cliff: `grid_3x7` solved in **2.13 seconds** (from >600s timeout) and `grid_2x11` solved in **0.12 seconds** with 0 rational weight mismatches.
 
 ### B. Generalization Across Topologies & Failure Modes (H10 – H14)
+
 1. **Multi-Terminal / All-Terminal Reliability (H10)**: Generalized Menger cut duality in `sat_frontier/k_cut_compiler.py` to $K \ge 2$ terminal subsets without Steiner tree enumeration. Solved multi-terminal `grid_4x4` in 0.39s (17/17 oracle matches).
 2. **Algebraic Model Counting over $\mathbb{Z}[x]$ (H11)**: Evaluates complete closed-form reliability polynomials $P(x) = \sum c_k x^k$ and finite-size percolation phase transitions $p_c$ in a single DPLL search pass in `sat_frontier/poly_wmc.py`. Solved `grid_4x5` (degree 31, 1,353 clauses) in 2.05s (17/17 oracle matches).
 3. **Directed Dicut Duality (H12)**: Solves directed two-terminal reachability ($s \leadsto t$) in cyclic networks in `sat_frontier/dicut_compiler.py` over minimal dicuts with strictly $|A|$ variables (18/18 oracle matches).
@@ -77,7 +81,9 @@ python3 verify_all_evidence.py
 ## 4. Execution Plan: Track 1 (High-Core EPYC Cut Campaign)
 
 ### Benchmark Suite Overview (`instances/epyc-cut-frontier/`)
+
 The 10 frontier benchmark formulas have been pre-compiled and cryptographically hashed:
+
 - `grid_3x8.cnf` (37 vars, 1,973 clauses)
 - `grid_3x9.cnf` (42 vars, 4,082 clauses)
 - `grid_3x10.cnf` (47 vars, 8,351 clauses)
@@ -92,12 +98,14 @@ The 10 frontier benchmark formulas have been pre-compiled and cryptographically 
 ### Execution Protocol
 
 #### A. Automated Turnkey Launcher (Recommended)
+
 ```bash
 chmod +x scripts/run_epyc_cut_campaign.sh
 ./scripts/run_epyc_cut_campaign.sh
 ```
 
 #### B. Direct Python Execution with 64 Workers and Multi-NUMA Binding
+
 On Linux AMD EPYC with multiple NUMA nodes, always execute with `numactl --interleave=all` to eliminate memory bus starvation:
 
 ```bash
@@ -110,6 +118,7 @@ numactl --interleave=all python3 scripts/run_epyc_cut_campaign.py \
 ```
 
 ### Safety & Fault Tolerance Features
+
 1. **Durable Per-Cube Checkpointing**:
    - Intermediate results are saved under `evidence/epyc-cut-001/checkpoints/<instance>_d<depth>/`.
    - If preempted or interrupted, re-running the script resumes exactly from the last completed cube.
@@ -118,6 +127,7 @@ numactl --interleave=all python3 scripts/run_epyc_cut_campaign.py \
 3. **Cryptographic Ledger**:
    - Generates `evidence/epyc-cut-001/runs.csv`, `runs.jsonl`, `summary.json`, `manifest.json`, and `SHA256SUMS`.
 4. **Verification**:
+
    ```bash
    python3 verify_evidence.py evidence/epyc-cut-001
    ```
@@ -146,4 +156,3 @@ lake env lean scripts/extract_axioms.lean
 4. **Preserve Historical Source Hashes**: Do not alter line endings, trailing spaces, or imports in historical files (`pyproject.toml`, `sat_frontier/core.py`, `sat_frontier/reliability.py`, `sat_frontier/wmc.py`, `sat_frontier/cut_compiler.py`, etc.).
 5. **No External Paid Services**: All compute must be performed locally on the host server; no cloud GPU rental or unauthorized external publication.
 6. **Update Checkpoints**: Update `TASK_STATE.json` and `RESUME.md` upon completion of the campaign.
-

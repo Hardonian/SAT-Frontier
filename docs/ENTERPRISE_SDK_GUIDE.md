@@ -118,6 +118,7 @@ The Enterprise SDK ingests infrastructure topologies defined in declarative JSON
 ## 3. Core API Reference
 
 ### 3.1 `EnterpriseTopology`
+
 ```python
 class EnterpriseTopology:
     def __init__(self, name: str = "Enterprise_System") -> None
@@ -143,6 +144,7 @@ class EnterpriseTopology:
 ```
 
 ### 3.2 `EnterpriseReliabilityEngine`
+
 ```python
 class EnterpriseReliabilityEngine:
     def __init__(self, topology: EnterpriseTopology) -> None
@@ -156,6 +158,7 @@ class EnterpriseReliabilityEngine:
 ```
 
 ### 3.3 `EnterpriseAuditResult`
+
 ```python
 @dataclass
 class EnterpriseAuditResult:
@@ -176,6 +179,7 @@ class EnterpriseAuditResult:
 ```
 
 ### 3.4 `DowntimeMetrics`
+
 ```python
 @dataclass
 class DowntimeMetrics:
@@ -278,4 +282,3 @@ Validated against mission-critical topologies in evidence suite `evidence/commer
 | **Telecom Metro Dual-Ring** | SONET / Optical | 8 / 16 | `99.993638%` (Four Nines) | `33.44 min` | `5.88 ms` |
 
 All results verified under strict cryptographic pinning with 100% exact closed-form agreement.
-

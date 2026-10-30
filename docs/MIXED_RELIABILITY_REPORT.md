@@ -19,10 +19,12 @@ In this campaign, we formulated, implemented, and empirically verified the **Dua
 $$\Phi_{\text{mixed}}(G, s, t) = \bigwedge_{(V_C, E_C) \in \mathcal{C}_{\text{min}}^{\text{mixed}}(s, t)} \left( \bigvee_{v \in V_C} y_v \lor \bigvee_{e \in E_C} x_e \right)$$
 where each $(V_C, E_C)$ is an inclusion-minimal mixed cut whose simultaneous failure disconnects $s$ and $t$.
 
-### Node-Splitting Dicut Projection:
+### Node-Splitting Dicut Projection
+
 We proved that by splitting each internal vertex $v \in V \setminus \{s, t\}$ into an arc $(v_{\text{in}}, v_{\text{out}})$ with operational probability $q_v$, and each edge $uv$ into directed arcs $(u_{\text{out}}, v_{\text{in}})$ and $(v_{\text{out}}, u_{\text{in}})$ both controlled by edge variable $x_{uv}$, every inclusion-minimal directed cut in the augmented graph $G^*$ projects directly onto an inclusion-minimal mixed cut in $G$.
 
-### Key Empirical Findings:
+### Key Empirical Findings
+
 1. **Zero Auxiliary Variables**: Requires strictly $|V_{\text{internal}}| + |E|$ Boolean variables, completely eliminating auxiliary path indicators and flow variables.
 2. **100% Independent Oracle Agreement**: Across all 16 instances where $|V_{\text{internal}}| + |E| \le 16$, exact rational probabilities identically matched the independent brute-force state enumeration oracle with zero discrepancy.
 3. **Sub-300ms Solving Latencies**: Solved all 24 benchmark instances—including planar grids up to 477 cuts (27 variables) and multi-tier server meshes up to 377 cuts—in under 290 milliseconds.
@@ -43,23 +45,23 @@ Evaluated with node budget cap 100,000 nodes and timeout cap 30.0s on Windows 11
 | `mixed_grid_3x3` | Planar Grid | 7 / 12 / 19 | 131 | 0.6970 | 2.7663 | 94.022241% | 30.06 ms | UNCHECKED ($Tot=19$) |
 | `mixed_grid_3x4` | Planar Grid | 10 / 17 / 27 | 477 | 0.7220 | 3.2796 | 93.073444% | 288.69 ms | UNCHECKED ($Tot=27$) |
 | `mixed_grid_diamond` | Planar Grid | 2 / 5 / 7 | 9 | 0.6270 | 1.8213 | 93.796956% | 0.60 ms | MATCH (100% exact) |
-| `mixed_grid_butterfly`| Planar Grid | 3 / 6 / 9 | 7 | 0.6700 | 1.7770 | 89.920770% | 0.64 ms | MATCH (100% exact) |
+| `mixed_grid_butterfly` | Planar Grid | 3 / 6 / 9 | 7 | 0.6700 | 1.7770 | 89.920770% | 0.64 ms | MATCH (100% exact) |
 | `mixed_tier_2x2` | Layered Tier | 2 / 4 / 6 | 9 | 0.7370 | 1.9544 | 93.507702% | 0.53 ms | MATCH (100% exact) |
 | `mixed_tier_2x3` | Layered Tier | 3 / 6 / 9 | 27 | 0.6380 | 2.0520 | 98.345758% | 2.02 ms | MATCH (100% exact) |
 | `mixed_tier_3x2` | Layered Tier | 4 / 8 / 12 | 33 | 0.7810 | 2.4533 | 93.133383% | 2.78 ms | MATCH (100% exact) |
 | `mixed_tier_3x3` | Layered Tier | 6 / 15 / 21 | 377 | 0.6930 | 2.6953 | 98.915165% | 191.30 ms | UNCHECKED ($Tot=21$) |
 | `mixed_tier_4x2` | Layered Tier | 6 / 12 / 18 | 89 | 0.8120 | 2.9100 | 92.021448% | 16.23 ms | UNCHECKED ($Tot=18$) |
-| `mixed_tier_wide_mesh`| Layered Tier | 5 / 11 / 16 | 107 | 0.7410 | 2.5804 | 96.260233% | 16.40 ms | MATCH (100% exact) |
-| `mixed_tier_deep_pipeline`| Layered Tier | 5 / 6 / 11 | 11 | 0.9060 | 4.9080 | 35.026286% | 0.68 ms | MATCH (100% exact) |
-| `mixed_barbell_3_3_bridge1`| Bottleneck | 4 / 7 / 11 | 9 | 0.7930 | 1.9687 | 80.070659% | 0.86 ms | MATCH (100% exact) |
-| `mixed_barbell_3_3_bridge2`| Bottleneck | 4 / 8 / 12 | 9 | 0.5600 | 1.7648 | 97.010603% | 1.35 ms | MATCH (100% exact) |
-| `mixed_barbell_4_4_bridge1`| Bottleneck | 6 / 13 / 19 | 21 | 0.6850 | 1.8845 | 81.091247% | 3.31 ms | UNCHECKED ($Tot=19$) |
-| `mixed_barbell_3_node_bridge`| Bottleneck | 5 / 8 / 13 | 11 | 0.8400 | 2.3995 | 73.869634% | 0.96 ms | MATCH (100% exact) |
+| `mixed_tier_wide_mesh` | Layered Tier | 5 / 11 / 16 | 107 | 0.7410 | 2.5804 | 96.260233% | 16.40 ms | MATCH (100% exact) |
+| `mixed_tier_deep_pipeline` | Layered Tier | 5 / 6 / 11 | 11 | 0.9060 | 4.9080 | 35.026286% | 0.68 ms | MATCH (100% exact) |
+| `mixed_barbell_3_3_bridge1` | Bottleneck | 4 / 7 / 11 | 9 | 0.7930 | 1.9687 | 80.070659% | 0.86 ms | MATCH (100% exact) |
+| `mixed_barbell_3_3_bridge2` | Bottleneck | 4 / 8 / 12 | 9 | 0.5600 | 1.7648 | 97.010603% | 1.35 ms | MATCH (100% exact) |
+| `mixed_barbell_4_4_bridge1` | Bottleneck | 6 / 13 / 19 | 21 | 0.6850 | 1.8845 | 81.091247% | 3.31 ms | UNCHECKED ($Tot=19$) |
+| `mixed_barbell_3_node_bridge` | Bottleneck | 5 / 8 / 13 | 11 | 0.8400 | 2.3995 | 73.869634% | 0.96 ms | MATCH (100% exact) |
 | `enterprise_cloud_vpc_mixed` | Enterprise | 5 / 8 / 13 | 27 | 0.6970 | 2.2223 | 95.552482% | 2.98 ms | MATCH (100% exact) |
-| `enterprise_subsea_mesh_mixed`| Enterprise | 5 / 9 / 14 | 31 | 0.6550 | 2.0526 | 98.310408% | 3.48 ms | MATCH (100% exact) |
-| `enterprise_k8s_cluster_mixed`| Enterprise | 6 / 10 / 16 | 65 | 0.7060 | 2.3802 | 98.742144% | 7.30 ms | MATCH (100% exact) |
+| `enterprise_subsea_mesh_mixed` | Enterprise | 5 / 9 / 14 | 31 | 0.6550 | 2.0526 | 98.310408% | 3.48 ms | MATCH (100% exact) |
+| `enterprise_k8s_cluster_mixed` | Enterprise | 6 / 10 / 16 | 65 | 0.7060 | 2.3802 | 98.742144% | 7.30 ms | MATCH (100% exact) |
 | `enterprise_power_grid_mixed` | Enterprise | 8 / 14 / 22 | 133 | 0.6690 | 2.4578 | 98.510313% | 32.98 ms | UNCHECKED ($Tot=22$) |
-| `enterprise_avionics_qmr_mixed`| Enterprise | 6 / 14 / 20 | 345 | 0.6430 | 2.7661 | 99.997405% | 142.72 ms | UNCHECKED ($Tot=20$) |
+| `enterprise_avionics_qmr_mixed` | Enterprise | 6 / 14 / 20 | 345 | 0.6430 | 2.7661 | 99.997405% | 142.72 ms | UNCHECKED ($Tot=20$) |
 
 ---
 
@@ -77,4 +79,3 @@ Evaluated with node budget cap 100,000 nodes and timeout cap 30.0s on Windows 11
 ## 4. Conclusion & Impact
 
 Hypothesis H13 is confirmed. Dual mixed-cut compilation unifies node failures and edge failures under a single sound, complete, and minimal monotone CNF formula with zero auxiliary variables.
-

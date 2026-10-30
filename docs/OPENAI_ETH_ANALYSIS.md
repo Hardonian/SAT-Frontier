@@ -14,6 +14,7 @@ $$T(n) = 2^{O\left(\frac{n}{\sqrt{\log n}}\right)}$$
 If formally and mathematically sound, this result would refute the Exponential Time Hypothesis (ETH), a foundational conjecture upon which hundreds of conditional lower bounds in theoretical computer science rely.
 
 SAT-Frontier conducted an exhaustive, isolated source-code audit and build attempt of this claim (Milestone M1). Our findings:
+
 1. **The Claim is Unverified by the Lean 4 Kernel**: To date, the formal proof has **not completed kernel compilation**. The formal verification is blocked by a massive dependency explosion: 3,091 transitive Lean modules trigger an unconstrained multi-process compiler fanout that exceeds an 11.9 GB RSS memory ceiling, terminating with `exit 137` / timeout prior to axiom validation.
 2. **The "Sorry" Clarification**: Online discussion noted a `sorry` in `lean/ComparatorChallenges/SubexponentialSAT.lean`. Our audit confirms that this `sorry` is in the *challenge declaration* (a specification stub intended to be checked against an implementation). The implementation endpoint in `SqrtLogSpace/Final.lean` does not contain a lexical `sorry`; however, because the Lean kernel has not verified `Final.lean`, no `#print axioms` report exists to establish proof soundness.
 3. **Synergy with SAT-Frontier's Research**: OpenAI's Appendix D attributes its sharpest asymptotic bounds to **Tensor Network Contraction**. In our laboratory, we implemented and evaluated Tensor Network Contraction (Hypothesis H7) and Dual Cut Compilation (Hypothesis H9), providing independent empirical grounding for where tensor and structural decomposition methods succeed and where they encounter phase transitions.
@@ -23,6 +24,7 @@ SAT-Frontier conducted an exhaustive, isolated source-code audit and build attem
 ## 2. Anatomy of the OpenAI Manuscript Claims
 
 ### Theorem 1.1 (Preprint Statement)
+
 For each fixed $k \ge 2$ and $n \ge 20$, the preprint claims deterministic exact #$k$-SAT in:
 $$(n + m)^{O_k(1)} \cdot 2^{O_k\left( \frac{n \log \log n}{\sqrt{\log n}} \right)}$$
 bit operations in polynomial space. For bounded clause density ($m \le D n$), the paper claims:
@@ -30,11 +32,13 @@ $$2^{O_{k,D}\left( \frac{n}{\sqrt{\log n}} \right)}$$
 with polynomial overhead, attributed in Appendix D to a multi-linear tensor contraction argument.
 
 ### Formal Statement in Lean 4
+
 The formal comparator endpoint (`lean/ComparatorChallenges/SubexponentialSAT.lean` and `SqrtLogSpace/Final.lean`) formalizes a *weaker* square-log-log scale:
 $$O\left( \frac{n (\log \log n)^2}{\sqrt{\log n}} \right)$$
 with $(n+16)$ inside the logarithms.
 
 Key characteristics of the formalization:
+
 - **Existential Turing Machine**: For each fixed clause width $k \ge 2$, there *exists* a finite deterministic Turing machine, tape alphabet, and constants $C, A, S$ bounding runtime across all formulas of width $\le k$. The statement does not provide a single uniform algorithm operating across arbitrary $k$.
 - **Primitive Bit-Cost Model**: Runtime is measured in primitive step transitions on a multi-tape Turing machine, rather than unit-cost arithmetic RAM.
 - **Encoding Requirements**: Formulas are formalized as finite sets of finite sets of literals over `Fin n`. Canonical input is unary-encoded and framed, not standard DIMACS.
@@ -45,7 +49,8 @@ Key characteristics of the formalization:
 
 Our audit attempted to verify the claim using the official Lean 4.34.1 toolchain in an isolated scratch environment with sandboxing (`landrun`) and CPU pinning.
 
-### The Blocker Mechanism:
+### The Blocker Mechanism
+
 ```mermaid
 flowchart TD
     A["Lake Build Command"] --> B["Lake Invokes Transitive Dependencies"]
@@ -89,18 +94,21 @@ To definitively resolve Milestone M1 and determine whether OpenAI's proof is ker
 
 1. **Constrained Concurrency Build**:
    Execute Lake with strict concurrency throttling (`-j 4`) to prevent multi-process memory explosion:
+
    ```bash
    bash scripts/run_lean4_audit.sh 4
    ```
+
 2. **Axiom Extraction**:
    Once prerequisite object files are compiled, execute the standalone axiom extraction script:
+
    ```bash
    lake env lean scripts/extract_axioms.lean
    ```
+
    This will query the Lean 4 kernel directly for:
    `#print axioms OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_and_sat`
 3. **Decision Criteria**:
    - **Sound Verification**: The output reports exclusively `propext`, `Quot.sound`, `Classical.choice`. Milestone M4 (Algorithmic Extraction) is unblocked.
    - **Admitted Subgoal**: The output reports `sorryAx`. The proof is incomplete.
    - **Resource Limit**: Lake fails even under bounded concurrency on 168 GB RAM. The blocker remains architectural.
-

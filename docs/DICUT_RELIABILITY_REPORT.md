@@ -13,16 +13,19 @@
 Computing **Directed Two-Terminal Reliability** ($s \leadsto t$) on directed graphs is classical #P-complete (Valiant 1979). In modern infrastructure—ranging from microservice call graphs, Kubernetes service meshes, and Airflow DAGs to interbank financial clearing systems (Fedwire RTGS) and autonomous vehicle sensor-to-actuator RPC pipelines—dependencies and communication links are inherently asymmetric ($u \to v \neq v \to u$).
 
 Historically, encoding directed reachability in Boolean satisfiability suffered from:
+
 1. **Exponential Path Enumeration**: Enumerable simple directed paths grow exponentially on DAGs and are intractable on cyclic directed networks.
 2. **Subtour and Cycle Feedback Blowup**: Directed feedback cycles create spurious circular paths, requiring Miller-Tucker-Zemlin (MTZ) subtour elimination constraints or auxiliary sequence variables that drastically inflate formula size.
 
 In this campaign, we formulated, implemented, and empirically verified the **Dual Dicut Monotone CNF Compilation Theorem**:
 $$\Phi_{\text{dicut}}(D, s, t) = \bigwedge_{S \in \mathcal{S}_{\text{min}}} \left( \bigvee_{e \in \delta^+(S)} x_e \right)$$
 where each forward directed cut $\delta^+(S) = \{(u, v) \in A : u \in S, v \in V \setminus S\}$ is an inclusion-minimal directed $s-t$ cut if and only if:
+
 1. Every vertex $u \in S$ is reachable from $s$ in the induced subgraph $D[S]$.
 2. For every arc $(u, v) \in \delta^+(S)$, the target vertex $v$ can reach $t$ in the induced subgraph $D[V \setminus S]$.
 
-### Key Empirical Findings:
+### Key Empirical Findings
+
 1. **Zero Auxiliary Variables**: Requires strictly $|A|$ Boolean variables, completely eliminating path indicators and subtour elimination constraints.
 2. **100% Independent Oracle Agreement**: Across all 18 instances where $|A| \le 16$, exact rational probabilities identically matched the independent brute-force state enumeration oracle with zero discrepancy.
 3. **Sub-50ms Solving Latencies**: Solved all 24 benchmark instances—including layered DAGs up to 310 cuts and distributed event meshes up to 182 cuts—in under 45 milliseconds on standard CPU hardware.
@@ -80,4 +83,3 @@ Evaluated with node budget cap 100,000 nodes and timeout cap 30.0s on Windows 11
 ## 4. Conclusion & Impact
 
 Hypothesis H12 is confirmed. Dual dicut monotone CNF compilation solves the longstanding challenge of encoding directed network reliability in Boolean satisfiability with zero auxiliary variables and zero subtour elimination bloat. Combined with algebraic polynomial counting, it provides an exact, robust, sub-50ms engine for directed reachability and SLA auditing.
-

@@ -21,7 +21,8 @@ Under the semiring $(\mathbb{Z}[x], +, \times)$, the weighted model count of the
 $$P(x) = \sum_{k=0}^{|E|} c_k x^k$$
 where $c_k \in \mathbb{Z}_{\ge 0}$ is the exact number of operational edge subsets of cardinality $k$ that guarantee system connectivity.
 
-### Key Theoretical Guarantees:
+### Key Theoretical Guarantees
+
 1. **Single-Pass Evaluation**: Evaluates the complete combinatorial spectrum $\{c_0, c_1, \dots, c_{|E|}\}$ in one DPLL search pass with zero floating-point approximation error.
 2. **Instant Continuous Evaluation**: For any operational probability $p \in [0, 1]$, the all-terminal or two-terminal reliability is given instantly in $O(|E|)$ by:
    $$R(p) = (1 - p)^{|E|} P\left(\frac{p}{1 - p}\right) = \sum_{k=0}^{|E|} c_k p^k (1 - p)^{|E| - k}$$
@@ -82,4 +83,3 @@ Evaluated with DLCS branching heuristic and node budget cap 100,000 nodes on Win
 ## 4. Conclusion & Impact
 
 Hypothesis H11 is confirmed. Algebraic model counting over $\mathbb{Z}[x]$ elevates exact SAT model counting from static point probability computation to complete analytical parametric analysis. Infrastructure engineers and physicists can now compute closed-form reliability polynomials, exact susceptibility functions, and percolation phase transition points in seconds on standard CPU hardware.
-

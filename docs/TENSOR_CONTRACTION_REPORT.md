@@ -1,9 +1,11 @@
 # Tensor Network Contraction Empirical Study Report (Hypothesis H7)
 
 ## Executive Summary
+
 This empirical study evaluates **Tensor Network Contraction** for exact model counting (#SAT) and Weighted Model Counting (#WMC) against standard Combinatorial DPLL counting (`combined` with component decomposition and cache memoization, and `baseline`).
 
 We evaluated 72 solver runs across 18 benchmark instances spanning 4 distinct topological families:
+
 1. **Ladder Reliability Circuits** (treewidth $O(1)$)
 2. **Planar Grid Networks** (treewidth $O(L)$)
 3. **Wheatstone Bridge** (analytic network reliability baseline)
@@ -59,14 +61,18 @@ All 72 runs completed with **100% exact oracle and analytic agreement** (0 error
 ---
 
 ## Verification & Integrity
+
 - **Artifact Directory**: `evidence/tensor-study-001/`
 - **Runs Recorded**: 72
 - **Oracle / Analytic Discrepancies**: 0
 - **Verification Command**:
+
   ```bash
   python verify_evidence.py evidence/tensor-study-001
   ```
+
   Result:
+
   ```json
   {
     "status": "hashes_verified",
@@ -75,4 +81,3 @@ All 72 runs completed with **100% exact oracle and analytic agreement** (0 error
     "note": "Integrity only; does not establish a proof or independent correctness."
   }
   ```
-
