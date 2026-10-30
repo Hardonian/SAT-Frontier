@@ -1,0 +1,2 @@
+Instances: 3; depths: [8]; workers: 32; evidence: [REDACTED_LOCAL_PATH]
+grid_3x10_d8_w32: exact, nodes=6204697, process_seconds=37.331

@@ -1,0 +1,15 @@
+{
+  "description": "Publication copies only; original evidence and original hash ledgers remain unchanged. Original hashes identify unredacted bytes, not redacted copies.",
+  "redactions": [
+    {
+      "path": "logs/grid_3x10_d8_w32.json",
+      "original_sha256": "bf65420ac49817532a62ffba59a5ab051ad892ba223684dcf9712d43e1495c81",
+      "publication_sha256": "38fd3821c8bbdb0a3b5703b76478eff973e1b5bd61a467246d4c9879c2cbf13b"
+    },
+    {
+      "path": "results/grid_3x10_d8_w32.json",
+      "original_sha256": "cb4ccc9cedfa703b3f141e2eaf75bb856cdd0f1518ed99c7470f6b7ae47fd34b",
+      "publication_sha256": "baf07dddc1e559ead435717058e2019aafafa38b8de13c581b4b5c6bf1ad7938"
+    }
+  ]
+}

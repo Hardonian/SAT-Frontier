@@ -1,0 +1,7 @@
+brute-force 2x2: MATCH 9639/10000
+brute-force 2x3: MATCH 299619/312500
+brute-force 3x3: MATCH 972502171407/1000000000000
+independent grid_3x10: 48223721615170979353976679548137128229909096749/50000000000000000000000000000000000000000000000
+CNF solver depth 6: MATCH
+CNF solver depth 8: MATCH
+Scope: independent graph connectivity algorithm; comparison assumes the pinned CNF represents that same grid.

@@ -1,0 +1,4 @@
+Instances: 1; depths: [6, 8]; workers: 4; evidence: [REDACTED_LOCAL_PATH]
+grid_3x10_d6_w4: exact, nodes=5933789, process_seconds=142.482
+grid_3x10_d8_w4: exact, nodes=6204697, process_seconds=142.947
+Complete: 2/2 exact, 0 unknown, 1 cross-depth comparisons

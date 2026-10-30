@@ -1,0 +1,24 @@
+{
+  "command": [
+    "[REDACTED_LOCAL_PATH]",
+    "-m",
+    "sat_frontier.epyc_runner",
+    "[REDACTED_LOCAL_PATH]",
+    "--depth",
+    "8",
+    "--workers",
+    "32",
+    "--seconds-per-cube",
+    "150.0",
+    "--max-nodes-per-cube",
+    "2000000",
+    "--out",
+    "[REDACTED_LOCAL_PATH]",
+    "--checkpoint-dir",
+    "[REDACTED_LOCAL_PATH]"
+  ],
+  "returncode": 0,
+  "stdout": "Loading instance: [REDACTED_LOCAL_PATH]\nSystem cores detected: 64 | Allocating workers: 32\nMode: Weighted (#WMC) | Algorithm: combined_wmc\nNUMA strategy: interleave | Resources: {\"available_memory_mb\": 156764, \"cpu_count\": 64, \"cpus_per_node\": [], \"load_avg\": [2.9794921875, 8.31787109375, 6.3916015625], \"numa_nodes\": 0, \"total_memory_mb\": 172593}\nGenerating lookahead cubes at depth 8 (2^8 = 256 cubes)...\n\n============================================================\nEPYC Parallel Run Status: EXACT\nExact Probability / Weight Fraction: 48223721615170979353976679548137128229909096749/50000000000000000000000000000000000000000000000\nApproximate Float: 0.9644744323034196\nCubes: 256 total (0 incomplete)\nTotal Search Nodes: 6,204,697\nWall Clock Time: 37.175s (6.9 cubes/sec on 32 workers)\nCube time median/max: 0.1191s / 16.1058s\nPeak RSS: 25 MB\n============================================================\nSaved results to [REDACTED_LOCAL_PATH]\n",
+  "stderr": "",
+  "process_wall_seconds": 37.33117596300144
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Publication copies only; original evidence and original hash ledgers remain unchanged. Original hashes identify unredacted bytes, not redacted copies.",
+  "redactions": [
+    {
+      "path": "campaign.log",
+      "original_sha256": "a0cb4fa9956ba2f3681fb4d028fcf2eb471f13a22e067c52f958f8c158d1fac5",
+      "publication_sha256": "33c06bfbd8d3c5c4155bb4576ed4c79a309f2d8dc33451852521d3ea92cf5072"
+    }
+  ]
+}

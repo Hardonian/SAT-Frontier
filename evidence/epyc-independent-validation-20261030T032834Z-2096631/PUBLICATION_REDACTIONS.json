@@ -1,0 +1,25 @@
+{
+  "description": "Publication copies only; original evidence and original hash ledgers remain unchanged. Original hashes identify unredacted bytes, not redacted copies.",
+  "redactions": [
+    {
+      "path": "crossdepth-resource.log",
+      "original_sha256": "246afca290b0b0d741ecea7ff609b320863916a07c14dcea2196ba9bbf7267be",
+      "publication_sha256": "ba9d649e2d76c217375e5b8a74e501d73f43b0f86e74d6f16f3a0d572a5ae89b"
+    },
+    {
+      "path": "crossdepth-campaign.log",
+      "original_sha256": "97204a725fdba5d56fe64a0bad037fe19488dc1fce7f2cdbad2212e77e01d0d7",
+      "publication_sha256": "aa19890aee2693ed445029441eabcb2f0a415496641a88d16738f64ebe2145ec"
+    },
+    {
+      "path": "campaign.log",
+      "original_sha256": "cfce199953c98aac09c0e63ad5ca54317059f25e1a4d2f6dfcf7f7554e949219",
+      "publication_sha256": "e2a4f38c6f5be9a39a2a479c2a5768df04c63c57e811f73a8717319fc8903a67"
+    },
+    {
+      "path": "resource.log",
+      "original_sha256": "515e0585f5d3ca612c288a8dea725c449056087c29b4c7e7416c9ba264c78c50",
+      "publication_sha256": "2c7ba756c416b54f98355da15239c2b37ef949d51d5ecdddeda9b7f34d5f0367"
+    }
+  ]
+}
