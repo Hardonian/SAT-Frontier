@@ -70,7 +70,7 @@ python3 scripts/run_epyc_cut_campaign.py --dry-run
 ---
 
 ## 5. Verification & Safety Protocols
-1. **Durable Per-Cube Checkpoints**: Checkpoints are written to `evidence/epyc-cut-001/checkpoints/` after every cube completes, ensuring resume capability without work loss upon preemption.
-2. **Cross-Depth Exact Rational Invariance**: For any topology solved at multiple depths (e.g., $d=4, 6, 8$), the resulting rational weight fractions (`Fraction`) must match with zero discrepancy.
-3. **Evidence Integrity**: Outputs are ledgered in `evidence/epyc-cut-001/manifest.json` and validated by `python3 verify_evidence.py evidence/epyc-cut-001`.
+1. **Evidence isolation**: Every invocation requires a new, nonexistent `--evidence-dir`. Dry runs create nothing. Partial campaigns retain logs, checkpoints and completed rows but cannot be resumed in place; choose a fresh directory for another invocation.
+2. **Cross-depth invariance**: Exact counts or rational weights are compared across successful depths; any mismatch stops the campaign. This is not an independent correctness check.
+3. **Evidence integrity**: Completed runs include raw results, logs, checkpoints, digest-addressed inputs and source hashes. Run `python3 verify_evidence.py <evidence-dir>` to check integrity against the same source tree. This does not establish scientific validity. Unknown results remain unknown; runner crashes stop the campaign without a complete manifest.
 

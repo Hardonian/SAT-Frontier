@@ -1,15 +1,7 @@
-"""Turnkey High-Core AMD EPYC Campaign Runner on Frontier Cut-Compiled Topologies.
+"""Run a cut-CNF campaign in a fresh, immutable evidence directory.
 
-Executes Parallel Cube-and-Conquer lookahead on the 10 frontier cut-compiled benchmark
-instances (grid_3x8..3x11, grid_4x5..4x7, grid_5x5, barbell, chvatal) across
-depths d in {4, 6, 8} and worker counts up to 64.
-
-Strictly follows AGENTS.md:
-- Fresh evidence directory: evidence/epyc-cut-001/
-- No relabeling unknown as UNSAT or zero
-- Cross-depth exact rational invariant verification
-- Durable per-cube checkpoints
-- Cryptographic SHA-256 ledger and verification
+A failed or interrupted campaign retains its raw logs and partial records, but has
+no complete manifest. A new invocation always requires a new evidence directory.
 """
 from __future__ import annotations
 
@@ -17,6 +9,7 @@ import argparse
 import csv
 import hashlib
 import json
+import math
 import os
 import platform
 import subprocess
@@ -24,259 +17,179 @@ import sys
 import time
 from fractions import Fraction
 from pathlib import Path
-from typing import Any, Dict, List
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))
-
-
-def sha256_bytes(b: bytes) -> str:
-    return hashlib.sha256(b).hexdigest()
 
 
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def validate_result(data, returncode, expected_cubes=None):
+    """Reject process failures and inconsistent solver outputs, never invent metrics."""
+    status = data.get('status')
+    if (status, returncode) not in (('exact', 0), ('unknown', 2)):
+        raise ValueError(f'runner status/exit mismatch: {status!r}/{returncode}')
+    results = data['results']
+    total = data['cubes_total']
+    incomplete = data['cubes_incomplete']
+    nodes = data['total_nodes']
+    if not isinstance(results, list) or len(results) != total or not results:
+        raise ValueError('cube results do not match cubes_total')
+    if expected_cubes is not None:
+        actual = [tuple(r['cube']) for r in results]
+        if len(actual) != len(set(actual)) or set(actual) != set(expected_cubes):
+            raise ValueError('cube partition does not match requested tasks')
+    if sum(r['nodes'] for r in results) != nodes:
+        raise ValueError('cube node sum mismatch')
+    if sum(r['status'] != 'exact' for r in results) != incomplete:
+        raise ValueError('incomplete cube count mismatch')
+    if status == 'exact':
+        if incomplete:
+            raise ValueError('exact result contains incomplete cubes')
+        if data.get('weight_fraction') is not None:
+            value = Fraction(data['weight_fraction'])
+            if sum((Fraction(r['weight_fraction']) for r in results), Fraction()) != value:
+                raise ValueError('cube weight sum mismatch')
+            return ('weighted', value)
+        if data.get('count') is not None:
+            value = data['count']
+            if sum(r['count'] for r in results) != value:
+                raise ValueError('cube count sum mismatch')
+            return ('unweighted', value)
+        raise ValueError('exact result missing count or weight')
+    if data.get('weight_fraction') is not None or data.get('count') is not None:
+        raise ValueError('unknown result contains a count')
+    return None
+
+
 def main():
-    parser = argparse.ArgumentParser(description="EPYC High-Core Cut Campaign Runner")
-    parser.add_argument("--workers", type=int, default=None, help="Worker count (default: all available logical cores)")
-    parser.add_argument("--depths", nargs="+", type=int, default=[4, 6, 8], help="Cube lookahead depths (e.g. 4 6 8)")
-    parser.add_argument("--instances-dir", default=str(ROOT / "instances" / "epyc-cut-frontier"), help="Directory of cut CNFs")
-    parser.add_argument("--evidence-dir", default=str(ROOT / "evidence" / "epyc-cut-001"), help="Output evidence directory")
-    parser.add_argument("--seconds-per-cube", type=float, default=30.0, help="Per-cube time budget in seconds")
-    parser.add_argument("--max-nodes-per-cube", type=int, default=200000, help="Per-cube search node budget")
-    parser.add_argument("--dry-run", action="store_true", help="Print plan and exit without execution")
-
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--workers', type=int, default=None)
+    parser.add_argument('--depths', nargs='+', type=int, default=[4, 6, 8])
+    parser.add_argument('--instances-dir', default=str(ROOT / 'instances' / 'epyc-cut-frontier'))
+    parser.add_argument('--evidence-dir', default=str(ROOT / 'evidence' / 'epyc-cut-001'))
+    parser.add_argument('--seconds-per-cube', type=float, default=30.0)
+    parser.add_argument('--max-nodes-per-cube', type=int, default=200000)
+    parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
-
-    instances_dir = Path(args.instances_dir)
-    evidence_dir = Path(args.evidence_dir)
-    checkpoints_dir = evidence_dir / "checkpoints"
-    inst_storage_dir = evidence_dir / "instances"
-
-    evidence_dir.mkdir(parents=True, exist_ok=True)
-    checkpoints_dir.mkdir(parents=True, exist_ok=True)
-    inst_storage_dir.mkdir(parents=True, exist_ok=True)
-
-    available_cpus = os.cpu_count() or 1
-    workers = args.workers if args.workers is not None else min(64, available_cpus)
-
-    cnf_files = sorted(list(instances_dir.glob("*.cnf")))
-    if not cnf_files:
-        print(f"Error: No .cnf files found in {instances_dir}")
-        sys.exit(1)
-
-    print("=" * 70)
-    print("SAT-Frontier: High-Core EPYC Cut-Compiled Scaling Campaign")
-    print("=" * 70)
-    print(f"Host:              {platform.node()} ({platform.system()} {platform.machine()})")
-    print(f"CPU:               {platform.processor()}")
-    print(f"Available Cores:   {available_cpus}")
-    print(f"Allocated Workers: {workers}")
-    print(f"Depths:            {args.depths}")
-    print(f"Instances ({len(cnf_files)}):     {[f.stem for f in cnf_files]}")
-    print(f"Output Directory:  {evidence_dir}")
-    print("=" * 70)
-
+    workers = args.workers if args.workers is not None else min(64, os.cpu_count() or 1)
+    if workers < 1 or any(d < 0 for d in args.depths) or len(set(args.depths)) != len(args.depths):
+        parser.error('workers must be positive and depths must be distinct nonnegative integers')
+    if not math.isfinite(args.seconds_per_cube) or args.seconds_per_cube <= 0 or args.max_nodes_per_cube <= 0:
+        parser.error('budgets must be positive and finite')
+    cnfs = sorted(Path(args.instances_dir).glob('*.cnf'))
+    if not cnfs:
+        parser.error('no CNF instances found')
+    evidence = Path(args.evidence_dir).absolute()
+    print(f'Instances: {len(cnfs)}; depths: {args.depths}; workers: {workers}; evidence: {evidence}', flush=True)
     if args.dry_run:
-        print("Dry run requested. Exiting without execution.")
         return
-
-    # Write config
-    config = {
-        "study": "epyc-cut-001",
-        "description": "High-Core AMD EPYC Parallel Cube-and-Conquer Campaign on Frontier Cut-Compiled Topologies",
-        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "allocated_workers": workers,
-        "depths": args.depths,
-        "seconds_per_cube": args.seconds_per_cube,
-        "max_nodes_per_cube": args.max_nodes_per_cube,
-        "hardware": {
-            "system": platform.system(),
-            "cpu": platform.processor(),
-            "cores": available_cpus,
-            "python": platform.python_version(),
-        },
-    }
-    (evidence_dir / "config.json").write_text(json.dumps(config, indent=2) + "\n")
-
-    runs_csv_path = evidence_dir / "runs.csv"
-    runs_jsonl_path = evidence_dir / "runs.jsonl"
-    csv_rows = []
-    jsonl_rows = []
-    artifact_hashes = {
-        "config.json": sha256_file(evidence_dir / "config.json"),
-    }
-
-    # Copy / pin instances into evidence directory
-    for cnf in cnf_files:
-        dest = inst_storage_dir / cnf.name
-        if not dest.exists():
-            dest.write_bytes(cnf.read_bytes())
-        artifact_hashes[f"instances/{cnf.name}"] = sha256_file(dest)
-
-    csv_headers = [
-        "instance",
-        "depth",
-        "workers",
-        "cubes_total",
-        "cubes_incomplete",
-        "status",
-        "search_nodes",
-        "solve_time_sec",
-        "cubes_per_sec",
-        "weight_fraction",
-    ]
-
-    total_runs = 0
-    total_exact = 0
-    total_unknown = 0
-    cross_depth_invariants = {}
-
-    for cnf in cnf_files:
-        inst_name = cnf.stem
-        for depth in args.depths:
-            total_runs += 1
-            run_out_path = evidence_dir / f"{inst_name}_d{depth}_w{workers}.json"
-            ckpt_dir = checkpoints_dir / f"{inst_name}_d{depth}"
-            ckpt_dir.mkdir(parents=True, exist_ok=True)
-
-            cmd = [
-                sys.executable, "-m", "sat_frontier.epyc_runner",
-                str(cnf),
-                "--depth", str(depth),
-                "--workers", str(workers),
-                "--seconds-per-cube", str(args.seconds_per_cube),
-                "--max-nodes-per-cube", str(args.max_nodes_per_cube),
-                "--out", str(run_out_path),
-                "--checkpoint-dir", str(ckpt_dir),
-            ]
-
-            t0 = time.perf_counter()
-            proc = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
-            wall_time = time.perf_counter() - t0
-
-            if run_out_path.exists():
-                res_data = json.loads(run_out_path.read_text())
-                status = res_data.get("status", "unknown")
-                nodes = res_data.get("nodes", 0)
-                cubes_total = res_data.get("cubes_total", 2**depth)
-                cubes_incomplete = res_data.get("cubes_incomplete", 0)
-                cps = res_data.get("cubes_per_sec", 0.0)
-                wf_str = res_data.get("weight_fraction", "")
-                artifact_hashes[run_out_path.name] = sha256_file(run_out_path)
-            else:
-                status = "unknown"
-                nodes = 0
-                cubes_total = 2**depth
-                cubes_incomplete = cubes_total
-                cps = 0.0
-                wf_str = ""
-
-            if status == "exact":
-                total_exact += 1
-                if inst_name not in cross_depth_invariants:
-                    cross_depth_invariants[inst_name] = wf_str
-                else:
-                    assert cross_depth_invariants[inst_name] == wf_str, (
-                        f"CRITICAL: Cross-depth rational mismatch on {inst_name}: "
-                        f"{cross_depth_invariants[inst_name]} != {wf_str}"
-                    )
-            else:
-                total_unknown += 1
-
-            record = {
-                "instance": inst_name,
-                "depth": depth,
-                "workers": workers,
-                "cubes_total": cubes_total,
-                "cubes_incomplete": cubes_incomplete,
-                "status": status,
-                "search_nodes": nodes,
-                "solve_time_sec": round(wall_time, 4),
-                "cubes_per_sec": round(cps, 2),
-                "weight_fraction": wf_str,
-            }
-            jsonl_rows.append(record)
-            csv_rows.append([record[k] for k in csv_headers])
-
-            print(
-                f"[{total_runs:02d}/{len(cnf_files)*len(args.depths):02d}] "
-                f"{inst_name:16s} d={depth} w={workers:2d} | "
-                f"Status={status.upper():7s} Nodes={nodes:8,d} | "
-                f"Time={wall_time:6.2f}s CPS={cps:6.1f} | "
-                f"Incomplete={cubes_incomplete:2d}/{cubes_total:3d}"
-            )
-
-    # Write CSV
-    with open(runs_csv_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(csv_headers)
-        writer.writerows(csv_rows)
-    artifact_hashes["runs.csv"] = sha256_file(runs_csv_path)
-
-    # Write JSONL
-    with open(runs_jsonl_path, "w", encoding="utf-8") as f:
-        for r in jsonl_rows:
-            f.write(json.dumps(r) + "\n")
-    artifact_hashes["runs.jsonl"] = sha256_file(runs_jsonl_path)
-
-    summary = {
-        "study": "epyc-cut-001",
-        "total_runs": total_runs,
-        "exact_runs": total_exact,
-        "unknown_runs": total_unknown,
-        "allocated_workers": workers,
-        "invariants_checked": len(cross_depth_invariants),
-    }
-    (evidence_dir / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
-    artifact_hashes["summary.json"] = sha256_file(evidence_dir / "summary.json")
-
-    # Manifest
-    source_files = [
-        "pyproject.toml",
-        "sat_frontier/__init__.py",
-        "sat_frontier/core.py",
-        "sat_frontier/reliability.py",
-        "sat_frontier/wmc.py",
-        "sat_frontier/cut_compiler.py",
-        "sat_frontier/cube_conquer.py",
-        "sat_frontier/epyc_runner.py",
-    ]
-    source_sha256 = {f: sha256_file(ROOT / f) for f in source_files}
-
-    manifest = {
-        "study": "epyc-cut-001",
-        "schema_version": 1,
-        "runs": total_runs,
-        "instances": len(cnf_files),
-        "exact": total_exact,
-        "unknown": total_unknown,
-        "status": "complete",
-        "hardware": config["hardware"],
-        "config_sha256": artifact_hashes["config.json"],
-        "artifact_sha256": dict(sorted(artifact_hashes.items())),
-        "source_sha256": source_sha256,
-    }
-
-    manifest_path = evidence_dir / "manifest.json"
-    manifest_bytes = (json.dumps(manifest, indent=2) + "\n").encode("utf-8")
-    manifest_path.write_bytes(manifest_bytes)
-
-    # SHA256SUMS
-    sha256sums_lines = []
-    for k in sorted(artifact_hashes.keys()):
-        sha256sums_lines.append(f"{artifact_hashes[k]}  {k}")
-    sha256sums_lines.append(f"{sha256_bytes(manifest_bytes)}  manifest.json")
-    (evidence_dir / "SHA256SUMS").write_text("\n".join(sha256sums_lines) + "\n")
-
-    print("\n" + "=" * 70)
-    print(f"CAMPAIGN COMPLETE: {total_exact}/{total_runs} exact runs, {len(cross_depth_invariants)} invariant checks passed.")
-    print(f"Manifest written to: {manifest_path}")
-    print("=" * 70)
+    # Atomic reservation, including refusal of existing empty dirs and symlinks.
+    evidence.mkdir(parents=True, exist_ok=False)
+    (evidence / 'instances').mkdir()
+    (evidence / 'checkpoints').mkdir()
+    (evidence / 'logs').mkdir()
+    (evidence / 'results').mkdir()
+    config = {'study': evidence.name, 'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+              'workers': workers, 'depths': args.depths, 'seconds_per_cube': args.seconds_per_cube,
+              'max_nodes_per_cube': args.max_nodes_per_cube,
+              'hardware': {'system': platform.system(), 'machine': platform.machine(),
+                           'cpu': platform.processor(), 'logical_cpus': os.cpu_count(), 'python': platform.python_version()}}
+    (evidence / 'config.json').write_text(json.dumps(config, indent=2) + '\n')
+    sources = [ROOT / 'pyproject.toml', Path(__file__).resolve()]
+    sources.extend(sorted((ROOT / 'sat_frontier').rglob('*.py')))
+    sources.extend(sorted((ROOT / 'tests').rglob('*.py')))
+    source_hashes = {str(p.relative_to(ROOT)): sha256_file(p) for p in sources}
+    (evidence / 'source-hashes.json').write_text(json.dumps(source_hashes, indent=2) + '\n')
+    # Freeze exactly the bytes passed to the solver, with digest-addressed filenames.
+    instances = []
+    for cnf in cnfs:
+        content = cnf.read_bytes()
+        digest = hashlib.sha256(content).hexdigest()
+        pinned = evidence / 'instances' / (digest + '.cnf')
+        if not pinned.exists():
+            pinned.write_bytes(content)
+        instances.append((cnf.stem, digest, pinned))
+    headers = ['instance', 'instance_sha256', 'depth', 'workers', 'cubes_total', 'cubes_incomplete',
+               'status', 'search_nodes', 'solver_wall_seconds', 'process_wall_seconds',
+               'cubes_per_second', 'count', 'weight_fraction', 'returncode', 'result_path']
+    invariant = {}
+    comparisons = exact = unknown = runs = 0
+    with (evidence / 'runs.csv').open('x', newline='', encoding='utf-8') as csvfile, \
+         (evidence / 'runs.jsonl').open('x', encoding='utf-8') as jsonfile:
+        writer = csv.DictWriter(csvfile, fieldnames=headers)
+        writer.writeheader()
+        csvfile.flush()
+        for name, digest, pinned in instances:
+            for depth in args.depths:
+                run_id = f'{name}_d{depth}_w{workers}'
+                result = evidence / 'results' / (run_id + '.json')
+                checkpoint = evidence / 'checkpoints' / run_id
+                checkpoint.mkdir()
+                cmd = [sys.executable, '-m', 'sat_frontier.epyc_runner', str(pinned), '--depth', str(depth),
+                       '--workers', str(workers), '--seconds-per-cube', str(args.seconds_per_cube),
+                       '--max-nodes-per-cube', str(args.max_nodes_per_cube), '--out', str(result),
+                       '--checkpoint-dir', str(checkpoint)]
+                start = time.perf_counter()
+                proc = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
+                elapsed = time.perf_counter() - start
+                (evidence / 'logs' / (run_id + '.json')).write_text(json.dumps(
+                    {'command': cmd, 'returncode': proc.returncode, 'stdout': proc.stdout, 'stderr': proc.stderr,
+                     'process_wall_seconds': elapsed}, indent=2) + '\n')
+                try:
+                    data = json.loads(result.read_text())
+                    sys.path.insert(0, str(ROOT))
+                    from sat_frontier.epyc_runner import load_formula
+                    from sat_frontier.cube_conquer import generate_cubes
+                    formula, weighted = load_formula(pinned)
+                    n_vars = formula.n_vars if weighted else formula.n
+                    expected_cubes = generate_cubes(formula.clauses, n_vars, depth=depth)
+                    value = validate_result(data, proc.returncode, expected_cubes)
+                    if value is not None:
+                        if digest in invariant:
+                            if invariant[digest] != value:
+                                raise ValueError(f'cross-depth mismatch for {name}: {invariant[digest]} != {value}')
+                            comparisons += 1
+                        else:
+                            invariant[digest] = value
+                        exact += 1
+                    else:
+                        unknown += 1
+                    row = {'instance': name, 'instance_sha256': digest, 'depth': depth, 'workers': workers,
+                           'cubes_total': data['cubes_total'], 'cubes_incomplete': data['cubes_incomplete'],
+                           'status': data['status'], 'search_nodes': data['total_nodes'],
+                           'solver_wall_seconds': data['total_wall_seconds'], 'process_wall_seconds': elapsed,
+                           'cubes_per_second': data['cubes_per_second'], 'count': data.get('count'),
+                           'weight_fraction': data.get('weight_fraction'), 'returncode': proc.returncode,
+                           'result_path': str(result.relative_to(evidence))}
+                except (OSError, ValueError, KeyError, TypeError, ZeroDivisionError) as exc:
+                    print(f'FAILED {run_id}: {exc}; retained logs and partial evidence in {evidence}', file=sys.stderr)
+                    return 1
+                writer.writerow(row)
+                jsonfile.write(json.dumps(row) + '\n')
+                csvfile.flush()
+                jsonfile.flush()
+                runs += 1
+                print(f'{run_id}: {data["status"]}, nodes={data["total_nodes"]}, process_seconds={elapsed:.3f}', flush=True)
+    if any(not p.is_file() or sha256_file(p) != source_hashes[str(p.relative_to(ROOT))] for p in sources):
+        print(f'FAILED: source changed during campaign; partial evidence retained in {evidence}', file=sys.stderr)
+        return 1
+    summary = {'study': evidence.name, 'total_runs': runs, 'exact_runs': exact, 'unknown_runs': unknown,
+               'cross_depth_comparisons': comparisons}
+    (evidence / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+    # Include checkpoints, raw results and logs in the ledger, not just summaries.
+    artifacts = {str(p.relative_to(evidence)): sha256_file(p) for p in sorted(evidence.rglob('*')) if p.is_file()}
+    manifest = {'study': evidence.name, 'schema_version': 1, 'status': 'complete', 'runs': runs,
+                'instances': len({digest for _, digest, _ in instances}), 'exact': exact, 'unknown': unknown,
+                'config_sha256': artifacts['config.json'], 'artifact_sha256': artifacts, 'source_sha256': source_hashes}
+    manifest_path = evidence / 'manifest.json'
+    manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
+    checksums = {**artifacts, 'manifest.json': sha256_file(manifest_path)}
+    (evidence / 'SHA256SUMS').write_text(''.join(f'{v}  {k}\n' for k, v in sorted(checksums.items())))
+    print(f'Complete: {exact}/{runs} exact, {unknown} unknown, {comparisons} cross-depth comparisons')
+    return 0
 
 
-if __name__ == "__main__":
-    main()
-
+if __name__ == '__main__':
+    sys.exit(main())

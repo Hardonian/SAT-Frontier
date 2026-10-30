@@ -14,7 +14,7 @@ from time import perf_counter
 from pathlib import Path
 
 from .core import Formula, parse_dimacs, solve
-from .wmc import WeightedFormula, wmc_solve
+from .wmc import WeightedFormula, parse_weighted_dimacs, wmc_solve
 
 
 def _sha(text: str) -> str:
@@ -30,7 +30,7 @@ def select_cube_variables(clauses, n_vars, depth=3, priority_vars=None):
     selected = []
     if priority_vars:
         for v in priority_vars:
-            if v in active_vars and len(selected) < depth:
+            if v in active_vars and v not in selected and len(selected) < depth:
                 selected.append(v)
 
     while len(selected) < depth:
@@ -65,8 +65,20 @@ def generate_cubes(clauses, n_vars, depth=3, priority_vars=None):
     return cubes
 
 
-def _cube_signature(dimacs_text: str, cube: tuple, algo: str, seconds: float, max_nodes: int) -> str:
+def _solver_source_digest():
+    """Bind resumed results to the current solver source, not just inputs."""
+    root = Path(__file__).parent
+    h = hashlib.sha256()
+    for path in sorted(root.rglob('*.py')):
+        h.update(str(path.relative_to(root)).encode('utf-8') + b'\0')
+        h.update(hashlib.sha256(path.read_bytes()).digest())
+    return h.hexdigest()
+
+
+def _cube_signature(dimacs_text: str, cube: tuple, algo: str, seconds: float, max_nodes: int, source_digest=None) -> str:
     payload = json.dumps({
+        "version": 3,
+        "source_sha256": source_digest if source_digest is not None else _solver_source_digest(),
         "dimacs_sha256": _sha(dimacs_text),
         "cube": list(cube),
         "algo": algo,
@@ -95,28 +107,9 @@ def _eval_cube_unweighted(args):
 def _eval_cube_weighted(args):
     """Worker function for Weighted Model Count of a single cube."""
     dimacs_text, cube, algo, seconds, max_nodes = args
-    clauses = []
-    weights = {}
-    n_vars = 0
-    for line in dimacs_text.splitlines():
-        line = line.strip()
-        if not line or line.startswith('c'):
-            if line.startswith('c p weight'):
-                parts = line.split()
-                lit = int(parts[3])
-                w = Fraction(parts[4])
-                weights[lit] = w
-            continue
-        if line.startswith('p cnf'):
-            parts = line.split()
-            n_vars = int(parts[2])
-            continue
-        lits = [int(x) for x in line.split() if x != '0']
-        if lits:
-            clauses.append(lits)
-
-    conditioned_clauses = clauses + [[lit] for lit in cube]
-    wf = WeightedFormula(conditioned_clauses, n_vars=n_vars, weights=weights)
+    formula = parse_weighted_dimacs(dimacs_text)
+    conditioned_clauses = formula.clauses + [[lit] for lit in cube]
+    wf = WeightedFormula(conditioned_clauses, n_vars=formula.n_vars, weights=formula.weights)
     res = wmc_solve(wf, algorithm=algo, seconds=seconds, max_nodes=max_nodes)
     return {
         'cube': cube,
@@ -149,6 +142,21 @@ def _save_checkpoint(checkpoint_dir: Path, sig: str, result: dict):
     path.write_text(json.dumps({"signature": sig, **result}, indent=2) + "\n")
 
 
+def _usable_checkpoint(result, cube, weighted):
+    if not isinstance(result, dict) or result.get('status') != 'exact' or result.get('cube') != list(cube):
+        return False
+    value = result.get('weight_fraction' if weighted else 'count')
+    if not weighted:
+        return type(value) is int and value >= 0
+    try:
+        if not isinstance(value, str):
+            return False
+        Fraction(value)
+        return True
+    except (ValueError, ZeroDivisionError):
+        return False
+
+
 def parallel_cube_and_conquer(f, depth=3, num_workers=None, algo='combined',
                               seconds_per_cube=10.0, max_nodes_per_cube=50000,
                               priority_vars=None, checkpoint_dir=None):
@@ -164,10 +172,12 @@ def parallel_cube_and_conquer(f, depth=3, num_workers=None, algo='combined',
     checkpoint_path = Path(checkpoint_dir) if checkpoint_dir else None
     existing = _load_checkpoint(checkpoint_path) if checkpoint_path else {}
 
-    tasks = []
+    tasks, resumed = [], []
+    source_digest = _solver_source_digest()
     for cube in cubes:
-        sig = _cube_signature(dimacs_text, cube, algo, seconds_per_cube, max_nodes_per_cube)
-        if sig in existing:
+        sig = _cube_signature(dimacs_text, cube, algo, seconds_per_cube, max_nodes_per_cube, source_digest)
+        if _usable_checkpoint(existing.get(sig), cube, False):
+            resumed.append(existing[sig])
             continue
         tasks.append((dimacs_text, cube, algo, seconds_per_cube, max_nodes_per_cube, sig, checkpoint_path))
 
@@ -186,8 +196,8 @@ def parallel_cube_and_conquer(f, depth=3, num_workers=None, algo='combined',
                 _save_checkpoint(ck, sig, worker_res)
             results.append(worker_res)
 
-    # Merge existing + new
-    all_results = list(existing.values()) + results
+    # Only the requested partition contributes to this run.
+    all_results = resumed + results
 
     total_count = 0
     total_nodes = 0
@@ -235,10 +245,12 @@ def parallel_cube_and_conquer_wmc(wf, depth=3, num_workers=None, algo='combined_
     checkpoint_path = Path(checkpoint_dir) if checkpoint_dir else None
     existing = _load_checkpoint(checkpoint_path) if checkpoint_path else {}
 
-    tasks = []
+    tasks, resumed = [], []
+    source_digest = _solver_source_digest()
     for cube in cubes:
-        sig = _cube_signature(dimacs_text, cube, algo, seconds_per_cube, max_nodes_per_cube)
-        if sig in existing:
+        sig = _cube_signature(dimacs_text, cube, algo, seconds_per_cube, max_nodes_per_cube, source_digest)
+        if _usable_checkpoint(existing.get(sig), cube, True):
+            resumed.append(existing[sig])
             continue
         tasks.append((dimacs_text, cube, algo, seconds_per_cube, max_nodes_per_cube, sig, checkpoint_path))
 
@@ -256,7 +268,7 @@ def parallel_cube_and_conquer_wmc(wf, depth=3, num_workers=None, algo='combined_
                 _save_checkpoint(ck, sig, worker_res)
             results.append(worker_res)
 
-    all_results = list(existing.values()) + results
+    all_results = resumed + results
 
     total_weight = Fraction(0)
     total_nodes = 0

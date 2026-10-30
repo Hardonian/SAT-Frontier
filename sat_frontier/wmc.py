@@ -2,6 +2,7 @@
 from collections import defaultdict
 from fractions import Fraction
 from time import perf_counter
+from .core import parse_dimacs
 
 
 class WeightedFormula:
@@ -41,6 +42,22 @@ class WeightedFormula:
         for c in self.clauses:
             lines.append(" ".join(str(lit) for lit in c) + " 0")
         return "\n".join(lines) + "\n"
+
+
+def parse_weighted_dimacs(text):
+    """Parse DIMACS clauses with optional rational literal-weight comments."""
+    formula = parse_dimacs(text)
+    weights = {}
+    for line in text.splitlines():
+        parts = line.split()
+        if parts[:3] == ['c', 'p', 'weight']:
+            if len(parts) not in (5, 6) or (len(parts) == 6 and parts[5] != '0'):
+                raise ValueError('invalid literal weight declaration')
+            lit = int(parts[3])
+            if lit == 0 or abs(lit) > formula.n:
+                raise ValueError('weight literal outside declared variable range')
+            weights[lit] = Fraction(parts[4])
+    return WeightedFormula(formula.clauses, n_vars=formula.n, weights=weights)
 
 
 def wmc_oracle(wf, limit=16):

@@ -22,30 +22,10 @@ from .cube_conquer import (
 def load_formula(path):
     """Load formula from file, detecting if it has weighted literal declarations."""
     text = Path(path).read_text(encoding='utf-8', errors='replace')
-    is_weighted = any(line.strip().startswith('c p weight') for line in text.splitlines())
+    is_weighted = any(line.split()[:3] == ['c', 'p', 'weight'] for line in text.splitlines())
     if is_weighted:
-        clauses = []
-        weights = {}
-        n_vars = 0
-        from fractions import Fraction
-        for line in text.splitlines():
-            line = line.strip()
-            if not line:
-                continue
-            if line.startswith('c p weight'):
-                parts = line.split()
-                lit = int(parts[3])
-                w = Fraction(parts[4])
-                weights[lit] = w
-            elif line.startswith('p cnf'):
-                parts = line.split()
-                n_vars = int(parts[2])
-            elif not line.startswith('c'):
-                lits = [int(x) for x in line.split() if x != '0']
-                if lits:
-                    clauses.append(lits)
-        from .wmc import WeightedFormula
-        return WeightedFormula(clauses, n_vars=n_vars, weights=weights), True
+        from .wmc import parse_weighted_dimacs
+        return parse_weighted_dimacs(text), True
     else:
         return parse_dimacs(text), False
 
