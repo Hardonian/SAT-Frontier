@@ -444,6 +444,39 @@ class EnterpriseReliabilityEngine:
             "total_seconds": time.perf_counter() - t_start,
         }
 
+    def audit_bounded_latency(
+        self,
+        source: Any,
+        target: Any,
+        max_hops: int,
+        timeout_seconds: float = 30.0,
+        max_search_nodes: int = 100000,
+    ) -> Dict[str, Any]:
+        """Audit bounded-hop / latency-constrained reliability P(dist(s, t) <= max_hops)."""
+        from sat_frontier.bounded_hop_compiler import find_minimal_bounded_cuts, solve_bounded_hop_reliability
+        t_start = time.perf_counter()
+        s_id = self.topology.node_to_id.get(source, source)
+        t_id = self.topology.node_to_id.get(target, target)
+        cuts = find_minimal_bounded_cuts(self.net, s_id, t_id, max_hops=max_hops)
+        rel_frac, nodes, solve_time = solve_bounded_hop_reliability(
+            self.net, s_id, t_id, max_hops=max_hops, timeout_seconds=timeout_seconds, max_nodes=max_search_nodes
+        )
+        metrics = calculate_downtime_metrics(rel_frac)
+        return {
+            "status": "exact",
+            "source": str(source),
+            "target": str(target),
+            "max_hops": max_hops,
+            "availability_fraction": str(rel_frac),
+            "availability_float": float(rel_frac),
+            "metrics": metrics,
+            "bounded_cuts_count": len(cuts),
+            "search_nodes": nodes,
+            "solve_time_seconds": solve_time,
+            "total_seconds": time.perf_counter() - t_start,
+        }
+
+
 
 
 

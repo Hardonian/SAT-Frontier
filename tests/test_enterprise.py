@@ -159,8 +159,27 @@ class EnterpriseSDKTests(unittest.TestCase):
         self.assertEqual(res["availability_fraction"], "9/10")
         self.assertEqual(res["demand"], 2)
 
+    def test_bounded_latency_enterprise_audit(self):
+        """Verify bounded latency audit via EnterpriseReliabilityEngine."""
+        topo = EnterpriseTopology("LatencyMesh")
+        topo.add_link("A", "B", availability=0.8)
+        topo.add_link("A", "C", availability=0.9)
+        topo.add_link("C", "B", availability=0.9)
+        engine = EnterpriseReliabilityEngine(topo)
+
+        # 1-hop: only A-B is valid (0.8)
+        res_1 = engine.audit_bounded_latency("A", "B", max_hops=1)
+        self.assertEqual(res_1["status"], "exact")
+        self.assertEqual(res_1["availability_fraction"], "4/5")
+
+        # 2-hops: both paths valid (0.962)
+        res_2 = engine.audit_bounded_latency("A", "B", max_hops=2)
+        self.assertEqual(res_2["status"], "exact")
+        self.assertEqual(res_2["availability_fraction"], "481/500")
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
 

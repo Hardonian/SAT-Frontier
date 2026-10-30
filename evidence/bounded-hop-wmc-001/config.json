@@ -1,0 +1,11 @@
+{
+  "study": "bounded-hop-wmc-001",
+  "description": "Hypothesis H17: Bounded-Diameter / Latency-Constrained Reliability via Dual L-Hop Cut Compilation",
+  "timestamp": "2026-10-30T03:37:43Z",
+  "total_instances": 24,
+  "hardware": {
+    "system": "Windows",
+    "cpu": "AMD64 Family 26 Model 36 Stepping 0, AuthenticAMD",
+    "python": "3.12.10"
+  }
+}

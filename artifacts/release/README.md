@@ -8,12 +8,12 @@ This directory contains the distribution release archives and provenance records
 
 ### Archive Integrity
 ```
-1a4368d2f012f3d46c8b4fcdf053d069565557888df0a0e29fd6676dbf613df5  sat-frontier-v0.2.7.zip
+46d6f585f9e6759259a2073497f6380ef4af07a57eeac66881ae9cd4494b765b  sat-frontier-v0.2.7.zip
 ```
 
 - **File Name**: `sat-frontier-v0.2.7.zip`
-- **File Size**: 10,391,673 bytes
-- **File Count**: 3,831 files
+- **File Size**: 12,210,373 bytes
+- **File Count**: 5,592 files
 - **Root Directory**: `sat-frontier-v0.2.7/`
 - **Date**: 2026-10-29
 - **Scope & Contents**:
