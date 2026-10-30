@@ -5,7 +5,7 @@ import os
 try:
     import resource
 except ImportError:
-    resource = None
+    resource = None  # type: ignore[assignment]
 import sys
 from pathlib import Path
 from time import perf_counter
@@ -33,11 +33,10 @@ def load_formula(path):
 def _peak_rss_mb() -> int:
     """Return peak RSS in MB if supported, else -1."""
     try:
-        usage = resource.getrusage(resource.RUSAGE_SELF)
-        # ru_maxrss is in KB on Linux, bytes on macOS
-        base = getattr(resource, 'RLIMIT_AS', None)
-        # getrusage returns KB on Linux
-        return int(usage.ru_maxrss) // 1024
+        if resource is not None and hasattr(resource, 'getrusage'):
+            usage = resource.getrusage(getattr(resource, 'RUSAGE_SELF', 0))
+            return int(usage.ru_maxrss) // 1024
+        return -1
     except Exception:
         return -1
 

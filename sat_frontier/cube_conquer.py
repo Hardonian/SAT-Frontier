@@ -13,6 +13,7 @@ from fractions import Fraction
 from multiprocessing import Pool, get_context
 from time import perf_counter
 from pathlib import Path
+from typing import Optional
 
 from .core import Formula, parse_dimacs, solve
 from .wmc import WeightedFormula, parse_weighted_dimacs, wmc_solve
@@ -373,7 +374,7 @@ def _discover_resources():
     return info
 
 
-def recommend_workers(instance_bytes: int, per_cube_memory_mb: int = 50, max_workers: int = None):
+def recommend_workers(instance_bytes: int, per_cube_memory_mb: int = 50, max_workers: Optional[int] = None):
     """Conservative worker sizing based on available memory and CPU."""
     resources = _discover_resources()
     cpu_max = resources["cpu_count"]
