@@ -146,3 +146,4 @@ lake env lean scripts/extract_axioms.lean
 4. **Preserve Historical Source Hashes**: Do not alter line endings, trailing spaces, or imports in historical files (`pyproject.toml`, `sat_frontier/core.py`, `sat_frontier/reliability.py`, `sat_frontier/wmc.py`, `sat_frontier/cut_compiler.py`, etc.).
 5. **No External Paid Services**: All compute must be performed locally on the host server; no cloud GPU rental or unauthorized external publication.
 6. **Update Checkpoints**: Update `TASK_STATE.json` and `RESUME.md` upon completion of the campaign.
+
