@@ -1,0 +1,20 @@
+{
+  "status": "interrupted_timeout",
+  "timeout_seconds": 180,
+  "exit_code": 124,
+  "instance": "grid_4x7",
+  "instance_sha256": "faece45a06eb21debf27e85751978ad8bfd003f0b2f0e5fc7c8fbaadc2ed035d",
+  "revision": "4cda234278815873048b41de211c79c00e0e452c",
+  "depth": 8,
+  "workers": 4,
+  "seconds_per_cube": 12,
+  "max_nodes_per_cube": 100000,
+  "completed_run_records": 0,
+  "checkpoint_json_count": 0,
+  "result_json_count": 0,
+  "manifest_present": false,
+  "aggregate_cgroup_memory_peak_bytes": 2340810752,
+  "aggregate_cgroup_swap_current_at_capture_bytes": 0,
+  "cgroup_oom_and_oom_kill": 0,
+  "note": "No full solver result was produced; no weight, count, cube completion, or exactness is asserted. Cgroup sample was captured immediately after timeout before systemd cleaned remaining descendants."
+}

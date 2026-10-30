@@ -1,0 +1,5 @@
+revision: 4cda234278815873048b41de211c79c00e0e452c
+unit: sat-4x7-20261030T035804Z-2178215
+limits: MemoryMax=6G MemorySwapMax=0 TasksMax=32 RuntimeMaxSec=210
+command: timeout --signal=TERM --kill-after=10s 180s python3 scripts/run_epyc_cut_campaign.py --workers 4 --depths 8 --seconds-per-cube 12 --max-nodes-per-cube 100000 --instances-dir <EVIDENCE_ROOT>/input --evidence-dir <EVIDENCE_ROOT>/campaign
+NUMA: one node, default placement
