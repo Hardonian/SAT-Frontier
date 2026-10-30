@@ -1,7 +1,7 @@
 {
   "project": "SAT-Frontier",
   "version": "0.2.7",
-  "checkpoint_date": "2026-10-29",
+  "checkpoint_date": "2026-10-30",
   "release_status": "production release v0.2.7; M0/M1/M2/M3/M5 completed; Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, All-Pairs SLA heatmap & centrality engine, SRRG correlated failure engine, Continuous Temporal MTTF engine, Capacitated Flow Reliability compiler, Bounded-Diameter/Latency compiler, Interactive Web Dashboard, Formal Lean 4 Menger Duality, production CLI, and real-world mission-critical commercial benchmarks completed and verified; High-core AMD EPYC frontier cut campaign cued up and ready with Hermes GPT-6.1 Terra Directive; 2,774 total empirical runs across 19 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
   "completed": [
     "private repository and original archive plus Git history restored",
@@ -45,7 +45,8 @@
     "Hypothesis H17 Bounded-Diameter / Latency-Constrained Reliability P(dist(s, t) <= L) via Dual L-Hop Cut Compilation formulated and proven with strictly |E| variables and zero auxiliary variables (sat_frontier/bounded_hop_compiler.py); preregistered (docs/BOUNDED_HOP_PREREGISTRATION.md), unit-tested (4 tests in tests/test_bounded_hop_compiler.py), and executed across 24 instances in evidence/bounded-hop-wmc-001/; 24/24 independent BFS shortest-path truth-table oracle checks matched with 100% exact rational precision; integrated into EnterpriseReliabilityEngine.audit_bounded_latency; documented in docs/BOUNDED_HOP_REPORT.md",
     "Interactive Web Visualizer & SLA Dashboard created in sat_frontier/enterprise/web/index.html and REST API server in sat_frontier/enterprise/server.py; unit-tested in tests/test_server.py",
     "Formal Lean 4 Verification of Dual Cut Duality Theorem in lean/CutDuality.lean (dual_cut_menger_duality)",
-    "Release v0.2.7 packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.7.zip, 5,592 files, 12,210,373 bytes, SHA-256: 46d6f585f9e6759259a2073497f6380ef4af07a57eeac66881ae9cd4494b765b)"
+    "Release v0.2.7 packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.7.zip, 6,843 files, 14,301,198 bytes, SHA-256: 38589bf17094fbd7ddc023e2609aa4c45ac17ae9836030fc4aabd4a5ac1c4d3e)",
+    "All research reports finalized, formatted to publication standard (markdownlint clean), and cross-verified with empirical evidence base (docs/RESULTS.md, docs/SRRG_RELIABILITY_REPORT.md, docs/TEMPORAL_RELIABILITY_REPORT.md, docs/EPYC_SCALING_REPORT.md, docs/COMMERCIAL_BENCHMARKS_REPORT.md, docs/SEPARATOR_REPORT.md, docs/SCALING_REPORT.md, docs/MILESTONES.md)"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
