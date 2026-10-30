@@ -21,6 +21,31 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 
+def require_resource_guard(workers):
+    """Fail closed unless the whole campaign is inside a bounded cgroup v2."""
+    if workers > 4:
+        raise ValueError('campaign safety ceiling is 4 workers')
+    try:
+        lines = Path('/proc/self/cgroup').read_text().splitlines()
+        relative = next(line[3:] for line in lines if line.startswith('0::/'))
+        group = Path('/sys/fs/cgroup') / relative.lstrip('/')
+        limits = {key: (group / key).read_text().strip() for key in
+                  ('memory.max', 'memory.swap.max', 'pids.max')}
+        memory = int(limits['memory.max'])
+        swap = int(limits['memory.swap.max'])
+        pids = int(limits['pids.max'])
+        available = next(int(line.split()[1]) * 1024 for line in
+                         Path('/proc/meminfo').read_text().splitlines()
+                         if line.startswith('MemAvailable:'))
+        if memory <= 0 or memory > 8 * 1024**3 or swap != 0 or not 1 <= pids <= 32:
+            raise ValueError(f'unsafe cgroup limits: {limits}')
+        if available < memory + 16 * 1024**3:
+            raise ValueError('insufficient host memory reserve (16 GiB plus cgroup limit required)')
+        return {'cgroup': str(group), **limits, 'host_available_bytes': available}
+    except (OSError, StopIteration, ValueError) as exc:
+        raise ValueError(f'aggregate resource guard unavailable: {exc}') from exc
+
+
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -73,7 +98,7 @@ def main():
     parser.add_argument('--max-nodes-per-cube', type=int, default=200000)
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
-    workers = args.workers if args.workers is not None else min(64, os.cpu_count() or 1)
+    workers = args.workers if args.workers is not None else min(4, os.cpu_count() or 1)
     if workers < 1 or any(d < 0 for d in args.depths) or len(set(args.depths)) != len(args.depths):
         parser.error('workers must be positive and depths must be distinct nonnegative integers')
     if not math.isfinite(args.seconds_per_cube) or args.seconds_per_cube <= 0 or args.max_nodes_per_cube <= 0:
@@ -85,6 +110,11 @@ def main():
     print(f'Instances: {len(cnfs)}; depths: {args.depths}; workers: {workers}; evidence: {evidence}', flush=True)
     if args.dry_run:
         return
+    try:
+        guard = require_resource_guard(workers)
+    except ValueError as exc:
+        print(f'FAILED: {exc}; no evidence directory created', file=sys.stderr)
+        return 1
     # Atomic reservation, including refusal of existing empty dirs and symlinks.
     evidence.mkdir(parents=True, exist_ok=False)
     (evidence / 'instances').mkdir()
@@ -93,7 +123,7 @@ def main():
     (evidence / 'results').mkdir()
     config = {'study': evidence.name, 'timestamp': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
               'workers': workers, 'depths': args.depths, 'seconds_per_cube': args.seconds_per_cube,
-              'max_nodes_per_cube': args.max_nodes_per_cube,
+              'max_nodes_per_cube': args.max_nodes_per_cube, 'resource_guard': guard,
               'hardware': {'system': platform.system(), 'machine': platform.machine(),
                            'cpu': platform.processor(), 'logical_cpus': os.cpu_count(), 'python': platform.python_version()}}
     (evidence / 'config.json').write_text(json.dumps(config, indent=2) + '\n')

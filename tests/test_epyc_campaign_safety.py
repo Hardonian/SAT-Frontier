@@ -28,8 +28,17 @@ class CampaignSafetyTests(unittest.TestCase):
                      '--workers', '1', '--depths', '0', '1']
 
     def run_campaign(self, *extra):
-        with patch.object(sys, 'argv', self.args + list(extra)), contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+        with patch.object(campaign, 'require_resource_guard', return_value={'test': True}), patch.object(sys, 'argv', self.args + list(extra)), contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             return campaign.main()
+
+    def test_guard_refuses_excess_workers(self):
+        with self.assertRaises(ValueError):
+            campaign.require_resource_guard(5)
+
+    def test_guard_failure_preserves_evidence_namespace(self):
+        with patch.object(campaign, 'require_resource_guard', side_effect=ValueError('unbounded')), patch.object(sys, 'argv', self.args), contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(campaign.main(), 1)
+        self.assertFalse(self.output.exists())
 
     def test_dry_run_does_not_create_directory(self):
         self.run_campaign('--dry-run')
