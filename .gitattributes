@@ -6,3 +6,4 @@ evidence/policy-holdout-v02/runs.csv -text whitespace=cr-at-eol
 evidence/epyc-crossdepth-20261030T032834Z-2096631/runs.csv -text whitespace=cr-at-eol
 evidence/epyc-4x7-20261030T033410Z-2110474/runs.csv -text whitespace=cr-at-eol
 evidence/epyc-escalation-20261030T032448Z-2083817/runs.csv -text whitespace=cr-at-eol
+evidence/bounded-hop-wmc-001/runs.csv -text whitespace=cr-at-eol

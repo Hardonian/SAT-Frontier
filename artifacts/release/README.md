@@ -8,14 +8,14 @@ This directory contains the distribution release archives and provenance records
 
 ### Archive Integrity
 ```
-65efa49dd462338ccefb1a1dfdd6eee5eda0768309e6d19a554b2d66201fd632  sat-frontier-v0.2.7.zip
+e75abff1c56824448481a0688c0eabd600550e5f8eaf31b53475b53abdf15e5c  sat-frontier-v0.2.7.zip
 ```
 
 - **File Name**: `sat-frontier-v0.2.7.zip`
-- **File Size**: 13,290,763 bytes
-- **File Count**: 6,312 files
+- **File Size**: 13,984,795 bytes
+- **File Count**: 6,534 files
 - **Root Directory**: `sat-frontier-v0.2.7/`
-- **Date**: 2026-10-29
+- **Date**: 2026-10-30
 - **Scope & Contents**:
   1. **Bounded-Diameter / Latency-Constrained Reliability (Hypothesis H17)**: Dual Length-Bounded Cut Monotone CNF compiler in `sat_frontier/bounded_hop_compiler.py`. Formulated and proved the Dual $L$-Hop Cut Duality Theorem showing that $\mathbb{P}(\text{dist}(s, t) \le L)$ compiles directly into monotone positive clauses over physical edge variables alone with strictly $|E|$ variables and zero auxiliary indicators. Evaluated across 24 benchmark instances in `evidence/bounded-hop-wmc-001/` with 24/24 independent BFS shortest-path truth-table oracle checks matching with 100% exact rational precision (`Fraction`) in 0.38ms mean latency. Integrated into `EnterpriseReliabilityEngine.audit_bounded_latency`. Documented in `docs/BOUNDED_HOP_PREREGISTRATION.md` and `docs/BOUNDED_HOP_REPORT.md`.
   2. **Interactive Web Visualizer & SLA Dashboard (Generative UI)**: Standalone single-page application in `sat_frontier/enterprise/web/index.html` with force-directed SVG graph physics, real-time SLA metrics, $N$-nines badges, Birnbaum criticality heatmaps, and dynamic continuous $R(t)$ lifetime curve plots. Zero-dependency REST API server in `sat_frontier/enterprise/server.py`.

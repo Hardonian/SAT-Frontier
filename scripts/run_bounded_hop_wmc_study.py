@@ -173,7 +173,7 @@ def main():
             "python": platform.python_version(),
         },
     }
-    (out_dir / "config.json").write_text(json.dumps(config, indent=2) + "\n")
+    (out_dir / "config.json").write_bytes((json.dumps(config, indent=2) + "\n").encode("utf-8"))
 
     runs_csv_path = out_dir / "runs.csv"
     runs_jsonl_path = out_dir / "runs.jsonl"
@@ -269,7 +269,7 @@ def main():
     artifact_hashes["runs.csv"] = sha256_file(runs_csv_path)
 
     # Write JSONL
-    with open(runs_jsonl_path, "w", encoding="utf-8") as f:
+    with open(runs_jsonl_path, "w", newline="\n", encoding="utf-8") as f:
         for r in jsonl_rows:
             f.write(json.dumps(r) + "\n")
     artifact_hashes["runs.jsonl"] = sha256_file(runs_jsonl_path)
@@ -282,7 +282,7 @@ def main():
         "oracle_matches_verified": verified_oracle_matches,
         "oracle_pass_rate": verified_oracle_matches / total_solved,
     }
-    (out_dir / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+    (out_dir / "summary.json").write_bytes((json.dumps(summary, indent=2) + "\n").encode("utf-8"))
     artifact_hashes["summary.json"] = sha256_file(out_dir / "summary.json")
 
     summary_md = f"""# Hypothesis H17: Bounded-Diameter / Latency-Constrained Reliability Campaign (bounded-hop-wmc-001)
@@ -293,7 +293,7 @@ def main():
 - Independent BFS Shortest-Path Oracle Verifications: {verified_oracle_matches} / {total_solved} (100% exact rational match)
 - Status: **VERIFIED**
 """
-    (out_dir / "SUMMARY.md").write_text(summary_md)
+    (out_dir / "SUMMARY.md").write_bytes(summary_md.encode("utf-8"))
     artifact_hashes["SUMMARY.md"] = sha256_file(out_dir / "SUMMARY.md")
 
     # Manifest
@@ -331,7 +331,7 @@ def main():
     for k in sorted(artifact_hashes.keys()):
         sha256sums_lines.append(f"{artifact_hashes[k]}  {k}")
     sha256sums_lines.append(f"{sha256_bytes(manifest_bytes)}  manifest.json")
-    (out_dir / "SHA256SUMS").write_text("\n".join(sha256sums_lines) + "\n")
+    (out_dir / "SHA256SUMS").write_bytes(("\n".join(sha256sums_lines) + "\n").encode("utf-8"))
 
     print("\n" + "=" * 70)
     print(f"CAMPAIGN COMPLETE: {total_solved}/{len(catalog)} solved, {verified_oracle_matches}/{total_solved} oracle checks verified.")
