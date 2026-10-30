@@ -68,6 +68,9 @@ class DesktopApp:
             self.server.shutdown()
             self.server.server_close()
             self.server = None
+        if self.thread and self.thread.is_alive():
+            self.thread.join(timeout=1.0)
+            self.thread = None
         self._running = False
 
     def run(self, open_browser: bool = True) -> None:

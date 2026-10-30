@@ -4,6 +4,6 @@
 - Hypothesis: **H18 (Multi-Commodity Dual Cut Duality)**
 - Total Instances Evaluated: 24
 - Independent Oracle Matches: 24/24 (100% exact rational precision)
-- Total Elapsed Time: 0.03 seconds
-- Mean Solve Latency: 0.09 ms
+- Total Elapsed Time: 0.02 seconds
+- Mean Solve Latency: 0.08 ms
 - Mean Search Nodes: 10.5 nodes

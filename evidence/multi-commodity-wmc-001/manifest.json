@@ -13,11 +13,11 @@
   },
   "config_sha256": "ea5463b3fb9a286dd5169a1201fb17c38424345bef194ec1cdec2789259f98b2",
   "artifact_sha256": {
-    "SUMMARY.md": "b4d9bcc2005a2d52e7420bc35f71a5c8e579131fdbbe992b8e729d0ad6e4283a",
+    "SUMMARY.md": "d4cb38d7b792619bd1d57775fa8d29eca7f7e398567f4444ab64afbfc1e83aa5",
     "config.json": "ea5463b3fb9a286dd5169a1201fb17c38424345bef194ec1cdec2789259f98b2",
-    "runs.csv": "e2f8674ad44df2f2f68faa0116dbc144f7597996d5256e6a51fbb0dc91ee6b8b",
-    "runs.jsonl": "362196a6f2b5fc1e6da1c0aa56f2fdb7c7551a8fe3c12f3dcb9523f6dd32c819",
-    "summary.json": "90260886ecde1f68a2b2d49f5a8c7ffe32a6d4459584199657d703c0946c08db",
+    "runs.csv": "8de6470ffb846dd1252cddac4e81cf33d1531cc41209ac980cb55c3ae13fca5d",
+    "runs.jsonl": "47046f88dca868dce05db775a3a41ae737f8417eb42530d94fe8180588ce0c0a",
+    "summary.json": "d868434b72699a1c682dc3f021f4477762faa80a265edf53456f74675f7de0ed",
     "instances/0913ff9abb31f9110c5ce3d6bb0efb9508a12c23b5358723302d6f3c692b4bee.cnf": "0913ff9abb31f9110c5ce3d6bb0efb9508a12c23b5358723302d6f3c692b4bee",
     "instances/127747b0cf6c6f274f2faf33e5122aff7c2801ba6e69f1923b746f4f92cba5f4.cnf": "127747b0cf6c6f274f2faf33e5122aff7c2801ba6e69f1923b746f4f92cba5f4",
     "instances/15fdffc462b3942d28962cede23e815c350e96f571487f18608f049c4321bd2f.cnf": "15fdffc462b3942d28962cede23e815c350e96f571487f18608f049c4321bd2f",
@@ -47,6 +47,6 @@
     "sat_frontier/core.py": "b2c325f7482d2ad7754bbe1ea1347a32dfcbed69bf65fa29bce7e84e367e4587",
     "sat_frontier/reliability.py": "13ed706868499fed2c8848fd4c4f43454ebc129608a50297d7460649baee6798",
     "sat_frontier/wmc.py": "b69492dec5f896496183e30a3589bf646518c4fea88bf4f236277a8bf24ae52f",
-    "sat_frontier/multi_commodity_compiler.py": "5a6b5ca24196b60f2e05b0ec0f62b639c1d2247c1f393308e52b883554fd7981"
+    "sat_frontier/multi_commodity_compiler.py": "5868f7f9cb4de9c5435b8650c70d656c834b72a9974124ae2e6ee8f41ab08ba5"
   }
 }
