@@ -2,7 +2,7 @@
 
 `sat-frontier-v0.1.0.zip` is the original archive supplied by the project owner from their Desktop. It is preserved byte-for-byte; SHA-256:
 
-```
+```text
 1085346a8596e4a857a72e8dd0255584fc9d6d8c5813e5373b7657788d247f37  sat-frontier-v0.1.0.zip
 ```
 
