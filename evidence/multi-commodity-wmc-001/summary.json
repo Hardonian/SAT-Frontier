@@ -1,0 +1,10 @@
+{
+  "study": "multi-commodity-wmc-001",
+  "total_instances": 24,
+  "exact_verified": 24,
+  "mismatches": 0,
+  "oracle_matches": 24,
+  "total_seconds": 0.02816259999963222,
+  "mean_solve_seconds": 8.509166703637068e-05,
+  "mean_search_nodes": 10.5
+}

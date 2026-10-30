@@ -1,0 +1,7 @@
+{
+  "study": "multi-commodity-wmc-001",
+  "instances": 24,
+  "hypothesis": "H18",
+  "description": "Multi-commodity capacitated flow reliability via dual cut compilation",
+  "tolerance": "exact_rational_zero_discrepancy"
+}

@@ -117,6 +117,28 @@ class EnterpriseApiHandler(BaseHTTPRequestHandler):
                 self._send_json({"error": str(e)}, status=500)
             return
 
+        if url_path == "/api/v1/audit/multi-commodity":
+            try:
+                topo_data = req_data.get("topology")
+                commodities_input = req_data.get("commodities", [])
+                commodities = [
+                    (c["source"], c["target"], int(c.get("demand", 1)))
+                    for c in commodities_input
+                ]
+                if isinstance(topo_data, dict):
+                    topo = EnterpriseTopology.from_dict(topo_data)
+                elif isinstance(topo_data, str):
+                    topo = load_topology(ROOT_DIR / topo_data)
+                else:
+                    self._send_json({"error": "Missing 'topology' object or path"}, status=400)
+                    return
+                engine = EnterpriseReliabilityEngine(topo)
+                result = engine.audit_multi_commodity_flow(commodities)
+                self._send_json(result)
+            except Exception as e:
+                self._send_json({"error": str(e)}, status=500)
+            return
+
         self.send_error(HTTPStatus.NOT_FOUND, f"API endpoint '{url_path}' not found")
 
     def log_message(self, format, *args):

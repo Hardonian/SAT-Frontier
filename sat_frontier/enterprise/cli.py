@@ -34,11 +34,18 @@ Examples:
     parser.add_argument("--demo-cloud", action="store_true", help="Run built-in multi-region cloud VPC benchmark")
     parser.add_argument("--demo-subsea", action="store_true", help="Run built-in transatlantic subsea optical mesh benchmark")
     parser.add_argument("--all-pairs", action="store_true", help="Run exhaustive all-pairs pairwise SLA matrix and heatmap")
+    parser.add_argument("--dashboard", action="store_true", help="Launch interactive web dashboard and desktop runner")
     parser.add_argument("--out-report", help="Output path for Markdown compliance audit report")
     parser.add_argument("--out-json", help="Output path for machine-readable JSON summary")
     parser.add_argument("--no-sensitivity", action="store_true", help="Skip Birnbaum component importance calculations")
 
     args = parser.parse_args()
+
+    if args.dashboard:
+        from .desktop import DesktopApp
+        app = DesktopApp()
+        app.run()
+        sys.exit(0)
 
     if args.demo_cloud:
         topo = EnterpriseTopology("EnterpriseCloudVPC")

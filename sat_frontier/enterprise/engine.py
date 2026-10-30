@@ -502,6 +502,51 @@ class EnterpriseReliabilityEngine:
             "total_seconds": time.perf_counter() - t_start,
         }
 
+    def audit_multi_commodity_flow(
+        self,
+        commodities: List[Tuple[Any, Any, int]],
+        edge_capacities: Optional[Dict[Tuple[Any, Any], int]] = None,
+        default_capacity: int = 1,
+        timeout_seconds: float = 30.0,
+        max_search_nodes: int = 100000,
+    ) -> Dict[str, Any]:
+        """Audit concurrent multi-commodity flow reliability via dual cut threshold compilation."""
+        from sat_frontier.multi_commodity_compiler import MultiCommodityNetwork, audit_multi_commodity
+        t_start = time.perf_counter()
+        is_dir = getattr(self.topology, "is_directed", False)
+        mc_net = MultiCommodityNetwork(is_directed=is_dir)
+        cap_map = edge_capacities or {}
+
+        for eid, attr in self.edge_attr_map.items():
+            u_id = self.topology.node_to_id.get(attr.u, attr.u)
+            v_id = self.topology.node_to_id.get(attr.v, attr.v)
+            cap = cap_map.get((attr.u, attr.v)) or cap_map.get((attr.v, attr.u)) or getattr(attr, "capacity", default_capacity)
+            prob = getattr(attr, "p_operational", Fraction(99, 100))
+            mc_net.add_edge(u_id, v_id, capacity=cap, prob=prob)
+
+        for src, tgt, dem in commodities:
+            s_id = self.topology.node_to_id.get(src, src)
+            t_id = self.topology.node_to_id.get(tgt, tgt)
+            mc_net.add_commodity(s_id, t_id, demand=dem)
+
+        audit_res = audit_multi_commodity(mc_net)
+        rel_frac = Fraction(audit_res["reliability_fraction"])
+        metrics = calculate_downtime_metrics(rel_frac)
+
+        return {
+            "status": audit_res["status"],
+            "commodities": [
+                {"source": str(s), "target": str(t), "demand": d} for s, t, d in commodities
+            ],
+            "availability_fraction": str(rel_frac),
+            "availability_float": float(rel_frac),
+            "metrics": metrics,
+            "search_nodes": audit_res["search_nodes"],
+            "compile_seconds": audit_res["compile_seconds"],
+            "solve_seconds": audit_res["solve_seconds"],
+            "total_seconds": time.perf_counter() - t_start,
+        }
+
 
 
 
