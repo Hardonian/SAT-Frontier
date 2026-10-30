@@ -4,6 +4,11 @@ import json
 import sys
 from pathlib import Path
 
+from .all_pairs import (
+    compute_all_pairs_sla,
+    generate_all_pairs_markdown_report,
+    render_terminal_heatmap,
+)
 from .engine import EnterpriseReliabilityEngine
 from .report import generate_json_audit_summary, generate_markdown_audit_report
 from .topology import EnterpriseTopology
@@ -16,6 +21,7 @@ def main():
         epilog="""
 Examples:
   python -m sat_frontier.enterprise.cli --topology network.json --source VPC_East --target VPC_West
+  python -m sat_frontier.enterprise.cli --demo-cloud --all-pairs
   python -m sat_frontier.enterprise.cli --demo-cloud --out-report cloud_audit.md --out-json cloud_audit.json
         """,
     )
@@ -24,6 +30,8 @@ Examples:
     parser.add_argument("--target", help="Target terminal name or node ID")
     parser.add_argument("--timeout", type=float, default=30.0, help="Per-analysis timeout budget in seconds")
     parser.add_argument("--demo-cloud", action="store_true", help="Run built-in multi-region cloud VPC benchmark")
+    parser.add_argument("--demo-subsea", action="store_true", help="Run built-in transatlantic subsea optical mesh benchmark")
+    parser.add_argument("--all-pairs", action="store_true", help="Run exhaustive all-pairs pairwise SLA matrix and heatmap")
     parser.add_argument("--out-report", help="Output path for Markdown compliance audit report")
     parser.add_argument("--out-json", help="Output path for machine-readable JSON summary")
     parser.add_argument("--no-sensitivity", action="store_true", help="Skip Birnbaum component importance calculations")
@@ -42,6 +50,17 @@ Examples:
         topo.add_link("DB_Cluster_Primary", "DB_Cluster_Replica", availability=0.9995)  # Replication link
         source = "Client_App"
         target = "DB_Cluster_Primary"
+    elif args.demo_subsea:
+        topo = EnterpriseTopology("SubseaOpticalMesh")
+        topo.add_link("NYC_Landing", "Halifax_Station", availability=0.9999)
+        topo.add_link("NYC_Landing", "Bermuda_Repeater", availability=0.9995)
+        topo.add_link("Halifax_Station", "North_Atlantic_Cable", availability=0.999)
+        topo.add_link("Bermuda_Repeater", "Azores_Landing", availability=0.998)
+        topo.add_link("North_Atlantic_Cable", "London_Telehouse", availability=0.9999)
+        topo.add_link("Azores_Landing", "London_Telehouse", availability=0.999)
+        topo.add_link("North_Atlantic_Cable", "Azores_Landing", availability=0.995)
+        source = "NYC_Landing"
+        target = "London_Telehouse"
     elif args.topology:
         p = Path(args.topology)
         if not p.exists():
@@ -51,18 +70,41 @@ Examples:
         topo = EnterpriseTopology.from_dict(data)
         source = args.source
         target = args.target
-        if not source or not target:
-            print("Error: --source and --target are required when specifying a topology file.")
+        if not args.all_pairs and (not source or not target):
+            print("Error: --source and --target are required when specifying a topology file without --all-pairs.")
             sys.exit(1)
     else:
         parser.print_help()
         sys.exit(0)
 
+    engine = EnterpriseReliabilityEngine(topo)
+
+    # All-Pairs Evaluation Branch
+    if args.all_pairs:
+        print(f"Executing All-Pairs SLA Matrix Analysis on: {topo.name}")
+        nodes_list = sorted(topo.node_to_id.keys(), key=str)
+        print(f"Nodes ({len(nodes_list)}): {', '.join(nodes_list)}")
+        all_pairs_res = engine.audit_all_pairs(timeout_per_pair=args.timeout)
+
+        # Print Terminal Heatmap
+        print("\n" + render_terminal_heatmap(all_pairs_res))
+
+        if args.out_report:
+            md_content = generate_all_pairs_markdown_report(all_pairs_res)
+            Path(args.out_report).write_text(md_content, encoding="utf-8")
+            print(f"\nAll-Pairs Markdown compliance report saved: {args.out_report}")
+
+        if args.out_json:
+            json_content = json.dumps(all_pairs_res.to_dict(), indent=2)
+            Path(args.out_json).write_text(json_content, encoding="utf-8")
+            print(f"All-Pairs JSON data saved: {args.out_json}")
+        return
+
+    # Single-Pair SLA Audit Branch
     print(f"Auditing system: {topo.name}")
     print(f"Terminals: {source} <--> {target}")
     print(f"Compiling and evaluating exact reliability...")
 
-    engine = EnterpriseReliabilityEngine(topo)
     result = engine.audit_terminal_pair(
         source=source,
         target=target,

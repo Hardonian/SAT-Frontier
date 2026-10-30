@@ -1,0 +1,27 @@
+c Mixed Node-and-Edge Cut CNF for mixed_barbell_3_node_bridge (bottleneck_barbell) s=a_1 t=b_3
+c Internal Nodes: 5, Edges: 8, Total Vars: 13, Cuts: 11
+c w 1 23/25
+c w 2 19/20
+c w 3 19/20
+c w 4 19/20
+c w 5 19/20
+c w 6 19/20
+c w 7 19/20
+c w 8 19/20
+c w 9 19/20
+c w 10 19/20
+c w 11 19/20
+c w 12 19/20
+c w 13 19/20
+p cnf 13 11
+1 0
+2 7 0
+3 0
+4 0
+5 10 0
+6 7 0
+7 8 0
+9 10 0
+10 11 0
+12 0
+13 0

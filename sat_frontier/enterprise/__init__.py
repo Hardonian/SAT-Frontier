@@ -1,4 +1,10 @@
 """SAT-Frontier Enterprise: Production Reliability Engineering & SLA Audit SDK."""
+from .all_pairs import (
+    AllPairsSlaResult,
+    compute_all_pairs_sla,
+    generate_all_pairs_markdown_report,
+    render_terminal_heatmap,
+)
 from .engine import EnterpriseAuditResult, EnterpriseReliabilityEngine
 from .metrics import (
     ComponentImportance,
@@ -31,5 +37,9 @@ __all__ = [
     "generate_json_audit_summary",
     "availability_from_mtbf",
     "availability_from_fit",
+    "AllPairsSlaResult",
+    "compute_all_pairs_sla",
+    "render_terminal_heatmap",
+    "generate_all_pairs_markdown_report",
 ]
 

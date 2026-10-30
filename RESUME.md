@@ -1,4 +1,4 @@
-# Resume checkpoint — v0.2.4 production & research breakthrough release, 2026-10-29
+# Resume checkpoint — v0.2.5 production & research breakthrough release, 2026-10-29
 
 SAT-Frontier is a CPU-first exact-counting research lab. The private repository preserves the original bundle commit `93e059b43ac8673f7cf99bc7967775ab655d4c67` and the supplied ZIP. No public license has been selected.
 
@@ -21,8 +21,10 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - Hypothesis H10 Multi-Terminal (K-Terminal) Network Reliability: Generalized Menger cut duality to multi-terminal ($K \ge 2$) and all-terminal ($K = V$) reliability in `sat_frontier/k_cut_compiler.py`, completely eliminating Steiner tree enumeration. Executed 24 benchmark instances in `evidence/k-terminal-wmc-001/` with 17/17 independent brute force oracle checks matching (100% exact rational agreement). Solved 4-corner multi-terminal `grid_4x4` (16 nodes, 24 edges, 506 cuts) in 0.39s and integrated multi-terminal auditing into `EnterpriseReliabilityEngine.audit_multi_terminal`. Documented in `docs/K_TERMINAL_REPORT.md` and `docs/K_TERMINAL_PREREGISTRATION.md`.
 - Hypothesis H11 Algebraic Model Counting over $\mathbb{Z}[x]$: Implemented polynomial weighted model counting in `sat_frontier/poly_wmc.py` evaluating complete closed-form reliability polynomials $P(x) = \sum c_k x^k$, continuous derivatives $\chi(p) = \frac{dR}{dp}$, and exact finite-size percolation phase transitions $p_c$. Executed 24 benchmark instances in `evidence/poly-wmc-001/` with 17/17 independent brute force oracle checks matching (100% exact integer coefficient equality). Solved `grid_4x5` (degree 31, 1,353 clauses) in 2.05s via DLCS heuristic. Documented in `docs/POLYNOMIAL_WMC_REPORT.md`.
 - Hypothesis H12 Dual Dicut Monotone CNF Compilation: Formulated and proved the directed cut duality theorem for directed two-terminal reliability ($s \leadsto t$) in `sat_frontier/dicut_compiler.py`, eliminating simple path enumeration and MTZ subtour elimination bloat with strictly $|A|$ variables. Executed 24 benchmark instances in `evidence/dicut-wmc-001/` across layered DAGs, cyclic meshes, barbells, and enterprise systems with 18/18 independent oracle checks matching (100% exact rational agreement). Documented in `docs/DICUT_RELIABILITY_REPORT.md`.
-- Release v0.2.4: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.4.zip` (2,089 files, 8,446,536 bytes, SHA-256: `741068c116f079df75c9b4cbcfe089c8251e2b0fb3ae5c4314657df19bf19247`).
-- Local integrated suite: 100 unit tests passed with cross-platform Windows and Linux support. All 14 empirical evidence suites pass (2,654 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 12.50 seconds.
+- Hypothesis H13 Dual Mixed-Cut Monotone CNF Compilation: Formulated and proved that internal node-splitting ($v \mapsto (v_{\text{in}}, v_{\text{out}})$ with operational probability $q_v$) transforms mixed node-and-edge failure network reliability into directed cut reachability in split graph $G^*$, yielding exact monotone CNF formulas with zero auxiliary variables. Implemented in `sat_frontier/mixed_cut_compiler.py`, unit-tested (7 tests), and evaluated across 24 benchmark instances in `evidence/mixed-wmc-001/` with 16/16 independent brute force oracle checks matching (100% exact rational agreement) and sub-290ms latency. Documented in `docs/MIXED_RELIABILITY_REPORT.md` and `docs/MIXED_RELIABILITY_PREREGISTRATION.md`.
+- All-Pairs SLA Matrix & Centrality Engine: Implemented complete network-wide pairwise availability engine in `sat_frontier/enterprise/all_pairs.py`. Computes all $\binom{|V|}{2}$ pairwise SLA availabilities, identifies worst-case SLA bottleneck pairs, calculates Network Diameter Reliability $R_{\text{min}}$, computes failure-aware node centrality $C_R(v) = \frac{1}{|V|-1}\sum_{u \ne v} R(v, u)$, and generates ANSI terminal heatmaps and Markdown SLA reports. Integrated into `sat_frontier/enterprise/engine.py` (`audit_all_pairs`) and CLI (`--all-pairs`, `--demo-subsea`).
+- Release v0.2.5: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.5.zip` (2,127 files, 8,500,575 bytes, SHA-256: `c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834`).
+- Local integrated suite: 110 unit tests passed with cross-platform Windows and Linux support. All 15 empirical evidence suites pass (2,678 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 21.15 seconds.
 
 ## Blocked, failed and untested
 
@@ -39,6 +41,7 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 python3 -m unittest discover -s tests -v
 python3 verify_all_evidence.py
 python3 -m sat_frontier.enterprise.cli --demo-cloud
+python3 -m sat_frontier.enterprise.cli --demo-subsea --all-pairs
 python3 -m sat_frontier solve examples/two-components.cnf
 python3 verify_policy_evidence.py
 python3 verify_holdout_evidence.py
@@ -53,6 +56,7 @@ python3 verify_evidence.py evidence/commercial-benchmarks-001
 python3 verify_evidence.py evidence/k-terminal-wmc-001
 python3 verify_evidence.py evidence/poly-wmc-001
 python3 verify_evidence.py evidence/dicut-wmc-001
+python3 verify_evidence.py evidence/mixed-wmc-001
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```
 

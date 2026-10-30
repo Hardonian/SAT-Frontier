@@ -1,0 +1,18 @@
+c Mixed Node-and-Edge Cut CNF for mixed_tier_2x2 (layered_tier) s=Client t=Database
+c Internal Nodes: 2, Edges: 4, Total Vars: 6, Cuts: 9
+c w 1 23/25
+c w 2 23/25
+c w 3 9/10
+c w 4 9/10
+c w 5 9/10
+c w 6 9/10
+p cnf 6 9
+1 2 0
+1 4 0
+1 6 0
+2 3 0
+2 5 0
+3 4 0
+3 6 0
+4 5 0
+5 6 0

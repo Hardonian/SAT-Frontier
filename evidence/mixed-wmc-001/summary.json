@@ -1,0 +1,8 @@
+{
+  "study": "mixed-wmc-001",
+  "instances": 24,
+  "exact_solved": 24,
+  "oracle_checked": 16,
+  "oracle_matches": 16,
+  "all_oracle_passed": true
+}

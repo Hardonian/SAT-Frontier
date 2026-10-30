@@ -1,4 +1,4 @@
-"""Package release archive deterministically for SAT-Frontier v0.2.4."""
+"""Package release archive deterministically for SAT-Frontier v0.2.5."""
 import hashlib
 import os
 import zipfile
@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 RELEASE_DIR = ROOT / "artifacts" / "release"
 RELEASE_DIR.mkdir(parents=True, exist_ok=True)
-ARCHIVE_PATH = RELEASE_DIR / "sat-frontier-v0.2.4.zip"
+ARCHIVE_PATH = RELEASE_DIR / "sat-frontier-v0.2.5.zip"
 
 EXCLUDE_DIRS = {
     ".git",
@@ -50,7 +50,7 @@ def main():
                 files_to_pack.append(rel_path)
 
     files_to_pack.sort()
-    prefix = "sat-frontier-v0.2.4"
+    prefix = "sat-frontier-v0.2.5"
 
     print(f"Packaging {len(files_to_pack)} files into {ARCHIVE_PATH.name}...")
     with zipfile.ZipFile(ARCHIVE_PATH, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:

@@ -1,7 +1,7 @@
 {
   "status": "all_verified",
-  "total_verified_runs": 2654,
-  "suites_verified": 14,
+  "total_verified_runs": 2678,
+  "suites_verified": 15,
   "suites": {
     "policy-train-v02": {
       "status": "verified",
@@ -58,7 +58,11 @@
     "dicut-wmc-001": {
       "status": "verified",
       "runs": 24
+    },
+    "mixed-wmc-001": {
+      "status": "verified",
+      "runs": 24
     }
   },
-  "elapsed_seconds": 12.516498804092407
+  "elapsed_seconds": 20.157984733581543
 }

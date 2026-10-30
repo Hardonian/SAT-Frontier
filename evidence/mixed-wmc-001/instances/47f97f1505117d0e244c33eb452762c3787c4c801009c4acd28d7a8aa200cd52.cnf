@@ -1,0 +1,19 @@
+c Mixed Node-and-Edge Cut CNF for mixed_grid_butterfly (planar_grid) s=s t=t
+c Internal Nodes: 3, Edges: 6, Total Vars: 9, Cuts: 7
+c w 1 19/20
+c w 2 9/10
+c w 3 9/10
+c w 4 9/10
+c w 5 9/10
+c w 6 9/10
+c w 7 9/10
+c w 8 9/10
+c w 9 9/10
+p cnf 9 7
+1 0
+2 5 0
+3 8 0
+4 5 0
+5 6 0
+7 8 0
+8 9 0

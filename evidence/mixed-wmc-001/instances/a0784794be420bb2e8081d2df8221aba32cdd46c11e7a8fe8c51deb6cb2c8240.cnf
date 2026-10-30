@@ -1,0 +1,19 @@
+c Mixed Node-and-Edge Cut CNF for mixed_grid_diamond (planar_grid) s=s t=t
+c Internal Nodes: 2, Edges: 5, Total Vars: 7, Cuts: 9
+c w 1 22/25
+c w 2 23/25
+c w 3 9/10
+c w 4 9/10
+c w 5 17/20
+c w 6 9/10
+c w 7 9/10
+p cnf 7 9
+1 2 0
+1 4 0
+1 7 0
+2 3 0
+2 6 0
+3 4 0
+3 5 7 0
+4 5 6 0
+6 7 0

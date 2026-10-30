@@ -1,0 +1,9 @@
+{
+  "study": "mixed-wmc-001",
+  "hypothesis": "H13",
+  "description": "Dual Mixed-Cut Monotone CNF Compilation for Mixed Node-and-Edge Reliability",
+  "instances_count": 24,
+  "timeout_seconds": 30.0,
+  "max_search_nodes": 100000,
+  "oracle_variable_limit": 16
+}

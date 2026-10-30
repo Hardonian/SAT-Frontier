@@ -345,3 +345,16 @@ class EnterpriseReliabilityEngine:
             "total_seconds": time.perf_counter() - t_start,
         }
 
+    def audit_all_pairs(
+        self,
+        timeout_per_pair: float = 10.0,
+        max_search_nodes: int = 100000,
+    ):
+        """Compute complete pairwise availability matrix, diameter SLA, and node centrality."""
+        from .all_pairs import compute_all_pairs_sla
+        return compute_all_pairs_sla(
+            self.topology,
+            timeout_per_pair=timeout_per_pair,
+            max_search_nodes=max_search_nodes,
+        )
+

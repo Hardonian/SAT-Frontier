@@ -1,0 +1,25 @@
+c Mixed Node-and-Edge Cut CNF for mixed_tier_deep_pipeline (layered_tier) s=Client t=Database
+c Internal Nodes: 5, Edges: 6, Total Vars: 11, Cuts: 11
+c w 1 23/25
+c w 2 23/25
+c w 3 23/25
+c w 4 23/25
+c w 5 23/25
+c w 6 9/10
+c w 7 9/10
+c w 8 9/10
+c w 9 9/10
+c w 10 9/10
+c w 11 9/10
+p cnf 11 11
+1 0
+2 0
+3 0
+4 0
+5 0
+6 0
+7 0
+8 0
+9 0
+10 0
+11 0

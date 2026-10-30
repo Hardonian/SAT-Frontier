@@ -4,7 +4,27 @@ This directory contains the distribution release archives and provenance records
 
 ---
 
-## 1. Release v0.2.4 (Current Production & Research Breakthrough Release)
+## 1. Release v0.2.5 (Current Production & Research Breakthrough Release)
+
+### Archive Integrity
+```
+c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v0.2.5.zip
+```
+
+- **File Name**: `sat-frontier-v0.2.5.zip`
+- **File Size**: 8,500,575 bytes
+- **File Count**: 2,127 files
+- **Root Directory**: `sat-frontier-v0.2.5/`
+- **Date**: 2026-10-29
+- **Scope & Contents**:
+  1. **Dual Mixed-Cut Monotone CNF Compilation (Hypothesis H13)**: Mixed node-and-edge failure network reliability compiler in `sat_frontier/mixed_cut_compiler.py`. Formulated and proved that internal node-splitting ($v \mapsto (v_{\text{in}}, v_{\text{out}})$ with capacity/operational probability $q_v$) maps physical mixed cuts into directed cuts in split graph $G^*$, producing exact monotone CNF formulas with zero auxiliary variables. Evaluated across 24 benchmark instances in `evidence/mixed-wmc-001/` with 16/16 independent brute-force oracle checks matching with 100% exact rational precision (`Fraction`). Sub-290ms solving latencies across all instances. Documented in `docs/MIXED_RELIABILITY_PREREGISTRATION.md` and `docs/MIXED_RELIABILITY_REPORT.md`.
+  2. **All-Pairs SLA Matrix & Centrality Engine**: Complete network-wide pairwise availability engine in `sat_frontier/enterprise/all_pairs.py`. Computes all $\binom{|V|}{2}$ pairwise SLA availabilities, identifies worst-case SLA bottleneck pairs, calculates Network Diameter Reliability $R_{\text{min}}$, computes failure-aware node centrality $C_R(v) = \frac{1}{|V|-1}\sum_{u \ne v} R(v, u)$, and generates both ANSI terminal heatmaps and Markdown SLA audit reports. Integrated into `sat_frontier/enterprise/engine.py` (`audit_all_pairs`) and enterprise CLI (`--all-pairs`, `--demo-subsea`).
+  3. **Empirical Evidence**: **2,678 verified empirical runs** across 15 complete suites with 100% cryptographic SHA-256 and invariant validation (`verify_all_evidence.py`).
+  4. **Unit Test Suite**: 110 unit and metamorphic tests across `tests/` with 100% pass rate.
+
+---
+
+## 2. Release v0.2.4 (Previous Breakthrough Release)
 
 ### Archive Integrity
 ```
