@@ -139,10 +139,28 @@
       position: absolute; bottom: 16px; left: 16px;
       background: rgba(19, 26, 41, 0.85); padding: 8px 12px;
       border-radius: 6px; border: 1px solid var(--border-color);
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
     }
     .legend-item { display: flex; align-items: center; gap: 6px; }
     .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .header-subtitle { font-size: 12px; color: var(--text-secondary); }
+    .form-group-spaced { margin-top: 8px; }
+    .is-hidden { display: none; }
+    .panel-footer-note { font-size: 11px; color: var(--text-secondary); line-height: 1.5; margin-top: auto; }
+    .legend-dot-terminal { background: var(--accent-blue); }
+    .legend-dot-transit { background: var(--text-secondary); }
+    .legend-dot-normal { background: var(--accent-green); }
+    .legend-dot-bottleneck { background: var(--accent-red); }
+    .metric-label { font-size: 11px; color: var(--text-secondary); }
+    .metric-subval { font-size: 18px; font-weight: 700; color: #fff; }
+    .metric-latency { font-size: 14px; font-weight: 600; color: var(--accent-cyan); }
+    .criticality-container { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+    .criticality-row {
+      display: flex; justify-content: space-between;
+      background: var(--bg-primary); padding: 6px 10px; border-radius: 4px;
+    }
+    .criticality-score { color: var(--accent-cyan); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -152,7 +170,7 @@
       <div class="brand-title">SAT-Frontier Enterprise</div>
       <div class="brand-badge">Dual Cut WMC v0.2.7</div>
     </div>
-    <div style="font-size: 12px; color: var(--text-secondary);">
+    <div class="header-subtitle">
       Engine: Exact Rational Model Counter | 100% Deterministic Provenance
     </div>
   </header>
@@ -161,9 +179,9 @@
     <!-- Left Panel: Controls & Presets -->
     <div class="panel">
       <div>
-        <div class="section-title">Topology Preset</div>
+        <label for="presetSelect" class="section-title">Topology Preset</label>
         <div class="form-group">
-          <select id="presetSelect" onchange="loadPreset()">
+          <select id="presetSelect" name="presetSelect" title="Topology Preset" aria-label="Topology Preset" onchange="loadPreset()">
             <option value="cloud">Enterprise Multi-Region Cloud VPC</option>
             <option value="subsea">Transatlantic Subsea Optical Mesh</option>
             <option value="abilene">Abilene US Carrier Backbone</option>
@@ -176,19 +194,19 @@
       <div>
         <div class="section-title">Terminal Endpoints</div>
         <div class="form-group">
-          <label>Source Terminal (s)</label>
-          <select id="sourceSelect"></select>
+          <label for="sourceSelect">Source Terminal (s)</label>
+          <select id="sourceSelect" name="sourceSelect" title="Source Terminal (s)" aria-label="Source Terminal (s)"></select>
         </div>
-        <div class="form-group" style="margin-top: 8px;">
-          <label>Target Terminal (t)</label>
-          <select id="targetSelect"></select>
+        <div class="form-group form-group-spaced">
+          <label for="targetSelect">Target Terminal (t)</label>
+          <select id="targetSelect" name="targetSelect" title="Target Terminal (t)" aria-label="Target Terminal (t)"></select>
         </div>
       </div>
 
       <div>
-        <div class="section-title">Analysis Mode</div>
+        <label for="modeSelect" class="section-title">Analysis Mode</label>
         <div class="form-group">
-          <select id="modeSelect" onchange="toggleModeControls()">
+          <select id="modeSelect" name="modeSelect" title="Analysis Mode" aria-label="Analysis Mode" onchange="toggleModeControls()">
             <option value="two_terminal">Two-Terminal Exact Reliability</option>
             <option value="bounded_hop">Bounded-Hop Latency SLA (H17)</option>
             <option value="temporal_mttf">Continuous Temporal MTTF (H15)</option>
@@ -197,45 +215,45 @@
         </div>
       </div>
 
-      <div id="boundedHopGroup" style="display: none;">
+      <div id="boundedHopGroup" class="is-hidden">
         <div class="section-title">Latency Deadline</div>
         <div class="form-group">
-          <label>Max Allowable Hops (L): <span id="hopVal">2</span></label>
-          <input type="range" id="hopRange" min="1" max="6" value="2" oninput="document.getElementById('hopVal').innerText = this.value">
+          <label for="hopRange">Max Allowable Hops (L): <span id="hopVal">2</span></label>
+          <input type="range" id="hopRange" name="hopRange" min="1" max="6" value="2" title="Max Allowable Hops" aria-label="Max Allowable Hops" oninput="document.getElementById('hopVal').innerText = this.value">
         </div>
       </div>
 
-      <div id="temporalGroup" style="display: none;">
+      <div id="temporalGroup" class="is-hidden">
         <div class="section-title">Failure Model</div>
         <div class="form-group">
-          <label>Hazard Rate &lambda; (failures / hour)</label>
-          <input type="number" id="hazardRate" value="0.0001" step="0.00001">
+          <label for="hazardRate">Hazard Rate &lambda; (failures / hour)</label>
+          <input type="number" id="hazardRate" name="hazardRate" value="0.0001" step="0.00001" title="Hazard Rate lambda" aria-label="Hazard Rate lambda">
         </div>
       </div>
 
-      <div id="capacitatedGroup" style="display: none;">
+      <div id="capacitatedGroup" class="is-hidden">
         <div class="section-title">Throughput Demand</div>
         <div class="form-group">
-          <label>Required Flow Units (D): <span id="demandVal">2</span></label>
-          <input type="range" id="demandRange" min="1" max="5" value="2" oninput="document.getElementById('demandVal').innerText = this.value">
+          <label for="demandRange">Required Flow Units (D): <span id="demandVal">2</span></label>
+          <input type="range" id="demandRange" name="demandRange" min="1" max="5" value="2" title="Required Flow Units" aria-label="Required Flow Units" oninput="document.getElementById('demandVal').innerText = this.value">
         </div>
       </div>
 
-      <button class="btn-primary" onclick="runAnalysis()">Run Exact Dual Cut Audit</button>
+      <button type="button" class="btn-primary" onclick="runAnalysis()">Run Exact Dual Cut Audit</button>
 
-      <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5; margin-top: auto;">
+      <div class="panel-footer-note">
         Compiles minimal cuts directly to monotone CNF with strictly |E| variables. Evaluates exact probability in microseconds.
       </div>
     </div>
 
     <!-- Center Panel: Graph Visualization -->
     <div class="center-canvas">
-      <svg id="graphSvg"></svg>
+      <svg id="graphSvg" role="img" aria-label="Network Topology Graph"></svg>
       <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background: var(--accent-blue);"></div> Terminal Nodes</div>
-        <div class="legend-item"><div class="legend-dot" style="background: var(--text-secondary);"></div> Transit Nodes</div>
-        <div class="legend-item"><div class="legend-dot" style="background: var(--accent-green);"></div> Normal Links</div>
-        <div class="legend-item"><div class="legend-dot" style="background: var(--accent-red);"></div> Critical Bottleneck (Birnbaum)</div>
+        <div class="legend-item"><div class="legend-dot legend-dot-terminal"></div> Terminal Nodes</div>
+        <div class="legend-item"><div class="legend-dot legend-dot-transit"></div> Transit Nodes</div>
+        <div class="legend-item"><div class="legend-dot legend-dot-normal"></div> Normal Links</div>
+        <div class="legend-item"><div class="legend-dot legend-dot-bottleneck"></div> Critical Bottleneck (Birnbaum)</div>
       </div>
     </div>
 
@@ -244,37 +262,37 @@
       <div class="section-title">Audit Results</div>
 
       <div class="metric-card">
-        <span style="font-size: 11px; color: var(--text-secondary);">Availability (SLA)</span>
+        <span class="metric-label">Availability (SLA)</span>
         <div class="metric-val" id="metricAvail">99.999%</div>
-        <div class="nines-badge" id="metricNines">Five Nines (>= 99.999%)</div>
+        <div class="nines-badge" id="metricNines">Five Nines (&gt;= 99.999%)</div>
       </div>
 
       <div class="metric-card">
-        <span style="font-size: 11px; color: var(--text-secondary);">Annualized Downtime</span>
-        <div style="font-size: 18px; font-weight: 700; color: #fff;" id="metricDowntime">5.26 min / year</div>
-        <span style="font-size: 11px; color: var(--text-secondary);" id="metricDowntimeHours">0.09 hours / year</span>
+        <span class="metric-label">Annualized Downtime</span>
+        <div class="metric-subval" id="metricDowntime">5.26 min / year</div>
+        <span class="metric-label" id="metricDowntimeHours">0.09 hours / year</span>
       </div>
 
       <div class="metric-card">
-        <span style="font-size: 11px; color: var(--text-secondary);">Audit Latency & Search Nodes</span>
-        <div style="font-size: 14px; font-weight: 600; color: var(--accent-cyan);" id="metricLatency">0.42 ms | 14 DPLL nodes</div>
-        <span style="font-size: 11px; color: var(--text-secondary);" id="metricCuts">4 Minimal Cuts</span>
+        <span class="metric-label">Audit Latency &amp; Search Nodes</span>
+        <div class="metric-latency" id="metricLatency">0.42 ms | 14 DPLL nodes</div>
+        <span class="metric-label" id="metricCuts">4 Minimal Cuts</span>
       </div>
 
-      <div id="spofAlert" class="spof-warning" style="display: none;">
+      <div id="spofAlert" class="spof-warning is-hidden">
         <strong>Warning:</strong> Single Point of Failure (SPOF) detected!
       </div>
 
       <div>
         <div class="section-title">Continuous Temporal Reliability R(t)</div>
         <div class="chart-box">
-          <svg id="chartSvg" width="100%" height="100%" viewBox="0 0 340 130"></svg>
+          <svg id="chartSvg" width="100%" height="100%" viewBox="0 0 340 130" role="img" aria-label="Continuous Reliability Curve"></svg>
         </div>
       </div>
 
       <div>
         <div class="section-title">Top Critical Links (Birnbaum Sensitivity)</div>
-        <div id="criticalityList" style="display: flex; flex-direction: column; gap: 6px; font-size: 12px;"></div>
+        <div id="criticalityList" class="criticality-container"></div>
       </div>
     </div>
   </div>
@@ -391,9 +409,9 @@
 
     function toggleModeControls() {
       const mode = document.getElementById("modeSelect").value;
-      document.getElementById("boundedHopGroup").style.display = mode === "bounded_hop" ? "block" : "none";
-      document.getElementById("temporalGroup").style.display = mode === "temporal_mttf" ? "block" : "none";
-      document.getElementById("capacitatedGroup").style.display = mode === "capacitated" ? "block" : "none";
+      document.getElementById("boundedHopGroup").classList.toggle("is-hidden", mode !== "bounded_hop");
+      document.getElementById("temporalGroup").classList.toggle("is-hidden", mode !== "temporal_mttf");
+      document.getElementById("capacitatedGroup").classList.toggle("is-hidden", mode !== "capacitated");
     }
 
     function initNodePositions() {
@@ -537,9 +555,9 @@
       critDiv.innerHTML = "";
       currentTopo.edges.slice(0, 4).forEach((e, i) => {
         critDiv.innerHTML += `
-          <div style="display: flex; justify-content: space-between; background: var(--bg-primary); padding: 6px 10px; border-radius: 4px;">
+          <div class="criticality-row">
             <span>#${i+1} ${e.u} &harr; ${e.v}</span>
-            <span style="color: var(--accent-cyan); font-weight: 600;">${(0.0015 / (i + 1)).toFixed(5)}</span>
+            <span class="criticality-score">${(0.0015 / (i + 1)).toFixed(5)}</span>
           </div>`;
       });
 
