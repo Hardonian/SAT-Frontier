@@ -1,6 +1,6 @@
 {
-  "status": "all_verified",
-  "total_verified_runs": 2750,
+  "status": "verification_failed",
+  "total_verified_runs": 2346,
   "suites_verified": 18,
   "suites": {
     "policy-train-v02": {
@@ -20,20 +20,20 @@
       "runs": 300
     },
     "wmc-reliability-001": {
-      "status": "verified",
-      "runs": 75
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "tensor-study-001": {
-      "status": "verified",
-      "runs": 72
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "cut-wmc-001": {
-      "status": "verified",
-      "runs": 48
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "cut-cube-001": {
-      "status": "verified",
-      "runs": 36
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/cube_conquer.py"
     },
     "epyc-cube-001": {
       "status": "verified",
@@ -44,37 +44,37 @@
       "runs": 204
     },
     "commercial-benchmarks-001": {
-      "status": "verified",
-      "runs": 5
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "k-terminal-wmc-001": {
-      "status": "verified",
-      "runs": 24
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "poly-wmc-001": {
-      "status": "verified",
-      "runs": 24
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "dicut-wmc-001": {
-      "status": "verified",
-      "runs": 24
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "mixed-wmc-001": {
-      "status": "verified",
-      "runs": 24
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "srrg-wmc-001": {
-      "status": "verified",
-      "runs": 24
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "temporal-wmc-001": {
-      "status": "verified",
-      "runs": 24
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     },
     "capacitated-wmc-001": {
-      "status": "verified",
-      "runs": 24
+      "status": "failed",
+      "error": "error: source hash mismatch: sat_frontier/wmc.py"
     }
   },
-  "elapsed_seconds": 14.23084020614624
+  "elapsed_seconds": 34.020381927490234
 }

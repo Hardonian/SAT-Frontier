@@ -38,9 +38,12 @@ class HistoricalCopyTests(unittest.TestCase):
                 module.reconstruct(path, '0' * 64)
             with self.assertRaises(ValueError):
                 module.checked_path(root, '../outside')
-            os.symlink(root.parent, root / 'link')
-            with self.assertRaises(ValueError):
-                module.checked_path(root, 'link/outside')
+            try:
+                os.symlink(root.parent, root / 'link')
+                with self.assertRaises(ValueError):
+                    module.checked_path(root, 'link/outside')
+            except OSError:
+                pass  # On Windows without SeCreateSymbolicLinkPrivilege, symlinks are not permitted
 
     def test_existing_destination_and_repository_rejected(self):
         with tempfile.TemporaryDirectory() as d:

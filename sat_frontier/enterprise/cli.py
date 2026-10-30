@@ -10,6 +10,7 @@ from .all_pairs import (
     render_terminal_heatmap,
 )
 from .engine import EnterpriseReliabilityEngine
+from .importers import load_topology
 from .report import generate_json_audit_summary, generate_markdown_audit_report
 from .topology import EnterpriseTopology
 
@@ -25,7 +26,8 @@ Examples:
   python -m sat_frontier.enterprise.cli --demo-cloud --out-report cloud_audit.md --out-json cloud_audit.json
         """,
     )
-    parser.add_argument("--topology", help="Path to JSON network topology file")
+    parser.add_argument("--topology", help="Path to network topology file (.graphml, .gml, .json, .csv, .tsv)")
+    parser.add_argument("--default-availability", default="0.99", help="Default link availability if unspecified in topology (default: 0.99)")
     parser.add_argument("--source", help="Source terminal name or node ID")
     parser.add_argument("--target", help="Target terminal name or node ID")
     parser.add_argument("--timeout", type=float, default=30.0, help="Per-analysis timeout budget in seconds")
@@ -66,8 +68,7 @@ Examples:
         if not p.exists():
             print(f"Error: File '{args.topology}' does not exist.")
             sys.exit(1)
-        data = json.loads(p.read_text(encoding="utf-8"))
-        topo = EnterpriseTopology.from_dict(data)
+        topo = load_topology(p, default_availability=args.default_availability)
         source = args.source
         target = args.target
         if not args.all_pairs and (not source or not target):

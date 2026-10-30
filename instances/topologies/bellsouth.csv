@@ -1,0 +1,16 @@
+source,target,availability,mtbf_hours,mttr_hours,bandwidth_gbps
+Atlanta,Birmingham,0.9995,8760,4.38,40.0
+Atlanta,Charlotte,0.9995,8760,4.38,40.0
+Atlanta,Nashville,0.9999,17520,1.75,40.0
+Atlanta,Jacksonville,0.999,8760,8.76,40.0
+Birmingham,Nashville,0.999,8760,8.76,20.0
+Birmingham,NewOrleans,0.9985,8760,13.14,20.0
+Charlotte,Jacksonville,0.999,8760,8.76,20.0
+Jacksonville,Miami,0.9995,8760,4.38,40.0
+Miami,NewOrleans,0.998,8760,17.52,20.0
+Nashville,Louisville,0.9995,8760,4.38,20.0
+Nashville,Memphis,0.999,8760,8.76,20.0
+Louisville,Atlanta,0.999,8760,8.76,20.0
+Memphis,NewOrleans,0.999,8760,8.76,20.0
+Memphis,Birmingham,0.9985,8760,13.14,20.0
+NewOrleans,Jacksonville,0.9975,8760,21.90,20.0

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <key id="d0" for="node" attr.name="label" attr.type="string"/>
+  <key id="d1" for="edge" attr.name="availability" attr.type="string"/>
+  <key id="d2" for="edge" attr.name="capacity" attr.type="double"/>
+  <graph id="GEANT_Core" edgedefault="undirected">
+    <node id="0"><data key="d0">London</data></node>
+    <node id="1"><data key="d0">Paris</data></node>
+    <node id="2"><data key="d0">Geneva</data></node>
+    <node id="3"><data key="d0">Frankfurt</data></node>
+    <node id="4"><data key="d0">Amsterdam</data></node>
+    <node id="5"><data key="d0">Brussels</data></node>
+    <node id="6"><data key="d0">Madrid</data></node>
+    <node id="7"><data key="d0">Milan</data></node>
+    <node id="8"><data key="d0">Vienna</data></node>
+    <node id="9"><data key="d0">Prague</data></node>
+    <node id="10"><data key="d0">Copenhagen</data></node>
+    <node id="11"><data key="d0">Warsaw</data></node>
+
+    <edge source="0" target="1"><data key="d1">0.9999</data><data key="d2">100.0</data></edge>
+    <edge source="0" target="4"><data key="d1">0.9999</data><data key="d2">100.0</data></edge>
+    <edge source="1" target="5"><data key="d1">0.9995</data><data key="d2">40.0</data></edge>
+    <edge source="1" target="2"><data key="d1">0.9995</data><data key="d2">40.0</data></edge>
+    <edge source="1" target="6"><data key="d1">0.999</data><data key="d2">40.0</data></edge>
+    <edge source="2" target="3"><data key="d1">0.9995</data><data key="d2">40.0</data></edge>
+    <edge source="2" target="7"><data key="d1">0.9995</data><data key="d2">40.0</data></edge>
+    <edge source="3" target="4"><data key="d1">0.9999</data><data key="d2">100.0</data></edge>
+    <edge source="3" target="5"><data key="d1">0.9995</data><data key="d2">40.0</data></edge>
+    <edge source="3" target="8"><data key="d1">0.9995</data><data key="d2">40.0</data></edge>
+    <edge source="3" target="9"><data key="d1">0.999</data><data key="d2">40.0</data></edge>
+    <edge source="4" target="10"><data key="d1">0.9995</data><data key="d2">40.0</data></edge>
+    <edge source="6" target="7"><data key="d1">0.9985</data><data key="d2">40.0</data></edge>
+    <edge source="7" target="8"><data key="d1">0.999</data><data key="d2">40.0</data></edge>
+    <edge source="8" target="9"><data key="d1">0.999</data><data key="d2">40.0</data></edge>
+    <edge source="8" target="11"><data key="d1">0.9985</data><data key="d2">40.0</data></edge>
+    <edge source="9" target="11"><data key="d1">0.999</data><data key="d2">40.0</data></edge>
+    <edge source="10" target="11"><data key="d1">0.998</data><data key="d2">40.0</data></edge>
+  </graph>
+</graphml>

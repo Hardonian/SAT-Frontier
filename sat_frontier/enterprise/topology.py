@@ -108,6 +108,8 @@ class EnterpriseTopology:
             fit_rate=fit_rate,
             metadata=metadata or {},
         )
+        self._get_node_id(u)
+        self._get_node_id(v)
         self.links.append(attr)
 
     def to_network_graph(self) -> Tuple[NetworkGraph, Dict[int, LinkAttributes]]:

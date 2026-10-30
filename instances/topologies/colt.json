@@ -1,0 +1,21 @@
+{
+  "name": "Colt_Telecom_European_Backbone",
+  "links": [
+    {"source": "London", "target": "Paris", "availability": "0.9999", "bandwidth_gbps": 100.0},
+    {"source": "London", "target": "Amsterdam", "availability": "0.9999", "bandwidth_gbps": 100.0},
+    {"source": "Paris", "target": "Brussels", "availability": "0.9995", "bandwidth_gbps": 40.0},
+    {"source": "Paris", "target": "Lyon", "availability": "0.9995", "bandwidth_gbps": 40.0},
+    {"source": "Paris", "target": "Madrid", "availability": "0.999", "bandwidth_gbps": 40.0},
+    {"source": "Brussels", "target": "Amsterdam", "availability": "0.9999", "bandwidth_gbps": 100.0},
+    {"source": "Brussels", "target": "Frankfurt", "availability": "0.9995", "bandwidth_gbps": 100.0},
+    {"source": "Amsterdam", "target": "Frankfurt", "availability": "0.9999", "bandwidth_gbps": 100.0},
+    {"source": "Frankfurt", "target": "Munich", "availability": "0.9995", "bandwidth_gbps": 40.0},
+    {"source": "Frankfurt", "target": "Zurich", "availability": "0.9995", "bandwidth_gbps": 40.0},
+    {"source": "Munich", "target": "Vienna", "availability": "0.999", "bandwidth_gbps": 40.0},
+    {"source": "Zurich", "target": "Milan", "availability": "0.9995", "bandwidth_gbps": 40.0},
+    {"source": "Lyon", "target": "Marseille", "availability": "0.9995", "bandwidth_gbps": 40.0},
+    {"source": "Marseille", "target": "Milan", "availability": "0.999", "bandwidth_gbps": 40.0},
+    {"source": "Madrid", "target": "Marseille", "availability": "0.9985", "bandwidth_gbps": 40.0},
+    {"source": "Milan", "target": "Vienna", "availability": "0.9985", "bandwidth_gbps": 40.0}
+  ]
+}

@@ -6,6 +6,13 @@ from .all_pairs import (
     render_terminal_heatmap,
 )
 from .engine import EnterpriseAuditResult, EnterpriseReliabilityEngine
+from .importers import (
+    import_csv,
+    import_gml,
+    import_graphml,
+    import_json,
+    load_topology,
+)
 from .metrics import (
     ComponentImportance,
     CutVulnerability,
@@ -41,5 +48,10 @@ __all__ = [
     "compute_all_pairs_sla",
     "render_terminal_heatmap",
     "generate_all_pairs_markdown_report",
+    "load_topology",
+    "import_graphml",
+    "import_gml",
+    "import_csv",
+    "import_json",
 ]
 
