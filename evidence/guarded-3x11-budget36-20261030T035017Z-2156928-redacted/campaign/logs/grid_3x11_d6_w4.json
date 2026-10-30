@@ -1,0 +1,24 @@
+{
+  "command": [
+    "<PYTHON>",
+    "-m",
+    "sat_frontier.epyc_runner",
+    "<RUN_ROOT>/campaign/instances/49512aeba413fa7f54a656bfbf1a9d4b9c575562252d3436c9c489cd2235ca61.cnf",
+    "--depth",
+    "6",
+    "--workers",
+    "4",
+    "--seconds-per-cube",
+    "36.0",
+    "--max-nodes-per-cube",
+    "3000000",
+    "--out",
+    "<RUN_ROOT>/campaign/results/grid_3x11_d6_w4.json",
+    "--checkpoint-dir",
+    "<RUN_ROOT>/campaign/checkpoints/grid_3x11_d6_w4"
+  ],
+  "returncode": 2,
+  "stdout": "Loading instance: <RUN_ROOT>/campaign/instances/49512aeba413fa7f54a656bfbf1a9d4b9c575562252d3436c9c489cd2235ca61.cnf\nSystem cores detected: 64 | Allocating workers: 4\nMode: Weighted (#WMC) | Algorithm: combined_wmc\nNUMA strategy: interleave | Resources: {\"available_memory_mb\": 157474, \"cpu_count\": 64, \"cpus_per_node\": [], \"load_avg\": [2.001953125, 2.57275390625, 4.078125], \"numa_nodes\": 0, \"total_memory_mb\": 172593}\nGenerating lookahead cubes at depth 6 (2^6 = 64 cubes)...\n\n============================================================\nEPYC Parallel Run Status: UNKNOWN\nExact Probability / Weight Fraction: None\nApproximate Float: None\nCubes: 64 total (32 incomplete)\nTotal Search Nodes: 14,983,062\nWall Clock Time: 409.146s (0.2 cubes/sec on 4 workers)\nCube time median/max: 35.7084s / 36.0804s\nPeak RSS: 29 MB\n============================================================\nSaved results to <RUN_ROOT>/campaign/results/grid_3x11_d6_w4.json\n",
+  "stderr": "",
+  "process_wall_seconds": 409.3255382100033
+}

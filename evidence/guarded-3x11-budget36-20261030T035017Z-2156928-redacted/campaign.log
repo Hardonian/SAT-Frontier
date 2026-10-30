@@ -1,0 +1,3 @@
+Instances: 1; depths: [6]; workers: 4; evidence: <RUN_ROOT>/campaign
+grid_3x11_d6_w4: unknown, nodes=14983062, process_seconds=409.326
+Complete: 0/1 exact, 1 unknown, 0 cross-depth comparisons

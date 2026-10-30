@@ -1,0 +1,24 @@
+{
+  "study": "campaign",
+  "timestamp": "2026-10-30T03:50:17Z",
+  "workers": 4,
+  "depths": [
+    6
+  ],
+  "seconds_per_cube": 36.0,
+  "max_nodes_per_cube": 3000000,
+  "resource_guard": {
+    "cgroup": "<CGROUP>",
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "pids.max": "32",
+    "host_available_bytes": 165135925248
+  },
+  "hardware": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "cpu": "",
+    "logical_cpus": 64,
+    "python": "3.14.9"
+  }
+}
