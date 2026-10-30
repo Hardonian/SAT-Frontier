@@ -1,0 +1,33 @@
+{
+  "command": [
+    "numactl",
+    "--interleave=all",
+    "python3",
+    "scripts/run_epyc_cut_campaign.py",
+    "--workers",
+    "4",
+    "--depths",
+    "6",
+    "--instances-dir",
+    "<RUN_ROOT>/input",
+    "--evidence-dir",
+    "<RUN_ROOT>/campaign",
+    "--seconds-per-cube",
+    "12",
+    "--max-nodes-per-cube",
+    "1000000"
+  ],
+  "timeout_seconds": 270,
+  "initial_guard": {
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "pids.max": "32",
+    "cpu.max": "300000 100000",
+    "memory.current": "6463488",
+    "memory.peak": "6463488",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "memory.swap.current": "0",
+    "pids.current": "1"
+  },
+  "git_head": "4cda234278815873048b41de211c79c00e0e452c"
+}

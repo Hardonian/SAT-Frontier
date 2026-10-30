@@ -1,0 +1,2 @@
+instance,instance_sha256,depth,workers,cubes_total,cubes_incomplete,status,search_nodes,solver_wall_seconds,process_wall_seconds,cubes_per_second,count,weight_fraction,returncode,result_path
+grid_3x11,49512aeba413fa7f54a656bfbf1a9d4b9c575562252d3436c9c489cd2235ca61,6,4,64,46,unknown,6799190,152.65395368199825,152.83512877299654,0.4192488858383706,,,2,results/grid_3x11_d6_w4.json

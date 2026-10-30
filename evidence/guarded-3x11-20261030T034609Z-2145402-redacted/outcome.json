@@ -1,0 +1,17 @@
+{
+  "returncode": 0,
+  "outer_timeout": false,
+  "elapsed_seconds": 156.06819066499884,
+  "final_guard": {
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "pids.max": "32",
+    "cpu.max": "300000 100000",
+    "memory.current": "10780672",
+    "memory.peak": "1393606656",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "memory.swap.current": "0",
+    "pids.current": "1"
+  },
+  "interpretation": "inspect campaign raw result and returncode"
+}

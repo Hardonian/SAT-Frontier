@@ -1,0 +1,24 @@
+{
+  "command": [
+    "<HOME>/.hermes/installs/ccfafd2397cca817/environments/9ccca2f6e6af42719c457bcea05f1acb/venv/bin/python3",
+    "-m",
+    "sat_frontier.epyc_runner",
+    "<RUN_ROOT>/campaign/instances/49512aeba413fa7f54a656bfbf1a9d4b9c575562252d3436c9c489cd2235ca61.cnf",
+    "--depth",
+    "6",
+    "--workers",
+    "4",
+    "--seconds-per-cube",
+    "12.0",
+    "--max-nodes-per-cube",
+    "1000000",
+    "--out",
+    "<RUN_ROOT>/campaign/results/grid_3x11_d6_w4.json",
+    "--checkpoint-dir",
+    "<RUN_ROOT>/campaign/checkpoints/grid_3x11_d6_w4"
+  ],
+  "returncode": 2,
+  "stdout": "Loading instance: <RUN_ROOT>/campaign/instances/49512aeba413fa7f54a656bfbf1a9d4b9c575562252d3436c9c489cd2235ca61.cnf\nSystem cores detected: 64 | Allocating workers: 4\nMode: Weighted (#WMC) | Algorithm: combined_wmc\nNUMA strategy: interleave | Resources: {\"available_memory_mb\": 157645, \"cpu_count\": 64, \"cpus_per_node\": [], \"load_avg\": [0.84130859375, 1.84765625, 4.2724609375], \"numa_nodes\": 0, \"total_memory_mb\": 172593}\nGenerating lookahead cubes at depth 6 (2^6 = 64 cubes)...\n\n============================================================\nEPYC Parallel Run Status: UNKNOWN\nExact Probability / Weight Fraction: None\nApproximate Float: None\nCubes: 64 total (46 incomplete)\nTotal Search Nodes: 6,799,190\nWall Clock Time: 152.654s (0.4 cubes/sec on 4 workers)\nCube time median/max: 12.0000s / 12.0118s\nPeak RSS: 29 MB\n============================================================\nSaved results to <RUN_ROOT>/campaign/results/grid_3x11_d6_w4.json\n",
+  "stderr": "",
+  "process_wall_seconds": 152.83512877299654
+}
