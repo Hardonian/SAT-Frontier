@@ -1,0 +1,2 @@
+instance,instance_sha256,depth,workers,cubes_total,cubes_incomplete,status,search_nodes,solver_wall_seconds,process_wall_seconds,cubes_per_second,count,weight_fraction,returncode,result_path
+grid_3x10,57ca8fa20851c40417d13bf6ff344b793a225a84ea3f5d8237bfaa2187a19d62,8,32,256,0,exact,6204697,37.17490158400324,37.33117596300144,6.88636658315081,,48223721615170979353976679548137128229909096749/50000000000000000000000000000000000000000000000,0,results/grid_3x10_d8_w32.json

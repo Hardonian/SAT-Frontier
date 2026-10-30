@@ -1,0 +1,25 @@
+{
+  "description": "Publication copies only; original evidence and original hash ledgers remain unchanged. Original hashes identify unredacted bytes, not redacted copies.",
+  "redactions": [
+    {
+      "path": "logs/grid_3x10_d8_w4.json",
+      "original_sha256": "5b0a1e2536434a520e26aec74dc044e8a023186d1eec9d7a0d3df2429b717ae8",
+      "publication_sha256": "a48cab4be095cf3f203b880bbd37b0cfff507b2f98e31cb02a3e5bbe99dcd696"
+    },
+    {
+      "path": "logs/grid_3x10_d6_w4.json",
+      "original_sha256": "e50496926d3749f3a830768ae1c5836ff6329b5a7d0a608c327cfd38ecd73e59",
+      "publication_sha256": "423bc17ba9ead2ae98866a6b2da18bac365cda1696b58c3dc0a50a8f58f8fd18"
+    },
+    {
+      "path": "results/grid_3x10_d8_w4.json",
+      "original_sha256": "87277fc7c2d9446868d9871eb2d5f09fb96b9999d30dac73ba0181a765c97286",
+      "publication_sha256": "711b63beb414318437c967c5c08446dea597c94b7d84d3a0c8669621ad58800b"
+    },
+    {
+      "path": "results/grid_3x10_d6_w4.json",
+      "original_sha256": "d678af4bcac71257940c1e42b007b1c4f7b5d25f082d7c7ea8834bb55ae9b44a",
+      "publication_sha256": "b02ff594c05819324f9d042cfabf115a61873498e200e5cdd50d19ad2be65dcb"
+    }
+  ]
+}

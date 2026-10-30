@@ -1,0 +1,216 @@
+test_line_bottleneck_all_pairs (test_all_pairs.TestAllPairsSLA.test_line_bottleneck_all_pairs) ... ok
+test_terminal_heatmap_and_reports (test_all_pairs.TestAllPairsSLA.test_terminal_heatmap_and_reports) ... ok
+test_triangle_all_pairs (test_all_pairs.TestAllPairsSLA.test_triangle_all_pairs) ... ok
+test_heterogeneous_capacity_single_cut (test_capacitated_compiler.TestCapacitatedCompiler.test_heterogeneous_capacity_single_cut)
+Single cut with capacities c1=2, c2=1, c3=1 under demand D=3. ... ok
+test_insufficient_total_capacity (test_capacitated_compiler.TestCapacitatedCompiler.test_insufficient_total_capacity)
+When total cut capacity is less than demand, reliability is exactly 0. ... ok
+test_multi_hop_mesh_with_capacities (test_capacitated_compiler.TestCapacitatedCompiler.test_multi_hop_mesh_with_capacities)
+5-node mesh with multi-unit edge capacities matching Dinic max flow oracle. ... ok
+test_multichannel_trunking_cardinality (test_capacitated_compiler.TestCapacitatedCompiler.test_multichannel_trunking_cardinality)
+4 parallel optical channels under demand D=3 (3-out-of-4 survivability). ... ok
+test_parallel_edges_demand_2 (test_capacitated_compiler.TestCapacitatedCompiler.test_parallel_edges_demand_2)
+Two parallel paths with unit capacity: demand 2 requires both to survive. ... ok
+test_unit_capacity_demand_1 (test_capacitated_compiler.TestCapacitatedCompiler.test_unit_capacity_demand_1)
+When demand D=1 and all capacities are 1, matches standard cut reliability. ... ok
+test_wheatstone_bridge_demand_2 (test_capacitated_compiler.TestCapacitatedCompiler.test_wheatstone_bridge_demand_2)
+Wheatstone bridge with unit capacities evaluated at demand D=2. ... ok
+test_budget_unknown (test_core.CountingTests.test_budget_unknown) ... ok
+test_cache_capacity_does_not_change_count (test_core.CountingTests.test_cache_capacity_does_not_change_count) ... ok
+test_components (test_core.CountingTests.test_components) ... ok
+test_contradictory_units (test_core.CountingTests.test_contradictory_units) ... ok
+test_dimacs_roundtrip (test_core.CountingTests.test_dimacs_roundtrip) ... ok
+test_empty (test_core.CountingTests.test_empty) ... ok
+test_empty_clause (test_core.CountingTests.test_empty_clause) ... ok
+test_exhaustive_two_variable_formulas (test_core.CountingTests.test_exhaustive_two_variable_formulas) ... ok
+test_free_variables_and_units (test_core.CountingTests.test_free_variables_and_units) ... ok
+test_generators (test_core.CountingTests.test_generators) ... ok
+test_invalid_budgets (test_core.CountingTests.test_invalid_budgets) ... ok
+test_no_pure_literal_model_loss (test_core.CountingTests.test_no_pure_literal_model_loss) ... ok
+test_oracle_limit (test_core.CountingTests.test_oracle_limit) ... ok
+test_random_mixed_width (test_core.CountingTests.test_random_mixed_width) ... ok
+test_reject_malformed (test_core.CountingTests.test_reject_malformed) ... ok
+test_tautology_and_duplicates (test_core.CountingTests.test_tautology_and_duplicates) ... ok
+test_campaign_and_no_overwrite (test_core.RunnerTests.test_campaign_and_no_overwrite) ... ok
+test_run_cap (test_core.RunnerTests.test_run_cap) ... ok
+test_split_overlap_rejected (test_core.RunnerTests.test_split_overlap_rejected) ... ok
+test_subprocess_result (test_core.RunnerTests.test_subprocess_result) ... ok
+test_checkpoint_current_partition_only (test_cube_conquer.CubeConquerTests.test_checkpoint_current_partition_only) ... ok
+test_cube_generation_properties (test_cube_conquer.CubeConquerTests.test_cube_generation_properties)
+Verify cube generation creates 2^d disjoint cubes. ... ok
+test_duplicate_priority_variables_do_not_duplicate_cubes (test_cube_conquer.CubeConquerTests.test_duplicate_priority_variables_do_not_duplicate_cubes) ... ok
+test_unweighted_cube_and_conquer_matches_oracle (test_cube_conquer.CubeConquerTests.test_unweighted_cube_and_conquer_matches_oracle)
+Verify parallel Cube-and-Conquer exact count matches oracle on random 3-SAT. ... ok
+test_weighted_cube_and_conquer_matches_analytic (test_cube_conquer.CubeConquerTests.test_weighted_cube_and_conquer_matches_analytic)
+Verify weighted parallel Cube-and-Conquer matches analytic Wheatstone reliability. ... ok
+test_weighted_parser_and_resume (test_cube_conquer.CubeConquerTests.test_weighted_parser_and_resume) ... ok
+test_cut_cnf_matches_wmc_oracle (test_cut_compiler.CutCompilerTests.test_cut_cnf_matches_wmc_oracle)
+Verify exact probability from to_cut_cnf matches wmc_oracle on small formulas. ... ok
+test_direct_single_edge_terminal (test_cut_compiler.CutCompilerTests.test_direct_single_edge_terminal)
+Single edge connecting s to t yields single unit clause. ... ok
+test_disconnected_terminals_yields_unsat (test_cut_compiler.CutCompilerTests.test_disconnected_terminals_yields_unsat)
+When source and target are in disconnected components, cut CNF has empty cut (UNSAT). ... ok
+test_metamorphic_node_label_invariance (test_cut_compiler.CutCompilerTests.test_metamorphic_node_label_invariance)
+Relabeling nodes does not change minimal cut sizes or reliability fraction. ... ok
+test_minimal_cuts_against_brute_force_oracle (test_cut_compiler.CutCompilerTests.test_minimal_cuts_against_brute_force_oracle)
+Verify find_all_minimal_cuts identically matches exhaustive edge-subset oracle. ... ok
+test_asymmetric_reversal_disconnect (test_dicut_compiler.TestDicutCompiler.test_asymmetric_reversal_disconnect) ... ok
+test_diamond_cross_edge (test_dicut_compiler.TestDicutCompiler.test_diamond_cross_edge) ... ok
+test_directed_cycle_feedback (test_dicut_compiler.TestDicutCompiler.test_directed_cycle_feedback) ... ok
+test_directed_polynomial_evaluation (test_dicut_compiler.TestDicutCompiler.test_directed_polynomial_evaluation) ... ok
+test_layered_dag_oracle_matches (test_dicut_compiler.TestDicutCompiler.test_layered_dag_oracle_matches) ... ok
+test_pruning_irrelevant_nodes (test_dicut_compiler.TestDicutCompiler.test_pruning_irrelevant_nodes) ... ok
+test_random_directed_graphs_oracle (test_dicut_compiler.TestDicutCompiler.test_random_directed_graphs_oracle) ... ok
+test_single_arc (test_dicut_compiler.TestDicutCompiler.test_single_arc) ... ok
+test_tautology_same_node (test_dicut_compiler.TestDicutCompiler.test_tautology_same_node) ... ok
+test_capacitated_enterprise_audit (test_enterprise.EnterpriseSDKTests.test_capacitated_enterprise_audit)
+Verify capacitated flow reliability audit via EnterpriseReliabilityEngine. ... ok
+test_directed_network_enterprise_audit (test_enterprise.EnterpriseSDKTests.test_directed_network_enterprise_audit)
+Verify directed reachability audit on microservices DAG. ... ok
+test_downtime_metrics_calculation (test_enterprise.EnterpriseSDKTests.test_downtime_metrics_calculation)
+Verify annualized downtime and N-nines classification. ... ok
+test_mtbf_and_fit_conversions (test_enterprise.EnterpriseSDKTests.test_mtbf_and_fit_conversions)
+Verify MTBF and FIT parameter conversion functions. ... ok
+test_multi_terminal_enterprise_audit (test_enterprise.EnterpriseSDKTests.test_multi_terminal_enterprise_audit)
+Verify multi-terminal SLA audit on 3-AZ cloud VPC topology. ... ok
+test_parametric_curve_enterprise_audit (test_enterprise.EnterpriseSDKTests.test_parametric_curve_enterprise_audit)
+Verify parametric reliability polynomial curve computation. ... ok
+test_single_point_of_failure_detection (test_enterprise.EnterpriseSDKTests.test_single_point_of_failure_detection)
+Verify engine flags single points of failure correctly. ... ok
+test_temporal_enterprise_audit (test_enterprise.EnterpriseSDKTests.test_temporal_enterprise_audit)
+Verify temporal MTTF audit via EnterpriseReliabilityEngine. ... ok
+test_wheatstone_enterprise_audit_and_birnbaum (test_enterprise.EnterpriseSDKTests.test_wheatstone_enterprise_audit_and_birnbaum)
+Verify full enterprise audit on Wheatstone bridge topology matches closed form. ... ok
+test_dry_run_does_not_create_directory (test_epyc_campaign_safety.CampaignSafetyTests.test_dry_run_does_not_create_directory) ... ok
+test_existing_evidence_is_never_overwritten (test_epyc_campaign_safety.CampaignSafetyTests.test_existing_evidence_is_never_overwritten) ... ok
+test_real_small_campaign_and_generic_verifier (test_epyc_campaign_safety.CampaignSafetyTests.test_real_small_campaign_and_generic_verifier) ... ok
+test_result_status_and_cube_invariants_fail_closed (test_epyc_campaign_safety.CampaignSafetyTests.test_result_status_and_cube_invariants_fail_closed) ... ok
+test_runner_crash_is_not_unknown_and_logs_survive (test_epyc_campaign_safety.CampaignSafetyTests.test_runner_crash_is_not_unknown_and_logs_survive) ... ok
+test_holdout_instances_have_no_prior_overlap (test_holdout.HoldoutTests.test_holdout_instances_have_no_prior_overlap) ... ok
+test_preregistration_and_config_hashes (test_holdout.HoldoutTests.test_preregistration_and_config_hashes) ... ok
+test_train_freeze_matches_winner (test_holdout.HoldoutTests.test_train_freeze_matches_winner) ... ok
+test_bad_preregistration_does_not_consume (test_holdout_guard.HoldoutGuardTests.test_bad_preregistration_does_not_consume) ... ok
+test_exact_content_overlap_and_duplicates (test_holdout_guard.HoldoutGuardTests.test_exact_content_overlap_and_duplicates) ... ok
+test_reservation_is_exclusive_and_incomplete_is_consumed (test_holdout_guard.HoldoutGuardTests.test_reservation_is_exclusive_and_incomplete_is_consumed) ... ok
+test_sigkill_after_reservation_cannot_reconsume (test_holdout_guard.HoldoutGuardTests.test_sigkill_after_reservation_cannot_reconsume) ... ok
+test_train_evidence_and_winner (test_holdout_guard.HoldoutGuardTests.test_train_evidence_and_winner) ... ok
+test_winner_source_and_config_tampering_rejected (test_holdout_guard.HoldoutGuardTests.test_winner_source_and_config_tampering_rejected) ... ok
+test_disagreement_preserved_and_minimized (test_independent.CounterProcessTests.test_disagreement_preserved_and_minimized) ... ok
+test_process_failures_and_timeout (test_independent.CounterProcessTests.test_process_failures_and_timeout) ... ok
+test_real_counter_when_explicitly_provided (test_independent.CounterProcessTests.test_real_counter_when_explicitly_provided) ... skipped 'SAT_FRONTIER_SHARPSAT not configured; independent executable integration not run'
+test_resource_limits_real_process (test_independent.CounterProcessTests.test_resource_limits_real_process) ... ok
+test_unsupported_memory_limit (test_independent.CounterProcessTests.test_unsupported_memory_limit) ... ok
+test_explicit_historical_root_preserves_checks (test_independent.LegacyEvidenceTests.test_explicit_historical_root_preserves_checks) ... ok
+test_minimization_is_deterministic (test_independent.MetamorphicTests.test_minimization_is_deterministic) ... ok
+test_transformations_against_truth_table_and_solver (test_independent.MetamorphicTests.test_transformations_against_truth_table_and_solver) ... ok
+test_bridge_cut_edge_yields_unit_clause (test_k_cut_compiler.KCutCompilerTests.test_bridge_cut_edge_yields_unit_clause)
+Verify that a bridge edge separating terminals produces a unit clause. ... ok
+test_c4_three_terminal_against_oracle (test_k_cut_compiler.KCutCompilerTests.test_c4_three_terminal_against_oracle)
+Verify 3-terminal reliability on C4 ring matches brute-force oracle. ... ok
+test_disconnected_terminals_yields_unsat (test_k_cut_compiler.KCutCompilerTests.test_disconnected_terminals_yields_unsat)
+Verify disconnected terminal components yield empty cut clause (UNSAT). ... ok
+test_grid_2x3_four_corners_against_oracle (test_k_cut_compiler.KCutCompilerTests.test_grid_2x3_four_corners_against_oracle)
+Verify 4-corner multi-terminal reliability on 2x3 grid matches brute force oracle. ... ok
+test_k4_all_and_three_terminal_against_oracle (test_k_cut_compiler.KCutCompilerTests.test_k4_all_and_three_terminal_against_oracle)
+Verify K4 complete graph all-terminal and 3-terminal match brute-force oracle. ... ok
+test_metamorphic_node_permutation_invariance (test_k_cut_compiler.KCutCompilerTests.test_metamorphic_node_permutation_invariance)
+Permuting vertex labels preserves minimal cut sizes and exact probability. ... ok
+test_triangle_all_terminal_against_oracle (test_k_cut_compiler.KCutCompilerTests.test_triangle_all_terminal_against_oracle)
+Verify all-terminal reliability on triangle graph matches brute-force oracle. ... ok
+test_two_terminal_reduction_matches_to_cut_cnf (test_k_cut_compiler.KCutCompilerTests.test_two_terminal_reduction_matches_to_cut_cnf)
+Verify K-cut compilation on K={s, t} identically matches 2-terminal cut compiler. ... ok
+test_bottleneck_cut_vertex_mixed (test_mixed_cut_compiler.TestMixedCutCompiler.test_bottleneck_cut_vertex_mixed) ... ok
+test_diamond_mixed_cuts (test_mixed_cut_compiler.TestMixedCutCompiler.test_diamond_mixed_cuts) ... ok
+test_directed_mixed_graph (test_mixed_cut_compiler.TestMixedCutCompiler.test_directed_mixed_graph) ... ok
+test_mixed_polynomial_evaluation (test_mixed_cut_compiler.TestMixedCutCompiler.test_mixed_polynomial_evaluation) ... ok
+test_random_mixed_graphs_oracle (test_mixed_cut_compiler.TestMixedCutCompiler.test_random_mixed_graphs_oracle) ... ok
+test_single_edge_mixed (test_mixed_cut_compiler.TestMixedCutCompiler.test_single_edge_mixed) ... ok
+test_tautology_and_disconnected (test_mixed_cut_compiler.TestMixedCutCompiler.test_tautology_and_disconnected) ... ok
+test_component_term_is_constant_after_split (test_policy.PolicyTests.test_component_term_is_constant_after_split) ... ok
+test_exact_feature_scores (test_policy.PolicyTests.test_exact_feature_scores) ... ok
+test_isolated_policy (test_policy.PolicyTests.test_isolated_policy) ... ok
+test_node_budget_reason (test_policy.PolicyTests.test_node_budget_reason) ... ok
+test_oracle_and_repeatability (test_policy.PolicyTests.test_oracle_and_repeatability) ... ok
+test_paired_bootstrap_clusters_repeats (test_policy.PolicyTests.test_paired_bootstrap_clusters_repeats) ... ok
+test_validation_closed_integer_schema (test_policy.PolicyTests.test_validation_closed_integer_schema) ... ok
+test_c4_cycle_poly_matches_brute_force (test_poly_wmc.PolyWMCTests.test_c4_cycle_poly_matches_brute_force)
+Verify 4-cycle graph polynomial matches independent brute-force oracle. ... ok
+test_disconnected_terminals_yields_zero_poly (test_poly_wmc.PolyWMCTests.test_disconnected_terminals_yields_zero_poly)
+Verify disconnected terminal pair yields all zero coefficients. ... ok
+test_grid_2x3_poly_matches_brute_force (test_poly_wmc.PolyWMCTests.test_grid_2x3_poly_matches_brute_force)
+Verify 2x3 grid polynomial matches independent brute-force oracle. ... ok
+test_k4_complete_poly_matches_brute_force (test_poly_wmc.PolyWMCTests.test_k4_complete_poly_matches_brute_force)
+Verify K4 complete graph polynomial matches independent brute-force oracle. ... ok
+test_point_evaluation_matches_cut_wmc_fraction (test_poly_wmc.PolyWMCTests.test_point_evaluation_matches_cut_wmc_fraction)
+Verify polynomial evaluated at p=0.95 matches exact fraction from WMC solver. ... ok
+test_poly_arithmetic (test_poly_wmc.PolyWMCTests.test_poly_arithmetic)
+Verify polynomial addition and discrete convolution in Z[x]. ... ok
+test_susceptibility_matches_finite_difference (test_poly_wmc.PolyWMCTests.test_susceptibility_matches_finite_difference)
+Verify exact derivative dR/dp matches numerical finite difference. ... ok
+test_triangle_poly_matches_brute_force (test_poly_wmc.PolyWMCTests.test_triangle_poly_matches_brute_force)
+Verify triangle graph polynomial matches independent brute-force oracle. ... ok
+test_wheatstone_bridge_polynomial_analytic (test_poly_wmc.PolyWMCTests.test_wheatstone_bridge_polynomial_analytic)
+Verify exact polynomial on Wheatstone bridge matches closed-form analytic formula. ... ok
+test_checkpoint_signature_changes_with_source (test_runner_review_regressions.RunnerReviewRegressions.test_checkpoint_signature_changes_with_source) ... ok
+test_partition_rejects_duplicate_or_missing_tasks (test_runner_review_regressions.RunnerReviewRegressions.test_partition_rejects_duplicate_or_missing_tasks) ... ok
+test_weight_comments_with_tabs_and_multiple_spaces_are_detected (test_runner_review_regressions.RunnerReviewRegressions.test_weight_comments_with_tabs_and_multiple_spaces_are_detected) ... ok
+test_barbell_search_advantage (test_separator.SeparatorTests.test_barbell_search_advantage) ... ok
+test_cut_vertex_detection (test_separator.SeparatorTests.test_cut_vertex_detection) ... ok
+test_exact_count_preservation_against_oracle (test_separator.SeparatorTests.test_exact_count_preservation_against_oracle) ... ok
+test_invalid_budgets (test_separator.SeparatorTests.test_invalid_budgets) ... ok
+test_node_limit_unknown (test_separator.SeparatorTests.test_node_limit_unknown) ... ok
+test_bridge_network_correlated_sheaths (test_srrg_compiler.TestSRRGCompiler.test_bridge_network_correlated_sheaths)
+Wheatstone bridge network with correlated fiber sheaths. ... ok
+test_cloud_vpc_availability_zones (test_srrg_compiler.TestSRRGCompiler.test_cloud_vpc_availability_zones)
+Cloud VPC architecture: redundant services routed across AZs. ... ok
+test_complex_mesh_oracle_agreement (test_srrg_compiler.TestSRRGCompiler.test_complex_mesh_oracle_agreement)
+5-node mesh with 6 overlapping risk groups matching oracle exactly. ... ok
+test_disconnected_network (test_srrg_compiler.TestSRRGCompiler.test_disconnected_network)
+Graph with no path between terminals. ... ok
+test_independent_parallel_edges (test_srrg_compiler.TestSRRGCompiler.test_independent_parallel_edges)
+Two parallel edges with distinct risk groups. ... ok
+test_multi_group_per_edge (test_srrg_compiler.TestSRRGCompiler.test_multi_group_per_edge)
+Edges subject to both a conduit risk and a regional power risk. ... ok
+test_shared_fate_parallel_edges (test_srrg_compiler.TestSRRGCompiler.test_shared_fate_parallel_edges)
+Two disjoint topological paths sharing the SAME physical conduit. ... ok
+test_unbreakable_bypass_path (test_srrg_compiler.TestSRRGCompiler.test_unbreakable_bypass_path)
+Network where an unshared high-reliability fiber line has zero risk groups. ... ok
+test_barbell_temporal_reliability (test_temporal_reliability.TestTemporalReliability.test_barbell_temporal_reliability)
+Barbell network (k=3, bridge=1) matching Simpson's quadrature oracle. ... ok
+test_grid_3x3_temporal_reliability (test_temporal_reliability.TestTemporalReliability.test_grid_3x3_temporal_reliability)
+Grid 3x3 (12 edges) matching Simpson's quadrature oracle. ... ok
+test_quantile_lifetime_inversion (test_temporal_reliability.TestTemporalReliability.test_quantile_lifetime_inversion)
+Verify B10 and B1 life evaluations invert R(t) accurately. ... ok
+test_simpson_quadrature_oracle_agreement (test_temporal_reliability.TestTemporalReliability.test_simpson_quadrature_oracle_agreement)
+Verify algebraic MTTF matches Simpson's rule quadrature on grid_2x3 and grid_2x4. ... ok
+test_single_edge_mttf (test_temporal_reliability.TestTemporalReliability.test_single_edge_mttf)
+Single link with hazard rate lambda: MTTF = 1/lambda, Var = 1/lambda^2. ... ok
+test_two_parallel_edges_mttf (test_temporal_reliability.TestTemporalReliability.test_two_parallel_edges_mttf)
+Two parallel links: MTTF = 1.5 / lambda. ... ok
+test_wheatstone_bridge_exact_mttf (test_temporal_reliability.TestTemporalReliability.test_wheatstone_bridge_exact_mttf)
+Wheatstone bridge exact analytic MTTF = 49 / (60 * lambda). ... ok
+test_free_variable_scaling (test_tensor_contract.TensorContractTests.test_free_variable_scaling)
+Verify free variables scale count correctly in tensor network. ... ok
+test_unweighted_tensor_contract_matches_oracle (test_tensor_contract.TensorContractTests.test_unweighted_tensor_contract_matches_oracle)
+Verify tensor network contraction matches oracle count on random 3-SAT. ... ok
+test_weighted_tensor_contract_matches_wmc_oracle (test_tensor_contract.TensorContractTests.test_weighted_tensor_contract_matches_wmc_oracle)
+Verify weighted tensor contraction matches wmc_oracle. ... ok
+test_wheatstone_bridge_tensor_analytic (test_tensor_contract.TensorContractTests.test_wheatstone_bridge_tensor_analytic)
+Verify tensor network matches exact analytic reliability of Wheatstone bridge. ... ok
+test_barbell_network_decomposition (test_wmc.WMCTests.test_barbell_network_decomposition)
+Verify barbell network exact count and component split on bridge edge. ... ok
+test_cut_cnf_matches_path_cnf_and_analytic (test_wmc.WMCTests.test_cut_cnf_matches_path_cnf_and_analytic)
+Verify dual cut CNF matches path CNF and exact analytic reliability. ... ok
+test_free_variables_scaling (test_wmc.WMCTests.test_free_variables_scaling)
+Free variables contribute (w(v) + w(-v)) to the weighted sum. ... ok
+test_grid_network_exact_consistency (test_wmc.WMCTests.test_grid_network_exact_consistency)
+Verify grid mesh network reliability is consistent across all solver variants. ... ok
+test_wheatstone_bridge_analytic_verification (test_wmc.WMCTests.test_wheatstone_bridge_analytic_verification)
+Verify Wheatstone bridge network matches exact closed-form reliability. ... ok
+test_wmc_oracle_exact_agreement (test_wmc.WMCTests.test_wmc_oracle_exact_agreement)
+Verify wmc_solve matches wmc_oracle on small weighted formulas. ... ok
+
+----------------------------------------------------------------------
+Ran 145 tests in 4.746s
+
+OK (skipped=1)

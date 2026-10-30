@@ -1,0 +1,12 @@
+{
+  "status": "interrupted_no_result",
+  "reason": "tool foreground timeout at 420 seconds; process no longer running; no result or checkpoint returned",
+  "instance": "grid_4x7",
+  "depth": 8,
+  "workers": 4,
+  "seconds_per_cube": 75,
+  "max_nodes_per_cube": 1000000,
+  "planned_outer_timeout_seconds": 480,
+  "partial_evidence": "evidence/epyc-4x7-20261030T033410Z-2110474",
+  "conclusion": "no new exact or unknown solver result; prior unknown remains"
+}
