@@ -150,7 +150,7 @@ def brute_force_k_terminal_oracle(net: NetworkGraph, terminals: Iterable[Any]) -
             else:
                 state_prob *= (Fraction(1) - probs[i])
 
-        adj_sub = {u: [] for u in all_nodes}
+        adj_sub: Dict[Any, List[Any]] = {u: [] for u in all_nodes}
         for u, v in active_edges:
             adj_sub[u].append(v)
             adj_sub[v].append(u)

@@ -212,7 +212,7 @@ def brute_force_mixed_oracle(
                 state_prob *= (Fraction(1) - edge_p[j])
 
         # Check connectivity in active subgraph
-        adj = {u: [] for u in active_nodes}
+        adj: Dict[Any, List[Any]] = {u: [] for u in active_nodes}
         for u, v in active_edges:
             if u in active_nodes and v in active_nodes:
                 adj[u].append(v)
