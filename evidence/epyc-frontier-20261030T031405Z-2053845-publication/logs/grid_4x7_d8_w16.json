@@ -1,0 +1,24 @@
+{
+  "command": [
+    "<REDACTED_PYTHON_EXECUTABLE>",
+    "-m",
+    "sat_frontier.epyc_runner",
+    "<REDACTED_REPOSITORY_ROOT>/evidence/epyc-frontier-20261030T031405Z-2053845/instances/faece45a06eb21debf27e85751978ad8bfd003f0b2f0e5fc7c8fbaadc2ed035d.cnf",
+    "--depth",
+    "8",
+    "--workers",
+    "16",
+    "--seconds-per-cube",
+    "15.0",
+    "--max-nodes-per-cube",
+    "200000",
+    "--out",
+    "<REDACTED_REPOSITORY_ROOT>/evidence/epyc-frontier-20261030T031405Z-2053845/results/grid_4x7_d8_w16.json",
+    "--checkpoint-dir",
+    "<REDACTED_REPOSITORY_ROOT>/evidence/epyc-frontier-20261030T031405Z-2053845/checkpoints/grid_4x7_d8_w16"
+  ],
+  "returncode": 2,
+  "stdout": "Loading instance: <REDACTED_REPOSITORY_ROOT>/evidence/epyc-frontier-20261030T031405Z-2053845/instances/faece45a06eb21debf27e85751978ad8bfd003f0b2f0e5fc7c8fbaadc2ed035d.cnf\nSystem cores detected: 64 | Allocating workers: 16\nMode: Weighted (#WMC) | Algorithm: combined_wmc\nNUMA strategy: interleave | Resources: {\"available_memory_mb\": 156520, \"cpu_count\": 64, \"cpus_per_node\": [], \"load_avg\": [12.82373046875, 9.8935546875, 5.70947265625], \"numa_nodes\": 0, \"total_memory_mb\": 172593}\nGenerating lookahead cubes at depth 8 (2^8 = 256 cubes)...\n\n============================================================\nEPYC Parallel Run Status: UNKNOWN\nExact Probability / Weight Fraction: None\nApproximate Float: None\nCubes: 256 total (16 incomplete)\nTotal Search Nodes: 15,154,910\nWall Clock Time: 125.650s (2.0 cubes/sec on 16 workers)\nCube time median/max: 4.4162s / 15.0061s\nPeak RSS: 33 MB\n============================================================\nSaved results to <REDACTED_REPOSITORY_ROOT>/evidence/epyc-frontier-20261030T031405Z-2053845/results/grid_4x7_d8_w16.json\n",
+  "stderr": "",
+  "process_wall_seconds": 125.87198799999896
+}

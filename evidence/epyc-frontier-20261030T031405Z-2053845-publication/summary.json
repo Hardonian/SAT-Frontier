@@ -1,0 +1,7 @@
+{
+  "study": "epyc-frontier-20261030T031405Z-2053845",
+  "total_runs": 15,
+  "exact_runs": 5,
+  "unknown_runs": 10,
+  "cross_depth_comparisons": 3
+}

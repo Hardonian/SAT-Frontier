@@ -1,0 +1,233 @@
+{
+  "status": "unknown",
+  "weight_fraction": null,
+  "weight_float": null,
+  "cubes_total": 16,
+  "cubes_incomplete": 9,
+  "workers": 16,
+  "total_nodes": 1798984,
+  "elapsed_seconds": 15.384448730001168,
+  "partitioning_seconds": null,
+  "results": [
+    {
+      "cube": [
+        31,
+        10,
+        29,
+        12
+      ],
+      "status": "exact",
+      "weight_fraction": "2533472584157449648438089325167153042588468879/4000000000000000000000000000000000000000000000",
+      "nodes": 4761,
+      "elapsed": 0.10188657199614681
+    },
+    {
+      "cube": [
+        31,
+        10,
+        29,
+        -12
+      ],
+      "status": "exact",
+      "weight_fraction": "280920231584467399633612229698919873126856489/4000000000000000000000000000000000000000000000",
+      "nodes": 6690,
+      "elapsed": 0.1501904300021124
+    },
+    {
+      "cube": [
+        31,
+        10,
+        -29,
+        12
+      ],
+      "status": "exact",
+      "weight_fraction": "280920231584467399633612229698919873126856489/4000000000000000000000000000000000000000000000",
+      "nodes": 6478,
+      "elapsed": 0.15268390799610643
+    },
+    {
+      "cube": [
+        31,
+        10,
+        -29,
+        -12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 200001,
+      "elapsed": 11.465445470996201
+    },
+    {
+      "cube": [
+        31,
+        -10,
+        29,
+        12
+      ],
+      "status": "exact",
+      "weight_fraction": "702294410193939826817818545119196542602651527/10000000000000000000000000000000000000000000000",
+      "nodes": 6144,
+      "elapsed": 0.1407462189963553
+    },
+    {
+      "cube": [
+        31,
+        -10,
+        29,
+        -12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 200001,
+      "elapsed": 10.962299863997032
+    },
+    {
+      "cube": [
+        31,
+        -10,
+        -29,
+        12
+      ],
+      "status": "exact",
+      "weight_fraction": "6220957088722839337284684571351083910365387/800000000000000000000000000000000000000000000",
+      "nodes": 7449,
+      "elapsed": 0.19823611899482785
+    },
+    {
+      "cube": [
+        31,
+        -10,
+        -29,
+        -12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 200001,
+      "elapsed": 14.041142197995214
+    },
+    {
+      "cube": [
+        -31,
+        10,
+        29,
+        12
+      ],
+      "status": "exact",
+      "weight_fraction": "702294410193939826817818545119196542602651527/10000000000000000000000000000000000000000000000",
+      "nodes": 6721,
+      "elapsed": 0.15926149000006262
+    },
+    {
+      "cube": [
+        -31,
+        10,
+        29,
+        -12
+      ],
+      "status": "exact",
+      "weight_fraction": "6220957088722839337284684571351083910365387/800000000000000000000000000000000000000000000",
+      "nodes": 8298,
+      "elapsed": 0.21295995799300727
+    },
+    {
+      "cube": [
+        -31,
+        10,
+        -29,
+        12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 200001,
+      "elapsed": 12.278963243006729
+    },
+    {
+      "cube": [
+        -31,
+        10,
+        -29,
+        -12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 200001,
+      "elapsed": 11.282461037997564
+    },
+    {
+      "cube": [
+        -31,
+        -10,
+        29,
+        12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 200001,
+      "elapsed": 12.809374775999459
+    },
+    {
+      "cube": [
+        -31,
+        -10,
+        29,
+        -12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 200001,
+      "elapsed": 14.321696929997415
+    },
+    {
+      "cube": [
+        -31,
+        -10,
+        -29,
+        12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 200001,
+      "elapsed": 10.865681928997219
+    },
+    {
+      "cube": [
+        -31,
+        -10,
+        -29,
+        -12
+      ],
+      "status": "unknown",
+      "weight_fraction": null,
+      "nodes": 152435,
+      "elapsed": 15.000209354999242
+    }
+  ],
+  "cube_time_median": 10.913990896497126,
+  "cube_time_max": 15.000209354999242,
+  "checkpoint_dir": "<REDACTED_REPOSITORY_ROOT>/evidence/epyc-frontier-20261030T031405Z-2053845/checkpoints/grid_3x10_d4_w16",
+  "instance": "<REDACTED_REPOSITORY_ROOT>/evidence/epyc-frontier-20261030T031405Z-2053845/instances/57ca8fa20851c40417d13bf6ff344b793a225a84ea3f5d8237bfaa2187a19d62.cnf",
+  "total_wall_seconds": 15.385015550004027,
+  "cubes_per_second": 1.039972949523331,
+  "peak_rss_mb": 24,
+  "numa_strategy": "interleave",
+  "resource_discovery": {
+    "cpu_count": 64,
+    "numa_nodes": 0,
+    "cpus_per_node": [],
+    "total_memory_mb": 172593,
+    "available_memory_mb": 156458,
+    "load_avg": [
+      2.61328125,
+      2.84912109375,
+      2.34130859375
+    ]
+  },
+  "worker_recommendation": {
+    "recommended_workers": 16,
+    "cpu_count": 64,
+    "numa_nodes": 0,
+    "available_memory_mb": 156458,
+    "load_avg_1m": 2.61328125,
+    "reason": "cpu=64, mem_limited=3129, chosen=min(16)"
+  }
+}
