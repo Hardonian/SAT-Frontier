@@ -217,6 +217,12 @@ def main():
     manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
     checksums = {**artifacts, 'manifest.json': sha256_file(manifest_path)}
     (evidence / 'SHA256SUMS').write_text(''.join(f'{v}  {k}\n' for k, v in sorted(checksums.items())))
+    # Preserve the launcher's previous integrity-verification gate, including
+    # when a caller supplies a custom evidence directory.
+    verification = subprocess.run([sys.executable, str(ROOT / 'verify_evidence.py'), str(evidence)], cwd=ROOT)
+    if verification.returncode != 0:
+        print(f'FAILED: evidence hash verification failed; retained evidence in {evidence}', file=sys.stderr)
+        return 1
     print(f'Complete: {exact}/{runs} exact, {unknown} unknown, {comparisons} cross-depth comparisons')
     return 0
 

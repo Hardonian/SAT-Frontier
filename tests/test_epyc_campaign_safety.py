@@ -35,6 +35,44 @@ class CampaignSafetyTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             campaign.require_resource_guard(5)
 
+    def test_guard_limit_and_platform_fail_closed(self):
+        group = '/sys/fs/cgroup/test'
+        files = {'/proc/self/cgroup': '0::/test\n',
+                 '/proc/meminfo': f'MemAvailable: {32 * 1024 * 1024} kB\n',
+                 f'{group}/memory.max': str(8 * 1024**3),
+                 f'{group}/memory.swap.max': '0', f'{group}/pids.max': '32'}
+        def read(path, *args, **kwargs):
+            try:
+                return files[str(path)]
+            except KeyError:
+                raise FileNotFoundError(str(path))
+        with patch.object(Path, 'read_text', read):
+            self.assertEqual(campaign.require_resource_guard(4)['memory.swap.max'], '0')
+            for path, bad in [(f'{group}/memory.max', 'max'),
+                              (f'{group}/memory.max', str(8 * 1024**3 + 1)),
+                              (f'{group}/memory.swap.max', '1'),
+                              (f'{group}/pids.max', '33'),
+                              ('/proc/meminfo', 'MemAvailable: 1 kB\n'),
+                              ('/proc/self/cgroup', '1:memory:/test\n')]:
+                old = files[path]
+                files[path] = bad
+                with self.subTest(path=path, bad=bad), self.assertRaises(ValueError):
+                    campaign.require_resource_guard(1)
+                files[path] = old
+            del files[f'{group}/pids.max']
+            with self.assertRaises(ValueError):
+                campaign.require_resource_guard(1)
+
+    def test_verification_failure_is_not_reported_success(self):
+        real_run = subprocess.run
+        def run(cmd, *args, **kwargs):
+            if str(cmd[1]).endswith('verify_evidence.py'):
+                return subprocess.CompletedProcess(cmd, 1)
+            return real_run(cmd, *args, **kwargs)
+        with patch.object(campaign.subprocess, 'run', side_effect=run):
+            self.assertEqual(self.run_campaign(), 1)
+        self.assertTrue((self.output / 'manifest.json').exists())
+
     def test_guard_failure_preserves_evidence_namespace(self):
         with patch.object(campaign, 'require_resource_guard', side_effect=ValueError('unbounded')), patch.object(sys, 'argv', self.args), contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(campaign.main(), 1)
