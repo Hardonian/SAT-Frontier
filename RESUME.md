@@ -1,4 +1,4 @@
-# Resume checkpoint — v0.2.7 production & research breakthrough release, 2026-10-30
+# Resume checkpoint — v0.2.8 production & research breakthrough release, 2026-10-30
 
 SAT-Frontier is a CPU-first exact-counting research lab. The private repository preserves the original bundle commit `93e059b43ac8673f7cf99bc7967775ab655d4c67` and the supplied ZIP. No public license has been selected.
 
@@ -38,6 +38,7 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - Desktop UI Runtime & Browser Launcher: Implemented standalone desktop launcher in `sat_frontier/enterprise/desktop.py` and `scripts/launch_dashboard.py` with automatic port binding, health check polling, browser auto-opening, and `--dashboard` CLI integration; unit-tested in `tests/test_desktop.py`.
 - Formal Verification in Lean 4: Formalized the core Menger Dual Cut Duality Theorem in `lean/CutDuality.lean` (`dual_cut_menger_duality`), the Exact Algebraic MTTF Integration Theorem in `lean/AlgebraicReliability.lean`, and Multi-Commodity Dual Cut Duality in `lean/MultiCommodityDuality.lean`.
 - Complete Research Reports Suite: Authored and verified all research reports across the repository (`docs/RESULTS.md`, `docs/SRRG_RELIABILITY_REPORT.md`, `docs/TEMPORAL_RELIABILITY_REPORT.md`, `docs/EPYC_SCALING_REPORT.md`, `docs/COMMERCIAL_BENCHMARKS_REPORT.md`, `docs/SEPARATOR_REPORT.md`, `docs/SCALING_REPORT.md`, `docs/MULTI_COMMODITY_REPORT.md`, `docs/MILESTONES.md`) with 100% clean markdownlint validation.
+- Release v0.2.8: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.8.zip` (6,881 files, 14,340,047 bytes, SHA-256: `bbabfaad761f78909cf38317b039b78abe996fe122190eeb0f8943ecc397283c`).
 - Local integrated suite: 174 unit and metamorphic tests (171 passed, 3 skipped POSIX/GPU tests) with cross-platform Windows and Linux support. All 20 empirical evidence suites documented (2,798 total verified runs); active verification via `verify_evidence.py` and historical reproduction via `scripts/verify_historical_copy.py`.
 
 ## Blocked, failed and untested

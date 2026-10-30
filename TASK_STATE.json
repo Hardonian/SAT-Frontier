@@ -1,8 +1,8 @@
 {
   "project": "SAT-Frontier",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "checkpoint_date": "2026-10-30",
-  "release_status": "production release v0.2.7; M0/M1/M2/M3/M5 completed; Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, All-Pairs SLA heatmap & centrality engine, SRRG correlated failure engine, Continuous Temporal MTTF engine, Capacitated Flow Reliability compiler, Bounded-Diameter/Latency compiler, Interactive Web Dashboard, Formal Lean 4 Menger Duality, production CLI, and real-world mission-critical commercial benchmarks completed and verified; High-core AMD EPYC frontier cut campaign cued up and ready with Hermes GPT-6.1 Terra Directive; 2,774 total empirical runs across 19 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
+  "release_status": "production release v0.2.8; M0/M1/M2/M3/M5 completed; Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, All-Pairs SLA heatmap & centrality engine, SRRG correlated failure engine, Continuous Temporal MTTF engine, Capacitated Flow Reliability compiler, Bounded-Diameter/Latency compiler, Multi-Commodity Capacitated Flow compiler, Interactive Web Dashboard, Desktop UI runtime, Formal Lean 4 Menger Duality, Algebraic Reliability and Multi-Commodity Duality, production CLI, and real-world mission-critical commercial benchmarks completed and verified; High-core AMD EPYC frontier cut campaign cued up and ready with Hermes GPT-6.1 Terra Directive; 2,798 total empirical runs across 20 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
   "completed": [
     "private repository and original archive plus Git history restored",
     "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
@@ -49,7 +49,8 @@
     "All research reports finalized, formatted to publication standard (markdownlint clean), and cross-verified with empirical evidence base (docs/RESULTS.md, docs/SRRG_RELIABILITY_REPORT.md, docs/TEMPORAL_RELIABILITY_REPORT.md, docs/EPYC_SCALING_REPORT.md, docs/COMMERCIAL_BENCHMARKS_REPORT.md, docs/SEPARATOR_REPORT.md, docs/SCALING_REPORT.md, docs/MILESTONES.md)",
     "Formal Lean 4 verification expanded: lean/AlgebraicReliability.lean (Algebraic MTTF Integration Theorem) and lean/MultiCommodityDuality.lean (Multi-Commodity Dual Cut Duality)",
     "Hypothesis H18 Multi-Commodity Capacitated Flow Reliability via Dual Multi-Cut Compilation formulated, proven (Theorem 10), implemented in sat_frontier/multi_commodity_compiler.py, unit-tested (5 tests in tests/test_multi_commodity_compiler.py), and evaluated across 24 benchmark instances in evidence/multi-commodity-wmc-001/; 24/24 independent truth-table oracle checks matched with 100% exact rational precision; integrated into EnterpriseReliabilityEngine.audit_multi_commodity_flow and server; documented in docs/MULTI_COMMODITY_REPORT.md and docs/MULTI_COMMODITY_PREREGISTRATION.md",
-    "Standalone Desktop UI runtime and browser launcher implemented in sat_frontier/enterprise/desktop.py and scripts/launch_dashboard.py; unit-tested in tests/test_desktop.py"
+    "Standalone Desktop UI runtime and browser launcher implemented in sat_frontier/enterprise/desktop.py and scripts/launch_dashboard.py; unit-tested in tests/test_desktop.py",
+    "Release v0.2.8 packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.8.zip, 6,881 files, 14,340,047 bytes, SHA-256: bbabfaad761f78909cf38317b039b78abe996fe122190eeb0f8943ecc397283c)"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",

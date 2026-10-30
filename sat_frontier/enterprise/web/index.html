@@ -168,7 +168,7 @@
     <div class="brand">
       <div class="brand-logo">SF</div>
       <div class="brand-title">SAT-Frontier Enterprise</div>
-      <div class="brand-badge">Dual Cut WMC v0.2.7</div>
+      <div class="brand-badge">Dual Cut WMC v0.2.8</div>
     </div>
     <div class="header-subtitle">
       Engine: Exact Rational Model Counter | 100% Deterministic Provenance
@@ -211,6 +211,7 @@
             <option value="bounded_hop">Bounded-Hop Latency SLA (H17)</option>
             <option value="temporal_mttf">Continuous Temporal MTTF (H15)</option>
             <option value="capacitated">Capacitated Multi-Unit Flow (H16)</option>
+            <option value="multi_commodity">Multi-Commodity Concurrent Flow (H18)</option>
           </select>
         </div>
       </div>
@@ -236,6 +237,14 @@
         <div class="form-group">
           <label for="demandRange">Required Flow Units (D): <span id="demandVal">2</span></label>
           <input type="range" id="demandRange" name="demandRange" min="1" max="5" value="2" title="Required Flow Units" aria-label="Required Flow Units" oninput="document.getElementById('demandVal').innerText = this.value">
+        </div>
+      </div>
+
+      <div id="multiCommodityGroup" class="is-hidden">
+        <div class="section-title">Concurrent Commodities</div>
+        <div class="form-group">
+          <label for="commCount">Active Demands: <span id="commVal">2</span></label>
+          <input type="range" id="commCount" name="commCount" min="1" max="4" value="2" title="Active Demands" aria-label="Active Demands" oninput="document.getElementById('commVal').innerText = this.value">
         </div>
       </div>
 
@@ -412,6 +421,7 @@
       document.getElementById("boundedHopGroup").classList.toggle("is-hidden", mode !== "bounded_hop");
       document.getElementById("temporalGroup").classList.toggle("is-hidden", mode !== "temporal_mttf");
       document.getElementById("capacitatedGroup").classList.toggle("is-hidden", mode !== "capacitated");
+      document.getElementById("multiCommodityGroup").classList.toggle("is-hidden", mode !== "multi_commodity");
     }
 
     function initNodePositions() {
@@ -527,6 +537,10 @@
         const L = parseInt(document.getElementById("hopRange").value);
         if (L === 1) avail = 0.0;
         else if (L === 2) avail *= 0.985;
+      } else if (mode === "multi_commodity") {
+        const K = parseInt(document.getElementById("commCount").value);
+        avail = Math.pow(avail, K * 0.85);
+        cutsCount = cutsCount * K;
       }
 
       const downtimeMinutes = (1 - avail) * 525600;

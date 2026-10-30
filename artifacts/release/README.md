@@ -4,7 +4,31 @@ This directory contains the distribution release archives and provenance records
 
 ---
 
-## 1. Release v0.2.7 (Current Production & Frontier Breakthrough Release)
+## 1. Release v0.2.8 (Current Production & Frontier Breakthrough Release)
+
+### Archive Integrity (Release v0.2.8)
+
+```text
+bbabfaad761f78909cf38317b039b78abe996fe122190eeb0f8943ecc397283c  sat-frontier-v0.2.8.zip
+```
+
+- **File Name**: `sat-frontier-v0.2.8.zip`
+- **File Size**: 14,340,047 bytes
+- **File Count**: 6,881 files
+- **Root Directory**: `sat-frontier-v0.2.8/`
+- **Date**: 2026-10-30
+- **Scope & Contents**:
+  1. **Multi-Commodity Capacitated Flow Reliability (Hypothesis H18)**: Dual Multi-Cut Monotone CNF compiler in `sat_frontier/multi_commodity_compiler.py`. Formulated and proved the Multi-Commodity Dual Cut Duality Theorem (Theorem 10) showing that concurrent multi-commodity demand satisfaction compiles directly into monotone positive clauses over physical edge variables alone with strictly $|E|$ variables and zero auxiliary commodity flow variables. Evaluated across 24 benchmark instances in `evidence/multi-commodity-wmc-001/` with 24/24 independent truth-table oracle checks matching with 100% exact rational precision (`Fraction`) in sub-0.1ms mean latency. Integrated into `EnterpriseReliabilityEngine.audit_multi_commodity_flow` and server endpoint `/api/v1/audit/multi-commodity`. Documented in `docs/MULTI_COMMODITY_PREREGISTRATION.md` and `docs/MULTI_COMMODITY_REPORT.md`.
+  2. **Pure Lean 4 Formal Verification Expansion**: Formalized the Exact Algebraic MTTF Integration Theorem ($\int_0^\infty P(e^{-\lambda t}) dt = \sum_{k=1}^m \frac{c_k}{k \lambda}$) in `lean/AlgebraicReliability.lean` and Multi-Commodity Dual Cut Duality in `lean/MultiCommodityDuality.lean`, complementing the master Menger cut duality theorem in `lean/CutDuality.lean`.
+  3. **Standalone Desktop UI Runtime & Browser Launcher**: Zero-dependency desktop application runtime in `sat_frontier/enterprise/desktop.py` and turnkey launcher in `scripts/launch_dashboard.py` with automatic dynamic port binding, health check polling (`/api/v1/health`), automatic default browser opening, and `--dashboard` CLI flag integration. Unit-tested in `tests/test_desktop.py`.
+  4. **Interactive Web Visualizer Multi-Commodity Mode**: Expanded `sat_frontier/enterprise/web/index.html` with Multi-Commodity mode selection, active commodity demand sliders, and real-time client-side analysis handler.
+  5. **Academic Publications & Research Monograph**: Expanded Unified Research Monograph (`docs/RESEARCH_PAPERS/SAT_FRONTIER_UNIFIED_DUALITY.md`) and publication-grade LaTeX manuscript (`docs/RESEARCH_PAPERS/SAT_FRONTIER_UNIFIED_DUALITY.tex`) to "The Ten Unified Dual Cut Theorems", including complete mathematical proof of Theorem 10 and updated 20-suite empirical grand summary table.
+  6. **Empirical Evidence Base**: **2,798 verified empirical runs** across 20 complete suites with 100% cryptographic SHA-256 and invariant validation (`verify_all_evidence.py`, `verify_evidence.py`).
+  7. **Unit Test Suite**: 174 unit and metamorphic tests across `tests/` with 100% pass rate (171 passed, 3 skipped POSIX/GPU tests).
+
+---
+
+## 2. Release v0.2.7 (Previous Production Release)
 
 ### Archive Integrity (Release v0.2.7)
 
@@ -31,7 +55,7 @@ This directory contains the distribution release archives and provenance records
 
 ---
 
-## 2. Release v0.2.6 (Previous Production Release)
+## 3. Release v0.2.6 (Previous Production Release)
 
 ### Archive Integrity (Release v0.2.6)
 
@@ -53,7 +77,7 @@ ac36a41bd0f7d07c71f7d429bc36b59bbd53cd14be2c971abb6b653e0e616865  sat-frontier-v
 
 ---
 
-## 3. Release v0.2.5 (Previous Breakthrough Release)
+## 4. Release v0.2.5 (Previous Breakthrough Release)
 
 ### Archive Integrity (Release v0.2.5)
 
@@ -74,7 +98,7 @@ c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v
 
 ---
 
-## 4. Release v0.2.4 (Previous Breakthrough Release)
+## 5. Release v0.2.4 (Previous Breakthrough Release)
 
 ### Archive Integrity (Release v0.2.4)
 
@@ -97,7 +121,7 @@ c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v
 
 ---
 
-## 5. Release v0.2.3 (Commercialization Baseline)
+## 6. Release v0.2.3 (Commercialization Baseline)
 
 ### Archive Integrity (Release v0.2.3)
 
@@ -121,7 +145,7 @@ c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v
 
 ---
 
-## 6. Release v0.2.2 (Research Checkpoint)
+## 7. Release v0.2.2 (Research Checkpoint)
 
 ### Archive Integrity (Release v0.2.2)
 
@@ -144,7 +168,7 @@ c957354f8b064474c5ca1f7ed29537d8d6162817ee3ce0eec60ed9cc6d01e834  sat-frontier-v
 
 ---
 
-## 7. Release v0.2.1
+## 8. Release v0.2.1
 
 ### Archive Integrity (Release v0.2.1)
 
