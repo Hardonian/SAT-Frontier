@@ -1,0 +1,8 @@
+Copy via transient service: CPUQuota=100%, MemoryMax=2G, TasksMax=32, IOWeight=10, RuntimeMaxSec=240; cp -a --reflink=auto
+Running as unit: run-p2203390-i2282416.service; invocation ID: 47588eddc61347ee8572159d7900ff61
+          Finished with result: timeout
+Main processes terminated with: code=killed, status=15/TERM
+               Service runtime: 4min 4ms
+             CPU time consumed: 3.779s
+                   Memory peak: 2G (swap: 0B)
+copy_exit=1

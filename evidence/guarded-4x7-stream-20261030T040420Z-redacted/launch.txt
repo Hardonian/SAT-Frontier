@@ -1,0 +1,1 @@
+source revision 066eb50e0ff0ebb03e6c1297598f7fb66001c800; depth 8; four workers; 12 seconds per cube; 100000 nodes per cube; timeout 300s; cgroup MemoryMax=6G MemorySwapMax=0 TasksMax=32; NUMA interleave all

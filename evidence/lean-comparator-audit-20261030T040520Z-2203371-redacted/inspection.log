@@ -1,0 +1,36 @@
+2026-10-30T00:09:26-04:00
+7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a
+
+-- source and artifacts --
+25 2026-10-28 15:10:51.786886938 -0400 [REDACTED_LOCAL_PATH]
+d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b  [REDACTED_LOCAL_PATH]
+364 2026-10-28 15:10:39.119188692 -0400 [REDACTED_LOCAL_PATH]
+debbfdc9c01104d2369be80da5180978275106df8b685f693fba7ce7da7c5b19  [REDACTED_LOCAL_PATH]
+590 2026-10-28 15:10:40.767149437 -0400 [REDACTED_LOCAL_PATH]
+cbd4cebf71f1d3239c21241f946d05e8de802dbb9c138713f8e7182d868b2d1c  [REDACTED_LOCAL_PATH]
+1737 2026-10-28 15:10:40.793148817 -0400 [REDACTED_LOCAL_PATH]
+52f71867d9ad80092b6e016af7e456caced292456f70c7a83be34628498c05dc  [REDACTED_LOCAL_PATH]
+MISSING lean/.lake/build/lib/lean/OAI/Algorithms/SubexponentialSAT/SqrtLog/ExecutionNativeFinal.olean
+685944 2026-10-29 17:13:51.644090604 -0400 [REDACTED_LOCAL_PATH]
+1cf032f2108846d18dbca13fc2870f2145b94496c8539fe5c21562bdd0e9a4c7  [REDACTED_LOCAL_PATH]
+MISSING lean/.lake/build/lib/lean/OAI/Algorithms/SubexponentialSAT/Main.olean
+
+-- preservation provenance --
+source=[REDACTED_LOCAL_PATH]
+destination=[REDACTED_LOCAL_PATH]
+created_utc=2026-10-30T02:31:24+00:00
+source_head=7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a
+source_mount=[REDACTED_DEVICE] ext4
+destination_mount=[REDACTED_DEVICE] ext4
+copy_started_utc=2026-10-30T02:31:24+00:00
+copy_exit=0
+copy_finished_utc=2026-10-30T02:51:53+00:00
+verification_exit=0
+verification_finished_utc=2026-10-30T03:13:00+00:00
+verification_diff_lines=0
+
+-- toolchain --
+leanprover/lean4:v4.21.0
+leanprover/lean4:v4.34.1
+leanprover/lean4:v4.35.0
+Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)

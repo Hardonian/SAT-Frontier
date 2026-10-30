@@ -1,0 +1,5 @@
+# Redacted evidence copy
+
+This is a derived publication copy; raw original evidence remains local and unchanged. Absolute private filesystem, cgroup and device paths were replaced with redaction markers. Source hashes and result data were not altered. The original checksum ledger was replaced because redaction changes bytes; `SHA256SUMS` below covers all files in this copy except itself.
+
+The workspace copy timed out; no build, comparator result or axiom audit was completed.

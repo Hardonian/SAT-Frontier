@@ -1,0 +1,17 @@
+{
+  "signature": "28ba570bda7598d15db9856c81e46e39eeb4f33aad22674c72e51acddccfa5e0",
+  "cube": [
+    34,
+    -8,
+    -36,
+    6,
+    -32,
+    -10,
+    -27,
+    24
+  ],
+  "status": "unknown",
+  "weight_fraction": null,
+  "nodes": 100001,
+  "elapsed": 8.332735150004737
+}

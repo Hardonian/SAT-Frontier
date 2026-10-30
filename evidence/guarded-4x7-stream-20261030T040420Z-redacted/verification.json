@@ -1,0 +1,15 @@
+{
+  "outcome": "timeout_interrupted_no_aggregate_result",
+  "exit_code": 124,
+  "partition_cubes": 256,
+  "persisted_cubes": 249,
+  "checkpoint_statuses": {
+    "exact": 216,
+    "unknown": 33
+  },
+  "missing_cubes": 7,
+  "live_checkpoint_hashes_unchanged": 65,
+  "checkpoint_signatures_partition_and_source_hashes_verified": true,
+  "independent_count_verification": false,
+  "note": "Partial cubes are not a complete count; unknown checkpoints require retry. Cgroup peak is sampled before termination, not necessarily final peak."
+}
