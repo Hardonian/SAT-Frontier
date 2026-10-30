@@ -234,3 +234,4 @@ The theory of Dual Cut Monotone CNF Compilation establishes that exact network r
 
 All source code, empirical evidence ledgers, pre-compiled frontier instances, and release archives are open and reproducible under Production Release `v0.2.7` at:
 [`https://github.com/Hardonian/SAT-Frontier.git`](https://github.com/Hardonian/SAT-Frontier.git).
+

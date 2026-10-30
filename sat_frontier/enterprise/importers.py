@@ -474,3 +474,4 @@ def load_topology(
             return import_json(path, default_availability=default_availability, name=name)
         else:
             return import_csv(path, default_availability=default_availability, name=name)
+
