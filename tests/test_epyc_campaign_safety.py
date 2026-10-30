@@ -42,10 +42,11 @@ class CampaignSafetyTests(unittest.TestCase):
                  f'{group}/memory.max': str(8 * 1024**3),
                  f'{group}/memory.swap.max': '0', f'{group}/pids.max': '32'}
         def read(path, *args, **kwargs):
+            key = path.as_posix() if hasattr(path, 'as_posix') else str(path).replace('\\', '/')
             try:
-                return files[str(path)]
+                return files[key]
             except KeyError:
-                raise FileNotFoundError(str(path))
+                raise FileNotFoundError(key)
         with patch.object(Path, 'read_text', read):
             self.assertEqual(campaign.require_resource_guard(4)['memory.swap.max'], '0')
             for path, bad in [(f'{group}/memory.max', 'max'),

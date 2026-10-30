@@ -31,11 +31,11 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - Release v0.2.7: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.7.zip` (5,592 files, 12,210,373 bytes, SHA-256: `46d6f585f9e6759259a2073497f6380ef4af07a57eeac66881ae9cd4494b765b`).
 - Enterprise Topology Importers: Implemented universal zero-dependency importers in `sat_frontier/enterprise/importers.py` supporting GraphML, GML, NetworkX/Cytoscape JSON, and CSV/TSV link inventories; integrated into Enterprise CLI and SDK.
 - Internet Topology Zoo Benchmark Suite: Curated and validated standard carrier backbones in `instances/topologies/` (Abilene GraphML, Internet2 GML, BellSouth CSV, Colt JSON, GEANT GraphML), running sub-100ms full SLA audits.
-- Unified Research Monograph & LaTeX Paper: Authored comprehensive academic paper in `docs/RESEARCH_PAPERS/SAT_FRONTIER_UNIFIED_DUALITY.md` and publication-grade LaTeX paper `docs/RESEARCH_PAPERS/SAT_FRONTIER_UNIFIED_DUALITY.tex` unifying all 8 Dual Cut Duality Theorems, proofs, complexity bounds, 18-suite empirical results, and formal audit findings on OpenAI's ETH refutation.
+- Unified Research Monograph & LaTeX Paper: Authored comprehensive academic paper in `docs/RESEARCH_PAPERS/SAT_FRONTIER_UNIFIED_DUALITY.md` and publication-grade LaTeX paper `docs/RESEARCH_PAPERS/SAT_FRONTIER_UNIFIED_DUALITY.tex` unifying all 9 Dual Cut Duality Theorems, proofs, complexity bounds, 19-suite empirical results, and formal audit findings on OpenAI's ETH refutation.
 - Hypothesis H17 Bounded-Diameter / Latency-Constrained Reliability: Formulated and proved the Dual $L$-Hop Cut Duality Theorem for bounded-diameter network reliability $\mathbb{P}(\text{dist}(s, t) \le L)$ with zero auxiliary routing variables. Implemented in `sat_frontier/bounded_hop_compiler.py`, unit-tested (4 tests), and evaluated across 24 benchmark instances in `evidence/bounded-hop-wmc-001/` with 24/24 independent BFS shortest-path truth-table oracle checks matching with 100% exact rational precision. Documented in `docs/BOUNDED_HOP_REPORT.md` and `docs/BOUNDED_HOP_PREREGISTRATION.md`.
 - Interactive Web Visualizer & SLA Dashboard: Built zero-dependency browser dashboard in `sat_frontier/enterprise/web/index.html` with interactive SVG graph physics, continuous MTTF curves, Birnbaum criticality heatmaps, and local REST server in `sat_frontier/enterprise/server.py`.
 - Formal Verification in Lean 4: Formalized the core Menger Dual Cut Duality Theorem in `lean/CutDuality.lean` (`dual_cut_menger_duality`).
-- Local integrated suite: 160 unit and metamorphic tests (158 passed, 2 skipped GPU tests) with cross-platform Windows and Linux support. All 18 empirical evidence suites pass (2,750 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 14.26 seconds.
+- Local integrated suite: 164 unit and metamorphic tests (162 passed, 2 skipped GPU tests) with cross-platform Windows and Linux support. All 19 empirical evidence suites pass (2,774 total verified runs). Unified master verifier `verify_all_evidence.py` confirms 100% integrity across all suites in 14.26 seconds.
 
 ## Blocked, failed and untested
 
@@ -71,48 +71,9 @@ python3 verify_evidence.py evidence/mixed-wmc-001
 python3 verify_evidence.py evidence/srrg-wmc-001
 python3 verify_evidence.py evidence/temporal-wmc-001
 python3 verify_evidence.py evidence/capacitated-wmc-001
+python3 verify_evidence.py evidence/bounded-hop-wmc-001
 python3 scripts/run_epyc_cut_campaign.py --dry-run
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```
-
-For the original smoke evidence, extract the preserved bootstrap ZIP into a new directory and pass the extracted v0.1 project directory as `--source-root`; see `docs/INDEPENDENT_BASELINE.md`. Without `SAT_FRONTIER_SHARPSAT` the actual external-binary integration test is explicitly skipped. The manifest records source hashes and dirty state at campaign time. Do not overwrite existing evidence directories.
-
-## Blocked, failed and untested
-
-- GitHub-hosted correctness CI attempted on bootstrap revision `5bf97406188d7a2da8dc23b9ba008c6dee2caa31` but GitHub did not start the job: account payments failed or spending limit must be increased. See https://github.com/Hardonian/SAT-Frontier/actions/runs/40697617863 . No billing change was made. After the owner fixes billing, rerun the latest main correctness run:
-
-  `id=$(GH_CONFIG_DIR=/home/scott/.config/gh gh run list --repo Hardonian/SAT-Frontier --workflow correctness --branch main --limit 1 --json databaseId --jq '.[0].databaseId'); test -n "$id" && GH_CONFIG_DIR=/home/scott/.config/gh gh run rerun "$id" --repo Hardonian/SAT-Frontier`
-- Upstream Lean target exited 137 / timed out with 11.9 GB memory peak before kernel check or `#print axioms`; Milestone M4 extraction remains gated. Pinned in `evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json`.
-- Upstream theorem kernel check remains untested due to Lean 4 memory ceiling.
-- Measured RSS contains an inherited/startup high-water floor and should not be used as comparative memory evidence; RLIMIT_AS is not aggregate RSS. Bandit reports low-severity trust-boundary findings, no medium or high findings; run only trusted external binaries.
-
-## Recheck
-
-```bash
-python3 -m unittest discover -s tests -v
-python3 verify_all_evidence.py
-python3 -m sat_frontier.enterprise.cli --demo-cloud
-python3 -m sat_frontier.enterprise.cli --demo-subsea --all-pairs
-python3 -m sat_frontier solve examples/two-components.cnf
-python3 verify_policy_evidence.py
-python3 verify_holdout_evidence.py
-python3 verify_evidence.py evidence/separator-study-001
-python3 verify_evidence.py evidence/scaling-benchmark-001
-python3 verify_evidence.py evidence/wmc-reliability-001
-python3 verify_evidence.py evidence/tensor-study-001
-python3 verify_evidence.py evidence/cut-wmc-001
-python3 verify_evidence.py evidence/cut-cube-001
-python3 verify_epyc_evidence.py evidence/epyc-cube-001 evidence/epyc-cube-002
-python3 verify_evidence.py evidence/commercial-benchmarks-001
-python3 verify_evidence.py evidence/k-terminal-wmc-001
-python3 verify_evidence.py evidence/poly-wmc-001
-python3 verify_evidence.py evidence/dicut-wmc-001
-python3 verify_evidence.py evidence/mixed-wmc-001
-python3 verify_evidence.py evidence/srrg-wmc-001
-python3 scripts/run_epyc_cut_campaign.py --dry-run
-python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
-```
-
-For the original smoke evidence, extract the preserved bootstrap ZIP into a new directory and pass the extracted v0.1 project directory as `--source-root`; see `docs/INDEPENDENT_BASELINE.md`. Without `SAT_FRONTIER_SHARPSAT` the actual external-binary integration test is explicitly skipped. The manifest records source hashes and dirty state at campaign time. Do not overwrite existing evidence directories.
 
 For the original smoke evidence, extract the preserved bootstrap ZIP into a new directory and pass the extracted v0.1 project directory as `--source-root`; see `docs/INDEPENDENT_BASELINE.md`. Without `SAT_FRONTIER_SHARPSAT` the actual external-binary integration test is explicitly skipped. The manifest records source hashes and dirty state at campaign time. Do not overwrite existing evidence directories.

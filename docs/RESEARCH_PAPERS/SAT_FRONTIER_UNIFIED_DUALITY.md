@@ -10,7 +10,7 @@
 
 Evaluating exact network infrastructure availability, multi-terminal reachability, directed flow capacity, and continuous lifetime moments under probabilistic component failures is a foundational #P-complete problem with critical applications in cloud computing, subsea telecommunications, electrical power grids, and aerospace avionics. Traditional reductions to Weighted Model Counting (#WMC) rely on self-avoiding path or Steiner tree enumeration, introducing $O(2^{|V|})$ auxiliary indicator variables and dense hyperedge disjunctions that trigger catastrophic combinatorial explosion on planar grid and mesh topologies.
 
-In this monograph, we establish a comprehensive, unified theory of **Dual Cut Monotone CNF Compilation**. By systematically exploiting Menger cut duality, Ford-Fulkerson min-cut duality, and internal vertex-splitting transformations, we formulate and prove eight foundational duality theorems:
+In this monograph, we establish a comprehensive, unified theory of **Dual Cut Monotone CNF Compilation**. By systematically exploiting Menger cut duality, Ford-Fulkerson min-cut duality, and internal vertex-splitting transformations, we formulate and prove nine foundational duality theorems:
 1. **Two-Terminal Cut Duality**: Exact $s-t$ connectivity via inclusion-minimal edge cuts with zero auxiliary variables.
 2. **Multi-Terminal ($K$-Terminal) & All-Terminal Duality**: Generalizing Menger duality to $K \ge 2$ terminals, completely eliminating hyper-exponential Steiner tree enumeration.
 3. **Directed Dicut Duality**: Exact reachability ($s \leadsto t$) in directed graphs without auxiliary variables or Miller-Tucker-Zemlin (MTZ) subtour elimination constraints.
@@ -19,8 +19,9 @@ In this monograph, we establish a comprehensive, unified theory of **Dual Cut Mo
 6. **Algebraic Model Counting over $\mathbb{Z}[x]$**: Single-pass DPLL evaluation of complete closed-form reliability polynomials $P(x) \in \mathbb{Z}[x]$ and continuous percolation phase transitions.
 7. **Exact Closed-Form Algebraic MTTF Integration**: Proving $\text{MTTF} = \sum_{j=1}^m \frac{a_j}{j \lambda}$ and variance $\operatorname{Var}(T) = 2 \sum_{j=1}^m \frac{a_j}{(j \lambda)^2} - (\text{MTTF})^2$ from monomial polynomial expansions, evaluating continuous mission lifetime metrics in microseconds without Monte Carlo sampling.
 8. **Capacitated Network Flow Dual Cut Threshold Duality**: Compiling multi-unit demand throughput $\mathbb{P}(\text{MaxFlow} \ge D)$ via minimal capacity-breaking subsets into monotone positive clauses with strictly $|E|$ variables.
+9. **Bounded-Diameter / Latency-Constrained Cut Duality**: Compiling hop-bounded path availability $\mathbb{P}(\text{dist}(s, t) \le L)$ via minimal $L$-hop cut transversals into monotone positive clauses with strictly $|E|$ variables and zero auxiliary indicators.
 
-We validate this theoretical framework across 18 empirical research suites comprising 2,750 verified runs and 140 unit tests with 100% cryptographic SHA-256 ledgers. Our dual compilation shatters the planar grid hardness cliff (solving `grid_3x7` in 2.13s versus >600s timeout) and achieves up to 122x search node reductions with 100% exact rational agreement across independent truth-table oracles, Dinic max-flow oracles, and composite Simpson quadrature checks. Finally, we report on our formal audit of OpenAI's claimed subexponential SAT refutation of the Exponential Time Hypothesis (`openai/math`), documenting the precise multi-process memory ceiling blocker that prevents Lean 4 kernel verification.
+We validate this theoretical framework across 19 empirical research suites comprising 2,774 verified runs and 164 unit tests with 100% cryptographic SHA-256 ledgers. Our dual compilation shatters the planar grid hardness cliff (solving `grid_3x7` in 2.13s versus >600s timeout) and achieves up to 122x search node reductions with 100% exact rational agreement across independent truth-table oracles, Dinic max-flow oracles, and composite Simpson quadrature checks. Finally, we report on our formal audit of OpenAI's claimed subexponential SAT refutation of the Exponential Time Hypothesis (`openai/math`), documenting the precise multi-process memory ceiling blocker that prevents Lean 4 kernel verification.
 
 ---
 
@@ -49,7 +50,7 @@ This encoding exhibits catastrophic failure modes on meshed topologies:
 
 ---
 
-## 2. The Eight Unified Cut Duality Theorems
+## 2. The Nine Unified Cut Duality Theorems
 
 To overcome the path-enumeration pathology, we invert the foundational model from operational paths to failure cuts.
 
@@ -153,6 +154,17 @@ The failed edges in $C$ break demand $D$ if and only if they contain some capaci
 Taking the contrapositive: surviving capacity across $C$ is at least $D$ if and only if no $F \in \mathcal{F}_{\text{min}}(C, D)$ is entirely failed, which requires at least one edge in $F$ to survive: $\bigvee_{e \in F} x_e = 1$.
 Conjoining over all cuts yields a monotone CNF with strictly $|E|$ variables and zero auxiliary flow variables. $\blacksquare$
 
+### Theorem 9 (Bounded-Diameter / Latency-Constrained Cut Duality)
+Let $G = (V, E)$ be a network, $s, t \in V$, and $L \ge 1$ a maximum hop/latency bound. Let $\mathcal{P}_{\le L}(s, t)$ be the set of all simple $s-t$ paths of length at most $L$.
+An edge subset $C \subseteq E$ is an **$L$-hop cut** if every path in $\mathcal{P}_{\le L}(s, t)$ contains at least one edge in $C$. Let $\mathcal{C}_{\text{min}}(s, t, L)$ be the inclusion-minimal $L$-hop cuts (minimal transversals of $\mathcal{P}_{\le L}(s, t)$).
+Under operational edge state $\mathbf{x} \in \{0, 1\}^{|E|}$:
+$$\text{dist}_{G_{\mathbf{x}}}(s, t) \le L \iff \bigwedge_{C \in \mathcal{C}_{\text{min}}(s, t, L)} \left( \bigvee_{e \in C} x_e \right) = 1$$
+using strictly $|E|$ Boolean variables and zero auxiliary variables.
+
+*Proof*:
+$(\implies)$ If $\text{dist}_{G_{\mathbf{x}}}(s, t) \le L$, there exists an operational path $P \in \mathcal{P}_{\le L}(s, t)$ with $x_e = 1$ for all $e \in P$. By definition of minimal transversal, every $C \in \mathcal{C}_{\text{min}}(s, t, L)$ intersects $P$ ($C \cap P \neq \emptyset$). Thus, for each $C$, at least one edge $e^* \in C \cap P$ has $x_{e^*} = 1$, satisfying $\bigvee_{e \in C} x_e = 1$.
+$(\impliedby)$ If $\text{dist}_{G_{\mathbf{x}}}(s, t) > L$, then every path $P \in \mathcal{P}_{\le L}(s, t)$ has at least one failed edge ($x_e = 0$). The set of failed edges $E_{\text{fail}} = \{e \in E : x_e = 0\}$ forms a hitting set for $\mathcal{P}_{\le L}(s, t)$. Because every hitting set contains at least one inclusion-minimal hitting set $C^* \subseteq E_{\text{fail}}$ with $C^* \in \mathcal{C}_{\text{min}}(s, t, L)$, all edges in $C^*$ fail ($x_e = 0$ for all $e \in C^*$). Consequently, $\bigvee_{e \in C^*} x_e = 0$, falsifying the formula. $\blacksquare$
+
 ---
 
 ## 3. Algorithmic Architecture & High-Core Parallelization
@@ -177,9 +189,9 @@ flowchart TD
 
 ---
 
-## 4. Comprehensive Empirical Results (18 Suites, 2,750 Runs)
+## 4. Comprehensive Empirical Results (19 Suites, 2,774 Runs)
 
-Across 18 pre-registered empirical campaigns, SAT-Frontier has executed 2,750 verified runs with zero relabeling and 100% cryptographic SHA-256 verification:
+Across 19 pre-registered empirical campaigns, SAT-Frontier has executed 2,774 verified runs with zero relabeling and 100% cryptographic SHA-256 verification:
 
 | Suite Name | Hypothesis | Instances | Total Runs | Primary Metric | Oracle Check | Verification Result |
 | :--- | :--- | :---: | :---: | :--- | :--- | :--- |
@@ -201,7 +213,8 @@ Across 18 pre-registered empirical campaigns, SAT-Frontier has executed 2,750 ve
 | `srrg-wmc-001` | H14 | 24 | 24 | Correlated Risk | Brute Force SRRG Oracle | 22/22 exact rational match |
 | `temporal-wmc-001` | H15 | 24 | 24 | Closed-Form MTTF | Simpson Quadrature | 24/24 match (< 1e-4 rel error) |
 | `capacitated-wmc-001` | H16 | 24 | 24 | Flow Demand P(Flow>=D) | Dinic Max-Flow Oracle | 24/24 exact rational match |
-| **TOTAL** | **18 Suites** | **497** | **2,750** | **Comprehensive** | **100% Cryptographic** | **18 / 18 SUITES VERIFIED** |
+| `bounded-hop-wmc-001` | H17 | 24 | 24 | Hop-Bounded P(dist<=L) | BFS Shortest-Path Oracle | 24/24 exact rational match |
+| **TOTAL** | **19 Suites** | **521** | **2,774** | **Comprehensive** | **100% Cryptographic** | **19 / 19 SUITES VERIFIED** |
 
 ---
 
