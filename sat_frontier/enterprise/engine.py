@@ -37,6 +37,32 @@ class EnterpriseAuditResult:
     total_seconds: float
     search_nodes: int
 
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "topology_name": self.topology_name,
+            "source_terminal": str(self.source_terminal),
+            "target_terminal": str(self.target_terminal),
+            "status": self.status,
+            "availability_fraction": str(self.availability_fraction),
+            "availability_float": float(self.availability_fraction),
+            "metrics": {
+                "availability": self.metrics.availability,
+                "unavailability": self.metrics.unavailability,
+                "availability_fraction": self.metrics.availability_fraction,
+                "n_nines": self.metrics.n_nines,
+                "downtime_hours_per_year": self.metrics.downtime_hours_per_year,
+                "downtime_minutes_per_year": self.metrics.downtime_minutes_per_year,
+                "downtime_seconds_per_year": self.metrics.downtime_seconds_per_year,
+                "downtime_minutes_per_month": self.metrics.downtime_minutes_per_month,
+            },
+            "minimal_cuts_count": self.minimal_cuts_count,
+            "single_points_of_failure_count": len(self.single_points_of_failure),
+            "compilation_seconds": self.compilation_seconds,
+            "solving_seconds": self.solving_seconds,
+            "total_seconds": self.total_seconds,
+            "search_nodes": self.search_nodes,
+        }
+
 
 class EnterpriseReliabilityEngine:
     """Production reliability quantification engine for mission-critical enterprise systems."""

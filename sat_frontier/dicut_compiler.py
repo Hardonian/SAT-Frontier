@@ -144,7 +144,7 @@ def find_all_minimal_dicuts(
             return
 
         # 2. Check if all target_nodes can reach t in D[T]
-        adj_T_rev = {v: [] for v in T}
+        adj_T_rev: Dict[Any, List[Any]] = {v: [] for v in T}
         for u, v in net.edges:
             if u in T and v in T:
                 adj_T_rev[v].append(u)
@@ -229,7 +229,7 @@ def brute_force_directed_oracle(
             else:
                 state_prob *= (Fraction(1) - probs[i])
 
-        adj_sub = {u: [] for u in net.nodes}
+        adj_sub: Dict[Any, List[Any]] = {u: [] for u in net.nodes}
         for u, v in active_edges:
             adj_sub[u].append(v)
 

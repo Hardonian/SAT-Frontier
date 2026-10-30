@@ -82,7 +82,7 @@ def import_graphml(
     if graph_elem is None:
         raise ValueError(f"Malformed GraphML: no <graph> tag found in {path}")
 
-    topo_name = name or graph_elem.get("id", path.stem)
+    topo_name = name or graph_elem.get("id") or path.stem
     topo = EnterpriseTopology(name=topo_name)
 
     # Map node XML id -> human label
