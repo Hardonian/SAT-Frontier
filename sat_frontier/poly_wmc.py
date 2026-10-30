@@ -116,7 +116,7 @@ def find_clause_components(clauses: List[List[int]]) -> List[List[List[int]]]:
     if not clauses:
         return []
 
-    var_to_clauses = {}
+    var_to_clauses: Dict[int, List[int]] = {}
     for idx, c in enumerate(clauses):
         for lit in c:
             v = abs(lit)
@@ -160,7 +160,7 @@ def solve_poly_wmc(
 ) -> Tuple[List[int], str, int]:
     """Solve algebraic model counting over Z[x] with component caching and unit propagation."""
     t0 = time.perf_counter()
-    memo = {}
+    memo: Dict[Tuple[Tuple[int, ...], ...], List[int]] = {}
     nodes_evaluated = 0
 
     def dpll(cur_clauses: List[List[int]], cur_vars: Set[int]) -> List[int]:
@@ -233,7 +233,7 @@ def solve_poly_wmc(
         # 7. Variable selection: DLCS heuristic (maximum occurrences in shortest clauses)
         min_len = min(len(c) for c in cur_clauses)
         candidates = [c for c in cur_clauses if len(c) == min_len]
-        counts = {}
+        counts: Dict[int, int] = {}
         for c in candidates:
             for lit in c:
                 v = abs(lit)
@@ -314,7 +314,7 @@ def brute_force_poly_oracle(net: NetworkGraph, source: Any, target: Any) -> List
         active = [edges[i] for i in range(m) if (mask & (1 << i))]
         k = bin(mask).count("1")
 
-        adj = {u: [] for u in all_nodes}
+        adj: Dict[Any, List[Any]] = {u: [] for u in all_nodes}
         for u, v in active:
             adj[u].append(v)
             adj[v].append(u)

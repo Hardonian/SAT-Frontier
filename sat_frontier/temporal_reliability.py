@@ -176,7 +176,7 @@ def numerical_quadrature_mttf_oracle(
 
     def r_of_t(t_val: float) -> float:
         x_val = math.exp(-hazard_rate_per_hour * t_val)
-        return poly.evaluate(x_val)
+        return float(poly.evaluate(x_val))
 
     # Simpson's composite rule: (h/3) * (f0 + 4f1 + 2f2 + 4f3 + ... + fn)
     integral = r_of_t(0.0) + r_of_t(t_max)

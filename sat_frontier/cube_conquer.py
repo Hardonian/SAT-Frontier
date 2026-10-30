@@ -5,7 +5,7 @@ import os
 try:
     import resource
 except ImportError:
-    resource = None
+    resource = None  # type: ignore[assignment]
 import statistics
 import tempfile
 from collections import defaultdict
