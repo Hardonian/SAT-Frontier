@@ -250,3 +250,4 @@ def brute_force_bounded_hop_oracle(
             total_prob += state_weight
 
     return total_prob
+

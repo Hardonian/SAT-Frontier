@@ -148,3 +148,4 @@ theorem dual_cut_menger_duality {g : Graph V E} {x : OperationalState E} {s t : 
     exact h_no_surv h_must_survive
 
 end SatFrontier
+
