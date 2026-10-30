@@ -1,0 +1,15 @@
+{
+  "signature": "39810928dcf7e00470ba708eb7ae88b86011108ca6d005989a975202cd2b4a38",
+  "cube": [
+    20,
+    5,
+    30,
+    -29,
+    -28,
+    27
+  ],
+  "status": "exact",
+  "weight_fraction": "1458/5",
+  "nodes": 8,
+  "elapsed": 0.00013767500058747828
+}

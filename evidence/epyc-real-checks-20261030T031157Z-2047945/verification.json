@@ -1,0 +1,114 @@
+{
+  "historical_csv_sha256": "5d342ff1427169f1dc2b19f46771cb1fab03a0809495f015d3f95d3f33795107",
+  "studies": {
+    "epyc-real-pilot-20261030T031116Z-2045642": {
+      "checksum_entries_verified": 261,
+      "input_sha256": {
+        "barbell_6_3_6": "caa211f16b0033f438c17a2ee7a9ac00c8c885c2a11e8c79cc0ead60479dfcf5",
+        "grid_3x8": "d635b4c30c04b65b61fa6e9540c967e57be68cdb1d7eb592d71b2d67b99c4d85",
+        "grid_4x5": "2592429aa74f0d468c6a37bd22f546d51a40a2cad723ebca8252a762ed78a7c6"
+      },
+      "historical_comparisons": [
+        {
+          "instance": "grid_3x8",
+          "depth": "4",
+          "historical_exact_matches": 2
+        },
+        {
+          "instance": "grid_3x8",
+          "depth": "6",
+          "historical_exact_matches": 2
+        },
+        {
+          "instance": "grid_4x5",
+          "depth": "4",
+          "historical_exact_matches": 3
+        },
+        {
+          "instance": "grid_4x5",
+          "depth": "6",
+          "historical_exact_matches": 3
+        }
+      ],
+      "summary": {
+        "study": "epyc-real-pilot-20261030T031116Z-2045642",
+        "total_runs": 6,
+        "exact_runs": 6,
+        "unknown_runs": 0,
+        "cross_depth_comparisons": 3
+      }
+    },
+    "epyc-real-next-20261030T031157Z-2047945": {
+      "checksum_entries_verified": 1306,
+      "input_sha256": {
+        "grid_3x8": "d635b4c30c04b65b61fa6e9540c967e57be68cdb1d7eb592d71b2d67b99c4d85",
+        "grid_3x9": "02fdde861820607369acf29c557ed52b9e3bd5a6c5bcd60bfa797d86156b5862",
+        "grid_4x5": "2592429aa74f0d468c6a37bd22f546d51a40a2cad723ebca8252a762ed78a7c6",
+        "grid_4x6": "14354f9a6a20bb5f228005518c1ba9ce3eb30c00eae657e66ce9d390a972d07b"
+      },
+      "historical_comparisons": [
+        {
+          "instance": "grid_3x8",
+          "depth": "6",
+          "historical_exact_matches": 2
+        },
+        {
+          "instance": "grid_3x8",
+          "depth": "8",
+          "historical_exact_matches": 2
+        },
+        {
+          "instance": "grid_3x9",
+          "depth": "6",
+          "historical_exact_matches": 1
+        },
+        {
+          "instance": "grid_3x9",
+          "depth": "8",
+          "historical_exact_matches": 1
+        },
+        {
+          "instance": "grid_4x5",
+          "depth": "6",
+          "historical_exact_matches": 3
+        },
+        {
+          "instance": "grid_4x5",
+          "depth": "8",
+          "historical_exact_matches": 3
+        },
+        {
+          "instance": "grid_4x6",
+          "depth": "6",
+          "historical_exact_matches": 1
+        },
+        {
+          "instance": "grid_4x6",
+          "depth": "8",
+          "historical_exact_matches": 1
+        }
+      ],
+      "summary": {
+        "study": "epyc-real-next-20261030T031157Z-2047945",
+        "total_runs": 8,
+        "exact_runs": 8,
+        "unknown_runs": 0,
+        "cross_depth_comparisons": 4
+      }
+    }
+  },
+  "note": "Historical weights are comparisons to prior runs, not independent solver checks. Barbell oracle uses independent exhaustive evaluation and signed input weights, not probabilities.",
+  "barbell_exhaustive_oracle": {
+    "factor_sums": [
+      2626113,
+      2626113
+    ],
+    "fraction": "62068225398921/10",
+    "pilot_depths_matched": [
+      "4",
+      "6"
+    ],
+    "weights": "variables 1..30: true=3 false=-2; variable 31: true=9/10 false=1/10",
+    "warning": "Signed weights yield a weighted sum, not network reliability; historical barbell_k6 used different weights and cannot be compared."
+  }
+}

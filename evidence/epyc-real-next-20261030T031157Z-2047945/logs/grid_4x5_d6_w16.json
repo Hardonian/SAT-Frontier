@@ -1,0 +1,24 @@
+{
+  "command": [
+    "<python3>",
+    "-m",
+    "sat_frontier.epyc_runner",
+    "<study-root>/evidence/epyc-real-next-20261030T031157Z-2047945/instances/2592429aa74f0d468c6a37bd22f546d51a40a2cad723ebca8252a762ed78a7c6.cnf",
+    "--depth",
+    "6",
+    "--workers",
+    "16",
+    "--seconds-per-cube",
+    "15.0",
+    "--max-nodes-per-cube",
+    "200000",
+    "--out",
+    "<study-root>/evidence/epyc-real-next-20261030T031157Z-2047945/results/grid_4x5_d6_w16.json",
+    "--checkpoint-dir",
+    "<study-root>/evidence/epyc-real-next-20261030T031157Z-2047945/checkpoints/grid_4x5_d6_w16"
+  ],
+  "returncode": 0,
+  "stdout": "Loading instance: <study-root>/evidence/epyc-real-next-20261030T031157Z-2047945/instances/2592429aa74f0d468c6a37bd22f546d51a40a2cad723ebca8252a762ed78a7c6.cnf\nSystem cores detected: 64 | Allocating workers: 16\nMode: Weighted (#WMC) | Algorithm: combined_wmc\nNUMA strategy: interleave | Resources: {\"available_memory_mb\": 156329, \"cpu_count\": 64, \"cpus_per_node\": [], \"load_avg\": [4.142578125, 2.6025390625, 2.18603515625], \"numa_nodes\": 0, \"total_memory_mb\": 172593}\nGenerating lookahead cubes at depth 6 (2^6 = 64 cubes)...\n\n============================================================\nEPYC Parallel Run Status: EXACT\nExact Probability / Weight Fraction: 487577483536593773855684851371/500000000000000000000000000000\nApproximate Float: 0.9751549670731875\nCubes: 64 total (0 incomplete)\nTotal Search Nodes: 224,479\nWall Clock Time: 0.812s (78.8 cubes/sec on 16 workers)\nCube time median/max: 0.1094s / 0.3155s\nPeak RSS: 23 MB\n============================================================\nSaved results to <study-root>/evidence/epyc-real-next-20261030T031157Z-2047945/results/grid_4x5_d6_w16.json\n",
+  "stderr": "",
+  "process_wall_seconds": 0.8921332160025486
+}
