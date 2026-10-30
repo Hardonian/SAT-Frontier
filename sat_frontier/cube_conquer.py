@@ -7,6 +7,7 @@ try:
 except ImportError:
     resource = None
 import statistics
+import tempfile
 from collections import defaultdict
 from fractions import Fraction
 from multiprocessing import Pool, get_context
@@ -137,9 +138,39 @@ def _load_checkpoint(checkpoint_dir: Path):
 
 
 def _save_checkpoint(checkpoint_dir: Path, sig: str, result: dict):
+    # Persist newly created directory entries as well as checkpoint files.
+    missing = []
+    parent = checkpoint_dir
+    while not parent.exists():
+        missing.append(parent)
+        parent = parent.parent
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
+    if os.name == 'posix':
+        for directory in reversed(missing):
+            fd = os.open(directory.parent, os.O_RDONLY)
+            try:
+                os.fsync(fd)
+            finally:
+                os.close(fd)
     path = checkpoint_dir / f"{sig}.json"
-    path.write_text(json.dumps({"signature": sig, **result}, indent=2) + "\n")
+    # Publish only complete JSON; fsync both data and directory entry on POSIX.
+    fd, temporary = tempfile.mkstemp(prefix=f".{sig}.", suffix=".tmp", dir=checkpoint_dir)
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8') as stream:
+            json.dump({"signature": sig, **result}, stream, indent=2)
+            stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+        if os.name == 'posix':
+            directory_fd = os.open(checkpoint_dir, os.O_RDONLY)
+            try:
+                os.fsync(directory_fd)
+            finally:
+                os.close(directory_fd)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
 
 
 def _usable_checkpoint(result, cube, weighted):
@@ -186,15 +217,13 @@ def parallel_cube_and_conquer(f, depth=3, num_workers=None, algo='combined',
     if tasks:
         # Flatten for pool: drop checkpoint args for worker
         worker_tasks = [(t[0], t[1], t[2], t[3], t[4]) for t in tasks]
+        signatures = {tuple(t[1]): t[5] for t in tasks}
         with ctx.Pool(processes=num_workers) as pool:
-            worker_results = pool.map(_eval_cube_unweighted, worker_tasks)
-
-        for task_args, worker_res in zip(tasks, worker_results):
-            sig = task_args[5]
-            ck = task_args[6]
-            if ck:
-                _save_checkpoint(ck, sig, worker_res)
-            results.append(worker_res)
+            for worker_res in pool.imap_unordered(_eval_cube_unweighted, worker_tasks, chunksize=1):
+                sig = signatures[tuple(worker_res['cube'])]
+                if checkpoint_path:
+                    _save_checkpoint(checkpoint_path, sig, worker_res)
+                results.append(worker_res)
 
     # Only the requested partition contributes to this run.
     all_results = resumed + results
@@ -258,15 +287,13 @@ def parallel_cube_and_conquer_wmc(wf, depth=3, num_workers=None, algo='combined_
     results = []
     if tasks:
         worker_tasks = [(t[0], t[1], t[2], t[3], t[4]) for t in tasks]
+        signatures = {tuple(t[1]): t[5] for t in tasks}
         with ctx.Pool(processes=num_workers) as pool:
-            worker_results = pool.map(_eval_cube_weighted, worker_tasks)
-
-        for task_args, worker_res in zip(tasks, worker_results):
-            sig = task_args[5]
-            ck = task_args[6]
-            if ck:
-                _save_checkpoint(ck, sig, worker_res)
-            results.append(worker_res)
+            for worker_res in pool.imap_unordered(_eval_cube_weighted, worker_tasks, chunksize=1):
+                sig = signatures[tuple(worker_res['cube'])]
+                if checkpoint_path:
+                    _save_checkpoint(checkpoint_path, sig, worker_res)
+                results.append(worker_res)
 
     all_results = resumed + results
 
