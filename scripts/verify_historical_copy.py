@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the 16 historical suites in a fresh, external Git archive copy.
+"""Verify historical suites in a fresh, external Git archive copy.
 
 Never change the checkout, Git objects, or historical ledgers. A reconstructed
 file is accepted only when its exact SHA-256 matches its existing ledger.
@@ -19,7 +19,8 @@ SUITES = ('policy-train-v02', 'policy-holdout-v02', 'separator-study-001',
           'scaling-benchmark-001', 'wmc-reliability-001', 'tensor-study-001',
           'cut-wmc-001', 'cut-cube-001', 'epyc-cube-001', 'epyc-cube-002',
           'commercial-benchmarks-001', 'k-terminal-wmc-001', 'poly-wmc-001',
-          'dicut-wmc-001', 'mixed-wmc-001', 'srrg-wmc-001')
+          'dicut-wmc-001', 'mixed-wmc-001', 'srrg-wmc-001', 'temporal-wmc-001',
+          'capacitated-wmc-001', 'bounded-hop-wmc-001', 'multi-commodity-wmc-001')
 
 
 def sha(data):

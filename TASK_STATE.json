@@ -50,7 +50,7 @@
     "Formal Lean 4 verification expanded: lean/AlgebraicReliability.lean (Algebraic MTTF Integration Theorem) and lean/MultiCommodityDuality.lean (Multi-Commodity Dual Cut Duality)",
     "Hypothesis H18 Multi-Commodity Capacitated Flow Reliability via Dual Multi-Cut Compilation formulated, proven (Theorem 10), implemented in sat_frontier/multi_commodity_compiler.py, unit-tested (5 tests in tests/test_multi_commodity_compiler.py), and evaluated across 24 benchmark instances in evidence/multi-commodity-wmc-001/; 24/24 independent truth-table oracle checks matched with 100% exact rational precision; integrated into EnterpriseReliabilityEngine.audit_multi_commodity_flow and server; documented in docs/MULTI_COMMODITY_REPORT.md and docs/MULTI_COMMODITY_PREREGISTRATION.md",
     "Standalone Desktop UI runtime and browser launcher implemented in sat_frontier/enterprise/desktop.py and scripts/launch_dashboard.py; unit-tested in tests/test_desktop.py",
-    "Release v0.2.8 packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.8.zip, 6,881 files, 14,340,047 bytes, SHA-256: bbabfaad761f78909cf38317b039b78abe996fe122190eeb0f8943ecc397283c)"
+    "Release v0.2.8 packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.8.zip, 6,881 files, 14,340,989 bytes, SHA-256: 73fd7d47a9c7795cb619fce217f577a0a0a4772f37fc9fe613eb3151b680140e)"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
