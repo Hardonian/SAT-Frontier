@@ -195,6 +195,69 @@ using strictly $|E|$ Boolean variables and zero auxiliary variables.
 In any valid concurrent flow, the total flow routed across cut partition $(S, V \setminus S)$ must equal or exceed $D(S)$. The maximum physical flow crossing $S$ cannot exceed surviving capacity $\sum_{e \in \Delta(S)} c_e x_e$. Thus, $\sum_{e \in \Delta(S)} c_e x_e \ge D(S)$ is necessary across every cut partition $S$.
 A subset of edges $F \subseteq \Delta(S)$ fails to meet demand $D(S)$ if $\sum_{e \in \Delta(S) \setminus F} c_e < D(S)$. To satisfy demand, not all edges in $F$ can fail simultaneously. Thus, at least one edge in each inclusion-minimal failing subset $F \in \mathcal{F}_{\min}(\Delta(S), D(S))$ must survive: $\bigvee_{e \in F} x_e = 1$. Conjoining across all cuts yields a monotone positive CNF containing strictly $|E|$ variables. $\blacksquare$
 
+### Theorem 11 (Generalized Weibull Aging & Polynomial MTTF Integration)
+
+Let $G = (V, E)$ be a network whose physical components experience Weibull wear-out and fatigue aging with scale parameter $\lambda > 0$ and shape parameter $\beta > 0$.
+The component survivability function is $R_e(t) = \exp(-(\lambda t)^\beta)$.
+Let $P(x) = \sum_{j=1}^m a_j x^j \in \mathbb{Z}[x]$ be the exact reliability polynomial in standard monomial basis evaluated via Algebraic Dual Cut WMC over $\mathbb{Z}[x]$ (Theorem 6).
+Then:
+
+1. The continuous network reliability function is:
+   $$R(t) = \sum_{j=1}^m a_j \exp\left(-j (\lambda t)^\beta\right)$$
+2. The exact $r$-th raw failure moment evaluates in closed form:
+   $$\mathbb{E}[T^r] = \frac{\Gamma(1 + r/\beta)}{\lambda^r} \sum_{j=1}^m \frac{a_j}{j^{r/\beta}}$$
+3. In particular, the Mean Time To Failure (MTTF, $r = 1$) is:
+   $$\text{MTTF}_{\text{Weibull}} = \frac{\Gamma(1 + 1/\beta)}{\lambda} \sum_{j=1}^m \frac{a_j}{j^{1/\beta}}$$
+4. The exact failure variance is $\operatorname{Var}(T) = \mathbb{E}[T^2] - (\text{MTTF}_{\text{Weibull}})^2$.
+
+*Proof*:
+Substituting $x(t) = \exp(-(\lambda t)^\beta)$ into polynomial expansion $P(x) = \sum_{j=1}^m a_j x^j$ yields $R(t) = \sum_{j=1}^m a_j \exp(-j (\lambda t)^\beta)$.
+For $r \ge 1$, the $r$-th moment is $\mathbb{E}[T^r] = \int_0^\infty r t^{r-1} R(t) \, dt = \sum_{j=1}^m a_j \int_0^\infty r t^{r-1} \exp(-j (\lambda t)^\beta) \, dt$.
+Substitute $u = j (\lambda t)^\beta$, so $t = \frac{u^{1/\beta}}{j^{1/\beta} \lambda}$ and $d u = j \beta \lambda^\beta t^{\beta-1} dt$, which transforms the integral into:
+$$\int_0^\infty r t^{r-1} \exp(-j (\lambda t)^\beta) \, dt = \frac{r}{\beta \lambda^r j^{r/\beta}} \int_0^\infty u^{r/\beta - 1} e^{-u} \, du = \frac{r}{\beta \lambda^r j^{r/\beta}} \Gamma(r/\beta) = \frac{\Gamma(1 + r/\beta)}{\lambda^r j^{r/\beta}}$$
+Summing over $j \in \{1, \dots, m\}$ yields the exact closed form. For $\beta = 1$, $\Gamma(2) = 1$, recovering the exponential MTTF formula of Theorem 7; for $\beta = 2$, $\Gamma(3/2) = \frac{\sqrt{\pi}}{2}$, yielding Rayleigh wear-out MTTF in closed form. $\blacksquare$
+
+### Theorem 12 (Repairable System Renewal Duality & Exact Failure Frequency)
+
+Let $G = (V, E)$ be a repairable network where each component $e \in E$ alternates between operational and failed states under constant failure rate $\lambda_e > 0$ and repair rate $\mu_e > 0$.
+The operational availability of edge $e$ is $A_e = \frac{\mu_e}{\lambda_e + \mu_e} \in \mathbb{Q}$.
+Let $R(\mathbf{p})$ be the multilinear network reliability polynomial.
+Then:
+
+1. The steady-state network availability is $A_{\text{sys}} = R(A_1, \dots, A_m) \in \mathbb{Q}$.
+2. The exact asymptotic network failure frequency (expected system failures per unit time) is:
+   $$\omega_{\text{sys}} = \sum_{e \in E} \frac{\partial R}{\partial p_e}(\mathbf{A}) \cdot \lambda_e A_e = \sum_{e \in E} I_B(e) \lambda_e A_e \in \mathbb{Q}$$
+   where $I_B(e) = \frac{\partial R}{\partial p_e}(\mathbf{A}) = R(1_e, \mathbf{A}) - R(0_e, \mathbf{A})$ is the Birnbaum structural importance of component $e$.
+3. The exact system Mean Time Between Failures is $\text{MTBF}_{\text{sys}} = \frac{A_{\text{sys}}}{\omega_{\text{sys}}} \in \mathbb{Q}$.
+4. The exact system Mean Time To Repair is $\text{MTTR}_{\text{sys}} = \frac{1 - A_{\text{sys}}}{\omega_{\text{sys}}} \in \mathbb{Q}$.
+
+*Proof*:
+In continuous-time Markov renewal theory for coherent systems, transitions from operational states $S_{\text{up}}$ into failure states $S_{\text{down}}$ occur when some component $e$ fails while the network is on the boundary $B(e)$ of operational states (i.e., state where component $e$ is critical: operational system fails if and only if $e$ fails).
+The steady-state probability of being on boundary $B(e)$ with component $e$ operational is $\mathbb{P}[B(e) \land x_e = 1] = I_B(e) A_e$.
+Given component $e$ is operational, its failure transition rate is $\lambda_e$.
+Because component transitions are almost surely disjoint in continuous time, the aggregate system failure frequency is the sum of boundary transition rates:
+$$\omega_{\text{sys}} = \sum_{e \in E} I_B(e) \lambda_e A_e$$
+By renewal-reward theory, the proportion of time the system is operational is $A_{\text{sys}} = \frac{\text{MTBF}_{\text{sys}}}{\text{MTBF}_{\text{sys}} + \text{MTTR}_{\text{sys}}}$ and cycle time is $T_{\text{cycle}} = \frac{1}{\omega_{\text{sys}}} = \text{MTBF}_{\text{sys}} + \text{MTTR}_{\text{sys}}$.
+Multiplying by $A_{\text{sys}}$ gives $\text{MTBF}_{\text{sys}} = \frac{A_{\text{sys}}}{\omega_{\text{sys}}}$; multiplying by $U_{\text{sys}} = 1 - A_{\text{sys}}$ gives $\text{MTTR}_{\text{sys}} = \frac{1 - A_{\text{sys}}}{\omega_{\text{sys}}}$, all evaluating in exact rational arithmetic $\mathbb{Q}$. $\blacksquare$
+
+### Theorem 13 (Monotone Dual Enclosure & Certified Reliability Interval Contraction)
+
+Let $G = (V, E)$ be a network with independent operational probabilities $p_e \in [0, 1]$. Let $\mathcal{C}$ be the complete set of minimal $s-t$ cuts and $\mathcal{P}$ the complete set of minimal $s-t$ paths.
+Then:
+
+1. For any subset of minimal cuts $\mathcal{C}' \subseteq \mathcal{C}$, the monotone positive CNF formula $\phi_{\mathcal{C}'} = \bigwedge_{C \in \mathcal{C}'} \bigvee_{e \in C} x_e$ satisfies:
+   $$R(G) \le \text{WMC}(\phi_{\mathcal{C}'}; \mathbf{p}) = R_{\text{upper}}(\mathcal{C}')$$
+2. For any subset of minimal paths $\mathcal{P}' \subseteq \mathcal{P}$, the subgraph $G[\mathcal{P}']$ induced by paths $\mathcal{P}'$ satisfies:
+   $$R_{\text{lower}}(\mathcal{P}') = R(G[\mathcal{P}']; \mathbf{p}) \le R(G)$$
+3. The interval $[R_{\text{lower}}(\mathcal{P}'), R_{\text{upper}}(\mathcal{C}')]$ is a certified mathematical enclosure:
+   $$R(G) \in [R_{\text{lower}}(\mathcal{P}'), R_{\text{upper}}(\mathcal{C}')]$$
+   and the certificate width $\Delta(\mathcal{P}', \mathcal{C}') = R_{\text{upper}}(\mathcal{C}') - R_{\text{lower}}(\mathcal{P}')$ contracts monotonically to 0 as $\mathcal{P}' \to \mathcal{P}$ and $\mathcal{C}' \to \mathcal{C}$.
+
+*Proof*:
+1. By Theorem 1, exact connectivity is $\phi_{\mathcal{C}} = \bigwedge_{C \in \mathcal{C}} \bigvee_{e \in C} x_e$. For any $\mathcal{C}' \subseteq \mathcal{C}$, $\phi_{\mathcal{C}}$ is formed by conjoining additional clauses to $\phi_{\mathcal{C}'}$, so $\phi_{\mathcal{C}} \models \phi_{\mathcal{C}'}$. Since model weights $w(\mathbf{x}) \ge 0$, monotone relaxation implies $\text{WMC}(\phi_{\mathcal{C}}) \le \text{WMC}(\phi_{\mathcal{C}'})$, establishing $R(G) \le R_{\text{upper}}(\mathcal{C}')$.
+2. For any subset of paths $\mathcal{P}' \subseteq \mathcal{P}$, every operational path in $G[\mathcal{P}']$ is an operational path in $G$. Thus, connectivity in $G[\mathcal{P}']$ strictly implies connectivity in $G$. Monotonicity of probability measures guarantees $R_{\text{lower}}(\mathcal{P}') = \mathbb{P}[s \stackrel{G[\mathcal{P}']}{\longleftrightarrow} t] \le \mathbb{P}[s \stackrel{G}{\longleftrightarrow} t] = R(G)$.
+3. Combining (1) and (2) establishes $R_{\text{lower}}(\mathcal{P}') \le R(G) \le R_{\text{upper}}(\mathcal{C}')$. Adding any minimal cut $C^* \notin \mathcal{C}'$ adds a constraint, weakly decreasing $R_{\text{upper}}$; adding any minimal path $P^* \notin \mathcal{P}'$ expands the subgraph, weakly increasing $R_{\text{lower}}$. When $\mathcal{P}' = \mathcal{P}$ and $\mathcal{C}' = \mathcal{C}$, $R_{\text{lower}} = R_{\text{upper}} = R(G)$ and $\Delta = 0$. $\blacksquare$
+
 ---
 
 ## 3. Algorithmic Architecture & High-Core Parallelization
@@ -219,9 +282,9 @@ flowchart TD
 
 ---
 
-## 4. Comprehensive Empirical Results (20 Suites, 2,798 Runs)
+## 4. Comprehensive Empirical Results (23 Suites, 2,870 Runs)
 
-Across 20 pre-registered empirical campaigns, SAT-Frontier has executed 2,798 verified runs with zero relabeling and 100% cryptographic SHA-256 verification:
+Across 23 pre-registered empirical campaigns, SAT-Frontier has executed 2,870 verified runs with zero relabeling and 100% cryptographic SHA-256 verification:
 
 | Suite Name | Hypothesis | Instances | Total Runs | Primary Metric | Oracle Check | Verification Result |
 | :--- | :--- | :---: | :---: | :--- | :--- | :--- |
@@ -245,7 +308,10 @@ Across 20 pre-registered empirical campaigns, SAT-Frontier has executed 2,798 ve
 | `capacitated-wmc-001` | H16 | 24 | 24 | Flow Demand P(Flow>=D) | Dinic Max-Flow Oracle | 24/24 exact rational match |
 | `bounded-hop-wmc-001` | H17 | 24 | 24 | Hop-Bounded P(dist<=L) | BFS Shortest-Path Oracle | 24/24 exact rational match |
 | `multi-commodity-wmc-001` | H18 | 24 | 24 | Multi-Commodity Flow | Brute Force Multi-Oracle | 24/24 exact rational match |
-| **TOTAL** | **20 Suites** | **545** | **2,798** | **Comprehensive** | **100% Cryptographic** | **20 / 20 SUITES VERIFIED** |
+| `weibull-wmc-001` | H19 | 24 | 24 | Weibull MTTF Moments | Simpson Quadrature | 24/24 match (< 1e-4 rel error) |
+| `repairable-wmc-001` | H20 | 24 | 24 | Repairable Availability & Freq | Markov Renewal Oracle | 24/24 exact rational match |
+| `enclosure-wmc-001` | H21 | 24 | 24 | Monotone Enclosure Bounds | Exact Interval Containment | 24/24 certified enclosures |
+| **TOTAL** | **23 Suites** | **617** | **2,870** | **Comprehensive** | **100% Cryptographic** | **23 / 23 SUITES VERIFIED** |
 
 ---
 
@@ -277,5 +343,5 @@ The SAT-Frontier Enterprise SDK (`sat_frontier/enterprise/`) applies Dual Cut co
 
 The theory of Dual Cut Monotone CNF Compilation establishes that exact network reliability, directed reachability, correlated risk group survival, continuous lifetime distributions, and multi-unit capacitated flow can be computed with **strictly zero auxiliary routing or flow variables**. By inverting the exponential path-enumeration pathology into minimal cut threshold clauses, SAT-Frontier achieves microsecond to millisecond exact evaluation across real-world carrier and datacenter networks.
 
-All source code, empirical evidence ledgers, pre-compiled frontier instances, and release archives are open and reproducible under Production Release `v0.2.7` at:
+All source code, empirical evidence ledgers, pre-compiled frontier instances, and release archives are open and reproducible under Production Release `v0.2.9` at:
 [`https://github.com/Hardonian/SAT-Frontier.git`](https://github.com/Hardonian/SAT-Frontier.git).

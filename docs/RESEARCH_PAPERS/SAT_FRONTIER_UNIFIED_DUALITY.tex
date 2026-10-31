@@ -17,10 +17,10 @@
 
 \begin{document}
 
-\title{Dual Cut Monotone CNF Compilation: A Unified Exact Counting Framework for Network Reliability, Flow Capacity, and Continuous Lifetime Analysis}
+\title{Dual Cut Monotone CNF Compilation: A Unified Exact Counting Framework for Network Reliability, Flow Capacity, Continuous Lifetime, and Renewal Duality}
 
 \author{SAT-Frontier Research Lab
-\thanks{Corresponding repository: \url{https://github.com/Hardonian/SAT-Frontier.git}. Production Release v0.2.7.}}
+\thanks{Corresponding repository: \url{https://github.com/Hardonian/SAT-Frontier.git}. Production Release v0.2.9.}}
 
 \markboth{IEEE Transactions on Reliability,~Vol.~XX, No.~Y, October~2026}%
 {SAT-Frontier: Dual Cut Monotone CNF Compilation}
@@ -29,13 +29,13 @@
 \begin{abstract}
 Evaluating exact network infrastructure availability, multi-terminal reachability, directed flow capacity, and continuous lifetime moments under probabilistic failure is a foundational \#P-complete problem with critical applications in cloud computing, subsea optical networks, smart power grids, and aerospace avionics. Traditional reductions to Weighted Model Counting (\#WMC) rely on self-avoiding path or Steiner tree enumeration, introducing $\mathcal{O}(2^{|V|})$ auxiliary indicator variables and dense hyperedge disjunctions that trigger catastrophic combinatorial explosion on planar grid and mesh topologies.
 
-In this work, we present a comprehensive, unified theory of \textbf{Dual Cut Monotone CNF Compilation}. By systematically exploiting Menger cut duality, Ford-Fulkerson min-cut duality, and internal node-splitting transformations, we formulate and prove nine foundational duality theorems spanning: (1) Two-Terminal Cut Duality; (2) Multi-Terminal ($K$-Terminal) and All-Terminal Duality; (3) Directed Dicut Duality; (4) Mixed Node-and-Edge Failure Duality via Split Graph $G^*$; (5) Shared-Risk Resource Group (SRRG) Correlated Failure Duality; (6) Single-Pass Algebraic Model Counting over $\mathbb{Z}[x]$ for Exact Reliability Polynomials and Percolation Susceptibility; (7) Exact Closed-Form Mean Time To Failure (MTTF) and Lifetime Variance Integration; (8) Capacitated Network Flow Dual Cut Threshold Duality $\mathbb{P}(\text{MaxFlow} \ge D)$; and (9) Bounded-Diameter / Latency-Constrained Reliability $\mathbb{P}(\text{dist}(s, t) \le L)$.
+In this work, we present a comprehensive, unified theory of \textbf{Dual Cut Monotone CNF Compilation}. By systematically exploiting Menger cut duality, Ford-Fulkerson min-cut duality, internal node-splitting transformations, and Markov renewal theory, we formulate and prove thirteen foundational duality theorems spanning: (1) Two-Terminal Cut Duality; (2) Multi-Terminal ($K$-Terminal) and All-Terminal Duality; (3) Directed Dicut Duality; (4) Mixed Node-and-Edge Failure Duality via Split Graph $G^*$; (5) Shared-Risk Resource Group (SRRG) Correlated Failure Duality; (6) Single-Pass Algebraic Model Counting over $\mathbb{Z}[x]$ for Exact Reliability Polynomials and Percolation Susceptibility; (7) Exact Closed-Form Mean Time To Failure (MTTF) and Lifetime Variance Integration; (8) Capacitated Network Flow Dual Cut Threshold Duality $\mathbb{P}(\text{MaxFlow} \ge D)$; (9) Bounded-Diameter / Latency-Constrained Reliability $\mathbb{P}(\text{dist}(s, t) \le L)$; (10) Multi-Commodity Capacitated Flow Duality; (11) Generalized Weibull Aging and Polynomial MTTF Integration; (12) Repairable System Renewal Duality and Failure Frequency; and (13) Monotone Dual Enclosure and Certified Reliability Interval Contraction.
 
-Every compilation produces monotone positive CNF formulas containing strictly physical component variables with \textbf{strictly zero auxiliary routing or flow variables}. We evaluate our framework across 19 empirical suites comprising 2,774 verified runs with 100\% cryptographic SHA-256 ledgers. Dual Cut compilation shatters the planar grid hardness cliff (solving \texttt{grid\_3x7} in 2.13s versus $>$600s timeout) and achieves up to 122$\times$ search node reductions with 100\% exact rational agreement across independent truth-table oracles, Dinic max-flow oracles, and numerical quadrature. Finally, we report on our independent formal audit of OpenAI's claimed subexponential SAT refutation of the Exponential Time Hypothesis (\texttt{openai/math}), documenting the precise multi-process memory ceiling blocker that prevents Lean 4 kernel verification.
+Every compilation produces monotone positive CNF formulas containing strictly physical component variables with \textbf{strictly zero auxiliary routing or flow variables}. We evaluate our framework across 23 empirical suites comprising 2,870 verified runs with 100\% cryptographic SHA-256 ledgers. Dual Cut compilation shatters the planar grid hardness cliff (solving \texttt{grid\_3x7} in 2.13s versus $>$600s timeout) and achieves up to 122$\times$ search node reductions with 100\% exact rational agreement across independent truth-table oracles, Dinic max-flow oracles, and numerical quadrature. Finally, we report on our independent formal audit of OpenAI's claimed subexponential SAT refutation of the Exponential Time Hypothesis (\texttt{openai/math}), documenting the precise multi-process memory ceiling blocker that prevents Lean 4 kernel verification.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Weighted Model Counting (\#WMC), Two-Terminal Network Reliability, Menger's Theorem, Dual Cut Compilation, Directed Dicuts, Shared-Risk Resource Groups (SRRG), Mean Time To Failure (MTTF), Capacitated Network Flow, Bounded Diameter, Exponential Time Hypothesis (ETH).
+Weighted Model Counting (\#WMC), Two-Terminal Network Reliability, Menger's Theorem, Dual Cut Compilation, Directed Dicuts, Shared-Risk Resource Groups (SRRG), Mean Time To Failure (MTTF), Weibull Aging, Markov Renewal Duality, Any-Time Monotone Enclosure, Capacitated Network Flow, Bounded Diameter, Exponential Time Hypothesis (ETH).
 \end{IEEEkeywords}}
 
 \maketitle
@@ -55,7 +55,7 @@ Modern approaches evaluate network reliability by reduction to Weighted Model Co
 
 On planar grid, mesh, and cluster networks, the number of simple paths explodes as $\mathcal{O}(2^{|V|})$. For a $3\times 7$ grid, $m = 1,368$ paths requiring 1,401 variables and 20,430 clauses; for $4\times 6$, $m > 80,000$. The resulting hyperedge clause spans every auxiliary variable, destroying the component decomposition heuristic and causing modern exact counters to stall.
 
-\section{The Ten Unified Dual Cut Theorems}
+\section{The Thirteen Unified Dual Cut Theorems}
 
 To eliminate path explosion, we invert the formulation from operational paths to failure cuts.
 
