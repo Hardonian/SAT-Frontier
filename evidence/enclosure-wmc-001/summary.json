@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "study": "monotone_dual_enclosure_wmc",
+  "runs": 24,
+  "exact": 24,
+  "instances": 17,
+  "all_contained": true,
+  "total_elapsed_seconds": 0.2118,
+  "mean_latency_ms": 8.83
+}

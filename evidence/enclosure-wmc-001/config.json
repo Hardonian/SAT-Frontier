@@ -1,0 +1,8 @@
+{
+  "study": "monotone_dual_enclosure_wmc",
+  "hypothesis": "H21",
+  "theorem": "Theorem 13 (Monotone Dual Enclosure Duality)",
+  "precision": "exact rational arithmetic (Fraction)",
+  "instances": 24,
+  "timestamp": "2026-10-31T02:30:31Z"
+}

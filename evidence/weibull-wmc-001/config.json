@@ -1,0 +1,9 @@
+{
+  "study": "weibull_aging_wmc",
+  "hypothesis": "H19",
+  "theorem": "Theorem 11 (Generalized Weibull MTTF Integration)",
+  "tolerance": 0.0001,
+  "instances": 24,
+  "quadrature_steps": 20000,
+  "timestamp": "2026-10-31T02:22:29Z"
+}

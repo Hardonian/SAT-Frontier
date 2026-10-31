@@ -1,0 +1,8 @@
+{
+  "study": "repairable_systems_wmc",
+  "hypothesis": "H20",
+  "theorem": "Theorem 12 (Repairable System Renewal Duality)",
+  "precision": "exact rational arithmetic (Fraction)",
+  "instances": 24,
+  "timestamp": "2026-10-31T02:25:13Z"
+}

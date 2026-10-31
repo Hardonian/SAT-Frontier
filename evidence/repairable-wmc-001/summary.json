@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "study": "repairable_systems_wmc",
+  "runs": 24,
+  "exact": 24,
+  "instances": 19,
+  "all_oracle_verified": true,
+  "total_elapsed_seconds": 0.317,
+  "mean_latency_ms": 13.21
+}
