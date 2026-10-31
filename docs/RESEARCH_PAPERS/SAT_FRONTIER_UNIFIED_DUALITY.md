@@ -57,7 +57,7 @@ This encoding exhibits catastrophic failure modes on meshed topologies:
 
 ---
 
-## 2. The Nine Unified Cut Duality Theorems
+## 2. The Thirteen Unified Cut Duality Theorems
 
 To overcome the path-enumeration pathology, we invert the foundational model from operational paths to failure cuts.
 
