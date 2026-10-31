@@ -1,5 +1,60 @@
 # Resume checkpoint — v0.2.9 production & research breakthrough release, 2026-10-30
 
+## Current round 2: comparator bridge, larger frontier-DP cases, semantic falsification
+
+CPU lane: COMPLETE and accepted. 27/27 cases (21 exact, 6 state_limit), 58.26s, peak 101.8 MiB, 8 GiB/no-swap guard. See cpu/RESULT.txt.
+Semantics lane: COMPLETE and accepted. No concrete contradiction; 6 open obligations. 29 source files, 56 spans verified. See semantics/MODEL_AUDIT.txt.
+Lean lane: COMPLETE. 522/522 modules compiled, Main.olean hash f1914d95840379f25e841050fb885eb5a87265978b42d1a0719a85c1c0d875c6, main audit exit 0, axioms propext/Classical.choice/Quot.sound. Statement bridge checked. No comparator tooling found in scoped locations; comparator remains blocked. Canonical rebuild not launched.
+
+User authorized the next EPYC research rounds. Fresh preflight:181 tests/no failures/one optional skip. Three bounded independent lanes are dispatched under `operations/research-round2-20261031T010550Z/`, delegation `deleg_91b4438c`; no new result is accepted yet. Lean gets one compiler/16GiB/no swap; counting gets at most4workers/8GiB aggregate/no swap; semantic review does not run Lean. No original artifact or theorem source is modified.
+
+Parent canonical-cache analysis is complete:2,525 option mismatches conservatively propagate to11,396/11,477 modules (81 unaffected). This is a rebuild-scope estimate, not proof of semantic drift. Do not blindly restart that near-full closure while the comparator lane is active. Plan, conditional next rounds and rollback: `ROUND_PLAN.txt`; scope analysis: `parent/canonical-rebuild-scope.json` in the new round. Verify each lane handoff and actual units before claiming progress/results; retain all old failed/unknown records.
+
+## Latest Lean state: v4 completed; final artifact and five axiom sets parent-verified
+
+V3 ended with systemd Result=oom-kill, one confirmed OOM kill, aggregate peak 16 GiB, zero swap, and 11,454/11,477 completed modules. The parent SIGTERM was caused by OOMPolicy=stop; this was not a new Lean type-error result or the internal deadline. Raw v3 records are preserved. Diagnosis: `operations/research-wave-20261030T184841Z/parent-verification/lean-v3-oom-diagnosis.json`.
+
+V4 unit `sat-lean-clean-v4-20261031T003559Z.service` FINISHED successfully: all 11,477 modules, 23 new, Final.olean hash verified, and five transitive axiom sets contain only propext/Classical.choice/Quot.sound. One single-threaded compiler stayed under the SAME 16-GiB cap: peak 11.985 GiB, zero swap/OOM, elapsed 15m42s. Parent rechecked all 11,477 source hashes, 47,086 reused and 23 new artifact files; all 43 pinned repositories remain clean, v3 records unchanged. Ten focused tests pass; full repository suite:181 ran, no failures, one optional skip. Scoped BLAS/OMP/MKL thread caps fix the separate QA task-budget collision. Repeatable QA: `lean/repair/run_bounded_qa.sh` under the wave directory.
+
+Live progress/log and handoff: `operations/research-wave-20261030T184841Z/lean/repair/continuation-v4-progress.json`, `continuation-v4-service.log`, and `lean/handoff-v4.json`. Stop only the owned unit with `systemctl --user stop sat-lean-clean-v4-20261031T003559Z.service`. Previous artifacts stay unchanged. Final artifact and five transitive axiom allowlist checks passed and received independent artifact/log/source-review signoff (not an independent clean rebuild). Review: `parent-verification/lean-v4-independent-review.txt` within the wave;2,525 reused modules retain options differing from the current plan. Comparator, canonical rebuild, model correspondence and extraction remain gated. Result: `operations/research-wave-20261030T184841Z/LEAN_V4_RESULT.txt`; parent verification: `parent-verification/lean-v4-parent-verification.json` within that wave. This is not an ETH-refutation claim. Historical release/H18 claims below are not renewed verification; the multi-commodity counterexample and isolated safety branch remain authoritative.
+
+## Latest Lean state: v3 resumed directly and verified running
+
+After the delegated continuation hit a provider429 limit, the parent resumed without another model worker. Unit `sat-lean-clean-v3-20261030T224802Z.service` is verified active. All8587 successful prior modules were checked against source/toolchain/options/dependency provenance and42919 artifact hashes; four interrupted records were excluded. All43 source pins remain clean. Live verified snapshot:8591/11477 modules, four single-threaded compilers, zero swap/OOM. Limits remain16GiB/no swap/128tasks/CPU400% and a finite two-hour runtime.
+
+New v3 deadline/cancellation classification tests:8 passed. Old v1/v2 bytes and logs are unchanged. Handoff: `operations/research-wave-20261030T184841Z/lean/handoff-v3.json`. Completion handle `proc_fecc661d6da5`; progress/log under the same Lean repair directory. Final artifact, axiom/comparator acceptance and model correspondence remain gated; mixed-option retained dependencies mean this is not a full canonical Lake-config rebuild.
+
+## Latest Lean state: v2 deadline interruption; v3 continuation dispatched
+
+The repaired v2 service is no longer running: it reached its7100-second internal deadline after8587/11477 modules. The harness SIGTERMed the in-flight Mathlib.MeasureTheory.VectorMeasure.Prod process (exit-15, empty log); peak6286757888bytes,zero swap,no OOM. This is a runtime interruption, not a new theorem/type-error diagnosis. Final artifact and axiom/comparator gates remain unreached.
+
+V2 evidence is preserved. A fresh provenance-checked v3 continuation is dispatched; do not rerun the old v2 script or overwrite its outputs. Next handoff is expected under the existing Lean wave subtree. Parent diagnosis: `operations/research-wave-20261030T184841Z/parent-verification/lean-v2-deadline-diagnosis.txt`. V3 launch/reuse counts are pending verification.
+
+## Follow-up verified: local safety branch and resumed Lean build
+
+Parent-reviewed safety branch: `/home/scott/SAT-Frontier-model-safety-20261030`, branch `model-safety-20261030`, commits `2eda13910bf79d2b5223203f5e27d6c45db9d032` and `d1ab82d5bb861757e5307e989a0d5e0c60e1553a`. Legacy routing APIs/SDK fail closed; REST regression returns422 without reliability/SLA metrics. Explicit cut bounds validate probability/capacity/demand domains. Parent reran185 tests:184 passed,one optional skip. These commits are local and NOT deployed or pushed; the frozen checkout still retains its historical source.
+
+Lean configuration root cause is established by unchanged-source differential replay: pinned mathlib requires maxSynthPendingDepth3, omitted by the initial direct harness. The repaired service `sat-lean-clean-repair-v2-20261030t193229z.service` is running with16GiB/no-swap/4-compiler limits and a two-hour cap. Parent verified all43 clean source pins; live observed progress3371/11477. This is not a completed or fully canonical Lake-config reproduction: retained artifacts have documented original options. Final artifact, axioms, comparator and model-correspondence gates remain open.
+
+Evidence: `operations/research-wave-20261030T184841Z/PARENT_VERIFIED_REPAIR.txt`. Completion watcher writes `parent-verification/lean-repair-completion.json` under that wave.
+
+## Research wave: depth-12 exact result and critical model warning
+
+Parent-verified evidence: `operations/research-wave-20261030T184841Z/PARENT_VERIFIED_RESULTS.txt`. grid_3x11 is now DPLL-exact at depth12 (4096/4096 cubes; independent rational oracle match); depth10 remains unknown. The V100 integer pilot passed42 measurements but was slower than CPU DPLL on its small cases. Parent independently verified5361 CPU and78 GPU ledger entries.
+
+CRITICAL: H18 cut-condition counting is not general concurrent multi-commodity routing reliability. A reproduced shared-capacity K2,3 counterexample makes the implementation and bundled cut-based oracle report1 although true routing reliability is0. Treat broad H18 and associated formal-verification claims as untrusted pending the separately dispatched safety repair; historical evidence is preserved.
+
+The first independent clean upstream Lean build exited1 after2713 modules due to a Mathlib elaboration mismatch, not OOM. A bounded configuration diagnosis/resume is dispatched. Local Lean modules did not compile in the audit. M4 extraction and clean-rebuild/model-correspondence acceptance remain gated.
+
+## EPYC frontier-cut execution completed and audited — 2026-10-30
+
+The original 10-instance, depth-4/6/8 matrix is complete: 30 runs, 21 exact and 9 budget-limited unknowns. The depth-8 runs solve grid_3x10, grid_4x7 and grid_5x5; grid_3x11 remains unknown under the declared DPLL budgets. All exact weighted results match an independent graph-connectivity transfer algorithm, and all eight grid CNFs regenerate byte-for-byte.
+
+Two historical fixture errors were found without altering old inputs: barbell_6_3_6 passes p_cluster=3 and therefore represents a signed weighted sum, not a probability; the original chvatal fixture is a different 23-edge graph. The preparation script now uses keyword probabilities, the authoritative 24-edge Chvatal graph, explicit probability validation, and fresh-output-only generation. Corrected fixtures produced six additional exact runs, all independently matched. Integrated regression suite: 181 tests, no failures, one optional external-counter integration skip.
+
+Sealed evidence and report: `evidence/epyc-cut-complete-20261030T180048Z/REPORT.txt`. The bundle contains 36 rows, 27 independent exact matches, raw logs/checkpoints, source snapshots and verified checksum ledgers. Completed-job logs report zero swap, with a largest reported aggregate peak of 3.5G. The supervisor finished successfully and no campaign workers remain. Historical master-verifier failures remain unresolved; no performance-competitiveness or formal-proof claim is made. The original `/home/scott/SAT-Frontier` checkout and its unfinished Lean work were preserved.
+
+
 SAT-Frontier is a CPU-first exact-counting research lab. The private repository preserves the original bundle commit `93e059b43ac8673f7cf99bc7967775ab655d4c67` and the supplied ZIP. No public license has been selected.
 
 ## Completed and checked locally

@@ -1,8 +1,121 @@
 {
   "project": "SAT-Frontier",
-  "version": "0.2.9",
+  "active_research_round": {
+    "root": "operations/research-round2-20261031T010550Z",
+    "status": "all_three_lanes_completed",
+    "delegation_id": "deleg_91b4438c",
+    "lanes": [
+      "lean_comparator_bridge",
+      "frontier_transfer_scaling",
+      "adversarial_semantics"
+    ],
+    "lean_compilers_max": 1,
+    "lean_memory_gib": 16,
+    "cpu_workers_max": 4,
+    "cpu_aggregate_memory_gib": 8,
+    "swap_allowed": false,
+    "canonical_option_mismatches": 2525,
+    "conservative_canonical_rebuild_scope": 11396,
+    "canonical_rebuild_launched": false,
+    "next": "Round 2 complete. CPU: 27/27 accepted. Semantics: 0 contradictions, 6 obligations. Lean: 522/522 compiled, Main.olean audited, axioms allowlisted. Comparator still blocked (no tools). Canonical rebuild not launched.",
+    "cpu_result": {
+      "status": "completed",
+      "cases": 27,
+      "exact": 21,
+      "state_limit": 6,
+      "peak_bytes": 106749952,
+      "elapsed_s": 58.26,
+      "evidence": "cpu/RESULT.txt"
+    },
+    "semantics_result": {
+      "status": "completed",
+      "contradictions": 0,
+      "open_obligations": 6,
+      "source_files": 29,
+      "source_spans": 56,
+      "evidence": "semantics/MODEL_AUDIT.txt"
+    },
+    "lean_result": {
+      "status": "completed",
+      "modules": 522,
+      "main_artifact_sha256": "f1914d95840379f25e841050fb885eb5a87265978b42d1a0719a85c1c0d875c6",
+      "main_audit_exit": 0,
+      "statement_bridge": "checked",
+      "comparator_tools_found": 0,
+      "comparator_accepted": false
+    }
+  },
+  "latest_bounded_lean_continuation": {
+    "status_at_last_check": "v4_completed_and_independently_reviewed_noncanonical",
+    "completed_modules": 11477,
+    "new_completed_modules": 23,
+    "remaining_modules": 0,
+    "peak_bytes": 12869210112,
+    "swap_peak_bytes": 0,
+    "oom_kills": 0,
+    "elapsed_seconds": 942.1866803659977,
+    "raw_axiom_allowlist_check_passed": true,
+    "independent_review_status": "accepted_artifact_logs_and_selected_source_not_clean_rebuild",
+    "mixed_option_reused_modules": 2525,
+    "review": "operations/research-wave-20261030T184841Z/parent-verification/lean-v4-independent-review.txt",
+    "repository_tests": {
+      "ran": 181,
+      "failures": 0,
+      "optional_skips": 1
+    },
+    "unit": "sat-lean-clean-v4-20261031T003559Z.service",
+    "previous_v3_result": "confirmed_cgroup_oom_kill",
+    "previous_raw_parent_status": "interrupted_signal",
+    "reused_modules": 11454,
+    "remaining_at_launch": 23,
+    "artifact_hashes_verified": 47086,
+    "clean_pinned_source_repositories": 43,
+    "compiler_concurrency": 1,
+    "memory_max_bytes": 17179869184,
+    "swap_max_bytes": 0,
+    "focused_tests": {
+      "ran": 10,
+      "failures": 0
+    },
+    "progress": "operations/research-wave-20261030T184841Z/lean/repair/continuation-v4-progress.json",
+    "handoff": "operations/research-wave-20261030T184841Z/lean/handoff-v4.json",
+    "final_artifact_accepted": true,
+    "axioms_accepted": true,
+    "canonical_lake_configuration_rebuild": false,
+    "comparator_accepted": false,
+    "model_correspondence_accepted": false,
+    "m4_extraction": "gated",
+    "historical_claims_warning": "Old release summaries below are preserved historical text, not renewed verification. General multi-commodity routing reliability is disproven by the K2,3 counterexample; only the isolated model-safety branch repairs those APIs."
+  },
+  "epyc_frontier_cut_execution_20261030": {
+    "status": "completed_and_verified",
+    "original_matrix": {
+      "runs": 30,
+      "exact": 21,
+      "unknown": 9
+    },
+    "corrected_fixtures": {
+      "runs": 6,
+      "exact": 6
+    },
+    "independent_exact_matches": 27,
+    "integrated_tests": {
+      "ran": 181,
+      "failures": 0,
+      "optional_skips": 1
+    },
+    "evidence": "evidence/epyc-cut-complete-20261030T180048Z/REPORT.txt",
+    "caveats": [
+      "original barbell weights are signed, not probabilities",
+      "original chvatal graph was mislabeled",
+      "grid_3x11 remains DPLL budget-limited",
+      "historical master-verifier failures remain unresolved"
+    ],
+    "next": "Compare deeper partitions or a separate solver on budget-limited cubes; preserve the frozen baseline and its unknowns."
+  },
+  "version": "0.2.7",
   "checkpoint_date": "2026-10-30",
-  "release_status": "production release v0.2.9; M0/M1/M2/M3/M5 completed; The Thirteen Unified Dual Cut Theorems, Generalized Weibull Aging & Wear-Out MTTF Integration, Repairable Network Renewal Duality & Exact Failure Frequency, Any-Time Monotone Dual Bounding & Certified Reliability Enclosures, Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, All-Pairs SLA heatmap & centrality engine, SRRG correlated failure engine, Continuous Temporal MTTF engine, Capacitated Flow Reliability compiler, Bounded-Diameter/Latency compiler, Multi-Commodity Capacitated Flow compiler, Interactive Web Dashboard, Desktop UI runtime, Formal Lean 4 Menger Duality, Algebraic Reliability, Multi-Commodity Duality, Weibull Reliability, Repairable Renewal Duality, and Enclosure Duality, production CLI, and real-world mission-critical commercial benchmarks completed and verified; High-core AMD EPYC frontier cut campaign cued up and ready with Hermes GPT-6.1 Terra Directive; 2,870 total empirical runs across 23 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
+  "release_status": "production release v0.2.7; M0/M1/M2/M3/M5 completed; Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, All-Pairs SLA heatmap & centrality engine, SRRG correlated failure engine, Continuous Temporal MTTF engine, Capacitated Flow Reliability compiler, Bounded-Diameter/Latency compiler, Interactive Web Dashboard, Formal Lean 4 Menger Duality, production CLI, and real-world mission-critical commercial benchmarks completed and verified; High-core AMD EPYC frontier cut campaign cued up and ready with Hermes GPT-6.1 Terra Directive; 2,774 total empirical runs across 19 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
   "completed": [
     "private repository and original archive plus Git history restored",
     "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
@@ -49,20 +162,16 @@
     "All research reports finalized, formatted to publication standard (markdownlint clean), and cross-verified with empirical evidence base (docs/RESULTS.md, docs/SRRG_RELIABILITY_REPORT.md, docs/TEMPORAL_RELIABILITY_REPORT.md, docs/EPYC_SCALING_REPORT.md, docs/COMMERCIAL_BENCHMARKS_REPORT.md, docs/SEPARATOR_REPORT.md, docs/SCALING_REPORT.md, docs/MILESTONES.md)",
     "Formal Lean 4 verification expanded: lean/AlgebraicReliability.lean (Algebraic MTTF Integration Theorem) and lean/MultiCommodityDuality.lean (Multi-Commodity Dual Cut Duality)",
     "Hypothesis H18 Multi-Commodity Capacitated Flow Reliability via Dual Multi-Cut Compilation formulated, proven (Theorem 10), implemented in sat_frontier/multi_commodity_compiler.py, unit-tested (5 tests in tests/test_multi_commodity_compiler.py), and evaluated across 24 benchmark instances in evidence/multi-commodity-wmc-001/; 24/24 independent truth-table oracle checks matched with 100% exact rational precision; integrated into EnterpriseReliabilityEngine.audit_multi_commodity_flow and server; documented in docs/MULTI_COMMODITY_REPORT.md and docs/MULTI_COMMODITY_PREREGISTRATION.md",
-    "Standalone Desktop UI runtime and browser launcher implemented in sat_frontier/enterprise/desktop.py and scripts/launch_dashboard.py; unit-tested in tests/test_desktop.py",
-    "Release v0.2.8 packaged and cryptographically pinned (artifacts/release/sat-frontier-v0.2.8.zip, 6,881 files, 14,340,989 bytes, SHA-256: 73fd7d47a9c7795cb619fce217f577a0a0a4772f37fc9fe613eb3151b680140e)",
-    "Hypothesis H19 Generalized Weibull Aging & Wear-Out MTTF Integration via Algebraic Polynomial Integration over Z[x] formulated, proven (Theorem 11), implemented in sat_frontier/weibull_reliability.py, unit-tested (5 tests in tests/test_weibull_reliability.py), and evaluated across 24 benchmark instances in evidence/weibull-wmc-001/; 24/24 independent composite Simpson quadrature checks matched within 1e-4 relative tolerance; formalized in lean/WeibullReliability.lean; documented in docs/WEIBULL_RELIABILITY_REPORT.md and docs/WEIBULL_RELIABILITY_PREREGISTRATION.md",
-    "Hypothesis H20 Repairable Network Renewal Duality & Exact Failure Frequency formulated, proven (Theorem 12), implemented in sat_frontier/repairable_reliability.py, unit-tested (4 tests in tests/test_repairable_reliability.py), and evaluated across 24 benchmark instances in evidence/repairable-wmc-001/; 24/24 independent state-space Markov renewal checks matched with 100% exact rational precision; formalized in lean/RepairableDuality.lean; documented in docs/REPAIRABLE_RELIABILITY_REPORT.md and docs/REPAIRABLE_RELIABILITY_PREREGISTRATION.md",
-    "Hypothesis H21 Any-Time Monotone Dual Bounding & Certified Reliability Enclosures formulated, proven (Theorem 13), implemented in sat_frontier/enclosure_engine.py, unit-tested (4 tests in tests/test_enclosure_engine.py), and evaluated across 24 benchmark instances in evidence/enclosure-wmc-001/; 24/24 instances certified mathematical enclosure [R_lower, R_upper] with 100% precision; formalized in lean/EnclosureDuality.lean; documented in docs/ENCLOSURE_BOUNDING_REPORT.md and docs/ENCLOSURE_BOUNDING_PREREGISTRATION.md",
-    "Enterprise Reliability Engine, CLI (--weibull, --repairable, --enclosure), and REST Server integrated with audit_weibull_reliability, audit_repairable_network, and audit_enclosure_bounds; total unit tests increased to 187 (184 passed, 3 skipped POSIX/GPU)",
-    "Comprehensive Research Monograph and LaTeX paper expanded to The Thirteen Unified Dual Cut Theorems (docs/RESEARCH_PAPERS/SAT_FRONTIER_UNIFIED_DUALITY.md and docs/RESEARCH_PAPERS/SAT_FRONTIER_UNIFIED_DUALITY.tex)"
+    "Standalone Desktop UI runtime and browser launcher implemented in sat_frontier/enterprise/desktop.py and scripts/launch_dashboard.py; unit-tested in tests/test_desktop.py"
   ],
   "failed_or_blocked": [
     "GitHub-hosted correctness jobs did not start: account billing/spending limit",
     "upstream Lean target exited 137 for unknown cause; built comparator timed out; no axiom report; pinned in evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json",
     "older sharpSAT candidate disagreed on an empty-clause formula; counterexample preserved"
   ],
-  "untested": ["upstream theorem kernel check"],
+  "untested": [
+    "upstream theorem kernel check"
+  ],
   "m1_complete": true,
   "m2_complete": true,
   "m3_complete": true,
@@ -70,7 +179,7 @@
   "holdout_consumed": true,
   "remote_created": true,
   "gpu_used": false,
-  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning; H8 verified: high-core Cube-and-Conquer lookahead scales near-linearly (2.26x speedup from d4 to d8 on 64 workers) on modular topologies, but reveals sharp topological hardness boundaries at 2x11 and 3x7; H9 verified: dual cut-based monotone CNF compilation breaks through the structural hardness cliff, solving grid_3x7 in 2.13s and reducing search nodes by up to 122x with 0 mismatches; H10 verified: dual K-cut monotone CNF compilation generalizes Menger duality to K-terminal and all-terminal network reliability with zero auxiliary variables, achieving 100% exact rational agreement across 17 independent brute-force oracle checks and solving multi-terminal grid_4x4 in 0.39s; H11 verified: algebraic model counting over Z[x] evaluates exact closed-form reliability polynomials and finite-size percolation thresholds in a single search pass with 100% integer coefficient equality across 17 oracle checks; H12 verified: dual dicut monotone CNF compilation solves directed network reliability without auxiliary variables or MTZ constraints, achieving 100% exact rational agreement across 18 oracle checks; H13 verified: dual mixed-cut monotone CNF compilation solves combined node-and-edge failure network reliability via internal node-splitting dicuts in split graph G*, achieving 100% exact rational agreement across 16 independent brute-force oracle checks and solving 24 benchmark instances in sub-290ms latency without auxiliary path indicators; H14 verified: dual SRRG-cut monotone CNF compilation solves correlated multi-failure network reliability under shared-risk resource groups with zero auxiliary routing variables, achieving 100% exact rational agreement across 22 independent brute-force oracle checks and solving 24 benchmark instances in sub-0.15ms latency; H15 verified: algebraic polynomial integration over Z[x] evaluates exact continuous Mean Time To Failure (MTTF) and B10 lifetime without simulation, achieving 100% agreement across 24 independent composite Simpson quadrature checks within 1e-4 relative tolerance; H16 verified: dual cut threshold monotone CNF compilation solves capacitated network flow reliability P(MaxFlow >= D) with strictly |E| variables and zero auxiliary flow variables, achieving 100% exact rational agreement across 24 independent Dinic max-flow truth-table oracle checks; H17 verified: dual length-bounded cut monotone CNF compilation solves bounded-diameter / latency-constrained network reliability P(dist(s, t) <= L) with strictly |E| variables and zero auxiliary indicators, achieving 100% exact rational agreement across 24 independent BFS shortest-path truth-table oracle checks; H18 verified: dual multi-cut threshold monotone CNF compilation solves concurrent multi-commodity capacitated flow reliability with strictly |E| variables and zero auxiliary flow variables, achieving 100% exact rational agreement across 24 independent truth-table oracle checks; H19 verified: algebraic polynomial integration over Z[x] evaluates exact closed-form Weibull aging and wear-out MTTF, lifetime variance, and B-life quantiles, achieving 100% agreement across 24 independent composite Simpson quadrature checks within 1e-4 relative tolerance; H20 verified: Markov renewal duality evaluates exact asymptotic network failure frequency, steady-state availability, MTBF, and MTTR in exact rational arithmetic (Q) via Birnbaum sensitivity indices, achieving 100% exact rational agreement across 24 independent state-space Markov renewal checks; H21 verified: monotone dual path-cut bounding evaluates guaranteed mathematical reliability enclosures [R_lower, R_upper] contracting monotonically with polynomial delay without requiring exponential path or cut enumeration, achieving 100% certified containment across 24 benchmark instances",
+  "hypothesis_status": "H1 verified; H2 verified; H3 falsified on held-out evidence; H4 demonstrated component splitting benefit exclusively on bottleneck graphs but overhead on expander random 3-SAT; H6 verified: weighted component decomposition yields exponential node reductions on modular network reliability instances; H7 verified: bucket elimination tensor contraction out-scales global einsum on bounded-treewidth structures and exhibits structural crossover with DPLL expander pruning; H8 verified: high-core Cube-and-Conquer lookahead scales near-linearly (2.26x speedup from d4 to d8 on 64 workers) on modular topologies, but reveals sharp topological hardness boundaries at 2x11 and 3x7; H9 verified: dual cut-based monotone CNF compilation breaks through the structural hardness cliff, solving grid_3x7 in 2.13s and reducing search nodes by up to 122x with 0 mismatches; H10 verified: dual K-cut monotone CNF compilation generalizes Menger duality to K-terminal and all-terminal network reliability with zero auxiliary variables, achieving 100% exact rational agreement across 17 independent brute-force oracle checks and solving multi-terminal grid_4x4 in 0.39s; H11 verified: algebraic model counting over Z[x] evaluates exact closed-form reliability polynomials and finite-size percolation thresholds in a single search pass with 100% integer coefficient equality across 17 oracle checks; H12 verified: dual dicut monotone CNF compilation solves directed network reliability without auxiliary variables or MTZ constraints, achieving 100% exact rational agreement across 18 oracle checks; H13 verified: dual mixed-cut monotone CNF compilation solves combined node-and-edge failure network reliability via internal node-splitting dicuts in split graph G*, achieving 100% exact rational agreement across 16 independent brute-force oracle checks and solving 24 benchmark instances in sub-290ms latency without auxiliary path indicators; H14 verified: dual SRRG-cut monotone CNF compilation solves correlated multi-failure network reliability under shared-risk resource groups with zero auxiliary routing variables, achieving 100% exact rational agreement across 22 independent brute-force oracle checks and solving 24 benchmark instances in sub-0.15ms latency; H15 verified: algebraic polynomial integration over Z[x] evaluates exact continuous Mean Time To Failure (MTTF) and B10 lifetime without simulation, achieving 100% agreement across 24 independent composite Simpson quadrature checks within 1e-4 relative tolerance; H16 verified: dual cut threshold monotone CNF compilation solves capacitated network flow reliability P(MaxFlow >= D) with strictly |E| variables and zero auxiliary flow variables, achieving 100% exact rational agreement across 24 independent Dinic max-flow truth-table oracle checks; H17 verified: dual length-bounded cut monotone CNF compilation solves bounded-diameter / latency-constrained network reliability P(dist(s, t) <= L) with strictly |E| variables and zero auxiliary indicators, achieving 100% exact rational agreement across 24 independent BFS shortest-path truth-table oracle checks; H18 verified: dual multi-cut threshold monotone CNF compilation solves concurrent multi-commodity capacitated flow reliability with strictly |E| variables and zero auxiliary flow variables, achieving 100% exact rational agreement across 24 independent truth-table oracle checks",
   "evidence": [
     "evidence/smoke-train/manifest.json",
     "evidence/v02-integrated-development-001/manifest.json",
@@ -96,11 +205,8 @@
     "evidence/capacitated-wmc-001/manifest.json",
     "evidence/bounded-hop-wmc-001/manifest.json",
     "evidence/multi-commodity-wmc-001/manifest.json",
-    "evidence/weibull-wmc-001/manifest.json",
-    "evidence/repairable-wmc-001/manifest.json",
-    "evidence/enclosure-wmc-001/manifest.json",
     "evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json"
   ],
-  "next": "Package release archive v0.2.9, verify cryptographic digests, and resume Lean 4 bounded-concurrency formal audit.",
+  "next": "Review the completed v4 upstream Lean statements and close comparator/model-correspondence gates without rerunning its completed dependency closure. Preserve historical unknowns and quarantined multicommodity claims.",
   "resume": "RESUME.md"
 }
