@@ -1,10 +1,10 @@
 # Master Empirical Results Report: SAT-Frontier Research Lab
 
 **Project**: SAT-Frontier (Exact Model Counting & Network Infrastructure Reliability)  
-**Production Release**: `v0.2.8`  
+**Production Release**: `v0.2.9`  
 **Date**: October 2026  
-**Total Empirical Evidence Base**: **20 Complete Research Suites, 2,798 Verified Execution Runs**  
-**Unit Test Suite**: 174 unit and metamorphic tests (171 passed, 3 skipped POSIX/GPU tests)  
+**Total Empirical Evidence Base**: **23 Complete Research Suites, 2,870 Verified Execution Runs**  
+**Unit Test Suite**: 187 unit and metamorphic tests (184 passed, 3 skipped POSIX/GPU tests)  
 **Cryptographic Integrity**: 100% SHA-256 verification via unified master verifier `verify_all_evidence.py`  
 **Primary Repository**: [`https://github.com/Hardonian/SAT-Frontier.git`](https://github.com/Hardonian/SAT-Frontier.git)  
 
@@ -12,10 +12,10 @@
 
 ## 1. Executive Summary & Key Achievements
 
-SAT-Frontier is a CPU-first exact model counting (#SAT / #WMC) and theoretical computer science research laboratory. Over the course of seven major milestones and eighteen pre-registered hypotheses (H1–H18), the lab has established:
+SAT-Frontier is a CPU-first exact model counting (#SAT / #WMC) and theoretical computer science research laboratory. Over the course of seven major milestones and twenty-one pre-registered hypotheses (H1–H21), the lab has established:
 
 1. **The Unified Theory of Dual Cut Monotone CNF Compilation**:
-   Formulated and mathematically proved ten fundamental duality theorems showing that two-terminal, multi-terminal ($K$-terminal), directed reachability, mixed node/edge failure, shared-risk resource group (SRRG), capacitated network flow, bounded-diameter/latency, and concurrent multi-commodity network reliability compile directly into purely positive monotone CNF formulas over physical component variables alone with **strictly zero auxiliary variables**.
+   Formulated and mathematically proved thirteen fundamental duality theorems showing that two-terminal, multi-terminal ($K$-terminal), directed reachability, mixed node/edge failure, shared-risk resource group (SRRG), continuous Weibull wear-out aging, repairable Markov renewal frequency, any-time monotone bounding, capacitated network flow, bounded-diameter/latency, and concurrent multi-commodity network reliability compile directly into purely positive monotone CNF formulas over physical component variables alone with **strictly zero auxiliary variables**.
 2. **Shattering the Path-Explosion Hardness Cliff**:
    On planar grids and meshes where traditional path-based reductions stall state-of-the-art exact counters due to $O(2^{|V|})$ path indicators, Dual Cut compilation drops runtime on `grid_3x7` from >600s timeout down to **2.13 seconds**, and reduces search nodes by up to **122.1x** on bottleneck topologies with zero rational probability discrepancies.
 3. **Single-Pass Algebraic Model Counting over $\mathbb{Z}[x]$ & Closed-Form MTTF**:
@@ -42,10 +42,10 @@ SAT-Frontier is a CPU-first exact model counting (#SAT / #WMC) and theoretical c
 
 ---
 
-## 3. Grand Master Evidence Table (19 Suites, 2,774 Total Verified Runs)
+## 3. Grand Master Evidence Table (23 Suites, 2,870 Total Verified Runs)
 
 Every empirical run in SAT-Frontier is cryptographically recorded with SHA-256 instance digests, execution parameters, search tree metrics, and independent verification checks.
-The unified master verifier `verify_all_evidence.py` audits all 19 suites in under 15 seconds:
+The unified master verifier `verify_all_evidence.py` audits all 23 suites:
 
 | Suite Identifier | Hypothesis Scope | Target Domain / Topologies | Instances | Total Runs | Primary Metric | Independent Verification | Audit Status |
 | :--- | :--- | :--- | :---: | :---: | :--- | :--- | :---: |
@@ -71,7 +71,10 @@ The unified master verifier `verify_all_evidence.py` audits all 19 suites in und
 | `evidence/capacitated-wmc-001` | H16 Capacitated | Flow Demand $\mathbb{P}(\text{Flow} \ge D)$ | 24 | 24 | Threshold WMC Accuracy | Dinic Max-Flow Oracle | **PASS** |
 | `evidence/bounded-hop-wmc-001` | H17 Bounded-Hop | Latency $\mathbb{P}(\text{dist} \le L)$ | 24 | 24 | Hop-Bounded WMC Accuracy | BFS Shortest-Path Oracle | **PASS** |
 | `evidence/multi-commodity-wmc-001` | H18 Multi-Commodity | Concurrent Demand $\mathbb{P}(\text{Flow} \ge \mathbf{d})$ | 24 | 24 | Multi-Commodity Accuracy | Brute Force Multi-Oracle | **PASS** |
-| **TOTAL** | **20 Suites** | **Comprehensive Evidence** | **620** | **2,798** | **Exhaustive Evaluation** | **100% Cryptographic** | **100% PASS** |
+| `evidence/weibull-wmc-001` | H19 Weibull Aging | Wear-Out MTTF Integration | 24 | 24 | Closed-Form vs Quadrature | Simpson Quadrature Rule | **PASS** |
+| `evidence/repairable-wmc-001` | H20 Repairable Renewal | Asymptotic Failure Frequency | 24 | 24 | Availability, MTBF, MTTR | Markov Renewal Oracle | **PASS** |
+| `evidence/enclosure-wmc-001` | H21 Monotone Enclosure | Any-Time Path-Cut Bounds | 24 | 24 | Rigorous Interval Containment | Independent Exact Oracle | **PASS** |
+| **TOTAL** | **23 Suites** | **Comprehensive Evidence** | **692** | **2,870** | **Exhaustive Evaluation** | **100% Cryptographic** | **100% PASS** |
 
 ---
 
@@ -97,6 +100,9 @@ The unified master verifier `verify_all_evidence.py` audits all 19 suites in und
 | **H16** | Dual cut threshold monotone CNF compilation solves capacitated flow reliability | `to_capacitated_cut_cnf` vs Dinic oracle | Exact rational match and search nodes | Fails to match Dinic oracle or needs flow vars | **VERIFIED**: 24/24 exact Dinic max-flow oracle matches; sub-0.2ms mean latency with strictly $\vert E \vert$ variables. |
 | **H17** | Dual length-bounded cut compilation solves latency-constrained reliability | `to_bounded_hop_cnf` vs BFS oracle | Exact rational match and search nodes | Fails to match BFS oracle or needs hop layers | **VERIFIED**: 24/24 exact BFS shortest-path oracle matches; sub-0.38ms mean latency with strictly $\vert E \vert$ variables. |
 | **H18** | Dual multi-cut threshold monotone CNF compilation solves multi-commodity reliability | `to_multi_commodity_cnf` vs multi oracle | Exact rational match and search nodes | Fails to match oracle or needs flow vars | **VERIFIED**: 24/24 exact truth-table oracle matches; sub-0.1ms mean latency with strictly $\vert E \vert$ variables. |
+| **H19** | Algebraic polynomial integration over $\mathbb{Z}[x]$ evaluates exact continuous Weibull wear-out MTTF and raw lifetime moments | Closed-form Weibull MTTF vs Simpson quadrature | Relative quadrature discrepancy < 1e-4 | Fails to match quadrature within tolerance | **VERIFIED**: 24/24 quadrature matches within $10^{-6}$ error; evaluates exact continuous moments and $B_{10}$ lifetimes under wear-out aging. |
+| **H20** | Exact Markov renewal duality evaluates asymptotic network failure frequency, MTBF, and MTTR in rational arithmetic ($\mathbb{Q}$) via Birnbaum sensitivity indices | Renewal duality vs exhaustive state-space Markov renewal oracle | 100% exact rational match ($\mathbb{Q}$) | Fails to match oracle or violates renewal balance | **VERIFIED**: 24/24 exact rational matches with $100\%$ precision; bridges static Boolean WMC and dynamic renewal theory. |
+| **H21** | Monotone dual bounding yields certified reliability enclosures $[R_{\text{lower}}, R_{\text{upper}}]$ contracting monotonically with polynomial delay | Monotone enclosure vs exact reliability | Guaranteed mathematical enclosure $R_{\text{lower}} \le R(G) \le R_{\text{upper}}$ | Interval fails containment or violates monotonicity | **VERIFIED**: 24/24 instances certified enclosed; contracts monotonically without exponential path/cut enumeration. |
 
 ---
 

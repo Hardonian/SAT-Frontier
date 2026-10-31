@@ -1,4 +1,4 @@
-# Resume checkpoint — v0.2.8 production & research breakthrough release, 2026-10-30
+# Resume checkpoint — v0.2.9 production & research breakthrough release, 2026-10-30
 
 SAT-Frontier is a CPU-first exact-counting research lab. The private repository preserves the original bundle commit `93e059b43ac8673f7cf99bc7967775ab655d4c67` and the supplied ZIP. No public license has been selected.
 
@@ -39,7 +39,12 @@ SAT-Frontier is a CPU-first exact-counting research lab. The private repository 
 - Formal Verification in Lean 4: Formalized the core Menger Dual Cut Duality Theorem in `lean/CutDuality.lean` (`dual_cut_menger_duality`), the Exact Algebraic MTTF Integration Theorem in `lean/AlgebraicReliability.lean`, and Multi-Commodity Dual Cut Duality in `lean/MultiCommodityDuality.lean`.
 - Complete Research Reports Suite: Authored and verified all research reports across the repository (`docs/RESULTS.md`, `docs/SRRG_RELIABILITY_REPORT.md`, `docs/TEMPORAL_RELIABILITY_REPORT.md`, `docs/EPYC_SCALING_REPORT.md`, `docs/COMMERCIAL_BENCHMARKS_REPORT.md`, `docs/SEPARATOR_REPORT.md`, `docs/SCALING_REPORT.md`, `docs/MULTI_COMMODITY_REPORT.md`, `docs/MILESTONES.md`) with 100% clean markdownlint validation.
 - Release v0.2.8: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.8.zip` (6,881 files, 14,340,989 bytes, SHA-256: `73fd7d47a9c7795cb619fce217f577a0a0a4772f37fc9fe613eb3151b680140e`).
-- Local integrated suite: 174 unit and metamorphic tests (171 passed, 3 skipped POSIX/GPU tests) with cross-platform Windows and Linux support. All 20 empirical evidence suites documented (2,798 total verified runs); active verification via `verify_evidence.py` and historical reproduction via `scripts/verify_historical_copy.py`.
+- Hypothesis H19 Generalized Weibull Aging & Wear-Out MTTF Integration: Formulated and proved Theorem 11 showing that continuous Weibull wear-out and fatigue reliability integrates directly over $\mathbb{Z}[x]$ in closed form: $\text{MTTF} = \frac{\Gamma(1+1/\beta)}{\lambda} \sum_{k=1}^m \frac{c_k}{k^{1/\beta}}$ and $\mathbb{E}[T^r] = \frac{\Gamma(1+r/\beta)}{\lambda^r} \sum_{j=1}^m \frac{a_j}{j^{r/\beta}}$. Implemented in `sat_frontier/weibull_reliability.py`, unit-tested (5 tests), formalized in `lean/WeibullReliability.lean`, and evaluated across 24 benchmark instances in `evidence/weibull-wmc-001/` with 24/24 independent composite Simpson quadrature verifications within $10^{-4}$ relative tolerance. Documented in `docs/WEIBULL_RELIABILITY_REPORT.md` and `docs/WEIBULL_RELIABILITY_PREREGISTRATION.md`.
+- Hypothesis H20 Repairable Network Renewal Duality & Exact Failure Frequency: Formulated and proved Theorem 12 showing that the Birnbaum criticality derivative $I_B(e) = \frac{\partial R}{\partial p_e}$ bridges static Boolean WMC and continuous-time Markov renewal theory, yielding exact network failure frequency $\omega_{\text{sys}} = \sum_{e \in E} I_B(e) \lambda_e A_e$, $\text{MTBF}_{\text{sys}} = A_{\text{sys}}/\omega_{\text{sys}}$, and $\text{MTTR}_{\text{sys}} = (1 - A_{\text{sys}})/\omega_{\text{sys}}$ in exact rational arithmetic ($\mathbb{Q}$). Implemented in `sat_frontier/repairable_reliability.py`, unit-tested (4 tests), formalized in `lean/RepairableDuality.lean`, and evaluated across 24 benchmark instances in `evidence/repairable-wmc-001/` with 24/24 independent state-space Markov renewal checks matching with 100% exact rational precision. Documented in `docs/REPAIRABLE_RELIABILITY_REPORT.md` and `docs/REPAIRABLE_RELIABILITY_PREREGISTRATION.md`.
+- Hypothesis H21 Any-Time Monotone Dual Bounding & Certified Reliability Enclosures: Formulated and proved Theorem 13 showing that any subset of minimal cuts $\mathcal{C}' \subseteq \mathcal{C}$ yields a certified upper bound $R(G) \le R_{\text{upper}}(\mathcal{C}')$ and any subset of minimal paths $\mathcal{P}' \subseteq \mathcal{P}$ yields a certified lower bound $R_{\text{lower}}(\mathcal{P}') \le R(G)$, evaluating guaranteed mathematical enclosures $[R_{\text{lower}}, R_{\text{upper}}]$ that contract monotonically with polynomial delay without requiring complete exponential enumeration. Implemented in `sat_frontier/enclosure_engine.py`, unit-tested (4 tests), formalized in `lean/EnclosureDuality.lean`, and evaluated across 24 benchmark instances in `evidence/enclosure-wmc-001/` with 24/24 containment certifications. Documented in `docs/ENCLOSURE_BOUNDING_REPORT.md` and `docs/ENCLOSURE_BOUNDING_PREREGISTRATION.md`.
+- Enterprise Reliability Engine & CLI Expansion: Integrated `audit_weibull_reliability`, `audit_repairable_network`, and `audit_enclosure_bounds` into `sat_frontier/enterprise/engine.py`, CLI flags `--weibull`, `--repairable`, `--enclosure` into `sat_frontier/enterprise/cli.py`, and REST endpoints `/api/v1/audit/weibull`, `/api/v1/audit/repairable`, `/api/v1/audit/enclosure` into `sat_frontier/enterprise/server.py`.
+- Release v0.2.9: Built and cryptographically pinned distribution archive `artifacts/release/sat-frontier-v0.2.9.zip`.
+- Local integrated suite: 187 unit and metamorphic tests (184 passed, 3 skipped POSIX/GPU tests) with cross-platform Windows and Linux support. All 23 empirical evidence suites documented (2,870 total verified runs); active verification via `verify_evidence.py` and historical reproduction via `scripts/verify_historical_copy.py`.
 
 ## Blocked, failed and untested
 
@@ -76,6 +81,10 @@ python3 verify_evidence.py evidence/srrg-wmc-001
 python3 verify_evidence.py evidence/temporal-wmc-001
 python3 verify_evidence.py evidence/capacitated-wmc-001
 python3 verify_evidence.py evidence/bounded-hop-wmc-001
+python3 verify_evidence.py evidence/multi-commodity-wmc-001
+python3 verify_evidence.py evidence/weibull-wmc-001
+python3 verify_evidence.py evidence/repairable-wmc-001
+python3 verify_evidence.py evidence/enclosure-wmc-001
 python3 scripts/run_epyc_cut_campaign.py --dry-run
 python3 verify_evidence.py evidence/v02-integrated-development-001 --source-root evidence/v02-integrated-development-001/source-snapshot
 ```

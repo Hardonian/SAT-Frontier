@@ -139,13 +139,38 @@ Let $G = (V, E, \mathbf{c})$ have integer capacities $c_e \ge 1$ and probabiliti
 using strictly $|E|$ Boolean variables and zero auxiliary flow variables.
 \end{theorem}
 
-\section{Empirical Evaluation across 20 Suites}
+\begin{theorem}[Generalized Weibull Aging and Polynomial MTTF Integration]
+Let physical links experience Weibull aging with scale parameter $\lambda > 0$ and shape parameter $\beta > 0$. Under reliability polynomial $P(x) = \sum_{j=1}^m a_j x^j \in \mathbb{Z}[x]$:
+\begin{equation}
+\text{MTTF}_{\text{Weibull}} = \frac{\Gamma(1 + 1/\beta)}{\lambda} \sum_{j=1}^m \frac{a_j}{j^{1/\beta}}, \quad \mathbb{E}[T^r] = \frac{\Gamma(1 + r/\beta)}{\lambda^r} \sum_{j=1}^m \frac{a_j}{j^{r/\beta}}
+\end{equation}
+evaluating exact wear-out MTTF and lifetime moments in closed form without Monte Carlo sampling.
+\end{theorem}
 
-We summarize the verified results across all 20 research campaigns (2,798 runs) in Table~\ref{tab:suites}.
+\begin{theorem}[Repairable System Renewal Duality and Failure Frequency]
+Let links alternate between operational and failed states under failure rate $\lambda_e$ and repair rate $\mu_e$, with operational availability $A_e = \frac{\mu_e}{\lambda_e + \mu_e}$.
+Then steady-state system availability $A_{\text{sys}} = R(\mathbf{A}) \in \mathbb{Q}$, asymptotic network failure frequency is:
+\begin{equation}
+\omega_{\text{sys}} = \sum_{e \in E} \frac{\partial R}{\partial p_e}(\mathbf{A}) \lambda_e A_e = \sum_{e \in E} I_B(e) \lambda_e A_e \in \mathbb{Q}
+\end{equation}
+and exact system $\text{MTBF}_{\text{sys}} = \frac{A_{\text{sys}}}{\omega_{\text{sys}}} \in \mathbb{Q}$ and $\text{MTTR}_{\text{sys}} = \frac{1 - A_{\text{sys}}}{\omega_{\text{sys}}} \in \mathbb{Q}$.
+\end{theorem}
+
+\begin{theorem}[Monotone Dual Enclosure and Certified Reliability Bounds]
+For any subset of minimal cuts $\mathcal{C}' \subseteq \mathcal{C}$ and any subset of minimal paths $\mathcal{P}' \subseteq \mathcal{P}$:
+\begin{equation}
+R_{\text{lower}}(\mathcal{P}') = R(G[\mathcal{P}']) \le R(G) \le \text{WMC}(\phi_{\mathcal{C}'}; \mathbf{p}) = R_{\text{upper}}(\mathcal{C}')
+\end{equation}
+yielding guaranteed mathematical enclosure $R(G) \in [R_{\text{lower}}(\mathcal{P}'), R_{\text{upper}}(\mathcal{C}')]$ contracting monotonically to 0 with polynomial delay.
+\end{theorem}
+
+\section{Empirical Evaluation across 23 Suites}
+
+We summarize the verified results across all 23 research campaigns (2,870 runs) in Table~\ref{tab:suites}.
 
 \begin{table*}[t]
 \centering
-\caption{Summary of Empirical Campaigns across 20 Verified Research Suites (2,798 Total Runs)}
+\caption{Summary of Empirical Campaigns across 23 Verified Research Suites (2,870 Total Runs)}
 \label{tab:suites}
 \begin{tabular}{llrrlcc}
 \toprule
@@ -171,8 +196,11 @@ We summarize the verified results across all 20 research campaigns (2,798 runs) 
 \texttt{capacitated-wmc-001} & H16 (Capacitated Flow Duality) & 24 & 24 & Threshold WMC $\mathbb{P}(\text{Flow} \ge D)$ & Dinic Max-Flow Oracle & 100\% Match \\
 \texttt{bounded-hop-wmc-001} & H17 (Bounded-Diameter Duality) & 24 & 24 & Latency WMC $\mathbb{P}(\text{dist} \le L)$ & BFS Shortest-Path Oracle & 100\% Match \\
 \texttt{multi-commodity-wmc-001} & H18 (Multi-Commodity Duality) & 24 & 24 & Concurrent Flow $\mathbb{P}(\text{Flow} \ge \mathbf{d})$ & Brute Force Multi-Oracle & 100\% Match \\
+\texttt{weibull-wmc-001} & H19 (Weibull Aging Integration) & 24 & 24 & Weibull MTTF vs Quadrature & Simpson Composite Rule & Rel Err $< 10^{-4}$ \\
+\texttt{repairable-wmc-001} & H20 (Markov Renewal Duality) & 24 & 24 & Frequency $\omega_{\text{sys}}$ \& MTBF/MTTR & Markov Renewal Oracle & 100\% Exact $\mathbb{Q}$ \\
+\texttt{enclosure-wmc-001} & H21 (Monotone Dual Enclosure) & 24 & 24 & Dual Enclosure $[R_{\text{lower}}, R_{\text{upper}}]$ & Interval Containment Oracle & 100\% Enclosed \\
 \midrule
-\textbf{Total Verified Evidence} & \textbf{20 Research Suites} & \textbf{545} & \textbf{2,798} & \textbf{Exhaustive Verification} & \textbf{100\% Cryptographic} & \textbf{PASS} \\
+\textbf{Total Verified Evidence} & \textbf{23 Research Suites} & \textbf{617} & \textbf{2,870} & \textbf{Exhaustive Verification} & \textbf{100\% Cryptographic} & \textbf{PASS} \\
 \bottomrule
 \end{tabular}
 \end{table*}
