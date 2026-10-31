@@ -20,7 +20,8 @@ SUITES = ('policy-train-v02', 'policy-holdout-v02', 'separator-study-001',
           'cut-wmc-001', 'cut-cube-001', 'epyc-cube-001', 'epyc-cube-002',
           'commercial-benchmarks-001', 'k-terminal-wmc-001', 'poly-wmc-001',
           'dicut-wmc-001', 'mixed-wmc-001', 'srrg-wmc-001', 'temporal-wmc-001',
-          'capacitated-wmc-001', 'bounded-hop-wmc-001', 'multi-commodity-wmc-001')
+          'capacitated-wmc-001', 'bounded-hop-wmc-001', 'multi-commodity-wmc-001',
+          'weibull-wmc-001', 'repairable-wmc-001', 'enclosure-wmc-001')
 
 
 def sha(data):

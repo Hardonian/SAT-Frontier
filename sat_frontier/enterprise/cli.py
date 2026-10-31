@@ -34,6 +34,14 @@ Examples:
     parser.add_argument("--demo-cloud", action="store_true", help="Run built-in multi-region cloud VPC benchmark")
     parser.add_argument("--demo-subsea", action="store_true", help="Run built-in transatlantic subsea optical mesh benchmark")
     parser.add_argument("--all-pairs", action="store_true", help="Run exhaustive all-pairs pairwise SLA matrix and heatmap")
+    parser.add_argument("--weibull", action="store_true", help="Run continuous Weibull aging and wear-out MTTF integration")
+    parser.add_argument("--weibull-beta", type=float, default=2.0, help="Weibull shape parameter (default: 2.0 / Rayleigh)")
+    parser.add_argument("--hazard-rate", type=float, default=1e-4, help="Component failure rate lambda per hour (default: 1e-4)")
+    parser.add_argument("--repairable", action="store_true", help="Run Markov renewal repairable duality audit (frequency, MTBF, MTTR)")
+    parser.add_argument("--repair-rate", type=float, default=1e-2, help="Component repair rate mu per hour (default: 1e-2)")
+    parser.add_argument("--enclosure", action="store_true", help="Run any-time monotone dual enclosure bounding")
+    parser.add_argument("--max-paths", type=int, default=5, help="Maximum minimal paths for lower bound (default: 5)")
+    parser.add_argument("--max-cuts", type=int, default=5, help="Maximum minimal cuts for upper bound (default: 5)")
     parser.add_argument("--dashboard", action="store_true", help="Launch interactive web dashboard and desktop runner")
     parser.add_argument("--out-report", help="Output path for Markdown compliance audit report")
     parser.add_argument("--out-json", help="Output path for machine-readable JSON summary")
@@ -106,6 +114,84 @@ Examples:
             json_content = json.dumps(all_pairs_res.to_dict(), indent=2)
             Path(args.out_json).write_text(json_content, encoding="utf-8")
             print(f"All-Pairs JSON data saved: {args.out_json}")
+        return
+
+    # Weibull Analysis Branch
+    if args.weibull:
+        print(f"Auditing Weibull Wear-Out Reliability: {topo.name}")
+        print(f"Terminals: {source} <--> {target} | Beta: {args.weibull_beta} | Lambda: {args.hazard_rate}/hr")
+        res_weibull = engine.audit_weibull_reliability(
+            source=source,
+            target=target,
+            beta=args.weibull_beta,
+            lambda_per_hour=args.hazard_rate,
+        )
+        print("\n" + "=" * 65)
+        print(" SAT-Frontier Weibull Aging & Fatigue Audit Summary")
+        print("=" * 65)
+        print(f"Status               : {res_weibull['status'].upper()}")
+        print(f"MTTF (Mean Life)     : {res_weibull['mttf_hours']:.2f} hours")
+        print(f"Standard Deviation   : {res_weibull['std_dev_hours']:.2f} hours")
+        print(f"B10 Useful Life      : {res_weibull['b10_life_hours']:.2f} hours (10% failure)")
+        print(f"B1 High-Rel Life     : {res_weibull['b1_life_hours']:.2f} hours (1% failure)")
+        print(f"Shape Parameter beta : {res_weibull['beta_shape']}")
+        print(f"Scale Factor lambda  : {res_weibull['lambda_scale_per_hour']}/hour")
+        print("=" * 65)
+        if args.out_json:
+            Path(args.out_json).write_text(json.dumps(res_weibull, indent=2), encoding="utf-8")
+            print(f"Weibull JSON data saved: {args.out_json}")
+        return
+
+    # Repairable Renewal Analysis Branch
+    if args.repairable:
+        print(f"Auditing Repairable Network Renewal Duality: {topo.name}")
+        print(f"Terminals: {source} <--> {target} | Lambda: {args.hazard_rate}/hr | Mu: {args.repair_rate}/hr")
+        res_rep = engine.audit_repairable_network(
+            source=source,
+            target=target,
+            failure_rate_per_hour=args.hazard_rate,
+            repair_rate_per_hour=args.repair_rate,
+        )
+        print("\n" + "=" * 65)
+        print(" SAT-Frontier Repairable Network Renewal Summary")
+        print("=" * 65)
+        print(f"Status               : {res_rep['status'].upper()}")
+        print(f"Availability         : {res_rep['availability_float'] * 100:.6f}% ({res_rep['nines']:.2f} nines)")
+        print(f"Availability Exact   : {res_rep['availability_exact']}")
+        print(f"Failure Frequency    : {res_rep['failure_frequency_exact']} failures/hour")
+        print(f"System MTBF          : {res_rep['mtbf_hours_float']:.2f} hours (Exact: {res_rep['mtbf_hours_exact']})")
+        print(f"System MTTR          : {res_rep['mttr_hours_float']:.2f} hours (Exact: {res_rep['mttr_hours_exact']})")
+        print(f"Minimal Cuts Count   : {res_rep['cuts_count']}")
+        print("=" * 65)
+        if args.out_json:
+            Path(args.out_json).write_text(json.dumps(res_rep, indent=2), encoding="utf-8")
+            print(f"Repairable JSON data saved: {args.out_json}")
+        return
+
+    # Monotone Enclosure Bounding Branch
+    if args.enclosure:
+        print(f"Auditing Any-Time Monotone Dual Enclosure: {topo.name}")
+        print(f"Terminals: {source} <--> {target} | Max Paths: {args.max_paths} | Max Cuts: {args.max_cuts}")
+        res_enc = engine.audit_enclosure_bounds(
+            source=source,
+            target=target,
+            max_paths=args.max_paths,
+            max_cuts=args.max_cuts,
+        )
+        print("\n" + "=" * 65)
+        print(" SAT-Frontier Certified Monotone Enclosure Summary")
+        print("=" * 65)
+        print(f"Status               : {res_enc['status'].upper()}")
+        print(f"Certified Lower Bound: {res_enc['lower_bound_float']:.6f} (Exact: {res_enc['lower_bound_exact']})")
+        print(f"Certified Upper Bound: {res_enc['upper_bound_float']:.6f} (Exact: {res_enc['upper_bound_exact']})")
+        print(f"Certificate Gap      : {res_enc['gap_float']:.6f} (Exact: {res_enc['gap_exact']})")
+        print(f"Guaranteed Enclosed  : {res_enc['enclosed']}")
+        print(f"Paths Evaluated      : {res_enc['paths_count']}")
+        print(f"Cuts Evaluated       : {res_enc['cuts_count']}")
+        print("=" * 65)
+        if args.out_json:
+            Path(args.out_json).write_text(json.dumps(res_enc, indent=2), encoding="utf-8")
+            print(f"Enclosure JSON data saved: {args.out_json}")
         return
 
     # Single-Pair SLA Audit Branch

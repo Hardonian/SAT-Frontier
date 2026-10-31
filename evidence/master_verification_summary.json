@@ -1,7 +1,7 @@
 {
   "status": "verification_failed",
-  "total_verified_runs": 2346,
-  "suites_verified": 18,
+  "total_verified_runs": 2466,
+  "suites_verified": 23,
   "suites": {
     "policy-train-v02": {
       "status": "verified",
@@ -25,7 +25,7 @@
     },
     "tensor-study-001": {
       "status": "failed",
-      "error": "error: source hash mismatch: sat_frontier/wmc.py"
+      "error": "error: source hash mismatch: sat_frontier/tensor_contract.py"
     },
     "cut-wmc-001": {
       "status": "failed",
@@ -49,11 +49,11 @@
     },
     "k-terminal-wmc-001": {
       "status": "failed",
-      "error": "error: source hash mismatch: sat_frontier/wmc.py"
+      "error": "error: source hash mismatch: sat_frontier/k_cut_compiler.py"
     },
     "poly-wmc-001": {
       "status": "failed",
-      "error": "error: source hash mismatch: sat_frontier/wmc.py"
+      "error": "error: source hash mismatch: sat_frontier/k_cut_compiler.py"
     },
     "dicut-wmc-001": {
       "status": "failed",
@@ -74,7 +74,27 @@
     "capacitated-wmc-001": {
       "status": "failed",
       "error": "error: source hash mismatch: sat_frontier/wmc.py"
+    },
+    "bounded-hop-wmc-001": {
+      "status": "verified",
+      "runs": 24
+    },
+    "multi-commodity-wmc-001": {
+      "status": "verified",
+      "runs": 24
+    },
+    "weibull-wmc-001": {
+      "status": "verified",
+      "runs": 24
+    },
+    "repairable-wmc-001": {
+      "status": "verified",
+      "runs": 24
+    },
+    "enclosure-wmc-001": {
+      "status": "verified",
+      "runs": 24
     }
   },
-  "elapsed_seconds": 34.020381927490234
+  "elapsed_seconds": 46.408148765563965
 }

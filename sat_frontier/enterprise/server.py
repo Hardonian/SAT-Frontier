@@ -63,7 +63,7 @@ class EnterpriseApiHandler(BaseHTTPRequestHandler):
             return
 
         if url_path == "/api/v1/health":
-            self._send_json({"status": "healthy", "version": "0.2.7"})
+            self._send_json({"status": "healthy", "version": "0.2.9"})
             return
 
         if url_path == "/api/v1/topologies":
@@ -134,6 +134,69 @@ class EnterpriseApiHandler(BaseHTTPRequestHandler):
                     return
                 engine = EnterpriseReliabilityEngine(topo)
                 result = engine.audit_multi_commodity_flow(commodities)
+                self._send_json(result)
+            except Exception as e:
+                self._send_json({"error": str(e)}, status=500)
+            return
+
+        if url_path == "/api/v1/audit/weibull":
+            try:
+                topo_data = req_data.get("topology")
+                source = req_data.get("source")
+                target = req_data.get("target")
+                beta = float(req_data.get("beta", 2.0))
+                lam = float(req_data.get("lambda", 1e-4))
+                if isinstance(topo_data, dict):
+                    topo = EnterpriseTopology.from_dict(topo_data)
+                elif isinstance(topo_data, str):
+                    topo = load_topology(ROOT_DIR / topo_data)
+                else:
+                    self._send_json({"error": "Missing 'topology' object or path"}, status=400)
+                    return
+                engine = EnterpriseReliabilityEngine(topo)
+                result = engine.audit_weibull_reliability(source, target, beta=beta, lambda_per_hour=lam)
+                self._send_json(result)
+            except Exception as e:
+                self._send_json({"error": str(e)}, status=500)
+            return
+
+        if url_path == "/api/v1/audit/repairable":
+            try:
+                topo_data = req_data.get("topology")
+                source = req_data.get("source")
+                target = req_data.get("target")
+                lam = float(req_data.get("lambda", 1e-4))
+                mu = float(req_data.get("mu", 1e-2))
+                if isinstance(topo_data, dict):
+                    topo = EnterpriseTopology.from_dict(topo_data)
+                elif isinstance(topo_data, str):
+                    topo = load_topology(ROOT_DIR / topo_data)
+                else:
+                    self._send_json({"error": "Missing 'topology' object or path"}, status=400)
+                    return
+                engine = EnterpriseReliabilityEngine(topo)
+                result = engine.audit_repairable_network(source, target, failure_rate_per_hour=lam, repair_rate_per_hour=mu)
+                self._send_json(result)
+            except Exception as e:
+                self._send_json({"error": str(e)}, status=500)
+            return
+
+        if url_path == "/api/v1/audit/enclosure":
+            try:
+                topo_data = req_data.get("topology")
+                source = req_data.get("source")
+                target = req_data.get("target")
+                max_paths = int(req_data.get("max_paths", 5))
+                max_cuts = int(req_data.get("max_cuts", 5))
+                if isinstance(topo_data, dict):
+                    topo = EnterpriseTopology.from_dict(topo_data)
+                elif isinstance(topo_data, str):
+                    topo = load_topology(ROOT_DIR / topo_data)
+                else:
+                    self._send_json({"error": "Missing 'topology' object or path"}, status=400)
+                    return
+                engine = EnterpriseReliabilityEngine(topo)
+                result = engine.audit_enclosure_bounds(source, target, max_paths=max_paths, max_cuts=max_cuts)
                 self._send_json(result)
             except Exception as e:
                 self._send_json({"error": str(e)}, status=500)

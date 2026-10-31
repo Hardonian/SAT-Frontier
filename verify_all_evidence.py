@@ -1,7 +1,7 @@
 """Unified Master Verifier for all empirical evidence suites in SAT-Frontier.
 
 Executes all independent verifiers and asserts 100% cryptographic SHA-256 integrity,
-mathematical invariance, and zero relabeling across all 20 research campaigns.
+mathematical invariance, and zero relabeling across all 23 research campaigns.
 """
 import json
 import subprocess
@@ -45,6 +45,9 @@ def main():
         ("capacitated-wmc-001", ["verify_evidence.py", "evidence/capacitated-wmc-001"], 24),
         ("bounded-hop-wmc-001", ["verify_evidence.py", "evidence/bounded-hop-wmc-001"], 24),
         ("multi-commodity-wmc-001", ["verify_evidence.py", "evidence/multi-commodity-wmc-001"], 24),
+        ("weibull-wmc-001", ["verify_evidence.py", "evidence/weibull-wmc-001"], 24),
+        ("repairable-wmc-001", ["verify_evidence.py", "evidence/repairable-wmc-001"], 24),
+        ("enclosure-wmc-001", ["verify_evidence.py", "evidence/enclosure-wmc-001"], 24),
     ]
 
     total_runs = 0

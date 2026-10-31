@@ -547,6 +547,121 @@ class EnterpriseReliabilityEngine:
             "total_seconds": time.perf_counter() - t_start,
         }
 
+    def audit_weibull_reliability(
+        self,
+        source: Any,
+        target: Any,
+        beta: float = 2.0,
+        lambda_per_hour: float = 1e-4,
+    ) -> Dict[str, Any]:
+        """Audit continuous Weibull aging and wear-out MTTF, lifetime variance, and B-life quantiles."""
+        from sat_frontier.weibull_reliability import audit_weibull_reliability as run_weibull_audit
+        t_start = time.perf_counter()
+        s_id = self.topology.node_to_id.get(source, source)
+        t_id = self.topology.node_to_id.get(target, target)
+        res = run_weibull_audit(
+            self.net, s_id, t_id, beta=beta, lambda_per_hour=lambda_per_hour
+        )
+        return {
+            "status": "exact",
+            "source": str(source),
+            "target": str(target),
+            "mttf_hours": res.mttf_hours,
+            "variance_hours2": res.variance_hours2,
+            "std_dev_hours": res.std_dev_hours,
+            "b10_life_hours": res.b10_life_hours,
+            "b1_life_hours": res.b1_life_hours,
+            "beta_shape": res.beta_shape,
+            "lambda_scale_per_hour": res.lambda_scale_per_hour,
+            "gamma_factor": res.gamma_factor,
+            "monomial_coefficients": {str(k): v for k, v in res.monomial_coefficients.items()},
+            "elapsed_seconds": time.perf_counter() - t_start,
+        }
+
+    def audit_repairable_network(
+        self,
+        source: Any,
+        target: Any,
+        failure_rate_per_hour: Union[float, Fraction] = 1e-4,
+        repair_rate_per_hour: Union[float, Fraction] = 1e-2,
+    ) -> Dict[str, Any]:
+        """Audit repairable network renewal duality: exact steady-state availability, failure frequency, MTBF, and MTTR."""
+        from sat_frontier.repairable_reliability import audit_repairable_network as run_repairable_audit
+        t_start = time.perf_counter()
+        s_id = self.topology.node_to_id.get(source, source)
+        t_id = self.topology.node_to_id.get(target, target)
+
+        lam_frac = failure_rate_per_hour if isinstance(failure_rate_per_hour, Fraction) else Fraction(str(failure_rate_per_hour))
+        mu_frac = repair_rate_per_hour if isinstance(repair_rate_per_hour, Fraction) else Fraction(str(repair_rate_per_hour))
+
+        edges = list(self.net.edges)
+        f_rates = {e: lam_frac for e in edges}
+        r_rates = {e: mu_frac for e in edges}
+
+        res = run_repairable_audit(self.net, s_id, t_id, f_rates, r_rates)
+        return {
+            "status": "exact",
+            "source": str(source),
+            "target": str(target),
+            "availability_exact": str(res.availability_exact),
+            "unavailability_exact": str(res.unavailability_exact),
+            "failure_frequency_exact": str(res.failure_frequency_exact),
+            "mtbf_hours_exact": str(res.mtbf_hours_exact),
+            "mttr_hours_exact": str(res.mttr_hours_exact),
+            "availability_float": res.availability_float,
+            "mtbf_hours_float": res.mtbf_hours_float,
+            "mttr_hours_float": res.mttr_hours_float,
+            "nines": res.nines,
+            "birnbaum_criticalities": {f"{u}<->{v}": str(crit) for (u, v), crit in res.birnbaum_criticalities.items()},
+            "cuts_count": res.cuts_count,
+            "elapsed_seconds": time.perf_counter() - t_start,
+        }
+
+    def audit_enclosure_bounds(
+        self,
+        source: Any,
+        target: Any,
+        max_paths: int = 5,
+        max_cuts: int = 5,
+    ) -> Dict[str, Any]:
+        """Audit any-time monotone dual bounds: certified enclosure [R_lower, R_upper] without exponential enumeration."""
+        from sat_frontier.enclosure_engine import compute_enclosure, find_all_minimal_cuts, find_shortest_paths
+        t_start = time.perf_counter()
+        s_id = self.topology.node_to_id.get(source, source)
+        t_id = self.topology.node_to_id.get(target, target)
+
+        edges = list(self.net.edges)
+        e_probs = {e: self.net.edge_probs[idx] for idx, e in enumerate(edges, start=1)}
+
+        all_cuts = find_all_minimal_cuts(self.net, s_id, t_id)
+        selected_cuts = sorted(all_cuts, key=lambda c: len(c))[:max_cuts] if all_cuts else []
+        selected_paths = find_shortest_paths(self.net, s_id, t_id, max_paths=max_paths)
+
+        res = compute_enclosure(
+            self.net,
+            s_id,
+            t_id,
+            edge_probs=e_probs,
+            selected_cuts=selected_cuts,
+            selected_paths=selected_paths,
+        )
+
+        return {
+            "status": "exact_enclosure",
+            "source": str(source),
+            "target": str(target),
+            "lower_bound_exact": str(res.lower_bound_exact),
+            "upper_bound_exact": str(res.upper_bound_exact),
+            "gap_exact": str(res.gap_exact),
+            "lower_bound_float": res.lower_bound_float,
+            "upper_bound_float": res.upper_bound_float,
+            "gap_float": res.gap_float,
+            "paths_count": res.paths_count,
+            "cuts_count": res.cuts_count,
+            "enclosed": res.enclosed,
+            "elapsed_seconds": time.perf_counter() - t_start,
+        }
+
 
 
 
