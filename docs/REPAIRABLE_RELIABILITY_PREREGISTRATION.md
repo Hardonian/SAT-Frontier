@@ -94,3 +94,4 @@ The empirical evaluation executes 24 benchmark instances spanning diverse networ
 3. **Meshes & Grids**: $3 \times 3$, $3 \times 4$ meshes and Wheatstone bridge networks.
 4. **Heterogeneous Repair Regimes**: Mean repair times ranging from 2 hours (hot-swappable enterprise servers) to 48 hours (subsea cable repairs).
 5. **Independent Oracle Checks**: 24/24 instances evaluated against exhaustive state-space renewal oracles over $2^{|E|}$ states with 100% exact rational agreement.
+

@@ -75,3 +75,4 @@ theorem enclosure_width_nonneg (enc : EnclosureInterval) :
   exact sub_nonneg.mpr (enclosure_gap_nonneg enc)
 
 end SatFrontier.Enclosure
+

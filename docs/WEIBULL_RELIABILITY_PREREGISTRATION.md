@@ -91,3 +91,4 @@ The empirical evaluation executes 24 benchmark instances spanning diverse topolo
 3. **Planar Grids**: $2 \times 3$, $2 \times 4$, $3 \times 3$ grids.
 4. **Aging Parameter Gradients**: Shape parameter $\beta \in \{1.0, 1.5, 2.0, 2.5, 3.0\}$.
 5. **Independent Oracle Checks**: Composite Simpson rule numerical quadrature with 20,000 subintervals across all 24 instances.
+

@@ -102,3 +102,4 @@ theorem parallel_freq_pos (c1 c2 : Component) :
   exact add_pos (mul_pos h_u2 h_f1) (mul_pos h_u1 h_f2)
 
 end SatFrontier.Repairable
+

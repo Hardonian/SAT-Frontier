@@ -67,3 +67,4 @@ theorem series_chain_exponential (n : Nat) (hn : n > 0) :
   simp [series_chain, poly_exponential_mttf, term_exponential_factor]
 
 end SatFrontier.Weibull
+

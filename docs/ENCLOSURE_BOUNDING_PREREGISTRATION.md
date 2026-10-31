@@ -95,3 +95,4 @@ The empirical evaluation executes 24 benchmark instances spanning diverse networ
 3. **Meshes**: $3 \times 3$, $3 \times 4$, $3 \times 5$ grids.
 4. **Wheatstone Bridges & Barbells**: Bridge structures under varying partial cut configurations.
 5. **Convergence Metric**: Evaluation of certificate gap $\Delta \to 0$ with 100% mathematical containment verified across all 24 instances.
+
