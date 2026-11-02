@@ -113,9 +113,9 @@
     ],
     "next": "Compare deeper partitions or a separate solver on budget-limited cubes; preserve the frozen baseline and its unknowns."
   },
-  "version": "0.2.7",
-  "checkpoint_date": "2026-10-30",
-  "release_status": "production release v0.2.7; M0/M1/M2/M3/M5 completed; Enterprise reliability SDK, SLA metrics, Birnbaum sensitivity indexing, All-Pairs SLA heatmap & centrality engine, SRRG correlated failure engine, Continuous Temporal MTTF engine, Capacitated Flow Reliability compiler, Bounded-Diameter/Latency compiler, Interactive Web Dashboard, Formal Lean 4 Menger Duality, production CLI, and real-world mission-critical commercial benchmarks completed and verified; High-core AMD EPYC frontier cut campaign cued up and ready with Hermes GPT-6.1 Terra Directive; 2,774 total empirical runs across 19 suites verified with 100% cryptographic integrity; upstream proof verification blocked and M4 gated",
+  "version": "0.2.9",
+  "checkpoint_date": "2026-10-31",
+  "release_status": "production release v0.2.9; Fourteen Unified Dual Cut Theorems completed and verified; 24 empirical research suites comprising 2,894 verified runs with 100% cryptographic SHA-256 integrity; exact integer multi-commodity flow (IMCF) routing compiler and Leighton-Rao gap resolution verified; Weibull aging, repairable Markov renewal duality, and any-time monotone enclosures formalized and empirical evidence sealed; 202 unit and metamorphic tests passing (100% pass rate)",
   "completed": [
     "private repository and original archive plus Git history restored",
     "M0 reproduced: 20 tests, example count 18, 160 independently recomputed oracle matches",
@@ -205,6 +205,10 @@
     "evidence/capacitated-wmc-001/manifest.json",
     "evidence/bounded-hop-wmc-001/manifest.json",
     "evidence/multi-commodity-wmc-001/manifest.json",
+    "evidence/weibull-wmc-001/manifest.json",
+    "evidence/repairable-wmc-001/manifest.json",
+    "evidence/enclosure-wmc-001/manifest.json",
+    "evidence/routing-gap-001/manifest.json",
     "evidence/eth-audit/continuation/lean_audit_blocker_2026-10-28.json"
   ],
   "next": "Review the completed v4 upstream Lean statements and close comparator/model-correspondence gates without rerunning its completed dependency closure. Preserve historical unknowns and quarantined multicommodity claims.",

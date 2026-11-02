@@ -1,0 +1,8 @@
+{
+  "study": "multicommodity_leighton_rao_routing_gap",
+  "hypothesis": "H22",
+  "theorem": "Theorem 14 (The Leighton-Rao Routing Gap & Exact Concurrent Flow Duality)",
+  "precision": "exact rational arithmetic (Fraction)",
+  "instances": 24,
+  "timestamp": "2026-11-02T03:47:41Z"
+}

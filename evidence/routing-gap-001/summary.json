@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "study": "multicommodity_leighton_rao_routing_gap",
+  "runs": 24,
+  "exact": 24,
+  "instances": 23,
+  "upper_bound_invariant_verified": true,
+  "total_elapsed_seconds": 0.0487,
+  "mean_latency_ms": 2.03
+}

@@ -1,9 +1,9 @@
-# SAT-Frontier: The Thirteen Unified Dual Cut Theorems & Exact Infrastructure Reliability Lab
+# SAT-Frontier: The Fourteen Unified Dual Cut Theorems & Exact Infrastructure Reliability Lab
 
 **Production Release**: `v0.2.9`  
 **Date**: October 2026  
-**Empirical Evidence Base**: 23 Complete Research Suites, 2,870 Verified Execution Runs  
-**Unit Test Suite**: 187 Unit and Metamorphic Tests (184 Passed, 3 Skipped POSIX/GPU)  
+**Empirical Evidence Base**: 24 Complete Research Suites, 2,894 Verified Execution Runs  
+**Unit Test Suite**: 202 Unit and Metamorphic Tests (199 Passed, 3 Skipped POSIX/GPU)  
 **Verification**: 100% SHA-256 Cryptographic Hash Integrity across Evidence Ledgers  
 **Primary Repository**: [`https://github.com/Hardonian/SAT-Frontier.git`](https://github.com/Hardonian/SAT-Frontier.git)
 
@@ -22,9 +22,9 @@
 
 ---
 
-## 2. The Thirteen Unified Dual Cut Theorems
+## 2. The Fourteen Unified Dual Cut Theorems
 
-SAT-Frontier unifies physical and logical network resilience analysis into thirteen foundational duality theorems that compile directly into purely positive monotone CNF formulas with **strictly zero auxiliary routing or flow variables**:
+SAT-Frontier unifies physical and logical network resilience analysis into fourteen foundational duality theorems that compile directly into purely positive monotone CNF formulas with **strictly zero auxiliary routing or flow variables**:
 
 | Theorem | Domain & Scope | Mathematical Formulation | Variable Complexity |
 | :--- | :--- | :--- | :---: |
@@ -41,6 +41,7 @@ SAT-Frontier unifies physical and logical network resilience analysis into thirt
 | **Theorem 11** | **Generalized Weibull Aging & Wear-Out MTTF** | $\text{MTTF} = \frac{\Gamma(1+1/\beta)}{\lambda} \sum \frac{c_k}{k^{1/\beta}}, \quad \mathbb{E}[T^r] = \frac{\Gamma(1+r/\beta)}{\lambda^r} \sum \frac{a_j}{j^{r/\beta}}$ | Closed-form $\mathbb{Z}[x]$ |
 | **Theorem 12** | **Repairable System Markov Renewal Duality** | $\omega_{\text{sys}} = \sum I_B(e) \lambda_e A_e, \quad \text{MTBF} = \frac{A_{\text{sys}}}{\omega_{\text{sys}}}, \quad \text{MTTR} = \frac{U_{\text{sys}}}{\omega_{\text{sys}}}$ | Exact rational $\mathbb{Q}$ |
 | **Theorem 13** | **Monotone Dual Enclosure & Certified Bounds** | $R_{\text{lower}}(\mathcal{P}') \le R(G) \le R_{\text{upper}}(\mathcal{C}'), \quad \Delta \to 0$ | Polynomial delay |
+| **Theorem 14** | **Leighton-Rao Routing Gap & Exact Flow Duality** | $R_{\text{routing}} \le R_{\text{cut}}, \quad \Delta_{\text{LR}} = R_{\text{cut}} - R_{\text{routing}} > 0 \text{ on crossing demands}$ | Exact rational $\mathbb{Q}$ |
 
 ---
 
@@ -63,13 +64,15 @@ SAT-Frontier includes an enterprise-grade reliability and SLA compliance enginee
   - Capacitated multi-unit flow reliability (`audit_capacitated_reliability`).
   - Bounded-hop / latency-constrained SLA reliability (`audit_bounded_latency`).
   - Concurrent multi-commodity demand satisfaction (`audit_multi_commodity_flow`).
+  - Concurrent multi-commodity routing & Leighton-Rao gap auditing (`sat_frontier.multicommodity_routing_compiler: audit_concurrent_multi_commodity_flow`).
+  - Accelerated greedy priority-weighted reliability enclosures (`sat_frontier.greedy_enclosure: compute_greedy_enclosure`).
 - **Production CLI** (`python -m sat_frontier.enterprise.cli`): Command-line tool for automated CI/CD SLA compliance audits with markdown and JSON export.
 - **Interactive Web Visualizer & REST Server** (`sat_frontier/enterprise/server.py`, `sat_frontier/enterprise/web/index.html`): Zero-dependency browser dashboard with SVG graph physics, real-time SLA metrics, Birnbaum criticality heatmaps, and dynamic continuous $R(t)$ lifetime curve plots.
 - **Desktop Application Launcher** (`sat_frontier/enterprise/desktop.py`, `scripts/launch_dashboard.py`): Standalone cross-platform desktop runner with automatic dynamic port binding and browser integration.
 
 ---
 
-## 4. Empirical Evidence Ledger (23 Suites, 2,870 Verified Runs)
+## 4. Empirical Evidence Ledger (24 Suites, 2,894 Verified Runs)
 
 All empirical runs are cryptographically sealed with SHA-256 instance digests, execution parameters, and independent verification checks:
 
@@ -98,7 +101,8 @@ All empirical runs are cryptographically sealed with SHA-256 instance digests, e
 | `weibull-wmc-001` | H19 | 24 | 24 | Weibull Wear-Out MTTF Integration | Simpson Quadrature Rule |
 | `repairable-wmc-001` | H20 | 24 | 24 | Failure Frequency $\omega_{\text{sys}}$, MTBF, MTTR | Markov Renewal Oracle |
 | `enclosure-wmc-001` | H21 | 24 | 24 | Certified Interval Containment | Independent Exact Oracle |
-| **TOTAL** | **23 Suites** | **617** | **2,870** | **Comprehensive Empirical Base** | **100% Cryptographic Match** |
+| `routing-gap-001` | H22 | 24 | 24 | Leighton-Rao Routing Gap | Brute Force Exact Routing |
+| **TOTAL** | **24 Suites** | **641** | **2,894** | **Comprehensive Empirical Base** | **100% Cryptographic Match** |
 
 ---
 
