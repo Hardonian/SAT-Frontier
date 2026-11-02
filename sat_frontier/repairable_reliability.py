@@ -200,4 +200,3 @@ def brute_force_repairable_oracle(
     mttr = (u_sys / omega_sys) if omega_sys > 0 else Fraction(0, 1)
 
     return a_sys, omega_sys, mtbf, mttr
-
