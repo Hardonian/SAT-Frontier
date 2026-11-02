@@ -87,4 +87,3 @@ Output:
 ```
 
 Hypothesis H21 is definitively confirmed: Monotone Dual Bounding guarantees mathematical enclosures $R_{\text{lower}} \le R(G) \le R_{\text{upper}}$ with polynomial-delay execution and monotone gap narrowing.
-

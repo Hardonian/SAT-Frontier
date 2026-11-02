@@ -54,7 +54,6 @@ Two historical fixture errors were found without altering old inputs: barbell_6_
 
 Sealed evidence and report: `evidence/epyc-cut-complete-20261030T180048Z/REPORT.txt`. The bundle contains 36 rows, 27 independent exact matches, raw logs/checkpoints, source snapshots and verified checksum ledgers. Completed-job logs report zero swap, with a largest reported aggregate peak of 3.5G. The supervisor finished successfully and no campaign workers remain. Historical master-verifier failures remain unresolved; no performance-competitiveness or formal-proof claim is made. The original `/home/scott/SAT-Frontier` checkout and its unfinished Lean work were preserved.
 
-
 SAT-Frontier is a CPU-first exact-counting research lab. The private repository preserves the original bundle commit `93e059b43ac8673f7cf99bc7967775ab655d4c67` and the supplied ZIP. No public license has been selected.
 
 ## Completed and checked locally

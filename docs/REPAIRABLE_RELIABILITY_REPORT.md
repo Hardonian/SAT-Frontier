@@ -88,4 +88,3 @@ Output:
 ```
 
 Hypothesis H20 is definitively confirmed: Exact Markov Renewal Duality evaluates the asymptotic network failure frequency, steady-state availability, MTBF, and MTTR in exact rational arithmetic with zero simulation error.
-
