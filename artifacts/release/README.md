@@ -9,11 +9,11 @@ This directory contains the distribution release archives and provenance records
 ### Archive Integrity (Release v0.2.9)
 
 ```text
-4a13a6274885a928bca6c1d29d49b7e81dd1b0d732d1c11bb6ead9cc97b78695  sat-frontier-v0.2.9.zip
+b72eb64a362d5f2a1e543da4924c3a58cd2e819461d7d3214252ba63cfc6b763  sat-frontier-v0.2.9.zip
 ```
 
 - **File Name**: `sat-frontier-v0.2.9.zip`
-- **File Size**: 14,458,126 bytes
+- **File Size**: 14,458,127 bytes
 - **File Count**: 6,969 files
 - **Root Directory**: `sat-frontier-v0.2.9/`
 - **Date**: 2026-10-30
